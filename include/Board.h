@@ -6,6 +6,8 @@
 
 class Pieces;
 
+#include "Tile.h"
+
 class Board
 {
 public:
@@ -15,9 +17,14 @@ public:
 	const Pieces& getPieceAt(const int x, const int y) const;
 	bool isOccupied(const int x, const int y) const;
 
+	void draw(sf::RenderWindow& window);
+
 
 //====================================================
 
 private:
-	std::array<std::array<std::shared_ptr<Pieces>,8>, 8> m_pieces;
+
+	void initTiles();
+
+	std::array<std::array<std::shared_ptr<Tile>, 8>, 8> m_tiles;
 };
