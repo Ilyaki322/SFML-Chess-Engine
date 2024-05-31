@@ -2,8 +2,8 @@
 #include "Board.h"
 
 
-Pieces::Pieces(sf::Texture image, sf::Vector2f position , Color side, int val )
-	: m_side(side), m_value(val)
+Pieces::Pieces(sf::Texture image, sf::Vector2f position , Color side )
+	: m_side(side)
 {
 	m_piece.setPosition(position);
 	m_piece.setTexture(image);

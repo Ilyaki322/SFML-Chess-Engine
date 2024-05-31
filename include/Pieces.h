@@ -11,7 +11,7 @@ class Board;
 class Pieces {
 public:
 	virtual ~Pieces() = default;
-	Pieces(sf::Texture image , sf::Vector2f position ,Color side , int val);
+	Pieces(sf::Texture image , sf::Vector2f position ,Color side);
 	int getValue()const;
 	void draw(sf::RenderWindow& w)const;
 	virtual bool isValid()const =0;
