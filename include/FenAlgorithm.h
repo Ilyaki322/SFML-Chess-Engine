@@ -3,9 +3,9 @@
 #include <string>
 #include "memory"
 #include <array>
-//#include "Tile.h"
+#include "Tile.h"
 
-class Tile;
+
 class Pieces;
 
 class FenAlgorithm {
