@@ -1,20 +1,23 @@
 #pragma once
 
 #include <string>
+#include <array>
+#include <memory>
 
-class Piece;
+class Pieces;
+
 class Board
 {
 public:
-
 	Board(std::string FENstring);
 
-	Piece& getPieceAt(const int x, const int y);
-	const Piece& getPieceAt(const int x, const int y) const;
+	Pieces& getPieceAt(const int x, const int y);
+	const Pieces& getPieceAt(const int x, const int y) const;
+	bool isOccupied(const int x, const int y) const;
+
 
 //====================================================
 
 private:
-
-	Piece* m_board[8][8];
+	std::array<std::array<std::shared_ptr<Pieces>,8>, 8> m_pieces;
 };

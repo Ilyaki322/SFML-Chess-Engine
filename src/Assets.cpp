@@ -36,7 +36,6 @@ sf::Font& Assets::getFont()
 	return m_font;
 }
 
-
 sf::Texture& Assets::getTexture(const char c)
 {
 	bool isUpper = isupper(c);

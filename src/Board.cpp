@@ -1,20 +1,25 @@
 #include "Board.h"
-
+#include "Pieces.h"
 #include <iostream> // for debug
 
 Board::Board(std::string FENstring)
-	: m_board()
+	: m_pieces()
 {
 	//m_board = FEN
 }
 
 
-Piece& Board::getPieceAt(const int x, const int y)
+Pieces& Board::getPieceAt(const int x, const int y)
 {
-	return *m_board[x][y];
+	return *m_pieces[x][y];
 }
 
-const Piece& Board::getPieceAt(const int x, const int y) const
+const Pieces& Board::getPieceAt(const int x, const int y) const
 {
-	return *m_board[x][y];
+	return *m_pieces[x][y];
+}
+
+bool Board::isOccupied(const int x, const int y) const
+{
+	return m_pieces[x][y]!=nullptr;
 }
