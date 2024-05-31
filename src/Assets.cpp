@@ -41,7 +41,7 @@ sf::Texture& Assets::getTexture(const char c)
 	bool isUpper = isupper(c);
 	char piece = tolower(c);
 
-	switch (c)
+	switch (piece)
 	{
 	case 'k':
 		return isUpper ? m_BKing : m_WKing;
