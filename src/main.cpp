@@ -5,7 +5,7 @@
 int main()
 {
 	std::cout << "chess\n";
-	Board board("Hui");
+	Board board("pp3pppp");
 
 	sf::RenderWindow m_window = sf::RenderWindow(sf::VideoMode(768, 768), "Main Menu");
 

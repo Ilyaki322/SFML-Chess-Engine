@@ -10,7 +10,7 @@ Board::Board(std::string FENstring)
 {
 	initTiles();
 	FenAlgorithm algo;
-	algo.setBoard(m_tiles);
+	algo.setBoard( m_tiles, FENstring);
 }
 
 Pieces& Board::getPieceAt(const int x, const int y)
@@ -43,11 +43,11 @@ void Board::initTiles()
 {
 	std::map<int, sf::Color> colors = { {0, sf::Color(161, 111, 92)}, {1, sf::Color(236, 211, 186)}};
 
-	for (int x = 0; x < 8; x++)
+	for (int y = 0; y < 8; y++)
 	{
-		for (int y = 0; y < 8; y++)
+		for (int x = 0; x < 8; x++)
 		{
-			m_tiles[x][y] = std::make_unique<Tile>(Tile(colors[(y+x) % 2],
+			m_tiles[y][x] = std::make_unique<Tile>(Tile(colors[(y+x) % 2],
 				                                   sf::Vector2f(float(x * TILE_SIZE),
 					                               float(y * TILE_SIZE))));
 		}
