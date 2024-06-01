@@ -4,6 +4,11 @@
 #include "memory"
 #include "Pieces.h"
 #include "Pawn.h"
+#include "Rock.h"
+#include "Knight.h"
+#include "Bishop.h"
+#include "Queen.h"
+#include "King.h"
 class PiecesFactory {
 public:
 	PiecesFactory();

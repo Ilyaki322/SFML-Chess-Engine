@@ -2,11 +2,12 @@
 #include "Board.h"
 
 
-Pieces::Pieces(sf::Texture image, sf::Vector2f position , Color side )
+Pieces::Pieces(sf::Texture &image, sf::Vector2f position , Color side )
 	: m_side(side)
 {
 	m_piece.setPosition(position);
 	m_piece.setTexture(image);
+	m_piece.setScale(96.f / image.getSize().x, 96.f / image.getSize().y);
 }
 
 int Pieces::getValue() const

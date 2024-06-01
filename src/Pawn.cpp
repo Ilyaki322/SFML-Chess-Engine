@@ -1,14 +1,14 @@
 #include "Pawn.h"
 
 
-Pawn::Pawn(sf::Texture image, sf::Vector2f position, Color side)
+Pawn::Pawn(sf::Texture &image, sf::Vector2f position, Color side)
     :Pieces(image,position,side)
 {
 }
 
 int Pawn::getValue() const
 {
-    return 0;
+    return 1;
 }
 
 bool Pawn::isValid() const

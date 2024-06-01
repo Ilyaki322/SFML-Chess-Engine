@@ -6,11 +6,22 @@ PiecesFactory::PiecesFactory()
 
 std::shared_ptr<Pieces> PiecesFactory::create(char c, sf::Vector2f position, Color color)
 {
-	//return std::shared_ptr<Pieces>();
-	switch (c)
+	char piece = tolower(c);
+	switch (piece)
 	{
 	case('p'):
 		return std::make_shared<Pawn>(Assets::instance().getTexture(c), position, color);
+	case('r'):
+		return std::make_shared<Rock>(Assets::instance().getTexture(c), position, color);
+	case('k'):
+		return std::make_shared<King>(Assets::instance().getTexture(c), position, color);
+	case('q'):
+		return std::make_shared<Queen>(Assets::instance().getTexture(c), position, color);
+	case('b'):
+		return std::make_shared<Bishop>(Assets::instance().getTexture(c), position, color);
+	case('n'):
+		return std::make_shared<Knight>(Assets::instance().getTexture(c), position, color);
 	}
+
 	return nullptr;
 }
