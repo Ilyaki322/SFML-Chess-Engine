@@ -1,0 +1,40 @@
+#pragma once
+
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+
+class Assets
+{
+public:
+
+	static Assets& instance();
+
+	sf::Texture& getTexture(const char c);
+	sf::Font& getFont();
+	sf::SoundBuffer& getSound(const char c);
+
+private:
+
+	Assets();
+	Assets(const Assets&) = default;
+	Assets& operator=(const Assets&) = default;
+
+	sf::Texture m_WKnight;
+	sf::Texture m_WKing;
+	sf::Texture m_WQueen;
+	sf::Texture m_WRook;
+	sf::Texture m_WPawn;
+	sf::Texture m_WBishop;
+
+	sf::Texture m_BKnight;
+	sf::Texture m_BBishop;
+	sf::Texture m_BKing;
+	sf::Texture m_BRook;
+	sf::Texture m_BQueen;
+	sf::Texture m_BPawn;
+
+	sf::SoundBuffer m_move;
+	sf::SoundBuffer m_capture;
+
+	sf::Font m_font;
+};
