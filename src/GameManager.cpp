@@ -26,11 +26,13 @@ void GameManager::run()
 			{
 				auto location = m_window.mapPixelToCoords(
 					{ event.mouseButton.x, event.mouseButton.y });
-				//if is in board()
-				//		so firstClick = board.handleFirstClick(location);
-				//if(firstClick){
-				//		wait fot second;
-				//
+				//if m_board.isInBoard(location){
+				//	if(firstClick){
+				//		board.handleSecondClick(location);
+				//	}
+				//	else{
+				//		firstClick = board.handleFirstClick(location);
+				// }
 			}
 			}
 		}
