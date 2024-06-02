@@ -4,7 +4,7 @@
 #include "memory"
 #include "Pieces.h"
 #include "Pawn.h"
-#include "Rock.h"
+#include "Rook.h"
 #include "Knight.h"
 #include "Bishop.h"
 #include "Queen.h"

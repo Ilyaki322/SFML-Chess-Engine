@@ -1,7 +1,8 @@
 #include "GameManager.h"
 
 GameManager::GameManager()
-	: m_board("RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr")
+	//: m_board("RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr")
+	: m_board("883p44B")
 {
 	m_window.create(sf::VideoMode(ScreenSizeX, ScreenSizeY), "Main Menu");
 }

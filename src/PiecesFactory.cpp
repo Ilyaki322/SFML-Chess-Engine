@@ -12,7 +12,7 @@ std::shared_ptr<Pieces> PiecesFactory::create(char c, sf::Vector2f position, Col
 	case('p'):
 		return std::make_shared<Pawn>(Assets::instance().getTexture(c), position, color);
 	case('r'):
-		return std::make_shared<Rock>(Assets::instance().getTexture(c), position, color);
+		return std::make_shared<Rook>(Assets::instance().getTexture(c), position, color);
 	case('k'):
 		return std::make_shared<King>(Assets::instance().getTexture(c), position, color);
 	case('q'):

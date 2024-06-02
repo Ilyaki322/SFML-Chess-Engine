@@ -10,7 +10,7 @@ int Knight::getValue() const
 	return 3;
 }
 
-bool Knight::isValid() const
+bool Knight::isValid(const int squares[], const int target) const
 {
 	return false;
 }

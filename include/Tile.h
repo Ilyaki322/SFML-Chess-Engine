@@ -12,8 +12,8 @@ public:
 
 	bool isOccupied() const;
 
-	Pieces* getPiece();
-	const Pieces* getPiece() const;
+	std::shared_ptr<Pieces> getPiece();
+	const std::shared_ptr<Pieces> getPiece() const;
 
 	void placePiece(std::shared_ptr<Pieces> pieces);
 	void draw(sf::RenderWindow& window);
