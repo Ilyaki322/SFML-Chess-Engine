@@ -8,7 +8,7 @@ Pawn::Pawn(sf::Texture &image, sf::Vector2f position, Color side)
 
 int Pawn::getValue() const
 {
-    return 0;
+    return 1;
 }
 
 bool Pawn::isValid() const

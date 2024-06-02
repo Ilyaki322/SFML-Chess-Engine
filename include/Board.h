@@ -25,6 +25,5 @@ public:
 private:
 
 	void initTiles();
-
 	std::array<std::array<std::shared_ptr<Tile>, 8>, 8> m_tiles;
 };
