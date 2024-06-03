@@ -10,7 +10,7 @@ int King::getValue() const
 	return 0;
 }
 
-bool King::isValid() const
+bool King::isValid(const int squares[], const int target) const
 {
 	return false;
 }

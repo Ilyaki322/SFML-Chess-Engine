@@ -14,14 +14,14 @@ bool Tile::isOccupied() const
 	return (m_piece == nullptr) ? false : true;
 }
 
-Pieces* Tile::getPiece()
+std::shared_ptr<Pieces> Tile::getPiece()
 {
-	return m_piece.get();
+	return m_piece;
 }
 
-const Pieces* Tile::getPiece() const
+const std::shared_ptr<Pieces> Tile::getPiece() const
 {
-	return m_piece.get();
+	return m_piece;
 }
 
 void Tile::placePiece(std::shared_ptr<Pieces> pieces)

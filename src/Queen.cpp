@@ -10,7 +10,7 @@ int Queen::getValue() const
 	return 0;
 }
 
-bool Queen::isValid() const
+bool Queen::isValid(const int squares[], const int target) const
 {
 	return false;
 }
