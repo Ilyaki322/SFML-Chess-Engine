@@ -22,6 +22,11 @@ void Pieces::draw(sf::RenderWindow& w) const
 	w.draw(m_piece);
 }
 
+void Pieces::setPosition(sf::Vector2f pos)
+{
+	m_piece.setPosition(pos);
+}
+
 int Pieces::getPosition() const
 {
 	int x = m_piece.getPosition().x / 96;

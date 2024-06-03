@@ -16,7 +16,8 @@ public:
 	Pieces& getPieceAt(const int x, const int y);
 	const Pieces& getPieceAt(const int x, const int y) const;
 	bool isOccupied(const int x, const int y) const;
-
+	bool handleFirstClick(sf::Vector2f location);
+	void handleSecondClick(sf::Vector2f source , sf::Vector2f target);
 	void draw(sf::RenderWindow& window);
 
 

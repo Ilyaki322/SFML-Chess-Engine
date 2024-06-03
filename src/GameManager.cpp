@@ -2,13 +2,14 @@
 
 GameManager::GameManager()
 	//: m_board("RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr")
-	: m_board("883p44B")
+	: m_board("RNBQKBNRBBBBBBBB8888bbbbbbbbrnbqkbnr") , m_firstClick(false)
 {
 	m_window.create(sf::VideoMode(ScreenSizeX, ScreenSizeY), "Main Menu");
 }
 
 void GameManager::run()
 {
+	sf::Vector2f source;
 	while (m_window.isOpen())
 	{
 		m_window.clear();
@@ -27,13 +28,18 @@ void GameManager::run()
 			{
 				auto location = m_window.mapPixelToCoords(
 					{ event.mouseButton.x, event.mouseButton.y });
-				//if m_board.isInBoard(location){
-				//	if(firstClick){
-				//		board.handleSecondClick(location);
-				//	}
-				//	else{
-				//		firstClick = board.handleFirstClick(location);
-				// }
+				sf::RectangleShape tempShape;
+				tempShape.setSize({ 768.f,768.f });
+				if (tempShape.getGlobalBounds().contains(location)) {
+					if (m_firstClick) {
+						m_board.handleSecondClick(source,location);
+						m_firstClick = false;
+					}
+					else {
+						m_firstClick = m_board.handleFirstClick(location);
+						source = location;
+					}
+				}
 			}
 			}
 		}

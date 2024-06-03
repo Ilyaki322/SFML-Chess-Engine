@@ -25,7 +25,7 @@ public:
 	void draw(sf::RenderWindow& w)const;
 	virtual bool isValid(const int squares[], const int target)const = 0;
 	virtual std::vector<std::pair<int,int>> possibleMoves(Board *)const =0;
-
+	void setPosition(sf::Vector2f pos);
 	int getPosition() const;
 
 private:

@@ -25,12 +25,6 @@ Board::Board(std::string FENstring)
 	} 
 	*/
 
-	if (m_tiles[3][4]->getPiece()->isValid(m_square, 10))
-	{
-		m_tiles[2][3]->placePiece(m_tiles[3][4]->getPiece());
-		m_tiles[3][4]->placePiece(nullptr);
-
-	}
 }
 
 Pieces& Board::getPieceAt(const int x, const int y)
@@ -46,6 +40,29 @@ const Pieces& Board::getPieceAt(const int x, const int y) const
 bool Board::isOccupied(const int x, const int y) const
 {
 	return m_tiles[x][y]->isOccupied();
+}
+
+bool Board::handleFirstClick(sf::Vector2f location)
+{
+	int x = location.x / 96;
+	int y = location.y / 96;
+	return m_square[x + y * 8] != 0;
+}
+
+void Board::handleSecondClick(sf::Vector2f source, sf::Vector2f target)
+{
+	int targetX = target.x / 96;
+	int targetY = target.y / 96;
+	int sourceX = source.x / 96;
+	int sourceY = source.y / 96;
+	if (m_square[targetX + targetY * 8] < 0 || m_square[targetX + targetY * 8] > 63) return;
+	if (m_tiles[sourceY][sourceX]->getPiece()->isValid(m_square, targetX + targetY * 8))
+	{
+		m_tiles[targetY][targetX]->placePiece(m_tiles[sourceY][sourceX]->getPiece());
+		m_tiles[sourceY][sourceX]->placePiece(nullptr);
+		m_square[targetX + targetY * 8] = m_square[sourceX + sourceY * 8];
+		m_square[sourceX + sourceY * 8] = 0;
+	}
 }
 
 void Board::draw(sf::RenderWindow& window)

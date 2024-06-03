@@ -27,6 +27,8 @@ const std::shared_ptr<Pieces> Tile::getPiece() const
 void Tile::placePiece(std::shared_ptr<Pieces> pieces)
 {
 	m_piece = pieces;
+	if(m_piece)
+		m_piece->setPosition(getPosition());
 }
 
 void Tile::draw(sf::RenderWindow& window)
