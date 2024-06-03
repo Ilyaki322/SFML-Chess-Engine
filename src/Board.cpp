@@ -16,15 +16,6 @@ Board::Board(std::string FENstring)
 	initTiles();
 	FenAlgorithm algo;
 	algo.setBoard( m_tiles, m_square, FENstring);
-
-	/*
-	for (int i = 0; i < 64; i++)
-	{
-		std::cout << m_square[i] << " ";
-		//if (i % 8 == 0 && i != 0) std::cout << std::endl;
-	} 
-	*/
-
 }
 
 Pieces& Board::getPieceAt(const int x, const int y)
@@ -46,11 +37,35 @@ bool Board::handleFirstClick(sf::Vector2f location)
 {
 	int x = location.x / 96;
 	int y = location.y / 96;
-	return m_square[x + y * 8] != 0;
+
+	if (m_square[x + y * 8] == 0) return false;
+
+	if (x + y * 8 != 0)
+	{
+		std::vector<Move> moves;
+		moves = m_tiles[y][x]->getPiece()->generateMoves(m_square);
+
+		m_tiles[int(y)][x]->setColor(LAST_TURN_TILE);
+		for (const auto& move : moves)
+		{
+			m_tiles[int(move.targetSquare / 8)][move.targetSquare % 8]->setColor(MOVEABLE_TILE);
+		}
+	}
+
+
+	return true;
 }
 
 void Board::handleSecondClick(sf::Vector2f source, sf::Vector2f target)
 {
+	for (int i = 0; i < 8; i++)
+	{
+		for (int j = 0; j < 8; j++)
+		{
+			m_tiles[i][j]->resetColor();
+		}
+	}
+
 	int targetX = target.x / 96;
 	int targetY = target.y / 96;
 	int sourceX = source.x / 96;

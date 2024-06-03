@@ -31,6 +31,16 @@ void Tile::placePiece(std::shared_ptr<Pieces> pieces)
 		m_piece->setPosition(getPosition());
 }
 
+void Tile::setColor(const sf::Color& color)
+{
+	m_tile.setFillColor(color);
+}
+
+void Tile::resetColor()
+{
+	m_tile.setFillColor(m_defaultColor);
+}
+
 void Tile::draw(sf::RenderWindow& window)
 {
 	window.draw(m_tile);

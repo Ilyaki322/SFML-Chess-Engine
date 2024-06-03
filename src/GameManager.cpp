@@ -2,7 +2,7 @@
 
 GameManager::GameManager()
 	//: m_board("RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr")
-	: m_board("RNBQKBNRBBBBBBBB8888bbbbbbbbrnbqkbnr") , m_firstClick(false)
+	: m_board("RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr") , m_firstClick(false)
 {
 	m_window.create(sf::VideoMode(ScreenSizeX, ScreenSizeY), "Main Menu");
 }

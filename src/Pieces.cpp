@@ -27,6 +27,35 @@ void Pieces::setPosition(sf::Vector2f pos)
 	m_piece.setPosition(pos);
 }
 
+/*
+* gets the board, a direction in which to slide and vector to add moves to.
+* goes in the given direction until hits a piece / 'wall'.
+*/
+void Pieces::slidingMoves(const int squares[], const int direction, std::vector<Move> &moves) const
+{
+	int pos = getPosition();
+
+	bool run = true;
+	for (int i = pos + direction; run && ( i < 64 && i > -1); i += direction)
+	{
+		// 'wall' does not mean we out of bounds
+		// for example square 16 is a wall, but 16 - 9 still > 0
+		// so we check i MOD 8, if its 0 or 7 it means we on the last tile.
+		if ((i % 8) == 0 || (i % 8) == 7) run = false;
+		if (squares[i] == 0)
+		{
+			moves.push_back({ pos, i });
+			continue;
+		}
+
+		int x = squares[i] & m_side;
+		if (x > 0) return;
+
+		moves.push_back({ pos, i });
+		return;
+	}
+}
+
 int Pieces::getPosition() const
 {
 	int x = m_piece.getPosition().x / 96;
@@ -34,15 +63,3 @@ int Pieces::getPosition() const
 	std::cout << x << " " << y << std::endl;
 	return x + y * 8;
 }
-
-//std::vector<std::pair<int, int>> Pieces::possibleMoves(Board board*) const
-//{
-//	std::vector<std::pair<int, int>> v;
-//	for (int i = 0; i < 8; i++) {
-//		for (int j = 0; j < 8; j++) {
-//			if (board.isOccupied(i, j)) {
-//				v.push_back({ i, j });
-//			}
-//		}
-//	}
-//}
