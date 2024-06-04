@@ -12,11 +12,9 @@ Board::Board(std::string FENstring)
 	{
 		m_square[i] = 0;
 	}
-
 	initTiles();
 	FenAlgorithm algo;
 	algo.setBoard( m_tiles, m_square, FENstring);
-
 	/*
 	for (int i = 0; i < 64; i++)
 	{
@@ -24,7 +22,6 @@ Board::Board(std::string FENstring)
 		//if (i % 8 == 0 && i != 0) std::cout << std::endl;
 	} 
 	*/
-
 }
 
 Pieces& Board::getPieceAt(const int x, const int y)
