@@ -6,9 +6,9 @@ Pieces::Pieces(sf::Texture& image, sf::Vector2f position, Color side)
 	: m_side(side), m_value(0)
 {
 	m_piece.setPosition(position);
+	m_piece.setOrigin(image.getSize().x / 2.f, image.getSize().y / 2.f);
 	m_piece.setTexture(image);
 	m_piece.setScale(96.f / image.getSize().x, 96.f / image.getSize().y);
-
 }
 
 int Pieces::getValue() const
@@ -24,6 +24,11 @@ void Pieces::draw(sf::RenderWindow& w) const
 void Pieces::setPosition(sf::Vector2f pos)
 {
 	m_piece.setPosition(pos);
+}
+
+void Pieces::rotate(const float rotation)
+{
+	m_piece.setRotation(rotation);
 }
 
 /*

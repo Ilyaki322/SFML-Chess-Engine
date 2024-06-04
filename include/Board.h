@@ -20,6 +20,8 @@ public:
 	void draw(sf::RenderWindow& window);
 	void setBoard(std::string FENstring);
 
+	void setRotation(const float rotation);
+
 //====================================================
 
 private:

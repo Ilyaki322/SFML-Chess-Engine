@@ -1,5 +1,7 @@
 #include "Tile.h"
 
+#include <iostream> // DEBUGING
+
 Tile::Tile(sf::Color defaultColor, sf::Vector2f pos)
 	: m_defaultColor(defaultColor), m_piece(nullptr), m_tile(sf::Vector2f(TILE_SIZE, TILE_SIZE))
 {
@@ -7,6 +9,7 @@ Tile::Tile(sf::Color defaultColor, sf::Vector2f pos)
 	m_tile.setFillColor(defaultColor);
 	m_tile.setOutlineColor(sf::Color::Black);
 	m_tile.setOutlineThickness(1.f);
+	m_tile.setOrigin(m_tile.getSize().x / 2.f, m_tile.getSize().y / 2.f);
 }
 
 bool Tile::isOccupied() const
@@ -47,6 +50,14 @@ void Tile::draw(sf::RenderWindow& window)
 	if (m_piece != nullptr)
 	{
 		m_piece->draw(window);
+	}
+}
+
+void Tile::rotatePiece(const float rotation)
+{
+	if (m_piece != nullptr)
+	{
+		m_piece->rotate(rotation);
 	}
 }
 

@@ -1,5 +1,4 @@
 #include "Board.h"
-#include "Pieces.h"
 #include "FenAlgorithm.h"
 
 #include <iostream> // for debug
@@ -102,6 +101,14 @@ void Board::setBoard(std::string FENstring)
 	algo.setBoard(m_tiles, m_square, FENstring);
 }
 
+void Board::setRotation(const float rotation)
+{
+	for (int i = 0; i < 64; i++)
+	{
+		m_tiles[i]->rotatePiece(rotation);
+	}
+}
+
 void Board::initTiles()
 {
 	std::map<int, sf::Color> colors = { {1, sf::Color(161, 111, 92)}, {0, sf::Color(236, 211, 186)}};
@@ -110,9 +117,8 @@ void Board::initTiles()
 	{
 		for (int x = 0 ; x < 8; x++ , i++)
 		{
-			m_tiles[i] = std::make_unique<Tile>(Tile(colors[(y+x) % 2],
-				                                   sf::Vector2f(float(x * TILE_SIZE),
-					                               float(y * TILE_SIZE))));
+			m_tiles[i] = std::make_unique<Tile>(Tile(colors[(y+x) % 2], 
+				sf::Vector2f(float((x * TILE_SIZE) + 48), float((y * TILE_SIZE) + 48))));
 		}
 	}
 }

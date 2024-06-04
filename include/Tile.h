@@ -21,6 +21,7 @@ public:
 	void setColor(const sf::Color& color);
 	void resetColor();
 	void draw(sf::RenderWindow& window);
+	void rotatePiece(const float rotation);
 
 	sf::Vector2f getPosition() const;
 

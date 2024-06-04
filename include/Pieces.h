@@ -40,6 +40,7 @@ public:
 
 	void draw(sf::RenderWindow& w)const;
 	void setPosition(sf::Vector2f pos);
+	void rotate(const float rotation);
 
 	virtual bool isValid(const int squares[], const int target) const = 0;
 	virtual std::vector<std::pair<int,int>> possibleMoves(Board *) const = 0;
