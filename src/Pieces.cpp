@@ -1,6 +1,5 @@
 #include "Pieces.h"
 #include "Board.h"
-
 #include <iostream>
 
 Pieces::Pieces(sf::Texture& image, sf::Vector2f position, Color side)
@@ -42,14 +41,12 @@ void Pieces::slidingMoves(const int squares[], const int direction, std::vector<
 		// for example square 16 is a wall, but 16 - 9 still > 0
 		// so we check i MOD 8, if its 0 or 7 it means we on the last tile.
 		if ((i % 8) == 0 || (i % 8) == 7) run = false;
-		if (squares[i] == 0)
+		if (!Board::instance().isOccupied(i))
 		{
 			moves.push_back({ pos, i });
 			continue;
 		}
-
-		int x = squares[i] & m_side;
-		if (x > 0) return;
+		if (Board::instance().getPieceAt(i).getColor() == getColor()) return;
 
 		moves.push_back({ pos, i });
 		return;
@@ -60,6 +57,11 @@ int Pieces::getPosition() const
 {
 	int x = m_piece.getPosition().x / 96;
 	int y = m_piece.getPosition().y / 96;
-	std::cout << x << " " << y << std::endl;
+	//std::cout << x << " " << y << std::endl;
 	return x + y * 8;
+}
+
+Color Pieces::getColor() const
+{
+	return m_side;
 }

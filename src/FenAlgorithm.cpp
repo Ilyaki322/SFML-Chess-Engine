@@ -14,28 +14,19 @@ FenAlgorithm::FenAlgorithm()
 	m_piecesMap['q'] = 6;
 }
 
-void FenAlgorithm::setBoard(std::array<std::array<std::shared_ptr<Tile>, 8>, 8> &tiles, int squares[], std::string stage)
+void FenAlgorithm::setBoard(std::array<std::shared_ptr<Tile>, 64> &tiles, int squares[], std::string stage)
 {
-	int index = 0;
-
 	PiecesFactory theCreator;
-	for (int i = 0 , point = 0 ; i < 8  && point < stage.size(); i++) {
-		for (int j = 0; j < 8 && point < stage.size(); j++ , point++) {
-			if (isdigit(stage[point])) {
+	for (int j = 0 , point = 0; j < 64 && point < stage.size() ; j++ , point++) {
+		if (isdigit(stage[point])) {
 
-				int temp = int(stage[point]) - '0';
-
-				//j += atoi(&stage[point]) - 1;
-				//index -= atoi(&stage[point]) + 1;
-				j += temp - 1;
-				index += temp;
-				continue;
-			}
-			tiles[i][j]->placePiece(theCreator.create(stage[point], tiles[i][j]->getPosition(), isupper(stage[point]) ? Black : White));
-
-			int color = isupper(stage[point]) ? 16 : 8;
-			squares[index] = m_piecesMap[tolower(stage[point])] | color;
-			index++;
+			int temp = int(stage[point]) - '0';
+			j += temp - 1;
+			continue;
 		}
+		tiles[j]->placePiece(theCreator.create(stage[point], tiles[j]->getPosition(), isupper(stage[point]) ? Black : White));
+
+		int color = isupper(stage[point]) ? 16 : 8;
+		squares[j] = m_piecesMap[tolower(stage[point])] | color;
 	}
 }

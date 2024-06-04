@@ -36,6 +36,7 @@ public:
 
 	int getValue()const;
 	int getPosition() const;
+	Color getColor() const;
 
 	void draw(sf::RenderWindow& w)const;
 	void setPosition(sf::Vector2f pos);

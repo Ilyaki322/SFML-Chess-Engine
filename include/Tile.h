@@ -11,9 +11,7 @@ const int TILE_SIZE = 96;
 class Tile
 {
 public:
-
 	Tile(sf::Color defaultColor, sf::Vector2f pos);
-
 	bool isOccupied() const;
 
 	std::shared_ptr<Pieces> getPiece();

@@ -5,10 +5,9 @@
 #include <iostream> // for debug
 #include <map>
 
-Board::Board(std::string FENstring)
+Board::Board()
 	:m_tiles(), m_square()
 {
-
 	/*
 	for (int i = 0; i < 64; i++)
 	{
@@ -25,76 +24,70 @@ Board& Board::instance()
 	return ins;
 }
 
-Pieces& Board::getPieceAt(const int x, const int y)
+Pieces& Board::getPieceAt(const int x)
 {
-	return *m_tiles[x][y]->getPiece();
+	return *m_tiles[x]->getPiece();
 }
 
-const Pieces& Board::getPieceAt(const int x, const int y) const
+const Pieces& Board::getPieceAt(const int x) const
 {
-	return *m_tiles[x][y]->getPiece();
+	return *m_tiles[x]->getPiece();
 }
 
-bool Board::isOccupied(const int x, const int y) const
+bool Board::isOccupied(const int x) const
 {
-	return m_tiles[x][y]->isOccupied();
+	return m_tiles[x]->isOccupied();
 }
 
 bool Board::handleFirstClick(sf::Vector2f location)
 {
-	int x = location.x / 96;
 	int y = location.y / 96;
-
-	if (m_square[x + y * 8] == 0) return false;
-
-	if (x + y * 8 != 0)
+	int x = location.x / 96 + y*8;
+	if (m_square[x] == 0) return false;
+	if (x != 0)
 	{
 		std::vector<Move> moves;
-		moves = m_tiles[y][x]->getPiece()->generateMoves(m_square);
+		moves = m_tiles[x]->getPiece()->generateMoves(m_square);
 
-		m_tiles[int(y)][x]->setColor(LAST_TURN_TILE);
+		m_tiles[x]->setColor(LAST_TURN_TILE);
 		for (const auto& move : moves)
 		{
-			m_tiles[int(move.targetSquare / 8)][move.targetSquare % 8]->setColor(MOVEABLE_TILE);
+			m_tiles[move.targetSquare]->setColor(MOVEABLE_TILE);
 		}
 	}
-
-
 	return true;
 }
 
 void Board::handleSecondClick(sf::Vector2f source, sf::Vector2f target)
 {
-	for (int i = 0; i < 8; i++)
+	for (int i = 0; i < 64; i++)
 	{
-		for (int j = 0; j < 8; j++)
-		{
-			m_tiles[i][j]->resetColor();
-		}
+		m_tiles[i]->resetColor();
 	}
 
-	int targetX = target.x / 96;
-	int targetY = target.y / 96;
-	int sourceX = source.x / 96;
-	int sourceY = source.y / 96;
-	if (m_square[targetX + targetY * 8] < 0 || m_square[targetX + targetY * 8] > 63) return;
-	if (m_tiles[sourceY][sourceX]->getPiece()->isValid(m_square, targetX + targetY * 8))
+	int y = target.y / 96;
+	int x = target.x / 96;
+	int targetX = x+y*8;
+	y = source.y / 96;
+	x = source.x / 96;
+	int sourceX = x+y*8;
+
+
+	if (m_square[targetX] < 0 || m_square[targetX] > 63) return;
+	if (m_tiles[sourceX]->getPiece()->isValid(m_square, targetX))
 	{
-		m_tiles[targetY][targetX]->placePiece(m_tiles[sourceY][sourceX]->getPiece());
-		m_tiles[sourceY][sourceX]->placePiece(nullptr);
-		m_square[targetX + targetY * 8] = m_square[sourceX + sourceY * 8];
-		m_square[sourceX + sourceY * 8] = 0;
+		m_tiles[targetX]->placePiece(m_tiles[sourceX]->getPiece());
+		m_tiles[sourceX]->placePiece(nullptr);
+		m_square[targetX] = m_square[sourceX ];
+		m_square[sourceX] = 0;
 	}
 }
 
 void Board::draw(sf::RenderWindow& window)
 {
-	for (int x = 0; x < 8; x++)
+	for (int x = 0; x < 64; x++)
 	{
-		for (int y = 0; y < 8; y++)
-		{
-			m_tiles[x][y]->draw(window);
-		}
+		m_tiles[x]->draw(window);
 	}
 }
 
@@ -113,11 +106,11 @@ void Board::initTiles()
 {
 	std::map<int, sf::Color> colors = { {1, sf::Color(161, 111, 92)}, {0, sf::Color(236, 211, 186)}};
 
-	for (int y = 0; y < 8; y++)
+	for (int y = 0 , i = 0 ; y < 8; y++)
 	{
-		for (int x = 0; x < 8; x++)
+		for (int x = 0 ; x < 8; x++ , i++)
 		{
-			m_tiles[y][x] = std::make_unique<Tile>(Tile(colors[(y+x) % 2],
+			m_tiles[i] = std::make_unique<Tile>(Tile(colors[(y+x) % 2],
 				                                   sf::Vector2f(float(x * TILE_SIZE),
 					                               float(y * TILE_SIZE))));
 		}

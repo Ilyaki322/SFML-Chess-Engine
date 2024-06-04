@@ -1,5 +1,5 @@
 #include "Knight.h"
-
+#include "Board.h"
 Knight::Knight(sf::Texture& image, sf::Vector2f position, Color side)
 	:Pieces(image, position, side)
 {
@@ -14,8 +14,8 @@ bool Knight::isValid(const int squares[], const int target) const
 {
 	int pos = getPosition();
 
-	int x = squares[target] & m_side;
-	if (x > 0) return false;
+	if (Board::instance().isOccupied(target) &&
+		Board::instance().getPieceAt(target).getColor() == getColor()) return false;
 
 	if (pos + DOWN * 2 + RIGHT == target) return true;
 	if (pos + DOWN * 2 + LEFT == target) return true;
