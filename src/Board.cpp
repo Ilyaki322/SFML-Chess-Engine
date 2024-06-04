@@ -26,6 +26,12 @@ Board::Board(std::string FENstring)
 
 }
 
+Board& Board::instance()
+{
+	static Board ins;
+	return ins;
+}
+
 Pieces& Board::getPieceAt(const int x, const int y)
 {
 	return *m_tiles[x][y]->getPiece();

@@ -1,6 +1,4 @@
 #include "Bishop.h"
-#include "Bishop.h"
-
 #include <iostream> // debug
 
 Bishop::Bishop(sf::Texture& image, sf::Vector2f position, Color side)
@@ -14,10 +12,9 @@ int Bishop::getValue() const
 }
 
 
-bool Bishop::isValid(const int squares[], const int target) const
+bool Bishop::isValid(const int squares[] , const int target) const
 {
 	int pos = getPosition();
-
 	int x = squares[target] & m_side;
 	if (x > 0) return false;
 

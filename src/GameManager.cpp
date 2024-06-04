@@ -13,9 +13,7 @@ void GameManager::run()
 	while (m_window.isOpen())
 	{
 		m_window.clear();
-
 		m_window.clear(sf::Color(125, 125, 125, 255));
-
 		for (auto event = sf::Event{}; m_window.pollEvent(event);)
 		{
 			switch (event.type)

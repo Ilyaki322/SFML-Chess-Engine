@@ -11,8 +11,8 @@ class Pieces;
 class Board
 {
 public:
-	Board(std::string FENstring);
-
+	
+	Board(std::string FENstring = "RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr");
 	Pieces& getPieceAt(const int x, const int y);
 	const Pieces& getPieceAt(const int x, const int y) const;
 	bool isOccupied(const int x, const int y) const;
@@ -24,9 +24,8 @@ public:
 //====================================================
 
 private:
-
 	void initTiles();
 	std::array<std::array<std::shared_ptr<Tile>, 8>, 8> m_tiles;
-
+	static Board& instance();
 	int m_square[64];
 };
