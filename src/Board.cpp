@@ -8,13 +8,6 @@
 Board::Board(std::string FENstring)
 	:m_tiles(), m_square()
 {
-	for (int i = 0; i < 64; i++)
-	{
-		m_square[i] = 0;
-	}
-	initTiles();
-	FenAlgorithm algo;
-	algo.setBoard( m_tiles, m_square, FENstring);
 
 	/*
 	for (int i = 0; i < 64; i++)
@@ -103,6 +96,17 @@ void Board::draw(sf::RenderWindow& window)
 			m_tiles[x][y]->draw(window);
 		}
 	}
+}
+
+void Board::setBoard(std::string FENstring)
+{
+	for (int i = 0; i < 64; i++)
+	{
+		m_square[i] = 0;
+	}
+	initTiles();
+	FenAlgorithm algo;
+	algo.setBoard(m_tiles, m_square, FENstring);
 }
 
 void Board::initTiles()
