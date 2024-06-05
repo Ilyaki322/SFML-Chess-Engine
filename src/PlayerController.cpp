@@ -5,8 +5,9 @@
 #include "Assets.h"
 
 PlayerController::PlayerController(sf::RenderWindow& window, Color color)
-	: Controller(color), m_window(window)
+	: Controller(color), m_window(window), m_isMakingMove(false), m_firstClick(true)
 {}
+
 
 bool PlayerController::playTurn(Move& move)
 {
@@ -57,6 +58,9 @@ bool PlayerController::playTurn(Move& move)
 
 	return false;
 }
+
+
+
 
 void PlayerController::rotateScreen()
 {

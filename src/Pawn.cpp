@@ -54,7 +54,6 @@ std::vector<Move> Pawn::generateMoves(const int squares[]) const
 
         if (m_firstMoveFlag && (!Board::instance().isOccupied(pos + forward * 2)))
         {
-            //m_firstMoveFlag = false; // fuck consts okay?
             moves.push_back({ pos, pos + forward * 2 });
         }
     }

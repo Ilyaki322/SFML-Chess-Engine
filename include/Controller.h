@@ -12,6 +12,8 @@ public:
 
 private:
 
+
+
 protected:
 
 	Color m_color;

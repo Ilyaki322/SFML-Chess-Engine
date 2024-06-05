@@ -50,7 +50,6 @@ public:
 private:
 
 	sf::Sprite m_piece;
-
 	int m_value;
 
 protected:

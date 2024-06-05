@@ -39,6 +39,11 @@ void Pieces::slidingMoves(const int squares[], const int direction, std::vector<
 {
 	int pos = getPosition();
 
+	if (pos % 8 == 0 && (direction == BOT_LEFT || direction == TOP_LEFT || direction == LEFT)) return;
+	if (pos % 8 == 7 && (direction == TOP_RIGHT || direction == BOT_RIGHT || direction == RIGHT)) return;
+	if (pos - 8 < 0 && (direction == TOP_RIGHT || direction == TOP_LEFT || direction == UP)) return;
+	if (pos + 8 > 63 && (direction == BOT_LEFT || direction == BOT_RIGHT || direction == DOWN)) return;
+
 	bool run = true;
 	for (int i = pos + direction; run && ( i < 64 && i > -1); i += direction)
 	{

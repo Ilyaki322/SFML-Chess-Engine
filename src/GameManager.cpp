@@ -1,8 +1,10 @@
 #include "GameManager.h"
 #include "PlayerController.h"
-#include "Pieces.h" // FOR ENUM CHANGE LATER
+#include "AIController.h"
 
-#include <iostream>
+
+#include "Pieces.h" // FOR ENUM CHANGE LATER
+#include <iostream> // debug
 
 GameManager::GameManager()
 	//: m_board("RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr")
@@ -12,7 +14,8 @@ GameManager::GameManager()
 	Board::instance().setBoard("RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr");
 
 	m_whitePlayer = std::make_unique<PlayerController>(m_window, White);
-	m_blackPlayer = std::make_unique<PlayerController>(m_window, Black);
+	//m_blackPlayer = std::make_unique<PlayerController>(m_window, Black);
+	m_blackPlayer = std::make_unique<AIController>(Black);
 
 }
 
@@ -28,44 +31,25 @@ void GameManager::run()
 
 		for (auto event = sf::Event{}; m_window.pollEvent(event);)
 		{
-			if (m_whiteTurn && m_whitePlayer->playTurn(move))
-			{
-				std::cout << "White Moved\n";
-				m_whiteTurn = false;
-			}
-			if (!m_whiteTurn && m_blackPlayer->playTurn(move))
-			{
-				std::cout << "Black Moved\n";
-				m_whiteTurn = true;
-			}
-
 			switch (event.type)
 			{
 			case sf::Event::Closed:
 				m_window.close();
 				break;
-
-				/*
-			case sf::Event::MouseButtonReleased:
-			{
-				auto location = m_window.mapPixelToCoords(
-					{ event.mouseButton.x, event.mouseButton.y });
-				sf::RectangleShape tempShape;
-				tempShape.setSize({ 768.f,768.f });
-				if (tempShape.getGlobalBounds().contains(location)) {
-					if (m_firstClick) {
-						Board::instance().handleSecondClick(source,location);
-						m_firstClick = false;
-					}
-					else {
-						m_firstClick = Board::instance().handleFirstClick(location);
-						source = location;
-					}
-				}
-			}
-			*/
 			}
 		}
+
+		if (m_whiteTurn && m_whitePlayer->playTurn(move))
+		{
+			std::cout << "White Moved\n";
+			m_whiteTurn = false;
+		}
+		if (!m_whiteTurn && m_blackPlayer->playTurn(move))
+		{
+			std::cout << "Black Moved\n";
+			m_whiteTurn = true;
+		}
+		
 
 		Board::instance().draw(m_window);
 		m_window.display();

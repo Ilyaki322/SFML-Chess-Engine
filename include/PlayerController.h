@@ -16,4 +16,11 @@ private:
 	void rotateScreen();
 
 	sf::RenderWindow& m_window;
+
+
+
+	bool m_isMakingMove;
+	sf::Vector2i m_startPosition;
+	sf::Vector2i m_endPosition;
+	bool m_firstClick;
 };

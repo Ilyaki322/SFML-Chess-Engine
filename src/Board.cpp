@@ -72,7 +72,7 @@ void Board::handleSecondClick(sf::Vector2f source, sf::Vector2f target)
 	int sourceX = x+y*8;
 
 
-	if (m_square[targetX] < 0 || m_square[targetX] > 63) return;
+	//if (m_square[targetX] < 0 || m_square[targetX] > 63) return;
 	if (m_tiles[sourceX]->getPiece()->isValid(m_square, targetX))
 	{
 		m_tiles[targetX]->placePiece(m_tiles[sourceX]->getPiece());
