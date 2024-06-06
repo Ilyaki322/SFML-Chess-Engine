@@ -27,6 +27,6 @@ void FenAlgorithm::setBoard(std::array<std::shared_ptr<Tile>, 64> &tiles, int sq
 		tiles[j]->placePiece(theCreator.create(stage[point], tiles[j]->getPosition(), isupper(stage[point]) ? Black : White));
 
 		int color = isupper(stage[point]) ? 16 : 8;
-		squares[j] = m_piecesMap[tolower(stage[point])] | color;
+		squares[j] = m_piecesMap[tolower(stage[point])] | color | 32 ;
 	}
 }
