@@ -11,13 +11,9 @@ PlayerController::PlayerController(sf::RenderWindow& window, Color color)
 
 bool PlayerController::playTurn(Move& move)
 {
-	sf::Vector2f source;
 	bool firstClick = false;
 
 	rotateScreen();
-	//sf::View view = m_window.getView();
-	//view.setRotation(180);
-	//m_window.setView(view);
 
 	while (m_window.isOpen())
 	{
@@ -40,13 +36,11 @@ bool PlayerController::playTurn(Move& move)
 
 				if (tempShape.getGlobalBounds().contains(location)) {
 					if (firstClick) {
-						Board::instance().handleSecondClick(source,location);
 						firstClick = false;
-						return true;
+						return Board::instance().handleSecondClick(location, move);
 					}
 					else {
 						firstClick = Board::instance().handleFirstClick(location);
-						source = location;
 					}
 				}
 			}

@@ -43,21 +43,19 @@ bool Board::handleFirstClick(sf::Vector2f location)
 	int y = location.y / 96;
 	int x = location.x / 96 + y*8;
 	if (m_square[x] == 0) return false;
-	if (x != 0)
-	{
-		std::vector<Move> moves;
-		moves = m_tiles[x]->getPiece()->generateMoves(m_square);
 
-		m_tiles[x]->setColor(LAST_TURN_TILE);
-		for (const auto& move : moves)
-		{
-			m_tiles[move.targetSquare]->setColor(MOVEABLE_TILE);
-		}
+	m_moves = m_tiles[x]->getPiece()->generateMoves(m_square);
+
+	m_tiles[x]->setColor(LAST_TURN_TILE);
+	for (const auto& move : m_moves)
+	{
+		m_tiles[move.targetSquare]->setColor(MOVEABLE_TILE);
 	}
+	
 	return true;
 }
 
-void Board::handleSecondClick(sf::Vector2f source, sf::Vector2f target)
+bool Board::handleSecondClick(sf::Vector2f target, Move& move)
 {
 	for (int i = 0; i < 64; i++)
 	{
@@ -67,19 +65,29 @@ void Board::handleSecondClick(sf::Vector2f source, sf::Vector2f target)
 	int y = target.y / 96;
 	int x = target.x / 96;
 	int targetX = x+y*8;
-	y = source.y / 96;
-	x = source.x / 96;
-	int sourceX = x+y*8;
 
-
-	//if (m_square[targetX] < 0 || m_square[targetX] > 63) return;
-	if (m_tiles[sourceX]->getPiece()->isValid(m_square, targetX))
+	for (const auto& i : m_moves)
 	{
-		m_tiles[targetX]->placePiece(m_tiles[sourceX]->getPiece());
-		m_tiles[sourceX]->placePiece(nullptr);
-		m_square[targetX] = m_square[sourceX ];
-		m_square[sourceX] = 0;
+		if (i.targetSquare == targetX)
+		{
+			move = i;
+			return true;
+		}
 	}
+
+	return false;
+}
+
+void Board::makeMove(Move move)
+{
+	if (move.startSquare == -1) return; // AI SKIP TURN
+
+
+	m_tiles[move.targetSquare]->placePiece(m_tiles[move.startSquare]->getPiece());
+	m_tiles[move.startSquare]->placePiece(nullptr);
+
+	m_square[move.targetSquare] = m_square[move.startSquare];
+	m_square[move.startSquare] = 0;
 }
 
 void Board::draw(sf::RenderWindow& window)

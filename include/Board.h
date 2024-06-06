@@ -12,21 +12,31 @@ class Board
 {
 public:
 	static Board& instance();
+
 	Pieces& getPieceAt(const int x);
 	const Pieces& getPieceAt(const int x) const;
+
 	bool isOccupied(const int x) const;
+
 	bool handleFirstClick(sf::Vector2f location);
-	void handleSecondClick(sf::Vector2f source , sf::Vector2f target);
+	bool handleSecondClick(sf::Vector2f target, Move& move);
+	void makeMove(Move move);
+
 	void draw(sf::RenderWindow& window);
 	void setBoard(std::string FENstring);
-
 	void setRotation(const float rotation);
 
 //====================================================
 
 private:
-	void initTiles();
-	std::array <std::shared_ptr<Tile>, SIZE> m_tiles;
 	Board();
+	Board(const Board&) = default;
+	Board& operator=(const Board&) = default;
+
+	void initTiles();
+
+	std::array <std::shared_ptr<Tile>, SIZE> m_tiles;
+	std::vector<Move> m_moves;
+	
 	int m_square[SIZE];
 };

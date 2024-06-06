@@ -43,15 +43,10 @@ std::vector<Move> Pawn::generateMoves(const int squares[]) const
     int pos = getPosition();
     (m_side == BLACK) ? forward = DOWN : forward = UP;
     
+    if (pos - 8 < 0 || pos + 8 > 64) return moves;
     if (!Board::instance().isOccupied(pos + forward))
     {
         moves.push_back({ pos, pos + forward });
-        if (pos - 8 < 0 || pos + 8 > 64)
-        {
-            //TODO: promote
-            return moves;
-        }
-
         if (m_firstMoveFlag && (!Board::instance().isOccupied(pos + forward * 2)))
         {
             moves.push_back({ pos, pos + forward * 2 });
@@ -66,6 +61,7 @@ std::vector<Move> Pawn::generateMoves(const int squares[]) const
             moves.push_back({ pos, pos + forward + LEFT });
         }
     }
+
     if (pos % 8 != 0)
     {
         if (Board::instance().isOccupied(pos + forward + RIGHT) &&

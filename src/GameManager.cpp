@@ -14,8 +14,8 @@ GameManager::GameManager()
 	Board::instance().setBoard("RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr");
 
 	m_whitePlayer = std::make_unique<PlayerController>(m_window, White);
-	//m_blackPlayer = std::make_unique<PlayerController>(m_window, Black);
-	m_blackPlayer = std::make_unique<AIController>(Black);
+	m_blackPlayer = std::make_unique<PlayerController>(m_window, Black);
+	//m_blackPlayer = std::make_unique<AIController>(Black);
 
 }
 
@@ -41,12 +41,12 @@ void GameManager::run()
 
 		if (m_whiteTurn && m_whitePlayer->playTurn(move))
 		{
-			std::cout << "White Moved\n";
+			Board::instance().makeMove(move);
 			m_whiteTurn = false;
 		}
 		if (!m_whiteTurn && m_blackPlayer->playTurn(move))
 		{
-			std::cout << "Black Moved\n";
+			Board::instance().makeMove(move);
 			m_whiteTurn = true;
 		}
 		
