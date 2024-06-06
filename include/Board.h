@@ -25,8 +25,15 @@ public:
 //====================================================
 
 private:
-	void initTiles();
-	std::array <std::shared_ptr<Tile>, SIZE> m_tiles;
 	Board();
+	Board(const Board&) = default;
+	Board& operator=(const Board&) = default;
+	void addSpecialMoves(int index);
+	void initTiles();
+
+	std::array <std::shared_ptr<Tile>, SIZE> m_tiles;
+	std::vector<Move> m_moves;
+
 	int m_square[SIZE];
+
 };
