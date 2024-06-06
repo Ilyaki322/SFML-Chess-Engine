@@ -33,7 +33,6 @@ public:
 
 	virtual ~Pieces() = default;
 	Pieces(sf::Texture &image , sf::Vector2f position ,Color side);
-
 	int getValue()const;
 	int getPosition() const;
 	Color getColor() const;
