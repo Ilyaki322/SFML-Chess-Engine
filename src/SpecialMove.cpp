@@ -14,6 +14,18 @@ SpecialMove::SpecialMove(std::array<int, 64> arr , std::vector<std::vector<Move>
 	}
 }
 
+/// <summary>
+/// 
+/// To Do:
+/// 
+/// the sum can be 0 although the square is in threat.
+/// there are 2 options
+/// 1---> change it to other sum (mabye mull of 2 prime num)
+/// 
+/// 2---> do 2 differents array one to the white and one to the black
+/// 
+/// </summary>
+
 void SpecialMove::handleThreats(int pieceIndex , std::vector<Move> threat )
 {
 	int color = (pieceArray[pieceIndex] & 8) > 0 ? 8 : 16;
@@ -31,6 +43,13 @@ void SpecialMove::handleThreats(int pieceIndex , std::vector<Move> threat )
 	}
 }
 
+/// <summary>
+/// 
+/// To Do:
+/// 
+/// after the update check if the king is in chess ---> undo the update and return false
+/// 
+/// </summary>
 
 void SpecialMove::update(int start , int end , std::vector<std::vector<Move>> threats)
 {
@@ -84,6 +103,7 @@ bool SpecialMove::isCastle(int king ,int rook)
 	return king == rook;
 }
 
+
 void SpecialMove::castle(int king, int rook)
 {
 	if (king < rook) {
@@ -97,8 +117,16 @@ void SpecialMove::castle(int king, int rook)
 	pieceArray[rook] = 0;
 	pieceArray[king] = 0;
 }
+/// <summary>
+/// 
+/// To Do:
+/// 
+/// save the position of the king each turn so we can check chess in O(1)
+/// 
+/// </summary>
 
 bool SpecialMove::chess()
 {
+	//return threatArray[m_kingPlace] != 0;
 	return false;
 }
