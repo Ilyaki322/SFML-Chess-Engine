@@ -35,6 +35,7 @@ bool Board::handleFirstClick(sf::Vector2f location)
 	if (m_square[x] == 0) return false;
 
 	m_moves = m_tiles[x]->getPiece()->generateMoves(m_square);
+	addSpecialMoves(x);
 
 	m_tiles[x]->setColor(LAST_TURN_TILE);
 	for (const auto& move : m_moves)
@@ -97,6 +98,25 @@ void Board::setBoard(std::string FENstring)
 	initTiles();
 	FenAlgorithm algo;
 	algo.setBoard(m_tiles, m_square, FENstring);
+}
+
+void Board::addSpecialMoves(int index)
+{
+	//if (m_tiles[index]->getPiece()->specialMove()) {
+	// 
+		//enPassant(index);
+	//}
+	// m_tiles[index]->specialMove();
+	// if (m_tiles[index - 1]->getPiece()->getType() == "pawn"){
+	//		if(m_tiles[index - 1]->getPiece()->enPassent(){
+	//			m_move.push_back();
+	//		}
+	// }
+	// m_tiles[index + ]->getPiece()->getType() == "pawn" ; 
+
+	//if (m_tiles[index]->getPiece()->getType() == "king") {
+		//castle(index);
+	//}
 }
 
 void Board::setRotation(const float rotation)
