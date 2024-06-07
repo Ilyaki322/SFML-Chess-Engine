@@ -24,15 +24,12 @@ const int UP = -8;
 const int DOWN = 8;
 
 
-
-class Board;
-//class Tile;
-
 class Pieces {
 public:
 
 	virtual ~Pieces() = default;
 	Pieces(sf::Texture &image , sf::Vector2f position ,Color side);
+
 	int getValue()const;
 	int getPosition() const;
 	Color getColor() const;
@@ -40,9 +37,6 @@ public:
 	void draw(sf::RenderWindow& w)const;
 	void setPosition(sf::Vector2f pos);
 	void rotate(const float rotation);
-
-	virtual bool isValid(const int squares[], const int target) const = 0;
-	virtual std::vector<std::pair<int,int>> possibleMoves(Board *) const = 0;
 
 	virtual std::vector<Move> generateMoves(const int squares[]) const  = 0;
 	

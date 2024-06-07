@@ -29,6 +29,7 @@ public:
 //====================================================
 
 private:
+
 	Board();
 	Board(const Board&) = default;
 	Board& operator=(const Board&) = default;

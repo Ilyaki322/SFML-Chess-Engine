@@ -5,17 +5,7 @@
 #include <map>
 
 Board::Board()
-	:m_tiles(), m_square()
-{
-	/*
-	for (int i = 0; i < 64; i++)
-	{
-		std::cout << m_square[i] << " ";
-		//if (i % 8 == 0 && i != 0) std::cout << std::endl;
-	} 
-	*/
-
-}
+	:m_tiles(), m_square() {}
 
 Board& Board::instance()
 {

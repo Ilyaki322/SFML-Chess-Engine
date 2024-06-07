@@ -50,7 +50,10 @@ void Pieces::slidingMoves(const int squares[], const int direction, std::vector<
 		// 'wall' does not mean we out of bounds
 		// for example square 16 is a wall, but 16 - 9 still > 0
 		// so we check i MOD 8, if its 0 or 7 it means we on the last tile.
-		if ((i % 8) == 0 || (i % 8) == 7) run = false;
+		if ((i % 8) == 0 || (i % 8) == 7)
+		{
+			if (direction != UP && direction != DOWN) run = false;
+		}
 		if (!Board::instance().isOccupied(i))
 		{
 			moves.push_back({ pos, i });
@@ -67,7 +70,6 @@ int Pieces::getPosition() const
 {
 	int x = m_piece.getPosition().x / 96;
 	int y = m_piece.getPosition().y / 96;
-	//std::cout << x << " " << y << std::endl;
 	return x + y * 8;
 }
 
