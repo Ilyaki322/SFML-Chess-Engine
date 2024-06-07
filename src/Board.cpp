@@ -30,8 +30,8 @@ bool Board::isOccupied(const int x) const
 
 bool Board::handleFirstClick(sf::Vector2f location)
 {
-	int y = location.y / 96;
-	int x = location.x / 96 + y*8;
+	int y = int(location.y / 96);
+	int x = int(location.x / 96 + y*8);
 	if (m_square[x] == 0) return false;
 
 	m_moves = m_tiles[x]->getPiece()->generateMoves(m_square);
@@ -53,8 +53,8 @@ bool Board::handleSecondClick(sf::Vector2f target, Move& move)
 		m_tiles[i]->resetColor();
 	}
 
-	int y = target.y / 96;
-	int x = target.x / 96;
+	int y = int(target.y / 96);
+	int x = int(target.x / 96);
 	int targetX = x+y*8;
 
 	for (const auto& i : m_moves)
@@ -125,6 +125,21 @@ void Board::setRotation(const float rotation)
 	{
 		m_tiles[i]->rotatePiece(rotation);
 	}
+}
+
+std::vector<std::vector<Move>> Board::AllMoves()
+{
+	std::vector<std::vector<Move>> allMoves;
+
+	for (int i = 0; i < 64; i++)
+	{
+		if (m_square[i] != 0)
+		{
+			allMoves.push_back(m_tiles[i]->getPiece()->generateMoves(m_square));
+		}
+	}
+
+	return allMoves;
 }
 
 void Board::initTiles()

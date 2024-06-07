@@ -39,7 +39,7 @@ sf::Font& Assets::getFont()
 sf::Texture& Assets::getTexture(const char c)
 {
 	bool isUpper = isupper(c);
-	char piece = tolower(c);
+	char piece = char(tolower(c));
 
 	switch (piece)
 	{

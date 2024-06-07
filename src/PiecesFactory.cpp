@@ -6,7 +6,7 @@ PiecesFactory::PiecesFactory()
 
 std::shared_ptr<Pieces> PiecesFactory::create(char c, sf::Vector2f position, Color color)
 {
-	char piece = tolower(c);
+	char piece = char(tolower(c));
 	switch (piece)
 	{
 	case('p'):

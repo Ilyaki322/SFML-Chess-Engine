@@ -68,8 +68,8 @@ void Pieces::slidingMoves(const int squares[], const int direction, std::vector<
 
 int Pieces::getPosition() const
 {
-	int x = m_piece.getPosition().x / 96;
-	int y = m_piece.getPosition().y / 96;
+	int x = int(m_piece.getPosition().x / 96);
+	int y = int(m_piece.getPosition().y / 96);
 	return x + y * 8;
 }
 

@@ -26,6 +26,8 @@ public:
 	void setBoard(std::string FENstring);
 	void setRotation(const float rotation);
 
+	std::vector<std::vector<Move>> AllMoves(); // should we return a vector or pass it by value?
+
 //====================================================
 
 private:
