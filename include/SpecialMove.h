@@ -1,5 +1,7 @@
 #pragma once
-
+#include <array>
+#include <vector>
+#include <unordered_set>
 /// <summary>
 /// 
 /// en passent 
@@ -8,23 +10,39 @@
 /// promotion
 /// 
 /// </summary>
-class SpecialMove {
-	SpecialMove(int arr[]) :arr(arr) {}
-	void update(int start int end){
-		move start to end if (pwan 2 moves m_passent = end);
-		if (king moved -> castle = false , rook1 moved ->castle1  = false;)
-	}
-	bool enpassent(int i){ 
-		if (i==m_passent)
-			return true;
-	}
-	bool castle (int rook){
-		if(rook == rook1 )
-	}
+/// 
 
+
+enum Piece { 
+			KingVal = 1, 
+			PawnVal = 2, 
+			KnightVal = 3, 
+			BishopVal = 4, 
+			RookVal = 5, 
+			QueenVal = 6 
+};
+
+struct Move
+{
+	int startSquare;
+	int targetSquare;
+};
+
+class SpecialMove {
+public:
+	SpecialMove(std::array<int, 64> arr , std::vector<std::vector<Move>> threats );
+	void handleThreats(int, std::vector<Move> threat );
+	void update(int start, int end, std::vector<std::vector<Move>> threats);
+	bool enPassant (int i);
+	bool isCastle(int king , int rook); 
+	void castle(int king, int rook);
+	bool chess();
 
 private:
-	int arr[64];
-	int 0-3 arr [64];
-	int m_passent;
+	std::array<int, 64> pieceArray;
+	std::array<int, 64> threatArray; // This array sums all the threats to one square. white piece add 1 ans black add -1
+	//std::array<int, 64> pinArray; // This array check all the roots to the king
+
+	int m_passant;
+	
 };

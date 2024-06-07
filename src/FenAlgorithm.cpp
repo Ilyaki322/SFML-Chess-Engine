@@ -4,6 +4,8 @@
 #include "Pieces.h"
 #include "PiecesFactory.h"
 
+#include <iostream> // DEBUG
+
 FenAlgorithm::FenAlgorithm()
 {
 	m_piecesMap['k'] = 1;
@@ -29,4 +31,16 @@ void FenAlgorithm::setBoard(std::array<std::shared_ptr<Tile>, 64> &tiles, int sq
 		int color = isupper(stage[point]) ? 16 : 8;
 		squares[j] = m_piecesMap[tolower(stage[point])] | color | 32 ;
 	}
+
+	//for (int i = 0; i < 64; i++) {
+	//	if (i % 8 == 0)
+	//		std::cout << '\n';
+	//	std::cout << squares[i] << ' ';
+	//}
+	//for (int i = 0; i < 64; i++) {
+	//	if (i % 8 == 0)
+	//		std::cout << '\n';
+	//	std::cout << (squares[i]^32) << ' ';
+	//}
+
 }

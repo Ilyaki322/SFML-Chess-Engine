@@ -70,9 +70,6 @@ std::vector<Move> Pawn::generateMoves(const int squares[]) const
             moves.push_back({ pos, pos + forward + RIGHT });
         }
     }
-    if (pos) {
-        if(Board::instance().specialMove.enpassnet(pos+bla))
-            move.push()
-    }
+
     return moves;
 }
