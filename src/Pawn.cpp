@@ -11,9 +11,8 @@ int Pawn::getValue() const
 }
 
 
-std::vector<Move> Pawn::generateMoves(const int squares[]) const
+std::vector<Move> Pawn::generateMoves() const
 {
-    // TODO: Enpassant
     std::vector<Move> moves;
     int forward;
     int pos = getPosition();
@@ -38,6 +37,12 @@ std::vector<Move> Pawn::generateMoves(const int squares[]) const
         {
             moves.push_back({ pos, pos + forward + RIGHT });
         }
+
+        if (Board::instance().isOccupied(pos + RIGHT) &&
+            Board::instance().getPieceAt(pos + RIGHT).getColor() != m_side)
+        {
+
+        }
     }
 
     if (pos % 8 != 0)
@@ -46,6 +51,12 @@ std::vector<Move> Pawn::generateMoves(const int squares[]) const
             Board::instance().getPieceAt(pos + forward + LEFT).getColor() != m_side)
         {
             moves.push_back({ pos, pos + forward + LEFT });
+        }
+
+        if (Board::instance().isOccupied(pos + LEFT) &&
+            Board::instance().getPieceAt(pos + LEFT).getColor() != m_side)
+        {
+
         }
     }
 

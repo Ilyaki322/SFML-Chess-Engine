@@ -47,7 +47,7 @@ private:
 
 protected:
 
-	void slidingMoves(const int squares[], const int direction, std::vector<Move> &moves) const;
+	void slidingMoves(const int direction, std::vector<Move> &moves) const;
 
 	sf::Sprite m_piece;
 	Color m_side;

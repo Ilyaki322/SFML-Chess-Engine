@@ -12,7 +12,7 @@ int Knight::getValue() const
 }
 
 
-std::vector<Move> Knight::generateMoves(const int squares[]) const
+std::vector<Move> Knight::generateMoves() const
 {
 	std::vector<Move> move;
 	int pos = getPosition();

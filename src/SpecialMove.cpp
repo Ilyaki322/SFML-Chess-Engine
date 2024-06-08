@@ -26,10 +26,11 @@ SpecialMove& SpecialMove::instance()
 	return ins;
 }
 
-void SpecialMove::setBoard(int arr[] /*, std::vector<std::vector<Move>> threats*/)
+void SpecialMove::setBoard(std::array<int, 64> arr /*, std::vector<std::vector<Move>> threats*/)
 {
 	pieceArray = arr;
 	std::vector<std::vector<Move>> threats = Board::instance().AllMoves();
+
 	for (int i = 0; i < 64; i++) {
 		threatArray[i] = 0;
 		whiteThreatArray[i] = 0;

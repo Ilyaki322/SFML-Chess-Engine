@@ -12,7 +12,7 @@ int King::getValue() const
 }
 
 
-std::vector<Move> King::generateMoves(const int squares[]) const
+std::vector<Move> King::generateMoves() const
 {
 	std::vector<Move> move;
 	int pos = getPosition();
@@ -27,11 +27,8 @@ std::vector<Move> King::generateMoves(const int squares[]) const
 	checkCorner(move, pos, BOT_LEFT);
 	checkCorner(move, pos, BOT_RIGHT);
 
-	if ((squares[pos] & 32) > 0)
-	{
-		if (SpecialMove::instance().isCastle(pos, pos + 3 * RIGHT)) move.push_back({ pos, pos + 3 * RIGHT });
-		if (SpecialMove::instance().isCastle(pos, pos + 4 * LEFT)) move.push_back({ pos, pos + 4 * LEFT });
-	}
+	if (SpecialMove::instance().isCastle(pos, pos + 3 * RIGHT)) move.push_back({ pos, pos + 3 * RIGHT });
+	if (SpecialMove::instance().isCastle(pos, pos + 4 * LEFT)) move.push_back({ pos, pos + 4 * LEFT });
 
 	return move;
 }

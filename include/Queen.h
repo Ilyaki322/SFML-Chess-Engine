@@ -9,7 +9,7 @@ public:
 
 	int getValue()const;
 	
-	std::vector<Move> generateMoves(const int squares[]) const override;
+	std::vector<Move> generateMoves() const override;
 
 private:
 

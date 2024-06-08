@@ -33,7 +33,7 @@ enum Piece {
 class SpecialMove {
 public:
 	static SpecialMove& instance();
-	void setBoard(int arr[] /*, std::vector<std::vector<Move>> threats*/);
+	void setBoard(std::array<int, 64> /*, std::vector<std::vector<Move>> threats*/);
 	void handleThreats(int, std::vector<Move> threat );
 	void update(int start, int end, std::vector<std::vector<Move>> threats);
 	bool enPassant (int i);
@@ -45,7 +45,7 @@ private:
 	SpecialMove();
 	SpecialMove(const SpecialMove&) = default;
 	SpecialMove& operator=(const SpecialMove&) = default;
-	int *pieceArray;
+	std::array<int, 64> pieceArray;
 	std::array<int, 64> threatArray; // This array sums all the threats to one square. white piece add 1 ans black add -1
 	std::array<int, 64> whiteThreatArray; // This array sums all the threats to one square. white piece add 1 ans black add -1
 	//std::array<int, 64> pinArray; // This array check all the roots to the king

@@ -11,13 +11,13 @@ int Bishop::getValue() const
 }
 
 
-std::vector<Move> Bishop::generateMoves(const int squares[]) const
+std::vector<Move> Bishop::generateMoves() const
 {
 	std::vector<Move> moves;
-	slidingMoves(squares, BOT_LEFT, moves);
-	slidingMoves(squares, BOT_RIGHT, moves);
-	slidingMoves(squares, TOP_LEFT, moves);
-	slidingMoves(squares, TOP_RIGHT, moves);
+	slidingMoves(BOT_LEFT, moves);
+	slidingMoves(BOT_RIGHT, moves);
+	slidingMoves(TOP_LEFT, moves);
+	slidingMoves(TOP_RIGHT, moves);
 
 	return moves;
 }

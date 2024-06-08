@@ -11,13 +11,13 @@ int Rook::getValue() const
 }
 
 
-std::vector<Move> Rook::generateMoves(const int squares[]) const
+std::vector<Move> Rook::generateMoves() const
 {
 	std::vector<Move> moves;
-	slidingMoves(squares, UP, moves);
-	slidingMoves(squares, DOWN, moves);
-	slidingMoves(squares, LEFT, moves);
-	slidingMoves(squares, RIGHT, moves);
+	slidingMoves(UP, moves);
+	slidingMoves(DOWN, moves);
+	slidingMoves(LEFT, moves);
+	slidingMoves(RIGHT, moves);
 
 	return moves;
 }

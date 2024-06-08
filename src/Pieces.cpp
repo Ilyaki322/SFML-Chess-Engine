@@ -35,7 +35,7 @@ void Pieces::rotate(const float rotation)
 * gets the board, a direction in which to slide and vector to add moves to.
 * goes in the given direction until hits a piece / 'wall'.
 */
-void Pieces::slidingMoves(const int squares[], const int direction, std::vector<Move> &moves) const
+void Pieces::slidingMoves(const int direction, std::vector<Move> &moves) const
 {
 	int pos = getPosition();
 

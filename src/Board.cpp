@@ -63,6 +63,7 @@ bool Board::handleSecondClick(sf::Vector2f target, Move& move)
 	{
 		if (i.targetSquare == targetX)
 		{
+			//update
 			move = i;
 			return true;
 		}

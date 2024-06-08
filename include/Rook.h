@@ -8,7 +8,7 @@ public:
 
 	int getValue()const;
 	
-	virtual std::vector<Move> generateMoves(const int squares[]) const override;
+	virtual std::vector<Move> generateMoves() const override;
 
 private:
 

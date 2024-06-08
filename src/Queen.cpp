@@ -10,17 +10,17 @@ int Queen::getValue() const
 }
 
 
-std::vector<Move> Queen::generateMoves(const int squares[]) const
+std::vector<Move> Queen::generateMoves() const
 {
 	std::vector<Move> moves;
-	slidingMoves(squares, BOT_LEFT, moves);
-	slidingMoves(squares, BOT_RIGHT, moves);
-	slidingMoves(squares, TOP_LEFT, moves);
-	slidingMoves(squares, TOP_RIGHT, moves);
-	slidingMoves(squares, UP, moves);
-	slidingMoves(squares, DOWN, moves);
-	slidingMoves(squares, LEFT, moves);
-	slidingMoves(squares, RIGHT, moves);
+	slidingMoves(BOT_LEFT, moves);
+	slidingMoves(BOT_RIGHT, moves);
+	slidingMoves(TOP_LEFT, moves);
+	slidingMoves(TOP_RIGHT, moves);
+	slidingMoves(UP, moves);
+	slidingMoves(DOWN, moves);
+	slidingMoves(LEFT, moves);
+	slidingMoves(RIGHT, moves);
 
 	return moves;
 }
