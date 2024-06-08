@@ -47,6 +47,7 @@ private:
 	SpecialMove& operator=(const SpecialMove&) = default;
 	int *pieceArray;
 	std::array<int, 64> threatArray; // This array sums all the threats to one square. white piece add 1 ans black add -1
+	std::array<int, 64> whiteThreatArray; // This array sums all the threats to one square. white piece add 1 ans black add -1
 	//std::array<int, 64> pinArray; // This array check all the roots to the king
 
 	int m_passant;
