@@ -39,6 +39,11 @@ private:
 	void initTiles();
 	void castle(Move move);
 
+	void undoMove(Move move);
+
 	std::array <std::shared_ptr<Tile>, SIZE> m_tiles;
 	std::vector<Move> m_moves;
+
+
+	std::shared_ptr<Pieces> m_temp;
 };

@@ -14,7 +14,7 @@ FenAlgorithm::FenAlgorithm()
 	m_piecesMap['q'] = 6;
 }
 
-void FenAlgorithm::setBoard(std::array<std::shared_ptr<Tile>, 64> &tiles, std::array<int, 64> squares, std::string stage)
+void FenAlgorithm::setBoard(std::array<std::shared_ptr<Tile>, 64> &tiles, std::array<int, 64>& squares, std::string stage)
 {
 	PiecesFactory theCreator;
 	for (int j = 0, point = 0; j < 64 && point < stage.size(); j++, point++) {

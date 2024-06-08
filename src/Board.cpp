@@ -63,9 +63,24 @@ bool Board::handleSecondClick(sf::Vector2f target, Move& move)
 	{
 		if (i.targetSquare == targetX)
 		{
-			//update
-			move = i;
-			return true;
+			if (m_tiles[i.targetSquare]->isOccupied())
+			{
+				if (m_tiles[i.startSquare]->getPiece()->getColor() == m_tiles[i.targetSquare]->getPiece()->getColor())
+				{
+					move = i;
+					return true;
+				}
+			}
+			
+			makeMove(i);
+			if (SpecialMove::instance().update(i.startSquare, i.targetSquare, AllMoves()))
+			{
+				undoMove(i);
+				move = i;
+				return true;
+			}
+			undoMove(i);
+			return false;
 		}
 	}
 
@@ -75,6 +90,8 @@ bool Board::handleSecondClick(sf::Vector2f target, Move& move)
 void Board::makeMove(Move move)
 {
 	if (move.startSquare == -1) return; // AI SKIP TURN
+
+	m_temp = m_tiles[move.targetSquare]->getPiece();
 	
 	if (m_tiles[move.targetSquare]->isOccupied())
 	{
@@ -88,6 +105,12 @@ void Board::makeMove(Move move)
 	
 	m_tiles[move.targetSquare]->placePiece(m_tiles[move.startSquare]->getPiece());
 	m_tiles[move.startSquare]->placePiece(nullptr);
+}
+
+void Board::undoMove(Move move)
+{
+	m_tiles[move.startSquare]->placePiece(m_tiles[move.targetSquare]->getPiece());
+	m_tiles[move.targetSquare]->placePiece(m_temp);
 }
 
 void Board::draw(sf::RenderWindow& window)
