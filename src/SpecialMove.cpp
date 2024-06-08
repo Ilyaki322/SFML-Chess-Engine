@@ -32,11 +32,13 @@ void SpecialMove::setBoard(int arr[] /*, std::vector<std::vector<Move>> threats*
 	std::vector<std::vector<Move>> threats = Board::instance().AllMoves();
 	for (int i = 0; i < 64; i++) {
 		threatArray[i] = 0;
+		whiteThreatArray[i] = 0;
 	}
 	for (int i = 0, j = 0; i < 64; i++) {
 		if (pieceArray[i] != 0) {
 			handleThreats(i, threats[j]);
 			j++;
+
 		}
 	}
 }
@@ -44,17 +46,11 @@ void SpecialMove::setBoard(int arr[] /*, std::vector<std::vector<Move>> threats*
 void SpecialMove::handleThreats(int pieceIndex , std::vector<Move> threat )
 {
 	int color = (pieceArray[pieceIndex] & 8) > 0 ? 8 : 16;
-	int forward = color == 16 ? -1 : 1;
-	int value = forward;
-	/*if (pieceArray[pieceIndex] - color == PawnVal) {
-		if((pieceIndex%8 !=0 || color != 16 ) && (pieceIndex % 8 != 7 || color != 8 ))
-			threatArray[pieceIndex + value * 9] += value;
-		if ((pieceIndex % 8 != 0 || color != 8) && (pieceIndex % 8 != 7 || color != 16))
-			threatArray[pieceIndex + value * 7] += value;
-		return;
-	}*/
 	for (int i = 0; i < threat.size(); i++) {
-		threatArray[threat[i].targetSquare] += value;
+		if (color == 8) 
+			whiteThreatArray[threat[i].targetSquare] ++;
+		else 
+			threatArray[threat[i].targetSquare] ++;
 	}
 }
 
@@ -70,6 +66,7 @@ void SpecialMove::update(int start , int end , std::vector<std::vector<Move>> th
 {
 	for (int i = 0; i < 64; i++) {
 		threatArray[i] = 0;
+		whiteThreatArray[i] = 0;
 	}
 	pieceArray[end] = pieceArray[start];
 	pieceArray[start] = 0;
@@ -112,8 +109,13 @@ bool SpecialMove::isCastle(int king ,int rook)
 	}
 	int forward = king < rook ? 1 : -1;
 	for (king+=forward; king != rook  && king < 64 && king > -1 ; king += forward) {
-		if (pieceArray[king] != 0 || threatArray[king]!=0 )
+		if (pieceArray[king] != 0)
 			return false;
+		if (color == WHITE && threatArray[king] != 0)
+			return false;
+		else if (color == BLACK && whiteThreatArray[king] != 0)
+			return false;
+		
 	}
 	return king == rook;
 }
