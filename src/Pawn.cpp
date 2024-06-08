@@ -1,5 +1,6 @@
 #include "Pawn.h"
 #include "Board.h"
+#include "SpecialMove.h"
 
 Pawn::Pawn(sf::Texture &image, sf::Vector2f position, Color side)
     :Pieces(image,position,side), m_firstMoveFlag(2) {}
@@ -41,7 +42,10 @@ std::vector<Move> Pawn::generateMoves() const
         if (Board::instance().isOccupied(pos + RIGHT) &&
             Board::instance().getPieceAt(pos + RIGHT).getColor() != m_side)
         {
-
+            if (SpecialMove::instance().enPassant(pos + RIGHT))
+            {
+                moves.push_back({ pos, pos + forward + RIGHT });
+            }
         }
     }
 
@@ -56,7 +60,10 @@ std::vector<Move> Pawn::generateMoves() const
         if (Board::instance().isOccupied(pos + LEFT) &&
             Board::instance().getPieceAt(pos + LEFT).getColor() != m_side)
         {
-
+            if (SpecialMove::instance().enPassant(pos + LEFT))
+            {
+                moves.push_back({ pos, pos + forward + LEFT });
+            }
         }
     }
 

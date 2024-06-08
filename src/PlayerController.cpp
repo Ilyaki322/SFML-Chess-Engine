@@ -18,7 +18,7 @@ bool PlayerController::playTurn(Move& move)
 	while (m_window.isOpen())
 	{
 		m_window.clear();
-		m_window.clear(sf::Color(255, 255, 255, 255));
+		m_window.clear(sf::Color(125, 125, 125, 255));
 
 		for (auto event = sf::Event{}; m_window.pollEvent(event);)
 		{
@@ -59,10 +59,15 @@ bool PlayerController::playTurn(Move& move)
 void PlayerController::rotateScreen()
 {
 	float rotation;
+	int offset;
 	(m_color == Black) ? rotation = 180 : rotation = 0;
+	(m_color == Black) ? offset = -1 : offset = 1;
+	float x = offset * (768 - 1300);
 
 	sf::View view = m_window.getView();
 	view.setRotation(rotation);
+	view.move({x, 0});
+	
 	m_window.setView(view);
 
 	Board::instance().setRotation(rotation);

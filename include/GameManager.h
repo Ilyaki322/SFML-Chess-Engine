@@ -2,7 +2,7 @@
 #include "Board.h"
 #include "Controller.h"
 
-//const int ScreenSizeX = 1800, ScreenSizeY = 768;
+//const int ScreenSizeX = 1300, ScreenSizeY = 768;
 const int ScreenSizeX = 768, ScreenSizeY = 768;
 
 class GameManager {
@@ -22,4 +22,6 @@ private:
 
 	std::unique_ptr<Controller> m_whitePlayer;
 	std::unique_ptr<Controller> m_blackPlayer;
+
+	sf::Text m_test;
 };
