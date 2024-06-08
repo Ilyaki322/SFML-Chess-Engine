@@ -26,7 +26,7 @@ public:
 	void setBoard(std::string FENstring);
 	void setRotation(const float rotation);
 
-	std::vector<std::vector<Move>> AllMoves(); // should we return a vector or pass it by value?
+	std::vector<std::vector<Move>> AllMoves();
 
 //====================================================
 
@@ -37,6 +37,8 @@ private:
 	Board& operator=(const Board&) = default;
 	void addSpecialMoves(int index);
 	void initTiles();
+
+	void castle(Move move);
 
 	std::array <std::shared_ptr<Tile>, SIZE> m_tiles;
 	std::vector<Move> m_moves;

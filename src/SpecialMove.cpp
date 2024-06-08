@@ -1,5 +1,8 @@
 #include "SpecialMove.h"
 
+#include <iostream>
+#include "Board.h"
+
 SpecialMove::SpecialMove()
 	:m_passant(-1) 
 {
@@ -23,9 +26,10 @@ SpecialMove& SpecialMove::instance()
 	return ins;
 }
 
-void SpecialMove::setBoard(std::array<int, 64> arr, std::vector<std::vector<Move>> threats)
+void SpecialMove::setBoard(int arr[] /*, std::vector<std::vector<Move>> threats*/)
 {
 	pieceArray = arr;
+	std::vector<std::vector<Move>> threats = Board::instance().AllMoves();
 	for (int i = 0; i < 64; i++) {
 		threatArray[i] = 0;
 	}
@@ -42,13 +46,13 @@ void SpecialMove::handleThreats(int pieceIndex , std::vector<Move> threat )
 	int color = (pieceArray[pieceIndex] & 8) > 0 ? 8 : 16;
 	int forward = color == 16 ? -1 : 1;
 	int value = forward;
-	if (pieceArray[pieceIndex] - color == PawnVal) {
+	/*if (pieceArray[pieceIndex] - color == PawnVal) {
 		if((pieceIndex%8 !=0 || color != 16 ) && (pieceIndex % 8 != 7 || color != 8 ))
 			threatArray[pieceIndex + value * 9] += value;
 		if ((pieceIndex % 8 != 0 || color != 8) && (pieceIndex % 8 != 7 || color != 16))
 			threatArray[pieceIndex + value * 7] += value;
 		return;
-	}
+	}*/
 	for (int i = 0; i < threat.size(); i++) {
 		threatArray[threat[i].targetSquare] += value;
 	}
@@ -99,8 +103,8 @@ bool SpecialMove::enPassant(int i)
 
 bool SpecialMove::isCastle(int king ,int rook)
 {
-	int color = (pieceArray[rook] & 8) > 0 ? 8 : 16;
-	if (pieceArray[rook] - color != RookVal) {
+	int color = (pieceArray[rook] & WHITE) > 0 ? WHITE : BLACK;
+	if ((pieceArray[rook] & RookVal) != RookVal) {
 		return false;
 	}
 	if (((pieceArray[rook] & 32) == 0) || ((pieceArray[king] & 32) == 0)) {
