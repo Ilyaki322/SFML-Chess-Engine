@@ -18,7 +18,7 @@ public:
 
 	bool isOccupied(const int x) const;
 
-	bool handleFirstClick(sf::Vector2f location);
+	bool handleFirstClick(sf::Vector2f location, Color color);
 	bool handleSecondClick(sf::Vector2f target, Move& move);
 	void makeMove(Move move);
 
@@ -35,13 +35,10 @@ private:
 	Board();
 	Board(const Board&) = default;
 	Board& operator=(const Board&) = default;
-	void addSpecialMoves(int index);
-	void initTiles();
 
+	void initTiles();
 	void castle(Move move);
 
 	std::array <std::shared_ptr<Tile>, SIZE> m_tiles;
 	std::vector<Move> m_moves;
-	
-	int m_square[SIZE];
 };

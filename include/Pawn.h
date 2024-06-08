@@ -10,7 +10,9 @@ public:
 
 	std::vector<Move> generateMoves(const int squares[]) const override;
 
+	void setPosition(sf::Vector2f pos) override;
+
 private:
 
-	bool m_firstMoveFlag;
+	int m_firstMoveFlag;
 };

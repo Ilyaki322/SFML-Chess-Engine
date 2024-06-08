@@ -35,19 +35,20 @@ public:
 	Color getColor() const;
 
 	void draw(sf::RenderWindow& w)const;
-	void setPosition(sf::Vector2f pos);
+	virtual void setPosition(sf::Vector2f pos);
 	void rotate(const float rotation);
 
-	virtual std::vector<Move> generateMoves(const int squares[]) const  = 0;
+	virtual std::vector<Move> generateMoves() const  = 0;
 	
 private:
 
-	sf::Sprite m_piece;
+	
 	int m_value;
 
 protected:
 
 	void slidingMoves(const int squares[], const int direction, std::vector<Move> &moves) const;
 
+	sf::Sprite m_piece;
 	Color m_side;
 };

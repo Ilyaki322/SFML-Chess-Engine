@@ -6,7 +6,7 @@
 #include <map>
 
 Board::Board()
-	:m_tiles(), m_square() {}
+	:m_tiles() {}
 
 Board& Board::instance()
 {
@@ -29,14 +29,15 @@ bool Board::isOccupied(const int x) const
 	return m_tiles[x]->isOccupied();
 }
 
-bool Board::handleFirstClick(sf::Vector2f location)
+bool Board::handleFirstClick(sf::Vector2f location, Color color)
 {
 	int y = int(location.y / 96);
 	int x = int(location.x / 96 + y*8);
-	if (m_square[x] == 0) return false;
 
-	m_moves = m_tiles[x]->getPiece()->generateMoves(m_square);
-	addSpecialMoves(x);
+	if (!m_tiles[x]->isOccupied()) return false;
+	if (m_tiles[x]->getPiece()->getColor() != color) return false;
+
+	m_moves = m_tiles[x]->getPiece()->generateMoves();
 
 	m_tiles[x]->setColor(LAST_TURN_TILE);
 	for (const auto& move : m_moves)
@@ -74,7 +75,7 @@ void Board::makeMove(Move move)
 {
 	if (move.startSquare == -1) return; // AI SKIP TURN
 	
-	if (m_square[move.targetSquare] != 0)
+	if (m_tiles[move.targetSquare]->isOccupied())
 	{
 		if (m_tiles[move.startSquare]->getPiece()->getColor() == 
 			m_tiles[move.targetSquare]->getPiece()->getColor())
@@ -86,9 +87,6 @@ void Board::makeMove(Move move)
 	
 	m_tiles[move.targetSquare]->placePiece(m_tiles[move.startSquare]->getPiece());
 	m_tiles[move.startSquare]->placePiece(nullptr);
-
-	m_square[move.targetSquare] = m_square[move.startSquare];
-	m_square[move.startSquare] = 0;
 }
 
 void Board::draw(sf::RenderWindow& window)
@@ -101,33 +99,12 @@ void Board::draw(sf::RenderWindow& window)
 
 void Board::setBoard(std::string FENstring)
 {
-	for (int i = 0; i < 64; i++)
-	{
-		m_square[i] = 0;
-	}
+	std::array<int, SIZE> square = { 0 };
+
 	initTiles();
 	FenAlgorithm algo;
-	algo.setBoard(m_tiles, m_square, FENstring);
-	SpecialMove::instance().setBoard(m_square);
-}
-
-void Board::addSpecialMoves(int index)
-{
-	//if (m_tiles[index]->getPiece()->specialMove()) {
-	// 
-		//enPassant(index);
-	//}
-	// m_tiles[index]->specialMove();
-	// if (m_tiles[index - 1]->getPiece()->getType() == "pawn"){
-	//		if(m_tiles[index - 1]->getPiece()->enPassent(){
-	//			m_move.push_back();
-	//		}
-	// }
-	// m_tiles[index + ]->getPiece()->getType() == "pawn" ; 
-
-	//if (m_tiles[index]->getPiece()->getType() == "king") {
-		//castle(index);
-	//}
+	algo.setBoard(m_tiles, square, FENstring);
+	SpecialMove::instance().setBoard(square);
 }
 
 void Board::setRotation(const float rotation)
@@ -144,9 +121,9 @@ std::vector<std::vector<Move>> Board::AllMoves()
 
 	for (int i = 0; i < 64; i++)
 	{
-		if (m_square[i] != 0)
+		if (m_tiles[i]->isOccupied())
 		{
-			allMoves.push_back(m_tiles[i]->getPiece()->generateMoves(m_square));
+			allMoves.push_back(m_tiles[i]->getPiece()->generateMoves());
 		}
 	}
 
@@ -171,29 +148,21 @@ void Board::castle(Move move)
 {
 	auto king = m_tiles[move.startSquare]->getPiece();
 	auto rook = m_tiles[move.targetSquare]->getPiece();
-	//SpecialMove::instance().castle(move.startSquare, move.targetSquare);
+	SpecialMove::instance().castle(move.startSquare, move.targetSquare);
 
 	if (move.startSquare < move.targetSquare)
 	{
-		m_square[move.targetSquare - 2] = m_square[m_square[move.targetSquare]];
-		m_square[move.startSquare + 2] = m_square[m_square[move.startSquare]];
-
 		m_tiles[move.targetSquare - 2]->placePiece(rook);
 		m_tiles[move.startSquare + 2]->placePiece(king);
 	}
 
 	else
 	{
-		m_square[move.targetSquare + 3] = m_square[m_square[move.targetSquare]];
-		m_square[move.startSquare - 2] = m_square[m_square[move.startSquare]];
-
 		m_tiles[move.targetSquare + 3]->placePiece(rook);
 		m_tiles[move.startSquare - 2]->placePiece(king);
 	}
 
 	m_tiles[move.startSquare]->placePiece(nullptr);
 	m_tiles[move.targetSquare]->placePiece(nullptr);
-	m_square[move.targetSquare] = 0;
-	m_square[move.startSquare] = 0;
 	return;
 }

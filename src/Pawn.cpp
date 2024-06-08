@@ -2,7 +2,7 @@
 #include "Board.h"
 
 Pawn::Pawn(sf::Texture &image, sf::Vector2f position, Color side)
-    :Pieces(image,position,side), m_firstMoveFlag(true) {}
+    :Pieces(image,position,side), m_firstMoveFlag(2) {}
 
 
 int Pawn::getValue() const
@@ -20,15 +20,15 @@ std::vector<Move> Pawn::generateMoves(const int squares[]) const
     (m_side == BLACK) ? forward = DOWN : forward = UP;
     
     if (pos - 8 < 0 || pos + 8 > 64) return moves; // THIS SHOULD PROMOTE!
+
     if (!Board::instance().isOccupied(pos + forward))
     {
         moves.push_back({ pos, pos + forward });
-        /*
+        
         if (m_firstMoveFlag && (!Board::instance().isOccupied(pos + forward * 2)))
         {
             moves.push_back({ pos, pos + forward * 2 });
         }
-        */
     }
 
     if (pos % 8 != 7)
@@ -50,4 +50,13 @@ std::vector<Move> Pawn::generateMoves(const int squares[]) const
     }
 
     return moves;
+}
+
+void Pawn::setPosition(sf::Vector2f pos)
+{
+    m_piece.setPosition(pos);
+    if (m_firstMoveFlag > 0)
+    {
+        m_firstMoveFlag--;
+    }
 }

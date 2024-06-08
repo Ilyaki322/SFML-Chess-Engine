@@ -40,7 +40,7 @@ bool PlayerController::playTurn(Move& move)
 						return Board::instance().handleSecondClick(location, move);
 					}
 					else {
-						firstClick = Board::instance().handleFirstClick(location);
+						firstClick = Board::instance().handleFirstClick(location, m_color);
 					}
 				}
 			}
