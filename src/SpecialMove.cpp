@@ -8,6 +8,14 @@ SpecialMove::SpecialMove()
 {
 }
 
+void SpecialMove::undo(std::array<int, 64> white, std::array<int, 64> black, int start, int end, int undoEnd)
+{
+	blackThreatArray = black;
+	whiteThreatArray = white;
+	pieceArray[start] = pieceArray[end];
+	pieceArray[end] = undoEnd;
+}
+
 /// <summary>
 /// 
 /// To Do:
@@ -32,26 +40,30 @@ void SpecialMove::setBoard(std::array<int, 64> arr /*, std::vector<std::vector<M
 	std::vector<std::vector<Move>> threats = Board::instance().AllMoves();
 
 	for (int i = 0; i < 64; i++) {
-		threatArray[i] = 0;
+		blackThreatArray[i] = 0;
 		whiteThreatArray[i] = 0;
 	}
 	for (int i = 0, j = 0; i < 64; i++) {
 		if (pieceArray[i] != 0) {
 			handleThreats(i, threats[j]);
 			j++;
-
+			if ((pieceArray[i] & 0b111) == KingVal) { // king piece
+				int color = (pieceArray[i] & WHITE) > 0 ? WHITE : BLACK;
+				if (color == WHITE) m_wKing = i;
+				else m_bKing = i;
+			}
 		}
 	}
 }
 
 void SpecialMove::handleThreats(int pieceIndex , std::vector<Move> threat )
 {
-	int color = (pieceArray[pieceIndex] & 8) > 0 ? 8 : 16;
+	int color = (pieceArray[pieceIndex] & WHITE) > 0 ? WHITE : BLACK;
 	for (int i = 0; i < threat.size(); i++) {
-		if (color == 8) 
+		if (color == WHITE) 
 			whiteThreatArray[threat[i].targetSquare] ++;
 		else 
-			threatArray[threat[i].targetSquare] ++;
+			blackThreatArray[threat[i].targetSquare] ++;
 	}
 }
 
@@ -63,13 +75,16 @@ void SpecialMove::handleThreats(int pieceIndex , std::vector<Move> threat )
 /// 
 /// </summary>
 
-void SpecialMove::update(int start , int end , std::vector<std::vector<Move>> threats)
+bool SpecialMove::update(int start , int end , std::vector<std::vector<Move>> threats)
 {
+	std::array<int, 64> undoBlackThreatArray(blackThreatArray);
+	std::array<int, 64> undoWhiteThreatArray(whiteThreatArray);
 	for (int i = 0; i < 64; i++) {
-		threatArray[i] = 0;
+		blackThreatArray[i] = 0;
 		whiteThreatArray[i] = 0;
 	}
 	pieceArray[end] = pieceArray[start];
+	int undoLastMove = pieceArray[end];
 	pieceArray[start] = 0;
 
 	for (int i = 0, j = 0; i < 64; i++) {
@@ -78,20 +93,34 @@ void SpecialMove::update(int start , int end , std::vector<std::vector<Move>> th
 			j++;
 		}
 	}
-
-	int color = (pieceArray[end] & 8) > 0 ? 8 : 16;
-	int forward = color == 8 ? -1 : 1;
+	if (start == m_bKing) {
+		if (whiteThreatArray[end] != 0) {
+			undo(undoWhiteThreatArray, undoBlackThreatArray, start, end, undoLastMove);
+			return false;
+		}
+		m_bKing = end;
+	}
+	else if (start == m_wKing) {
+		if (blackThreatArray[end] != 0) {
+			undo(undoWhiteThreatArray, undoBlackThreatArray, start, end, undoLastMove);
+			return false;
+		}
+		m_wKing = end;
+	}
+	int color = (pieceArray[end] & WHITE) > 0 ? WHITE : BLACK;
+	int forward = color == WHITE ? -1 : 1;
 	int piece = pieceArray[end] - color;
 	if (piece == PawnVal  || piece == KingVal || piece == RookVal ) {
 		if ((pieceArray[end] & 32) > 0) {
 			pieceArray[end] = pieceArray[end] ^ 32;
 			if (start - end == 16 * forward) {
 				m_passant = end;
-				return;
+				return true;
 			}
 		}
 	}
 	m_passant = -1;
+	return true;
 }
 
 bool SpecialMove::enPassant(int i)
@@ -102,7 +131,7 @@ bool SpecialMove::enPassant(int i)
 bool SpecialMove::isCastle(int king ,int rook)
 {
 	int color = (pieceArray[rook] & WHITE) > 0 ? WHITE : BLACK;
-	if ((pieceArray[rook] & RookVal) != RookVal) {
+	if ((pieceArray[rook] & 0b111) != RookVal) {
 		return false;
 	}
 	if (((pieceArray[rook] & 32) == 0) || ((pieceArray[king] & 32) == 0)) {
@@ -112,7 +141,7 @@ bool SpecialMove::isCastle(int king ,int rook)
 	for (king+=forward; king != rook  && king < 64 && king > -1 ; king += forward) {
 		if (pieceArray[king] != 0)
 			return false;
-		if (color == WHITE && threatArray[king] != 0)
+		if (color == WHITE && blackThreatArray[king] != 0)
 			return false;
 		else if (color == BLACK && whiteThreatArray[king] != 0)
 			return false;
@@ -143,8 +172,8 @@ void SpecialMove::castle(int king, int rook)
 /// 
 /// </summary>
 
-bool SpecialMove::check()
+bool SpecialMove::check(int color)
 {
-	//return threatArray[m_kingPlace] != 0;
-	return false;
+	if (color == WHITE) return blackThreatArray[m_wKing] != 0;
+	if (color == BLACK) return whiteThreatArray[m_bKing] != 0;
 }

@@ -35,21 +35,24 @@ public:
 	static SpecialMove& instance();
 	void setBoard(std::array<int, 64> /*, std::vector<std::vector<Move>> threats*/);
 	void handleThreats(int, std::vector<Move> threat );
-	void update(int start, int end, std::vector<std::vector<Move>> threats);
+	bool update(int start, int end, std::vector<std::vector<Move>> threats);
 	bool enPassant (int i);
 	bool isCastle(int king , int rook); 
 	void castle(int king, int rook);
-	bool check();
+	bool check(int color);
 
 private:
 	SpecialMove();
 	SpecialMove(const SpecialMove&) = default;
 	SpecialMove& operator=(const SpecialMove&) = default;
+	void undo(std::array<int, 64> white, std::array<int, 64> black, int start,int end,int undoEnd);
 	std::array<int, 64> pieceArray;
-	std::array<int, 64> threatArray; // This array sums all the threats to one square. white piece add 1 ans black add -1
+	std::array<int, 64> blackThreatArray; // This array sums all the threats to one square. white piece add 1 ans black add -1
 	std::array<int, 64> whiteThreatArray; // This array sums all the threats to one square. white piece add 1 ans black add -1
 	//std::array<int, 64> pinArray; // This array check all the roots to the king
 
+	int m_bKing;
+	int m_wKing;
 	int m_passant;
 	
 };
