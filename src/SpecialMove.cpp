@@ -1,17 +1,8 @@
 #include "SpecialMove.h"
 
-SpecialMove::SpecialMove(std::array<int, 64> arr , std::vector<std::vector<Move>> threats)
-	:pieceArray(arr) , m_passant(-1) 
+SpecialMove::SpecialMove()
+	:m_passant(-1) 
 {
-	for (int i = 0; i < 64; i++) {
-		threatArray[i] = 0;
-	}
-	for (int i = 0 , j = 0; i < 64; i++) {
-		if (pieceArray[i] != 0) {
-			handleThreats(i, threats[j]);
-			j++;
-		}
-	}
 }
 
 /// <summary>
@@ -25,6 +16,26 @@ SpecialMove::SpecialMove(std::array<int, 64> arr , std::vector<std::vector<Move>
 /// 2---> do 2 differents array one to the white and one to the black
 /// 
 /// </summary>
+
+SpecialMove& SpecialMove::instance()
+{
+	static SpecialMove ins;
+	return ins;
+}
+
+void SpecialMove::setBoard(std::array<int, 64> arr, std::vector<std::vector<Move>> threats)
+{
+	pieceArray = arr;
+	for (int i = 0; i < 64; i++) {
+		threatArray[i] = 0;
+	}
+	for (int i = 0, j = 0; i < 64; i++) {
+		if (pieceArray[i] != 0) {
+			handleThreats(i, threats[j]);
+			j++;
+		}
+	}
+}
 
 void SpecialMove::handleThreats(int pieceIndex , std::vector<Move> threat )
 {
@@ -121,11 +132,11 @@ void SpecialMove::castle(int king, int rook)
 /// 
 /// To Do:
 /// 
-/// save the position of the king each turn so we can check chess in O(1)
+/// save the position of the king each turn so we can check check in O(1)
 /// 
 /// </summary>
 
-bool SpecialMove::chess()
+bool SpecialMove::check()
 {
 	//return threatArray[m_kingPlace] != 0;
 	return false;
