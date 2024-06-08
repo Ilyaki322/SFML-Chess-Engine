@@ -59,14 +59,14 @@ bool PlayerController::playTurn(Move& move)
 void PlayerController::rotateScreen()
 {
 	float rotation;
-	int offset;
+	//int offset;
 	(m_color == Black) ? rotation = 180 : rotation = 0;
-	(m_color == Black) ? offset = -1 : offset = 1;
-	float x = offset * (768 - 1300);
+	//(m_color == Black) ? offset = -1 : offset = 1;
+	//float x = offset * (768 - 1300);
 
 	sf::View view = m_window.getView();
 	view.setRotation(rotation);
-	view.move({x, 0});
+	//view.move({x, 0});
 	
 	m_window.setView(view);
 
