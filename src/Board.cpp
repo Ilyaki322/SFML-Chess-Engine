@@ -71,7 +71,6 @@ bool Board::handleSecondClick(sf::Vector2f target, Move& move)
 					return true;
 				}
 			}
-			
 			makeMove(i);
 			if (SpecialMove::instance().update(i.startSquare, i.targetSquare, AllMoves()))
 			{
@@ -189,4 +188,5 @@ void Board::castle(Move move)
 	m_tiles[move.startSquare]->placePiece(nullptr);
 	m_tiles[move.targetSquare]->placePiece(nullptr);
 	return;
+
 }

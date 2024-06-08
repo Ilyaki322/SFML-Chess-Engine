@@ -47,7 +47,7 @@ void SpecialMove::setBoard(std::array<int, 64> arr /*, std::vector<std::vector<M
 		if (pieceArray[i] != 0) {
 			handleThreats(i, threats[j]);
 			j++;
-			if ((pieceArray[i] & 0b111) == KingVal) { // king piece
+			if ((pieceArray[i] & 0b111) == KingVal) {
 				int color = (pieceArray[i] & WHITE) > 0 ? WHITE : BLACK;
 				if (color == WHITE) m_wKing = i;
 				else m_bKing = i;
@@ -77,11 +77,7 @@ void SpecialMove::handleThreats(int pieceIndex , std::vector<Move> threat )
 
 bool SpecialMove::update(int start , int end , std::vector<std::vector<Move>> threats)
 {
-	for (int i = 0; i < 64; i++) {
-		if (i % 8 == 0) std::cout << '\n';
-		std::cout << pieceArray[i] << ' ';
-	}
-
+	int color = (pieceArray[end] & WHITE) > 0 ? WHITE : BLACK;
 	std::array<int, 64> undoBlackThreatArray(blackThreatArray);
 	std::array<int, 64> undoWhiteThreatArray(whiteThreatArray);
 	for (int i = 0; i < 64; i++) {
@@ -98,24 +94,24 @@ bool SpecialMove::update(int start , int end , std::vector<std::vector<Move>> th
 			j++;
 		}
 	}
-	if (start == m_bKing) {
-		if (whiteThreatArray[end] != 0) {
-			undo(undoWhiteThreatArray, undoBlackThreatArray, start, end, undoLastMove);
-			return false;
-		}
-		m_bKing = end;
+	if (start == m_bKing) m_bKing = end;
+	if (start == m_wKing) m_wKing = end;
+
+	if (whiteThreatArray[m_bKing] != 0 && color == BLACK) {
+		m_bKing = start;
+		undo(undoWhiteThreatArray, undoBlackThreatArray, start, end, undoLastMove);
+		return false;
 	}
-	else if (start == m_wKing) {
-		if (blackThreatArray[end] != 0) {
-			undo(undoWhiteThreatArray, undoBlackThreatArray, start, end, undoLastMove);
-			return false;
-		}
-		m_wKing = end;
+	if (blackThreatArray[m_wKing] != 0 && color == WHITE) {
+		m_wKing = start;
+		undo(undoWhiteThreatArray, undoBlackThreatArray, start, end, undoLastMove);
+		return false;
 	}
-	int color = (pieceArray[end] & WHITE) > 0 ? WHITE : BLACK;
-	int forward = color == WHITE ? -1 : 1;
-	int piece = pieceArray[end] - color;
-	if (piece == PawnVal  || piece == KingVal || piece == RookVal ) {
+
+
+	int forward = color == WHITE ? 1 : -1;
+	int piece = pieceArray[end] & 0b111;
+	if (piece  == PawnVal  || piece == KingVal || piece == RookVal ) {
 		if ((pieceArray[end] & 32) > 0) {
 			pieceArray[end] = pieceArray[end] ^ 32;
 			if (start - end == 16 * forward) {
@@ -158,16 +154,22 @@ bool SpecialMove::isCastle(int king ,int rook)
 
 void SpecialMove::castle(int king, int rook)
 {
+	int color = (pieceArray[king] & WHITE) > 0 ? WHITE : BLACK;
 	if (king < rook) {
 		pieceArray[rook - 2] = pieceArray[rook];
 		pieceArray[king + 2] = pieceArray[king];
+		if (color == WHITE) m_wKing = king + 2;
+		else m_bKing = king + 2;
 	}
 	else {
 		pieceArray[rook + 3] = pieceArray[rook];
 		pieceArray[king - 2] = pieceArray[king];
+		if (color == WHITE) m_wKing = king - 2;
+		else m_bKing = king - 2;
 	}
 	pieceArray[rook] = 0;
 	pieceArray[king] = 0;
+
 }
 /// <summary>
 /// 
