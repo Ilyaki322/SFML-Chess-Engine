@@ -77,7 +77,7 @@ void SpecialMove::handleThreats(int pieceIndex , std::vector<Move> threat )
 
 bool SpecialMove::update(int start , int end , std::vector<std::vector<Move>> threats)
 {
-	int color = (pieceArray[end] & WHITE) > 0 ? WHITE : BLACK;
+	int color = (pieceArray[start] & WHITE) > 0 ? WHITE : BLACK;
 	std::array<int, 64> undoBlackThreatArray(blackThreatArray);
 	std::array<int, 64> undoWhiteThreatArray(whiteThreatArray);
 	for (int i = 0; i < 64; i++) {
