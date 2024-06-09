@@ -35,7 +35,7 @@ public:
 	Color getColor() const;
 
 	void draw(sf::RenderWindow& w)const;
-	virtual void setPosition(sf::Vector2f pos);
+	void setPosition(sf::Vector2f pos);
 	void rotate(const float rotation);
 
 	virtual std::vector<Move> generateMoves() const  = 0;

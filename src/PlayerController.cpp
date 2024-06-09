@@ -13,7 +13,7 @@ bool PlayerController::playTurn(Move& move)
 {
 	bool firstClick = false;
 
-	rotateScreen();
+	//rotateScreen();
 
 	while (m_window.isOpen())
 	{

@@ -25,7 +25,8 @@ std::vector<Move> Pawn::generateMoves() const
     {
         moves.push_back({ pos, pos + forward });
         
-        if (m_firstMoveFlag && (!Board::instance().isOccupied(pos + forward * 2)))
+        //if (m_firstMoveFlag && (!Board::instance().isOccupied(pos + forward * 2)))
+        if (SpecialMove::instance().canDouble(pos) && (!Board::instance().isOccupied(pos + forward * 2)))
         {
             moves.push_back({ pos, pos + forward * 2 });
         }
@@ -68,13 +69,4 @@ std::vector<Move> Pawn::generateMoves() const
     }
 
     return moves;
-}
-
-void Pawn::setPosition(sf::Vector2f pos)
-{
-    m_piece.setPosition(pos);
-    if (m_firstMoveFlag > 0)
-    {
-        m_firstMoveFlag--;
-    }
 }

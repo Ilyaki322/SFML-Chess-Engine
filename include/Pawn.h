@@ -10,8 +10,6 @@ public:
 
 	std::vector<Move> generateMoves() const override;
 
-	void setPosition(sf::Vector2f pos) override;
-
 private:
 
 	int m_firstMoveFlag;

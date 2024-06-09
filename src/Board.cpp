@@ -38,6 +38,23 @@ bool Board::handleFirstClick(sf::Vector2f location, Color color)
 	if (m_tiles[x]->getPiece()->getColor() != color) return false;
 
 	m_moves = m_tiles[x]->getPiece()->generateMoves();
+	
+
+	for (auto i = m_moves.begin(); i != m_moves.end();)
+	{
+		makeMove(*i);
+		if (!SpecialMove::instance().update((*i).startSquare, (*i).targetSquare, AllMoves(), true))
+		{
+			undoMove(*i);
+			i = m_moves.erase(i);
+		}
+		else
+		{
+			undoMove(*i);
+			i++;
+		}	
+	}
+
 
 	m_tiles[x]->setColor(LAST_TURN_TILE);
 	for (const auto& move : m_moves)
@@ -74,7 +91,7 @@ bool Board::handleSecondClick(sf::Vector2f target, Move& move)
 			makeMove(i);
 			if (SpecialMove::instance().update(i.startSquare, i.targetSquare, AllMoves()))
 			{
-				undoMove(i);
+				//undoMove(i);
 				move = i;
 				return true;
 			}
@@ -117,6 +134,7 @@ void Board::draw(sf::RenderWindow& window)
 	for (int x = 0; x < 64; x++)
 	{
 		m_tiles[x]->draw(window);
+		debugTiles[x]->draw(window);
 	}
 }
 
@@ -163,8 +181,13 @@ void Board::initTiles()
 		{
 			m_tiles[i] = std::make_unique<Tile>(Tile(colors[(y+x) % 2], 
 				sf::Vector2f(float((x * TILE_SIZE) + 48), float((y * TILE_SIZE) + 48))));
+
+			debugTiles[i] = std::make_unique<Tile>(Tile(colors[(y + x) % 2],
+				sf::Vector2f(float(768 + (x * TILE_SIZE) + 48), float((y * TILE_SIZE) + 48))));
+			debugTiles[i]->setColor(sf::Color::Blue);
 		}
 	}
+
 }
 
 void Board::castle(Move move)

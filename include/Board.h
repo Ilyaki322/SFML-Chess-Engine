@@ -28,6 +28,11 @@ public:
 
 	std::vector<std::vector<Move>> AllMoves();
 
+	void debug(sf::Color color, int i)
+	{
+		debugTiles[i]->setColor(color);
+	}
+
 //====================================================
 
 private:
@@ -42,8 +47,8 @@ private:
 	void undoMove(Move move);
 
 	std::array <std::shared_ptr<Tile>, SIZE> m_tiles;
+	std::array <std::shared_ptr<Tile>, SIZE> debugTiles; // for threat debug
+	
 	std::vector<Move> m_moves;
-
-
 	std::shared_ptr<Pieces> m_temp;
 };

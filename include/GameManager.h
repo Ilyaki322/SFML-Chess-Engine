@@ -2,8 +2,8 @@
 #include "Board.h"
 #include "Controller.h"
 
-//const int ScreenSizeX = 1300, ScreenSizeY = 768;
-const int ScreenSizeX = 768, ScreenSizeY = 768;
+const int ScreenSizeX = 1536, ScreenSizeY = 768;
+//const int ScreenSizeX = 768, ScreenSizeY = 768;
 
 class GameManager {
 

@@ -35,11 +35,12 @@ public:
 	static SpecialMove& instance();
 	void setBoard(std::array<int, 64> /*, std::vector<std::vector<Move>> threats*/);
 	void handleThreats(int, std::vector<Move> threat );
-	bool update(int start, int end, std::vector<std::vector<Move>> threats);
+	bool update(int start, int end, std::vector<std::vector<Move>> threats, bool fakeMove = false);
 	bool enPassant (int i);
 	bool isCastle(int king , int rook); 
 	void castle(int king, int rook);
 	bool check(int color);
+	bool canDouble(const int pos) const;
 
 private:
 	SpecialMove();
