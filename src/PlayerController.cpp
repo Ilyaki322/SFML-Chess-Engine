@@ -27,8 +27,6 @@ bool PlayerController::playTurn(Move& move)
 			case sf::Event::Closed:
 				m_window.close();
 				break;
-
-				
 			case sf::Event::MouseButtonReleased:
 			{
 				auto location = m_window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
@@ -43,6 +41,7 @@ bool PlayerController::playTurn(Move& move)
 						firstClick = Board::instance().handleFirstClick(location, m_color);
 					}
 				}
+				
 			}
 			}
 		}

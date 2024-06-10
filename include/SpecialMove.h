@@ -15,6 +15,14 @@
 /// 
 
 
+enum EndMove {
+			EnPassant,
+			Castle,
+			Promotion,
+			Regular
+
+};
+
 enum Piece { 
 			KingVal = 1, 
 			PawnVal = 2, 
@@ -24,17 +32,15 @@ enum Piece {
 			QueenVal = 6 
 };
 
-//struct Move
-//{
-//	int startSquare;
-//	int targetSquare;
-//};
 
 class SpecialMove {
 public:
 	static SpecialMove& instance();
 	void setBoard(std::array<int, 64> /*, std::vector<std::vector<Move>> threats*/);
 	void handleThreats(int, std::vector<Move> threat );
+	bool fakeMove(Move move , std::vector<std::vector<Move>> threats);
+	EndMove MoveType(Move move)const;
+	void doMove(Move move);
 	bool update(int start, int end, std::vector<std::vector<Move>> threats, bool fakeMove = false);
 	bool enPassant (int i);
 	bool isCastle(int king , int rook); 
@@ -50,8 +56,7 @@ private:
 	std::array<int, 64> pieceArray;
 	std::array<int, 64> blackThreatArray; // This array sums all the threats to one square. white piece add 1 ans black add -1
 	std::array<int, 64> whiteThreatArray; // This array sums all the threats to one square. white piece add 1 ans black add -1
-	//std::array<int, 64> pinArray; // This array check all the roots to the king
-
+	
 	int m_bKing;
 	int m_wKing;
 	int m_passant;

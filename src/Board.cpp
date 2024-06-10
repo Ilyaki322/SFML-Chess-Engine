@@ -106,9 +106,32 @@ bool Board::handleSecondClick(sf::Vector2f target, Move& move)
 void Board::makeMove(Move move)
 {
 	if (move.startSquare == -1) return; // AI SKIP TURN
-
 	m_temp = m_tiles[move.targetSquare]->getPiece();
-	
+	EndMove end = SpecialMove::instance().MoveType(move);
+	std::cout << end << '\n';
+	//switch (end)
+	//{
+	//case EnPassant:{
+	//	int side = m_tiles[move.startSquare]->getPiece()->getColor() == White ? -1 : 1;
+	//	m_tiles[move.targetSquare]->placePiece(m_tiles[move.startSquare]->getPiece());
+	//	m_temp = m_tiles[move.startSquare + side]->getPiece();
+	//	m_tiles[move.startSquare]->placePiece(nullptr);
+	//	m_tiles[move.startSquare + side]->placePiece(nullptr);
+	//	break;
+	//}
+	//case Castle: {
+	//	castle(move);
+	//	break;
+	//}
+	////case Promotion:
+	////	break;
+	//case Regular: {
+	//	m_tiles[move.targetSquare]->placePiece(m_tiles[move.startSquare]->getPiece());
+	//	m_tiles[move.startSquare]->placePiece(nullptr);
+	//	break;
+	//}
+	//}
+
 	if (m_tiles[move.targetSquare]->isOccupied())
 	{
 		if (m_tiles[move.startSquare]->getPiece()->getColor() == 
@@ -118,9 +141,9 @@ void Board::makeMove(Move move)
 			return;
 		}
 	}
-	
 	m_tiles[move.targetSquare]->placePiece(m_tiles[move.startSquare]->getPiece());
 	m_tiles[move.startSquare]->placePiece(nullptr);
+
 }
 
 void Board::undoMove(Move move)
@@ -213,3 +236,6 @@ void Board::castle(Move move)
 	return;
 
 }
+
+
+

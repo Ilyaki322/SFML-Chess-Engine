@@ -3,6 +3,7 @@
 #include <string>
 #include <array>
 #include <memory>
+#include <unordered_set>
 
 class Pieces;
 
@@ -25,7 +26,6 @@ public:
 	void draw(sf::RenderWindow& window);
 	void setBoard(std::string FENstring);
 	void setRotation(const float rotation);
-
 	std::vector<std::vector<Move>> AllMoves();
 
 	void debug(sf::Color color, int i)
@@ -51,4 +51,5 @@ private:
 	
 	std::vector<Move> m_moves;
 	std::shared_ptr<Pieces> m_temp;
+	
 };
