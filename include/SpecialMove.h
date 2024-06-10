@@ -42,9 +42,14 @@ public:
 	EndMove MoveType(Move move)const;
 	void doMove(Move move, std::vector<std::vector<Move>> threats);
 	//bool update(int start, int end, std::vector<std::vector<Move>> threats, bool fakeMove = false);
+
 	bool enPassant (int i);
 	bool isCastle(int king , int rook); 
-	void castle(int king, int rook);
+
+	void castle(Move move, std::vector<std::vector<Move>> threats);
+	void enPassantMove(Move move, std::vector<std::vector<Move>> threats);
+	void promotionMove(Move move, std::vector<std::vector<Move>> threats, int promotedVal);
+
 	bool check(int color);
 	bool canDouble(const int pos) const;
 	void undo();

@@ -42,7 +42,9 @@ private:
 	Board& operator=(const Board&) = default;
 	void fakeMove(Move move);
 	void initTiles();
+
 	void castle(Move move);
+	void promotion(Move move);
 
 	void undoMove(Move move);
 

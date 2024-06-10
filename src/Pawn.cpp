@@ -2,6 +2,8 @@
 #include "Board.h"
 #include "SpecialMove.h"
 
+#include <iostream>
+
 Pawn::Pawn(sf::Texture &image, sf::Vector2f position, Color side)
     :Pieces(image,position,side), m_firstMoveFlag(2) {}
 
@@ -25,7 +27,6 @@ std::vector<Move> Pawn::generateMoves() const
     {
         moves.push_back({ pos, pos + forward });
         
-        //if (m_firstMoveFlag && (!Board::instance().isOccupied(pos + forward * 2)))
         if (SpecialMove::instance().canDouble(pos) && (!Board::instance().isOccupied(pos + forward * 2)))
         {
             moves.push_back({ pos, pos + forward * 2 });
@@ -65,17 +66,6 @@ std::vector<Move> Pawn::generateMoves() const
             {
                 moves.push_back({ pos, pos + forward + LEFT });
             }
-        }
-    }
-
-    for (auto& i : moves)
-    {
-        if (i.targetSquare - 8 < 0 || i.targetSquare + 8 > 64)
-        {
-            moves.push_back({pos, -2}); // queen
-            moves.push_back({pos, -3}); // bishop
-            moves.push_back({pos, -4}); // rook
-            moves.push_back({pos, -5}); // knight
         }
     }
 
