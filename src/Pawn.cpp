@@ -68,5 +68,16 @@ std::vector<Move> Pawn::generateMoves() const
         }
     }
 
+    for (auto& i : moves)
+    {
+        if (i.targetSquare - 8 < 0 || i.targetSquare + 8 > 64)
+        {
+            moves.push_back({pos, -2}); // queen
+            moves.push_back({pos, -3}); // bishop
+            moves.push_back({pos, -4}); // rook
+            moves.push_back({pos, -5}); // knight
+        }
+    }
+
     return moves;
 }

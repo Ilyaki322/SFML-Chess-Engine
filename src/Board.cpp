@@ -1,9 +1,10 @@
 #include "Board.h"
 #include "FenAlgorithm.h"
 #include "SpecialMove.h"
-
+#include "PiecesFactory.h"
 #include <iostream> // for debug
 #include <map>
+#include "Queen.h" // for promotion ?
 
 Board::Board()
 	:m_tiles() {}
@@ -39,11 +40,21 @@ bool Board::handleFirstClick(sf::Vector2f location, Color color)
 
 	m_moves = m_tiles[x]->getPiece()->generateMoves();
 	
-
 	for (auto i = m_moves.begin(); i != m_moves.end();)
 	{
-		makeMove(*i);
-		if (!SpecialMove::instance().update((*i).startSquare, (*i).targetSquare, AllMoves(), true))
+		if ((*i).targetSquare < 0)
+		{
+			i++;
+			continue;
+		}
+		if (SpecialMove::instance().MoveType(*i) != Regular)
+		{
+			i++;
+			continue;
+		}
+
+		fakeMove(*i);
+		if (!SpecialMove::instance().fakeMove(*i, AllMoves()))
 		{
 			undoMove(*i);
 			i = m_moves.erase(i);
@@ -78,8 +89,10 @@ bool Board::handleSecondClick(sf::Vector2f target, Move& move)
 
 	for (const auto& i : m_moves)
 	{
+		
 		if (i.targetSquare == targetX)
 		{
+			/*
 			if (m_tiles[i.targetSquare]->isOccupied())
 			{
 				if (m_tiles[i.startSquare]->getPiece()->getColor() == m_tiles[i.targetSquare]->getPiece()->getColor())
@@ -97,52 +110,68 @@ bool Board::handleSecondClick(sf::Vector2f target, Move& move)
 			}
 			undoMove(i);
 			return false;
+			*/
+			move = i;
+			std::cout << "RETURNED TRUE\n";
+			return true;
 		}
+		
 	}
-
 	return false;
 }
 
 void Board::makeMove(Move move)
 {
 	if (move.startSquare == -1) return; // AI SKIP TURN
+
 	m_temp = m_tiles[move.targetSquare]->getPiece();
+
 	EndMove end = SpecialMove::instance().MoveType(move);
 	std::cout << end << '\n';
-	//switch (end)
-	//{
-	//case EnPassant:{
-	//	int side = m_tiles[move.startSquare]->getPiece()->getColor() == White ? -1 : 1;
-	//	m_tiles[move.targetSquare]->placePiece(m_tiles[move.startSquare]->getPiece());
-	//	m_temp = m_tiles[move.startSquare + side]->getPiece();
-	//	m_tiles[move.startSquare]->placePiece(nullptr);
-	//	m_tiles[move.startSquare + side]->placePiece(nullptr);
-	//	break;
-	//}
-	//case Castle: {
-	//	castle(move);
-	//	break;
-	//}
-	////case Promotion:
-	////	break;
-	//case Regular: {
-	//	m_tiles[move.targetSquare]->placePiece(m_tiles[move.startSquare]->getPiece());
-	//	m_tiles[move.startSquare]->placePiece(nullptr);
-	//	break;
-	//}
-	//}
 
-	if (m_tiles[move.targetSquare]->isOccupied())
+	switch (end)
 	{
-		if (m_tiles[move.startSquare]->getPiece()->getColor() == 
-			m_tiles[move.targetSquare]->getPiece()->getColor())
-		{
-			castle(move);
-			return;
-		}
+	case EnPassant:
+	{
+		int side = m_tiles[move.startSquare]->getPiece()->getColor() == White ? 8 : -8;
+		m_temp = m_tiles[move.targetSquare + side]->getPiece();
+		m_tiles[move.targetSquare]->placePiece(m_tiles[move.startSquare]->getPiece());
+		m_tiles[move.startSquare]->placePiece(nullptr);
+		m_tiles[move.targetSquare + side]->placePiece(nullptr);
+
+		//SpecialMove::instance().enPassantMove(move, AllMoves());
+		break;
 	}
-	m_tiles[move.targetSquare]->placePiece(m_tiles[move.startSquare]->getPiece());
-	m_tiles[move.startSquare]->placePiece(nullptr);
+	case Castle:
+	{
+		castle(move);
+		break;
+	}
+	case Promotion:
+		m_tiles[move.startSquare]->placePiece(nullptr);
+		break;
+	case Regular:
+	{
+		std::cout << "start =  " << move.startSquare << " target = " << move.targetSquare << '\n';
+		m_tiles[move.targetSquare]->placePiece(m_tiles[move.startSquare]->getPiece());
+		m_tiles[move.startSquare]->placePiece(nullptr);
+		SpecialMove::instance().doMove(move, AllMoves());
+		break;
+	}
+	}
+
+	// if (m_tiles[move.targetSquare]->isOccupied())
+	// {
+	// 	if (m_tiles[move.startSquare]->getPiece()->getColor() == 
+	// 		m_tiles[move.targetSquare]->getPiece()->getColor())
+	// 	{
+	// 		castle(move);
+	// 		return;
+	// 	}
+	// }
+
+	// m_tiles[move.targetSquare]->placePiece(m_tiles[move.startSquare]->getPiece());
+	// m_tiles[move.startSquare]->placePiece(nullptr);
 
 }
 
@@ -150,6 +179,7 @@ void Board::undoMove(Move move)
 {
 	m_tiles[move.startSquare]->placePiece(m_tiles[move.targetSquare]->getPiece());
 	m_tiles[move.targetSquare]->placePiece(m_temp);
+	//SpecialMove::instance().undo();
 }
 
 void Board::draw(sf::RenderWindow& window)
@@ -235,6 +265,18 @@ void Board::castle(Move move)
 	m_tiles[move.targetSquare]->placePiece(nullptr);
 	return;
 
+}
+
+void Board::fakeMove(Move move)
+{
+	auto type = SpecialMove::instance().MoveType(move);
+	if (type != Regular) return;
+
+	m_temp = m_tiles[move.targetSquare]->getPiece();
+
+	m_tiles[move.targetSquare]->placePiece(m_tiles[move.startSquare]->getPiece());
+	m_tiles[move.startSquare]->placePiece(nullptr);
+	return;
 }
 
 

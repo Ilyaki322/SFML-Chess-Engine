@@ -48,12 +48,12 @@ void GameManager::run()
 
 		if (m_whiteTurn && m_whitePlayer->playTurn(move))
 		{
-			//Board::instance().makeMove(move);
+			Board::instance().makeMove(move);
 			m_whiteTurn = false;
 		}
 		if (!m_whiteTurn && m_blackPlayer->playTurn(move))
 		{
-			//Board::instance().makeMove(move);
+			Board::instance().makeMove(move);
 			m_whiteTurn = true;
 		}
 		

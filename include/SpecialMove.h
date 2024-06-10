@@ -40,19 +40,19 @@ public:
 	void handleThreats(int, std::vector<Move> threat );
 	bool fakeMove(Move move , std::vector<std::vector<Move>> threats);
 	EndMove MoveType(Move move)const;
-	void doMove(Move move);
-	bool update(int start, int end, std::vector<std::vector<Move>> threats, bool fakeMove = false);
+	void doMove(Move move, std::vector<std::vector<Move>> threats);
+	//bool update(int start, int end, std::vector<std::vector<Move>> threats, bool fakeMove = false);
 	bool enPassant (int i);
 	bool isCastle(int king , int rook); 
 	void castle(int king, int rook);
 	bool check(int color);
 	bool canDouble(const int pos) const;
+	void undo();
 
 private:
 	SpecialMove();
 	SpecialMove(const SpecialMove&) = default;
 	SpecialMove& operator=(const SpecialMove&) = default;
-	void undo(std::array<int, 64> white, std::array<int, 64> black, int start,int end,int undoEnd);
 	std::array<int, 64> pieceArray;
 	std::array<int, 64> blackThreatArray; // This array sums all the threats to one square. white piece add 1 ans black add -1
 	std::array<int, 64> whiteThreatArray; // This array sums all the threats to one square. white piece add 1 ans black add -1
@@ -60,5 +60,14 @@ private:
 	int m_bKing;
 	int m_wKing;
 	int m_passant;
-	
+
+
+	std::array<int, 64> backUpBlackThreatArray;
+	std::array<int, 64> backUpWhiteThreatArray;
+	int m_lastStart;
+	int m_lastTarget;
+	int m_lastBKing;
+	int m_lastWKing;
+	int m_lastPiece;
+
 };

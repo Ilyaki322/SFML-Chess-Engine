@@ -40,7 +40,7 @@ private:
 	Board();
 	Board(const Board&) = default;
 	Board& operator=(const Board&) = default;
-
+	void fakeMove(Move move);
 	void initTiles();
 	void castle(Move move);
 

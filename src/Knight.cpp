@@ -10,8 +10,6 @@ int Knight::getValue() const
 {
 	return 3;
 }
-
-
 std::vector<Move> Knight::generateMoves() const
 {
 	std::vector<Move> move;
