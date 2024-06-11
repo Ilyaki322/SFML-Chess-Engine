@@ -13,7 +13,7 @@ class Board
 {
 public:
 	static Board& instance();
-
+	void printAllMoves();
 	Pieces& getPieceAt(const int x);
 	const Pieces& getPieceAt(const int x) const;
 
@@ -53,5 +53,8 @@ private:
 	
 	std::vector<Move> m_moves;
 	std::shared_ptr<Pieces> m_temp;
-	
+
+	void testAllMoves(int i, int& num , bool white = true);
+	std::vector<std::vector<Move>> allWhiteMoves();
+	std::vector<std::vector<Move>> allBlackMoves();
 };

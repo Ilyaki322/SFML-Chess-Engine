@@ -58,7 +58,6 @@ bool Board::handleFirstClick(sf::Vector2f location, Color color)
 		{
 			undoMove(*i);
 			i = m_moves.erase(i);
-			std::cout << "ERASED A MOVE\n";
 		}
 		else
 		{
@@ -105,7 +104,6 @@ void Board::makeMove(Move move)
 	m_temp = m_tiles[move.targetSquare]->getPiece();
 
 	EndMove end = SpecialMove::instance().MoveType(move);
-	std::cout << end << '\n';
 
 	switch (end)
 	{
@@ -134,7 +132,6 @@ void Board::makeMove(Move move)
 
 	case Regular:
 	{
-		std::cout << "start =  " << move.startSquare << " target = " << move.targetSquare << '\n';
 		m_tiles[move.targetSquare]->placePiece(m_tiles[move.startSquare]->getPiece());
 		m_tiles[move.startSquare]->placePiece(nullptr);
 		SpecialMove::instance().doMove(move, AllMoves());
@@ -147,6 +144,46 @@ void Board::undoMove(Move move)
 {
 	m_tiles[move.startSquare]->placePiece(m_tiles[move.targetSquare]->getPiece());
 	m_tiles[move.targetSquare]->placePiece(m_temp);
+}
+
+void Board::testAllMoves(int size , int &num , bool white)
+{
+	if (size == 0) {
+		return;
+	}
+	std::vector<std::vector<Move>> allMoves  = white ? allWhiteMoves() : allBlackMoves() ;
+	for (auto i : allMoves)
+	{
+		for (auto move : i) {
+			num++;
+			if (SpecialMove::instance().MoveType(move) != Regular)
+			{
+				//makeMove(move);
+				//testAllMoves(size - 1, num);
+				//undoMove(move);
+			}
+			else {
+				fakeMove(move);
+				if (SpecialMove::instance().fakeMove(move, AllMoves()))
+				{
+					undoMove(move);
+					makeMove(move);
+					testAllMoves(size - 1, num , !white);
+				}
+				undoMove(move);
+			}
+		}
+		
+	}
+	std::cout << "in the " << size << " move we got:" << num << '\n';
+}
+
+void Board::printAllMoves()
+{
+	int num = 0 ;
+	testAllMoves(2 , num , false);
+
+	std::cout << num << " total\n";
 }
 
 void Board::draw(sf::RenderWindow& window)
@@ -183,6 +220,36 @@ std::vector<std::vector<Move>> Board::AllMoves()
 	for (int i = 0; i < 64; i++)
 	{
 		if (m_tiles[i]->isOccupied())
+		{
+			allMoves.push_back(m_tiles[i]->getPiece()->generateMoves());
+		}
+	}
+
+	return allMoves;
+}
+
+std::vector<std::vector<Move>> Board::allWhiteMoves()
+{
+	std::vector<std::vector<Move>> allMoves;
+
+	for (int i = 0; i < 64; i++)
+	{
+		if (m_tiles[i]->isOccupied() && m_tiles[i]->getPiece()->getColor() == White)
+		{
+			allMoves.push_back(m_tiles[i]->getPiece()->generateMoves());
+		}
+	}
+
+	return allMoves;
+}
+
+std::vector<std::vector<Move>> Board::allBlackMoves()
+{
+	std::vector<std::vector<Move>> allMoves;
+
+	for (int i = 0; i < 64; i++)
+	{
+		if (m_tiles[i]->isOccupied() && m_tiles[i]->getPiece()->getColor() == Black)
 		{
 			allMoves.push_back(m_tiles[i]->getPiece()->generateMoves());
 		}

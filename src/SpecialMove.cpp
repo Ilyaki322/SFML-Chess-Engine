@@ -128,24 +128,13 @@ bool SpecialMove::fakeMove(Move move ,  std::vector<std::vector<Move>> threats)
 	if (move.startSquare == m_wKing) m_wKing = move.targetSquare;
 
 	if (whiteThreatArray[m_bKing] != 0 && color == BLACK) {
-		std::cout << "1\n";
 		check = false;
 	}
 
 	if (blackThreatArray[m_wKing] != 0 && color == WHITE) {
-		std::cout << "START: " << move.startSquare << " TO: " << move.targetSquare << std::endl;
-		std::cout << blackThreatArray[m_wKing] << std::endl;
 		check= false;
 	}
 
-	///////////////////////////////////////////////////
-	//std::cout << "fake:\n";
-	//for (int i = 0; i < 64; i++) {
-	//	if (i % 8 == 0) {
-	//		std::cout << '\n';
-	//	}
-	//	std::cout << pieceArray[i] << ' ';
-	//}///////////////////////////////////////////////////
 
 	undo();
 
@@ -206,13 +195,7 @@ void SpecialMove::doMove(Move move , std::vector<std::vector<Move>> threats)
 
 	if (move.startSquare == m_bKing) m_bKing = move.targetSquare;
 	if (move.startSquare == m_wKing) m_wKing = move.targetSquare;
-	///////////////////////////////////////////////////
-	//for (int i = 0; i < 64; i++) {
-	//	if (i % 8 == 0) {
-	//		std::cout << '\n';
-	//	}
-	//	std::cout << pieceArray[i] << ' ';
-	//}///////////////////////////////////////////////////
+
 	int forward = color == WHITE ? 1 : -1;
 	int piece = pieceArray[move.targetSquare] & 0b111;
 	if (piece == PawnVal || piece == KingVal || piece == RookVal) {
