@@ -153,9 +153,11 @@ void Board::testAllMoves(int size , int &num , bool white)
 	}
 	std::vector<std::vector<Move>> allMoves  = white ? allWhiteMoves() : allBlackMoves() ;
 	for (auto i : allMoves)
+		for (auto move : i) 
+			num++;
+	for (auto i : allMoves)
 	{
 		for (auto move : i) {
-			num++;
 			if (SpecialMove::instance().MoveType(move) != Regular)
 			{
 				//makeMove(move);
@@ -168,7 +170,10 @@ void Board::testAllMoves(int size , int &num , bool white)
 				{
 					undoMove(move);
 					makeMove(move);
-					testAllMoves(size - 1, num , !white);
+					if (white)
+						testAllMoves(size, num , !white);
+					else
+						testAllMoves(size-1, num, !white);
 					SpecialMove::instance().undo();
 				}
 				undoMove(move);
@@ -182,7 +187,7 @@ void Board::testAllMoves(int size , int &num , bool white)
 void Board::printAllMoves()
 {
 	int num = 0 ;
-	testAllMoves(4 , num);
+	testAllMoves(2 , num);
 
 	std::cout << num << " total\n";
 }
