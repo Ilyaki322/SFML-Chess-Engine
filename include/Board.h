@@ -54,7 +54,7 @@ private:
 	std::vector<Move> m_moves;
 	std::shared_ptr<Pieces> m_temp;
 
-	void testAllMoves(int i, int& num , bool white = true);
+	int testAllMoves(int i, int num , bool white = true);
 	std::vector<std::vector<Move>> allWhiteMoves();
 	std::vector<std::vector<Move>> allBlackMoves();
 };

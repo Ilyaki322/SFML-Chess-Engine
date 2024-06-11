@@ -1,19 +1,18 @@
 #pragma once
 #include <array>
 #include <vector>
-#include <unordered_set>
-
+#include <list>
 #include "Pieces.h" // FOR MOVE STRUCT
-/// <summary>
-/// 
-/// en passent 
-/// castle
-/// chess
-/// promotion
-/// 
-/// </summary>
-/// 
 
+
+struct Stack {
+	Move move;
+	int lastWKing;
+	int lastBKing;
+	std::array<int, 64> backUpPieceArray;
+	std::array<int, 64> backUpBlackThreatArray;
+	std::array<int, 64> backUpWhiteThreatArray;
+};
 
 enum EndMove {
 			EnPassant,
@@ -62,17 +61,19 @@ private:
 	std::array<int, 64> blackThreatArray; // This array sums all the threats to one square. white piece add 1 ans black add -1
 	std::array<int, 64> whiteThreatArray; // This array sums all the threats to one square. white piece add 1 ans black add -1
 	
+	std::list<Stack> lastMoves;
+
 	int m_bKing;
 	int m_wKing;
 	int m_passant;
 
 
-	std::array<int, 64> backUpBlackThreatArray;
-	std::array<int, 64> backUpWhiteThreatArray;
-	int m_lastStart;
-	int m_lastTarget;
-	int m_lastBKing;
-	int m_lastWKing;
-	int m_lastPiece;
+	//std::array<int, 64> backUpBlackThreatArray;
+	//std::array<int, 64> backUpWhiteThreatArray;
+	//int m_lastStart;
+	//int m_lastTarget;
+	//int m_lastBKing;
+	//int m_lastWKing;
+	//int m_lastPiece;
 
 };

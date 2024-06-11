@@ -28,6 +28,7 @@ GameManager::GameManager()
 
 void GameManager::run()
 {
+	//Board::instance().printAllMoves();
 	sf::Vector2f source;
 	Move move;
 
@@ -35,7 +36,6 @@ void GameManager::run()
 	{
 		m_window.clear();
 		m_window.clear(sf::Color(125, 125, 125, 255));
-		Board::instance().printAllMoves();
 		for (auto event = sf::Event{}; m_window.pollEvent(event);)
 		{
 			switch (event.type)

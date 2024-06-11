@@ -10,12 +10,15 @@ SpecialMove::SpecialMove()
 
 void SpecialMove::undo()
 {
-	blackThreatArray = backUpBlackThreatArray;
-	whiteThreatArray = backUpWhiteThreatArray;
-	pieceArray[m_lastStart] = pieceArray[m_lastTarget];
-	pieceArray[m_lastTarget] = m_lastPiece;
-	m_bKing = m_lastBKing;
-	m_wKing = m_lastWKing;
+	auto backUp = lastMoves.begin();
+	blackThreatArray = backUp->backUpBlackThreatArray;
+	whiteThreatArray = backUp->backUpWhiteThreatArray;
+	pieceArray = backUp->backUpPieceArray;
+	m_bKing= backUp->lastBKing ;
+	m_wKing = backUp->lastWKing;
+	lastMoves.pop_front();
+
+
 	for (int i = 0; i < 64; i++)
 	{
 		Board::instance().debug(sf::Color::White, i);
@@ -65,13 +68,31 @@ void SpecialMove::setBoard(std::array<int, 64> arr /*, std::vector<std::vector<M
 		}
 	}
 
-	m_lastStart = m_lastTarget = 0;
+	struct Stack s;
+	s.backUpBlackThreatArray = blackThreatArray;
+	s.backUpWhiteThreatArray = whiteThreatArray;
+	s.backUpPieceArray = pieceArray;
+	s.lastBKing =  m_bKing; 
+	s.lastWKing = m_wKing;
+	lastMoves.push_front(s);
+	//for (int i = 0; i < 64; i++) {
+	//	if (i % 8 == 0)
+	//		std::cout << '\n';
+	//	std::cout << lastMoves.begin()->backUpPieceArray[i] << ' ';
+	//}
+	//std::cout << '\n';
+	//for (int i = 0; i < 64; i++) {
+	//	if (i % 8 == 0)
+	//		std::cout << '\n';
+	//	std::cout << pieceArray[i] << ' ';
+	//}
+	//m_lastStart = m_lastTarget = 0;
 
-	backUpBlackThreatArray = blackThreatArray;
-	backUpWhiteThreatArray = whiteThreatArray;
+	//backUpBlackThreatArray = blackThreatArray;
+	//backUpWhiteThreatArray = whiteThreatArray;
 
-	m_lastBKing = m_bKing;
-	m_lastWKing = m_wKing;
+	//m_lastBKing = m_bKing;
+	//m_lastWKing = m_wKing;
 }
 
 void SpecialMove::handleThreats(int pieceIndex , std::vector<Move> threat )
@@ -100,18 +121,61 @@ void SpecialMove::handleThreats(int pieceIndex , std::vector<Move> threat )
 
 bool SpecialMove::fakeMove(Move move ,  std::vector<std::vector<Move>> threats)
 {
+	//bool check = true;
+	//int color = (pieceArray[move.startSquare] & WHITE) > 0 ? WHITE : BLACK;
+	//backUpBlackThreatArray = blackThreatArray;
+	//backUpWhiteThreatArray = whiteThreatArray;
+	//for (int i = 0; i < 64; i++) {
+	//	blackThreatArray[i] = 0;
+	//	whiteThreatArray[i] = 0;
+	//	Board::instance().debug(sf::Color::White, i);
+	//}
+	//m_lastPiece = pieceArray[move.targetSquare];
+	//m_lastStart = move.startSquare;
+	//m_lastTarget = move.targetSquare;
+	//pieceArray[move.targetSquare] = pieceArray[move.startSquare];
+	//pieceArray[move.startSquare] = 0;
+
+	//for (int i = 0, j = 0; i < 64; i++) {
+	//	if (pieceArray[i] != 0) {
+	//		handleThreats(i, threats[j]);
+	//		j++;
+	//	}
+	//}
+	//m_lastBKing = m_bKing;
+	//m_lastWKing = m_wKing;
+	//
+	//if (move.startSquare == m_bKing) m_bKing = move.targetSquare;
+	//if (move.startSquare == m_wKing) m_wKing = move.targetSquare;
+
+	//if (whiteThreatArray[m_bKing] != 0 && color == BLACK) {
+	//	check = false;
+	//}
+
+	//if (blackThreatArray[m_wKing] != 0 && color == WHITE) {
+	//	check= false;
+	//}
+
+
+	//undo();
+
+	//return check;
+
+	struct Stack s;
+	s.backUpBlackThreatArray = blackThreatArray;
+	s.backUpWhiteThreatArray = whiteThreatArray;
+	s.backUpPieceArray = pieceArray;
+	s.lastBKing = m_bKing;
+	s.lastWKing = m_wKing;
+	lastMoves.push_front(s);
 	bool check = true;
 	int color = (pieceArray[move.startSquare] & WHITE) > 0 ? WHITE : BLACK;
-	backUpBlackThreatArray = blackThreatArray;
-	backUpWhiteThreatArray = whiteThreatArray;
 	for (int i = 0; i < 64; i++) {
 		blackThreatArray[i] = 0;
 		whiteThreatArray[i] = 0;
 		Board::instance().debug(sf::Color::White, i);
 	}
-	m_lastPiece = pieceArray[move.targetSquare];
-	m_lastStart = move.startSquare;
-	m_lastTarget = move.targetSquare;
+
 	pieceArray[move.targetSquare] = pieceArray[move.startSquare];
 	pieceArray[move.startSquare] = 0;
 
@@ -121,8 +185,7 @@ bool SpecialMove::fakeMove(Move move ,  std::vector<std::vector<Move>> threats)
 			j++;
 		}
 	}
-	m_lastBKing = m_bKing;
-	m_lastWKing = m_wKing;
+
 	
 	if (move.startSquare == m_bKing) m_bKing = move.targetSquare;
 	if (move.startSquare == m_wKing) m_wKing = move.targetSquare;
@@ -134,8 +197,6 @@ bool SpecialMove::fakeMove(Move move ,  std::vector<std::vector<Move>> threats)
 	if (blackThreatArray[m_wKing] != 0 && color == WHITE) {
 		check= false;
 	}
-
-
 	undo();
 
 	return check;
@@ -169,12 +230,55 @@ EndMove SpecialMove::MoveType(Move move)const
 
 void SpecialMove::doMove(Move move , std::vector<std::vector<Move>> threats)
 {
-	m_lastPiece = pieceArray[move.targetSquare];
-	m_lastStart = move.startSquare;
-	m_lastTarget = move.targetSquare;
-	m_lastBKing = m_bKing;
-	m_lastWKing = m_wKing;
-	
+	//m_lastPiece = pieceArray[move.targetSquare];
+	//m_lastStart = move.startSquare;
+	//m_lastTarget = move.targetSquare;
+	//m_lastBKing = m_bKing;
+	//m_lastWKing = m_wKing;
+	//
+	//int color = (pieceArray[move.startSquare] & WHITE) > 0 ? WHITE : BLACK;
+
+	//for (int i = 0; i < 64; i++) {
+	//	blackThreatArray[i] = 0;
+	//	whiteThreatArray[i] = 0;
+	//	Board::instance().debug(sf::Color::White, i);
+	//}
+
+	//pieceArray[move.targetSquare] = pieceArray[move.startSquare];
+	//pieceArray[move.startSquare] = 0;
+
+	//for (int i = 0, j = 0; i < 64; i++) {
+	//	if (pieceArray[i] != 0) {
+	//		handleThreats(i, threats[j]);
+	//		j++;
+	//	}
+	//}
+
+	//if (move.startSquare == m_bKing) m_bKing = move.targetSquare;
+	//if (move.startSquare == m_wKing) m_wKing = move.targetSquare;
+
+	//int forward = color == WHITE ? 1 : -1;
+	//int piece = pieceArray[move.targetSquare] & 0b111;
+	//if (piece == PawnVal || piece == KingVal || piece == RookVal) {
+	//	if ((pieceArray[move.targetSquare] & 32) > 0) {
+	//		pieceArray[move.targetSquare] = pieceArray[move.targetSquare] ^ 32;
+	//		if (move.startSquare - move.targetSquare == 16 * forward) {
+	//			m_passant = move.targetSquare;
+	//			return ;
+	//		}
+	//	}
+	//}
+	//m_passant = -1;
+
+
+	struct Stack s;
+	s.backUpBlackThreatArray = blackThreatArray;
+	s.backUpWhiteThreatArray = whiteThreatArray;
+	s.backUpPieceArray = pieceArray;
+	s.lastBKing = m_bKing;
+	s.lastWKing = m_wKing;
+	lastMoves.push_front(s);
+
 	int color = (pieceArray[move.startSquare] & WHITE) > 0 ? WHITE : BLACK;
 
 	for (int i = 0; i < 64; i++) {
@@ -203,12 +307,11 @@ void SpecialMove::doMove(Move move , std::vector<std::vector<Move>> threats)
 			pieceArray[move.targetSquare] = pieceArray[move.targetSquare] ^ 32;
 			if (move.startSquare - move.targetSquare == 16 * forward) {
 				m_passant = move.targetSquare;
-				return ;
+				return;
 			}
 		}
 	}
 	m_passant = -1;
-
 }
 
 //bool SpecialMove::update(int start , int end , std::vector<std::vector<Move>> threats, bool fakeMove)
@@ -303,6 +406,13 @@ bool SpecialMove::isCastle(int king ,int rook)
 
 void SpecialMove::castle(Move move, std::vector<std::vector<Move>> threats)
 {
+	struct Stack s;
+	s.backUpBlackThreatArray = blackThreatArray;
+	s.backUpWhiteThreatArray = whiteThreatArray;
+	s.backUpPieceArray = pieceArray;
+	s.lastBKing = m_bKing;
+	s.lastWKing = m_wKing;
+	lastMoves.push_front(s);
 	int color = (pieceArray[move.startSquare] & WHITE) > 0 ? WHITE : BLACK;
 	if (move.startSquare < move.targetSquare) {
 		pieceArray[move.targetSquare - 2] = pieceArray[move.targetSquare];
@@ -336,6 +446,13 @@ void SpecialMove::castle(Move move, std::vector<std::vector<Move>> threats)
 
 void SpecialMove::enPassantMove(Move move, std::vector<std::vector<Move>> threats)
 {
+	struct Stack s;
+	s.backUpBlackThreatArray = blackThreatArray;
+	s.backUpWhiteThreatArray = whiteThreatArray;
+	s.backUpPieceArray = pieceArray;
+	s.lastBKing = m_bKing;
+	s.lastWKing = m_wKing;
+	lastMoves.push_front(s);
 	int side = (pieceArray[move.startSquare] & WHITE) > 0 ? 8 : -8;
 
 	pieceArray[move.targetSquare] = pieceArray[move.startSquare];
@@ -359,6 +476,13 @@ void SpecialMove::enPassantMove(Move move, std::vector<std::vector<Move>> threat
 
 void SpecialMove::promotionMove(Move move, std::vector<std::vector<Move>> threats, int promotedVal)
 {
+	struct Stack s;
+	s.backUpBlackThreatArray = blackThreatArray;
+	s.backUpWhiteThreatArray = whiteThreatArray;
+	s.backUpPieceArray = pieceArray;
+	s.lastBKing = m_bKing;
+	s.lastWKing = m_wKing;
+	lastMoves.push_front(s);
 	int color = (pieceArray[move.startSquare] & 0b11000);
 	pieceArray[move.startSquare] = 0;
 	pieceArray[move.targetSquare] = promotedVal | color;

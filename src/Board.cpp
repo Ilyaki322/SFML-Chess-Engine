@@ -146,50 +146,54 @@ void Board::undoMove(Move move)
 	m_tiles[move.targetSquare]->placePiece(m_temp);
 }
 
-void Board::testAllMoves(int size , int &num , bool white)
+int Board::testAllMoves(int size , int num , bool white)
 {
 	if (size == 0) {
-		return;
+		return 1 ;
 	}
+
 	std::vector<std::vector<Move>> allMoves  = white ? allWhiteMoves() : allBlackMoves() ;
-	for (auto i : allMoves)
-		for (auto move : i) 
-			num++;
+	num = 0;
 	for (auto i : allMoves)
 	{
 		for (auto move : i) {
-			if (SpecialMove::instance().MoveType(move) != Regular)
+			EndMove e = SpecialMove::instance().MoveType(move);
+			if (  e != Regular)
 			{
-				//makeMove(move);
-				//testAllMoves(size - 1, num);
-				//undoMove(move);
+				std::cout << move.startSquare << " ! "<< e << " ! " << move.targetSquare << '\n';
+				makeMove(move);
+				if (white)
+					num+=testAllMoves(size, num, !white);
+				else
+					num+=testAllMoves(size - 1, num, !white);
+				SpecialMove::instance().undo();
+				undoMove(move);
 			}
 			else {
+				std::cout << move.startSquare << ' ' << move.targetSquare << '\n';
 				fakeMove(move);
 				if (SpecialMove::instance().fakeMove(move, AllMoves()))
 				{
 					undoMove(move);
 					makeMove(move);
 					if (white)
-						testAllMoves(size, num , !white);
+						num += testAllMoves(size, num, !white);
 					else
-						testAllMoves(size-1, num, !white);
+						num += testAllMoves(size - 1, num, !white);
 					SpecialMove::instance().undo();
+					undoMove(move);
 				}
-				undoMove(move);
 			}
 		}
-		
 	}
 	std::cout << "in the " << size << " move we got:" << num << '\n';
+	return num;
 }
 
 void Board::printAllMoves()
 {
 	int num = 0 ;
-	testAllMoves(2 , num);
-
-	std::cout << num << " total\n";
+	std::cout << testAllMoves(2, num) << " total\n";
 }
 
 void Board::draw(sf::RenderWindow& window)
@@ -230,7 +234,6 @@ std::vector<std::vector<Move>> Board::AllMoves()
 			allMoves.push_back(m_tiles[i]->getPiece()->generateMoves());
 		}
 	}
-
 	return allMoves;
 }
 
