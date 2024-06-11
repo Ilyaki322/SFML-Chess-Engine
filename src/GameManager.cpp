@@ -13,7 +13,7 @@ GameManager::GameManager()
 {
 	m_window.create(sf::VideoMode(ScreenSizeX, ScreenSizeY), "MainMenu");
 
-	Board::instance().setBoard("RNBQ1K1RPP1pBPPP2P582b58ppp1nNpprnbqk2r");//"RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr");
+	Board::instance().setBoard("RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr");//"RNBQ1K1RPP1pBPPP2P582b58ppp1nNpprnbqk2r");
 
 	m_whitePlayer = std::make_unique<PlayerController>(m_window, White);
 	m_blackPlayer = std::make_unique<PlayerController>(m_window, Black);

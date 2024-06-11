@@ -169,6 +169,7 @@ void Board::testAllMoves(int size , int &num , bool white)
 					undoMove(move);
 					makeMove(move);
 					testAllMoves(size - 1, num , !white);
+					SpecialMove::instance().undo();
 				}
 				undoMove(move);
 			}
@@ -181,7 +182,7 @@ void Board::testAllMoves(int size , int &num , bool white)
 void Board::printAllMoves()
 {
 	int num = 0 ;
-	testAllMoves(2 , num , false);
+	testAllMoves(4 , num);
 
 	std::cout << num << " total\n";
 }
