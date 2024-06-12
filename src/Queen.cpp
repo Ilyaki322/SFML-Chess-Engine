@@ -1,7 +1,7 @@
 #include "Queen.h"
 
-Queen::Queen(sf::Texture& image, sf::Vector2f position, Color side)
-	:Pieces(image, position, side) {}
+Queen::Queen(sf::Texture& image, sf::Vector2f position, Color side, char symbol)
+	:Pieces(image, position, side, symbol) {}
 
 
 int Queen::getValue() const

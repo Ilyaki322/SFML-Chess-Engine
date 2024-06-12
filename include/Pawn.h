@@ -4,7 +4,7 @@
 class Pawn : public Pieces {
 public:
 
-	Pawn(sf::Texture &image, sf::Vector2f position, Color side);
+	Pawn(sf::Texture &image, sf::Vector2f position, Color side, char symbol);
 
 	int getValue()const;
 

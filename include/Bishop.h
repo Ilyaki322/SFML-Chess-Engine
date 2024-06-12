@@ -4,7 +4,7 @@
 class Bishop : public Pieces {
 public:
 
-	Bishop(sf::Texture& image, sf::Vector2f position, Color side);
+	Bishop(sf::Texture& image, sf::Vector2f position, Color side, char symbol);
 
 	int getValue()const;
 

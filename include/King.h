@@ -4,7 +4,7 @@
 class King : public Pieces {
 public:
 
-	King(sf::Texture& image, sf::Vector2f position, Color side);
+	King(sf::Texture& image, sf::Vector2f position, Color side, char symbol);
 
 	int getValue()const;
 	

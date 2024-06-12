@@ -4,8 +4,8 @@
 
 #include <iostream>
 
-Pawn::Pawn(sf::Texture &image, sf::Vector2f position, Color side)
-    :Pieces(image,position,side), m_firstMoveFlag(2) {}
+Pawn::Pawn(sf::Texture &image, sf::Vector2f position, Color side, char symbol)
+    :Pieces(image,position,side,symbol), m_firstMoveFlag(2) {}
 
 
 int Pawn::getValue() const

@@ -1,8 +1,8 @@
 #include "Bishop.h"
 #include "Board.h"
 
-Bishop::Bishop(sf::Texture& image, sf::Vector2f position, Color side)
-	:Pieces(image, position, side) {}
+Bishop::Bishop(sf::Texture& image, sf::Vector2f position, Color side, char symbol)
+	:Pieces(image, position, side , symbol) {}
 
 
 int Bishop::getValue() const

@@ -4,7 +4,7 @@
 class Rook : public Pieces {
 public:
 
-	Rook(sf::Texture& image, sf::Vector2f position, Color side);
+	Rook(sf::Texture& image, sf::Vector2f position, Color side, char symbol);
 
 	int getValue()const;
 	

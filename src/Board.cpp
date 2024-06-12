@@ -25,6 +25,11 @@ const Pieces& Board::getPieceAt(const int x) const
 	return *m_tiles[x]->getPiece();
 }
 
+std::shared_ptr<Pieces> Board::getPiece(const int x)
+{
+	return m_tiles[x]->getPiece();
+}
+
 bool Board::isOccupied(const int x) const
 {
 	return m_tiles[x]->isOccupied();
@@ -147,7 +152,7 @@ int Board::testAllMoves(int size , int num , bool white)
 		return 1 ;
 	}
 
-	std::vector<std::vector<Move>> allMoves  = white ? allWhiteMoves() : allBlackMoves() ;
+	std::vector<std::vector<Move>> allMoves  = white ? allMovesOf(WHITE) : allMovesOf(BLACK) ;
 	num = 0;
 	for (auto i : allMoves)
 	{
@@ -231,13 +236,13 @@ std::vector<std::vector<Move>> Board::AllMoves()
 	return allMoves;
 }
 
-std::vector<std::vector<Move>> Board::allWhiteMoves()
+std::vector<std::vector<Move>> Board::allMovesOf(int color)
 {
 	std::vector<std::vector<Move>> allMoves;
 
 	for (int i = 0; i < SIZE; i++)
 	{
-		if (m_tiles[i]->isOccupied() && m_tiles[i]->getPiece()->getColor() == White)
+		if (m_tiles[i]->isOccupied() && m_tiles[i]->getPiece()->getColor() == color)
 		{
 			allMoves.push_back(m_tiles[i]->getPiece()->generateMoves());
 		}
@@ -246,20 +251,7 @@ std::vector<std::vector<Move>> Board::allWhiteMoves()
 	return allMoves;
 }
 
-std::vector<std::vector<Move>> Board::allBlackMoves()
-{
-	std::vector<std::vector<Move>> allMoves;
 
-	for (int i = 0; i < SIZE; i++)
-	{
-		if (m_tiles[i]->isOccupied() && m_tiles[i]->getPiece()->getColor() == Black)
-		{
-			allMoves.push_back(m_tiles[i]->getPiece()->generateMoves());
-		}
-	}
-
-	return allMoves;
-}
 
 void Board::initTiles()
 {

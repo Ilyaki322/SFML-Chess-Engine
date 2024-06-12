@@ -2,8 +2,8 @@
 #include "Board.h"
 
 
-Knight::Knight(sf::Texture& image, sf::Vector2f position, Color side)
-	:Pieces(image, position, side) {}
+Knight::Knight(sf::Texture& image, sf::Vector2f position, Color side, char symbol)
+	:Pieces(image, position, side, symbol) {}
 
 
 int Knight::getValue() const

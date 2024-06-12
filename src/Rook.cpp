@@ -1,8 +1,8 @@
 #include "Rook.h"
 
 
-Rook::Rook(sf::Texture& image, sf::Vector2f position, Color side)
-    :Pieces(image, position, side), m_moved(false) {}
+Rook::Rook(sf::Texture& image, sf::Vector2f position, Color side, char symbol)
+	:Pieces(image, position, side, symbol) {}
 
 
 int Rook::getValue() const

@@ -7,7 +7,6 @@ class Controller
 public:
 
 	Controller(Color color) : m_color(color){};
-
 	virtual bool playTurn(Move& move) = 0;
 
 private:

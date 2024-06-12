@@ -2,8 +2,8 @@
 #include "Board.h"
 #include "SpecialMove.h"
 
-King::King(sf::Texture& image, sf::Vector2f position, Color side)
-	:Pieces(image, position, side)  , m_moved(false) {}
+King::King(sf::Texture& image, sf::Vector2f position, Color side, char symbol)
+	:Pieces(image, position, side, symbol) {}
 
 
 int King::getValue() const

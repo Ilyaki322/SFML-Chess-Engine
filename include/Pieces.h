@@ -9,7 +9,7 @@ class Pieces {
 public:
 
 	virtual ~Pieces() = default;
-	Pieces(sf::Texture &image , sf::Vector2f position ,Color side);
+	Pieces(sf::Texture &image , sf::Vector2f position ,Color side , char symbol);
 
 	int getValue()const;
 	int getPosition() const;
@@ -20,7 +20,8 @@ public:
 	void rotate(const float rotation);
 
 	virtual std::vector<Move> generateMoves() const  = 0;
-	
+	char getSymbol();
+
 private:
 
 	
@@ -32,4 +33,5 @@ protected:
 
 	sf::Sprite m_piece;
 	Color m_side;
+	char symbol;
 };

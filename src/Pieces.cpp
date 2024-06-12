@@ -2,8 +2,8 @@
 #include "Board.h"
 #include <iostream>
 
-Pieces::Pieces(sf::Texture& image, sf::Vector2f position, Color side)
-	: m_side(side), m_value(0)
+Pieces::Pieces(sf::Texture& image, sf::Vector2f position, Color side , char symbol)
+	: m_side(side), m_value(0) , symbol(symbol)
 {
 	m_piece.setPosition(position);
 	m_piece.setOrigin(image.getSize().x / 2.f, image.getSize().y / 2.f);
@@ -29,6 +29,11 @@ void Pieces::setPosition(sf::Vector2f pos)
 void Pieces::rotate(const float rotation)
 {
 	m_piece.setRotation(rotation);
+}
+
+char Pieces::getSymbol()
+{
+	return symbol;
 }
 
 /*
