@@ -4,11 +4,11 @@
 #include <array>
 #include <memory>
 #include <unordered_set>
+#include "Tile.h"
+#include "Utilities.h"
 
 class Pieces;
 
-#include "Tile.h"
-const int SIZE = 64;
 class Board
 {
 public:
@@ -28,10 +28,7 @@ public:
 	void setRotation(const float rotation);
 	std::vector<std::vector<Move>> AllMoves();
 
-	void debug(sf::Color color, int i)
-	{
-		debugTiles[i]->setColor(color);
-	}
+
 
 //====================================================
 
@@ -49,7 +46,6 @@ private:
 	void undoMove(Move move);
 
 	std::array <std::shared_ptr<Tile>, SIZE> m_tiles;
-	std::array <std::shared_ptr<Tile>, SIZE> debugTiles; // for threat debug
 	
 	std::vector<Move> m_moves;
 	std::shared_ptr<Pieces> m_temp;

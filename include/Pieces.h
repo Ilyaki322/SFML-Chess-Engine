@@ -2,26 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <utility>
-
-const int BLACK = 16;
-const int WHITE = 8;
-
-enum Color {White = WHITE , Black = BLACK};
-
-struct Move
-{
-	int startSquare;
-	int targetSquare;
-};
-
-const int LEFT = -1;
-const int RIGHT = 1;
-const int TOP_RIGHT = -7;
-const int TOP_LEFT = -9;
-const int BOT_LEFT = 7;
-const int BOT_RIGHT = 9;
-const int UP = -8;
-const int DOWN = 8;
+#include "Utilities.h"
 
 
 class Pieces {

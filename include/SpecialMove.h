@@ -3,44 +3,19 @@
 #include <vector>
 #include <list>
 #include "Pieces.h" // FOR MOVE STRUCT
+#include "Utilities.h"
 
-
-struct Stack {
-	Move move;
-	int lastWKing;
-	int lastBKing;
-	std::array<int, 64> backUpPieceArray;
-	std::array<int, 64> backUpBlackThreatArray;
-	std::array<int, 64> backUpWhiteThreatArray;
-};
-
-enum EndMove {
-			EnPassant,
-			Castle,
-			Promotion,
-			Regular
-
-};
-
-enum Piece { 
-			KingVal = 1, 
-			PawnVal = 2, 
-			KnightVal = 3, 
-			BishopVal = 4, 
-			RookVal = 5, 
-			QueenVal = 6 
-};
 
 
 class SpecialMove {
 public:
 	static SpecialMove& instance();
-	void setBoard(std::array<int, 64> /*, std::vector<std::vector<Move>> threats*/);
+	void setBoard(std::array<int, 64>);
 	void handleThreats(int, std::vector<Move> threat );
 	bool fakeMove(Move move , std::vector<std::vector<Move>> threats);
 	EndMove MoveType(Move move)const;
 	void doMove(Move move, std::vector<std::vector<Move>> threats);
-	//bool update(int start, int end, std::vector<std::vector<Move>> threats, bool fakeMove = false);
+	
 
 	bool enPassant (int i);
 	bool isCastle(int king , int rook); 
@@ -60,7 +35,7 @@ private:
 	std::array<int, 64> pieceArray;
 	std::array<int, 64> blackThreatArray; // This array sums all the threats to one square. white piece add 1 ans black add -1
 	std::array<int, 64> whiteThreatArray; // This array sums all the threats to one square. white piece add 1 ans black add -1
-	
+	void save();
 	std::list<Stack> lastMoves;
 
 	int m_bKing;

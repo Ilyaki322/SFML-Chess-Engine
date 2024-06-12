@@ -32,8 +32,8 @@ bool Board::isOccupied(const int x) const
 
 bool Board::handleFirstClick(sf::Vector2f location, Color color)
 {
-	int y = int(location.y / 96);
-	int x = int(location.x / 96 + y*8);
+	int y = int(location.y / TILE_SIZE);
+	int x = int(location.x / TILE_SIZE + y*DOWN);
 
 	if (!m_tiles[x]->isOccupied()) return false;
 	if (m_tiles[x]->getPiece()->getColor() != color) return false;
@@ -42,11 +42,6 @@ bool Board::handleFirstClick(sf::Vector2f location, Color color)
 	
 	for (auto i = m_moves.begin(); i != m_moves.end();)
 	{
-		/*if ((*i).targetSquare < 0)
-		{
-			i++;
-			continue;
-		}*/
 		if (SpecialMove::instance().MoveType(*i) != Regular)
 		{
 			i++;
@@ -77,13 +72,13 @@ bool Board::handleFirstClick(sf::Vector2f location, Color color)
 
 bool Board::handleSecondClick(sf::Vector2f target, Move& move)
 {
-	for (int i = 0; i < 64; i++)
+	for (int i = 0; i < SIZE; i++)
 	{
 		m_tiles[i]->resetColor();
 	}
 
-	int y = int(target.y / 96);
-	int x = int(target.x / 96);
+	int y = int(target.y / TILE_SIZE);
+	int x = int(target.x / TILE_SIZE);
 	int targetX = x+y*8;
 
 	for (const auto& i : m_moves)
@@ -198,10 +193,9 @@ void Board::printAllMoves()
 
 void Board::draw(sf::RenderWindow& window)
 {
-	for (int x = 0; x < 64; x++)
+	for (int x = 0; x < SIZE; x++)
 	{
 		m_tiles[x]->draw(window);
-		debugTiles[x]->draw(window);
 	}
 }
 
@@ -217,7 +211,7 @@ void Board::setBoard(std::string FENstring)
 
 void Board::setRotation(const float rotation)
 {
-	for (int i = 0; i < 64; i++)
+	for (int i = 0; i < SIZE; i++)
 	{
 		m_tiles[i]->rotatePiece(rotation);
 	}
@@ -227,7 +221,7 @@ std::vector<std::vector<Move>> Board::AllMoves()
 {
 	std::vector<std::vector<Move>> allMoves;
 
-	for (int i = 0; i < 64; i++)
+	for (int i = 0; i < SIZE; i++)
 	{
 		if (m_tiles[i]->isOccupied())
 		{
@@ -241,7 +235,7 @@ std::vector<std::vector<Move>> Board::allWhiteMoves()
 {
 	std::vector<std::vector<Move>> allMoves;
 
-	for (int i = 0; i < 64; i++)
+	for (int i = 0; i < SIZE; i++)
 	{
 		if (m_tiles[i]->isOccupied() && m_tiles[i]->getPiece()->getColor() == White)
 		{
@@ -256,7 +250,7 @@ std::vector<std::vector<Move>> Board::allBlackMoves()
 {
 	std::vector<std::vector<Move>> allMoves;
 
-	for (int i = 0; i < 64; i++)
+	for (int i = 0; i < SIZE; i++)
 	{
 		if (m_tiles[i]->isOccupied() && m_tiles[i]->getPiece()->getColor() == Black)
 		{
@@ -277,10 +271,6 @@ void Board::initTiles()
 		{
 			m_tiles[i] = std::make_unique<Tile>(Tile(colors[(y+x) % 2], 
 				sf::Vector2f(float((x * TILE_SIZE) + 48), float((y * TILE_SIZE) + 48))));
-
-			debugTiles[i] = std::make_unique<Tile>(Tile(colors[(y + x) % 2],
-				sf::Vector2f(float(768 + (x * TILE_SIZE) + 48), float((y * TILE_SIZE) + 48))));
-			debugTiles[i]->setColor(sf::Color::Blue);
 		}
 	}
 
