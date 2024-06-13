@@ -1,9 +1,8 @@
 #include "GameManager.h"
 #include "PlayerController.h"
 #include "AIController.h"
+#include "Utilities.h"
 
-
-#include "Pieces.h" // FOR ENUM CHANGE LATER
 #include <iostream> // debug
 #include "Assets.h" // for font
 
@@ -13,53 +12,66 @@ GameManager::GameManager()
 {
 	m_window.create(sf::VideoMode(ScreenSizeX, ScreenSizeY), "MainMenu");
 
-	Board::instance().setBoard("RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr");//"RNBQ1K1RPP1pBPPP2P582b58ppp1nNpprnbqk2r");
+	//Board::instance().setBoard("RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr");//"RNBQ1K1RPP1pBPPP2P582b58ppp1nNpprnbqk2r");
 
 	m_whitePlayer = std::make_unique<PlayerController>(m_window, White);
 	//m_blackPlayer = std::make_unique<PlayerController>(m_window, Black);
 	m_blackPlayer = std::make_unique<AIController>(Black);
 
-	m_test.setFont(Assets::instance().getFont());
-	m_test.setCharacterSize(10);
-	m_test.setFillColor(sf::Color::Red);
-	m_test.setString("TEST TEST TEST");
-	m_test.setPosition(100, 100);
+
 }
 
-void GameManager::run()
+void GameManager::update()
 {
-	//Board::instance().printAllMoves();
-	sf::Vector2f source;
-	Move move;
-
 	while (m_window.isOpen())
 	{
-		m_window.clear();
-		m_window.clear(sf::Color(125, 125, 125, 255));
-		for (auto event = sf::Event{}; m_window.pollEvent(event);)
-		{
-			switch (event.type)
-			{
-			case sf::Event::Closed:
-				m_window.close();
-				break;
-			}
-		}
+		handleEvents();
 
-		if (m_whiteTurn && m_whitePlayer->playTurn(move))
+		if (m_whiteTurn && m_whitePlayer->turnReady())
 		{
-			Board::instance().makeMove(move);
+			//Board::instance().makeMove(move);
 			m_whiteTurn = false;
 		}
-		if (!m_whiteTurn && m_blackPlayer->playTurn(move))
+		if (!m_whiteTurn && m_blackPlayer->turnReady())
 		{
-			Board::instance().makeMove(move);
+			//Board::instance().makeMove(move);
 			m_whiteTurn = true;
 		}
-		
 
-		Board::instance().draw(m_window);
-		m_window.draw(m_test);
-		m_window.display();
+		draw();
+	}
+}
+
+void GameManager::draw()
+{
+	m_window.clear();
+	m_window.clear(sf::Color(125, 125, 125, 255));
+	//Board::instance().draw(m_window);
+	m_sfmlBoard.draw(m_window);
+	m_window.display();
+}
+
+void GameManager::handleEvents()
+{
+	for (auto event = sf::Event{}; m_window.pollEvent(event);)
+	{
+		switch (event.type)
+		{
+		case sf::Event::Closed:
+			m_window.close();
+			break;
+
+		default:
+			notify(event);
+		}
+	}
+}
+
+void GameManager::notify(sf::Event& event)
+{
+	Color color = (m_whiteTurn) ? White : Black;
+	for (auto& i : m_observers)
+	{
+		i->eventUpdate(event, color);
 	}
 }

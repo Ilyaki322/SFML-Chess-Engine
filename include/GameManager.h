@@ -1,19 +1,24 @@
 #pragma once
 #include "Board.h"
 #include "Controller.h"
+#include "SFMLBoard.h"
+#include "IObservable.h"
 
 const int ScreenSizeX = 1536, ScreenSizeY = 768;
 //const int ScreenSizeX = 768, ScreenSizeY = 768;
 
-class GameManager {
-
+class GameManager : public IObservable
+{
 public:
-
 	GameManager ();
 
-	void run(); // need to add the type of game (against computer/ puzzle / friend)
+	void update();
 
 private:
+
+	void notify(sf::Event& event) override;
+	void draw();
+	void handleEvents();
 
 	sf::RenderWindow m_window;
 
@@ -22,6 +27,6 @@ private:
 
 	std::unique_ptr<Controller> m_whitePlayer;
 	std::unique_ptr<Controller> m_blackPlayer;
-
-	sf::Text m_test;
+	
+	SFMLBoard m_sfmlBoard;
 };

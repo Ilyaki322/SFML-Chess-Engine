@@ -1,10 +1,12 @@
 #pragma once 
 #include <array>
+#include <SFML/Graphics.hpp>
 
 const int SIZE = 64;
 const int FirstRow = 8 , LastRow = 55;
 const int Moved = 32;
 const int BKingBegin = 4, WKingBegin = 60;
+
 enum EndMove {
 	EnPassant,
 	Castle,
@@ -75,3 +77,13 @@ const sf::Color ERROR_TILE = sf::Color::Red;
 const sf::Color LAST_TURN_TILE = sf::Color(255, 165, 0);
 
 const int TILE_SIZE = 96;
+
+/*
+static int vectorToInt(sf::Vector2f v)
+{
+	int y = int(v.y / TILE_SIZE);
+	int x = int(v.x / TILE_SIZE + y * DOWN);
+
+	return x;
+}
+*/

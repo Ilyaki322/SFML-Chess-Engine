@@ -17,17 +17,24 @@ Board& Board::instance()
 
 Pieces& Board::getPieceAt(const int x)
 {
-	return *m_tiles[x]->getPiece();
+	PiecesFactory f;
+	auto hui = f.create('p', { 0,0 }, Black);
+	return *hui;
+	//return *m_tiles[x]->getPiece();
 }
 
 const Pieces& Board::getPieceAt(const int x) const
 {
-	return *m_tiles[x]->getPiece();
+	PiecesFactory f;
+	auto hui = f.create('p', { 0,0 }, Black);
+	return *hui;
+	//return *m_tiles[x]->getPiece();
 }
 
 std::shared_ptr<Pieces> Board::getPiece(const int x)
 {
-	return m_tiles[x]->getPiece();
+	//return m_tiles[x]->getPiece();
+	return nullptr;
 }
 
 bool Board::isOccupied(const int x) const
@@ -37,7 +44,7 @@ bool Board::isOccupied(const int x) const
 
 bool Board::handleFirstClick(sf::Vector2f location, Color color)
 {
-	int y = int(location.y / TILE_SIZE);
+	/*int y = int(location.y / TILE_SIZE);
 	int x = int(location.x / TILE_SIZE + y*DOWN);
 
 	if (!m_tiles[x]->isOccupied()) return false;
@@ -70,7 +77,7 @@ bool Board::handleFirstClick(sf::Vector2f location, Color color)
 	for (const auto& move : m_moves)
 	{
 		m_tiles[move.targetSquare]->setColor(MOVEABLE_TILE);
-	}
+	}*/
 	
 	return true;
 }
@@ -99,51 +106,51 @@ bool Board::handleSecondClick(sf::Vector2f target, Move& move)
 
 void Board::makeMove(Move move)
 {
-	if (move.startSquare == -1) return; // AI SKIP TURN
+	//if (move.startSquare == -1) return; // AI SKIP TURN
 
-	m_temp = m_tiles[move.targetSquare]->getPiece();
+	//m_temp = m_tiles[move.targetSquare]->getPiece();
 
-	EndMove end = SpecialMove::instance().MoveType(move);
+	//EndMove end = SpecialMove::instance().MoveType(move);
 
-	switch (end)
-	{
+	//switch (end)
+	//{
 
-	case EnPassant:
-	{
-		int side = m_tiles[move.startSquare]->getPiece()->getColor() == White ? 8 : -8;
-		m_temp = m_tiles[move.targetSquare + side]->getPiece();
-		m_tiles[move.targetSquare]->placePiece(m_tiles[move.startSquare]->getPiece());
-		m_tiles[move.startSquare]->placePiece(nullptr);
-		m_tiles[move.targetSquare + side]->placePiece(nullptr);
+	//case EnPassant:
+	//{
+	//	int side = m_tiles[move.startSquare]->getPiece()->getColor() == White ? 8 : -8;
+	//	m_temp = m_tiles[move.targetSquare + side]->getPiece();
+	//	m_tiles[move.targetSquare]->placePiece(m_tiles[move.startSquare]->getPiece());
+	//	m_tiles[move.startSquare]->placePiece(nullptr);
+	//	m_tiles[move.targetSquare + side]->placePiece(nullptr);
 
-		SpecialMove::instance().enPassantMove(move, AllMoves());
-		break;
-	}
+	//	SpecialMove::instance().enPassantMove(move, AllMoves());
+	//	break;
+	//}
 
-	case Castle:
-	{
-		castle(move);
-		break;
-	}
+	//case Castle:
+	//{
+	//	castle(move);
+	//	break;
+	//}
 
-	case Promotion:
-		promotion(move);
-		break;
+	//case Promotion:
+	//	promotion(move);
+	//	break;
 
-	case Regular:
-	{
-		m_tiles[move.targetSquare]->placePiece(m_tiles[move.startSquare]->getPiece());
-		m_tiles[move.startSquare]->placePiece(nullptr);
-		SpecialMove::instance().doMove(move, AllMoves());
-		break;
-	}
-	}
+	//case Regular:
+	//{
+	//	m_tiles[move.targetSquare]->placePiece(m_tiles[move.startSquare]->getPiece());
+	//	m_tiles[move.startSquare]->placePiece(nullptr);
+	//	SpecialMove::instance().doMove(move, AllMoves());
+	//	break;
+	//}
+	//}
 }
 
 void Board::undoMove(Move move)
 {
-	m_tiles[move.startSquare]->placePiece(m_tiles[move.targetSquare]->getPiece());
-	m_tiles[move.targetSquare]->placePiece(m_temp);
+	/*m_tiles[move.startSquare]->placePiece(m_tiles[move.targetSquare]->getPiece());
+	m_tiles[move.targetSquare]->placePiece(m_temp);*/
 }
 
 int Board::testAllMoves(int size , int num , bool white)
@@ -206,12 +213,12 @@ void Board::draw(sf::RenderWindow& window)
 
 void Board::setBoard(std::string FENstring)
 {
-	std::array<int, SIZE> square = { 0 };
+	/*std::array<int, SIZE> square = { 0 };
 
 	initTiles();
 	FenAlgorithm algo;
 	algo.setBoard(m_tiles, square, FENstring);
-	SpecialMove::instance().setBoard(square);
+	SpecialMove::instance().setBoard(square);*/
 }
 
 void Board::setRotation(const float rotation)
@@ -226,13 +233,13 @@ std::vector<std::vector<Move>> Board::AllMoves()
 {
 	std::vector<std::vector<Move>> allMoves;
 
-	for (int i = 0; i < SIZE; i++)
+	/*for (int i = 0; i < SIZE; i++)
 	{
 		if (m_tiles[i]->isOccupied())
 		{
 			allMoves.push_back(m_tiles[i]->getPiece()->generateMoves());
 		}
-	}
+	}*/
 	return allMoves;
 }
 
@@ -240,13 +247,13 @@ std::vector<std::vector<Move>> Board::allMovesOf(int color)
 {
 	std::vector<std::vector<Move>> allMoves;
 
-	for (int i = 0; i < SIZE; i++)
+	/*for (int i = 0; i < SIZE; i++)
 	{
 		if (m_tiles[i]->isOccupied() && m_tiles[i]->getPiece()->getColor() == color)
 		{
 			allMoves.push_back(m_tiles[i]->getPiece()->generateMoves());
 		}
-	}
+	}*/
 
 	return allMoves;
 }
@@ -270,7 +277,7 @@ void Board::initTiles()
 
 void Board::castle(Move move)
 {
-	auto king = m_tiles[move.startSquare]->getPiece();
+	/*auto king = m_tiles[move.startSquare]->getPiece();
 	auto rook = m_tiles[move.targetSquare]->getPiece();
 	
 	if (move.startSquare < move.targetSquare)
@@ -288,13 +295,13 @@ void Board::castle(Move move)
 	m_tiles[move.startSquare]->placePiece(nullptr);
 	m_tiles[move.targetSquare]->placePiece(nullptr);
 
-	SpecialMove::instance().castle(move, AllMoves());
+	SpecialMove::instance().castle(move, AllMoves());*/
 	return;
 }
 
 void Board::promotion(Move move)
 {
-	char piece;
+	/*char piece;
 	(m_tiles[move.startSquare]->getPiece()->getColor() == White) ? piece = 'q' : piece = 'Q';
 
 	PiecesFactory factory;
@@ -303,19 +310,19 @@ void Board::promotion(Move move)
 	m_tiles[move.startSquare]->placePiece(nullptr);
 	m_tiles[move.targetSquare]->placePiece(promotedPiece);
 
-	SpecialMove::instance().promotionMove(move, AllMoves(), QueenVal);
+	SpecialMove::instance().promotionMove(move, AllMoves(), QueenVal);*/
 }
 
 void Board::fakeMove(Move move)
 {
-	auto type = SpecialMove::instance().MoveType(move);
+	/*auto type = SpecialMove::instance().MoveType(move);
 	if (type != Regular) return;
 
 	m_temp = m_tiles[move.targetSquare]->getPiece();
 
 	m_tiles[move.targetSquare]->placePiece(m_tiles[move.startSquare]->getPiece());
 	m_tiles[move.startSquare]->placePiece(nullptr);
-	return;
+	return;*/
 }
 
 

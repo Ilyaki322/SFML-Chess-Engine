@@ -1,58 +1,73 @@
 #include "PlayerController.h"
 #include "Board.h"
-
-#include <iostream>
+#include "GameManager.h"
 #include "Assets.h"
 
-PlayerController::PlayerController(sf::RenderWindow& window, Color color)
-	: Controller(color), m_window(window), m_isMakingMove(false), m_firstClick(true)
+
+PlayerController::PlayerController(GameManager& manager, sf::RenderWindow& window, Color color)
+	: IObserver(manager), Controller(color), m_window(window),
+	  m_firstClick(true), m_turnReady(false)
 {}
 
 
-bool PlayerController::playTurn(Move& move)
+bool PlayerController::turnReady()
 {
-	bool firstClick = false;
-
-	//rotateScreen();
-
-	while (m_window.isOpen())
-	{
-		m_window.clear();
-		m_window.clear(sf::Color(125, 125, 125, 255));
-
-		for (auto event = sf::Event{}; m_window.pollEvent(event);)
-		{
-			switch (event.type)
-			{
-			case sf::Event::Closed:
-				m_window.close();
-				break;
-			case sf::Event::MouseButtonReleased:
-			{
-				auto location = m_window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
-				sf::RectangleShape tempShape({ 768.f,768.f });
-
-				if (tempShape.getGlobalBounds().contains(location)) {
-					if (firstClick) {
-						firstClick = false;
-						return Board::instance().handleSecondClick(location, move);
-					}
-					else {
-						firstClick = Board::instance().handleFirstClick(location, m_color);
-					}
-				}
-				
-			}
-			}
-		}
-		Board::instance().draw(m_window);
-		m_window.display();
-	}
-
-	return false;
+	return m_turnReady;
 }
 
 
+Move PlayerController::playTurn()
+{
+	//bool firstClick = false;
+
+	////rotateScreen();
+
+	//while (m_window.isOpen())
+	//{
+	//	m_window.clear();
+	//	m_window.clear(sf::Color(125, 125, 125, 255));
+
+	//	for (auto event = sf::Event{}; m_window.pollEvent(event);)
+	//	{
+	//		switch (event.type)
+	//		{
+	//		case sf::Event::Closed:
+	//			m_window.close();
+	//			break;
+	//		case sf::Event::MouseButtonReleased:
+	//		{
+	//			auto location = m_window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
+	//			sf::RectangleShape tempShape({ 768.f,768.f });
+
+	//			if (tempShape.getGlobalBounds().contains(location)) {
+	//				if (firstClick) {
+	//					firstClick = false;
+	//					return Board::instance().handleSecondClick(location, move);
+	//				}
+	//				else {
+	//					firstClick = Board::instance().handleFirstClick(location, m_color);
+	//				}
+	//			}
+	//			
+	//		}
+	//		}
+	//	}
+	//	Board::instance().draw(m_window);
+	//	m_window.display();
+	//}
+
+	//return false;
+}
+
+void PlayerController::eventUpdate(sf::Event& event, Color color)
+{
+	if (event.type != sf::Event::MouseButtonReleased || color != m_color)
+	{
+		return;
+	}
+
+
+}
 
 
 void PlayerController::rotateScreen()

@@ -1,19 +1,18 @@
 #pragma once
-#include "Pieces.h"
 
-#include <SFML/Graphics.hpp>
+#include "SFMLPiece.h"
+#include "SFML/Graphics.hpp"
 #include "Utilities.h"
 
 class Tile
 {
 public:
+
 	Tile(sf::Color defaultColor, sf::Vector2f pos);
+
 	bool isOccupied() const;
 
-	std::shared_ptr<Pieces> getPiece();
-	const std::shared_ptr<Pieces> getPiece() const;
-
-	void placePiece(std::shared_ptr<Pieces> pieces);
+	void placePiece(std::unique_ptr<SFMLPiece> piece);
 	void setColor(const sf::Color& color);
 	void resetColor();
 	void draw(sf::RenderWindow& window);
@@ -23,7 +22,7 @@ public:
 
 private:
 
-	std::shared_ptr<Pieces> m_piece;
+	std::unique_ptr<SFMLPiece> m_piece;
 	
 	sf::RectangleShape m_tile;
 	const sf::Color m_defaultColor;

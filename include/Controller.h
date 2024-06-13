@@ -5,15 +5,10 @@
 class Controller
 {
 public:
-
 	Controller(Color color) : m_color(color){};
-	virtual bool playTurn(Move& move) = 0;
-
-private:
-
-
+	virtual Move playTurn() = 0;
+	virtual bool turnReady() = 0;
 
 protected:
-
 	Color m_color;
 };

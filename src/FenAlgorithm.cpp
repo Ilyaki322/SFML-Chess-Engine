@@ -2,7 +2,7 @@
 #include "Assets.h"
 #include "Board.h"
 #include "Pieces.h"
-#include "PiecesFactory.h"
+//#include "PiecesFactory.h"
 
 FenAlgorithm::FenAlgorithm()
 {
@@ -14,9 +14,9 @@ FenAlgorithm::FenAlgorithm()
 	m_piecesMap['q'] = 6;
 }
 
-void FenAlgorithm::setBoard(std::array<std::shared_ptr<Tile>, 64> &tiles, std::array<int, 64>& squares, std::string stage)
+void FenAlgorithm::setBoard(/*std::array<std::shared_ptr<Tile>, 64> &tiles, */std::array<int, 64>& squares, std::string stage)
 {
-	PiecesFactory theCreator;
+	//PiecesFactory theCreator;
 	for (int j = 0, point = 0; j < 64 && point < stage.size(); j++, point++) {
 		if (isdigit(stage[point])) {
 
@@ -24,7 +24,8 @@ void FenAlgorithm::setBoard(std::array<std::shared_ptr<Tile>, 64> &tiles, std::a
 			j += temp - 1;
 			continue;
 		}
-		tiles[j]->placePiece(theCreator.create(stage[point], tiles[j]->getPosition(), isupper(stage[point]) ? Black : White));
+
+		//tiles[j]->placePiece(theCreator.create(stage[point], tiles[j]->getPosition(), isupper(stage[point]) ? Black : White));
 
 		int color = isupper(stage[point]) ? 16 : 8;
 		squares[j] = m_piecesMap[char(tolower(stage[point]))] | color | 32;

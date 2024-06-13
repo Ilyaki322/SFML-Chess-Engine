@@ -1,15 +1,20 @@
 #pragma once
 #include "Controller.h"
+#include "IObserver.h"
 
 #include <SFML/Graphics.hpp>
 
-class PlayerController : public Controller
+class GameManager;
+
+class PlayerController : public Controller, public IObserver
 {
 public:
+	PlayerController(GameManager& manager, sf::RenderWindow& window, Color color);
 
-	PlayerController(sf::RenderWindow& window, Color color);
+	bool turnReady() override;
+	Move playTurn() override;
 
-	bool playTurn(Move& move) override;
+	void eventUpdate(sf::Event& event, Color color) override;
 
 private:
 
@@ -17,8 +22,9 @@ private:
 
 	sf::RenderWindow& m_window;
 
-	bool m_isMakingMove;
 	sf::Vector2i m_startPosition;
 	sf::Vector2i m_endPosition;
+
 	bool m_firstClick;
+	bool m_turnReady;
 };

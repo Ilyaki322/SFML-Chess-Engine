@@ -7,12 +7,18 @@ AIController::AIController(Color color)
     depth = 1;
 }
 
-bool AIController::playTurn(Move& bestMove)
+bool AIController::turnReady()
 {
+    return true;
+}
+
+Move AIController::playTurn()
+{
+    Move bestMove = { -1, -1 };
     int bestValue = (m_color == WHITE) ? std::numeric_limits<int>::min() : std::numeric_limits<int>::max();
     std::vector<std::vector<Move>> allMoves = Board::instance().allMovesOf(m_color);
     for (auto i : allMoves) {
-        for (auto move : i) {
+        for (auto &move : i) {
             EndMove e = SpecialMove::instance().MoveType(move);
             if (e != Regular){
                 Board::instance().makeMove(move);
@@ -38,7 +44,7 @@ bool AIController::playTurn(Move& bestMove)
             }
         }
     }
-	return true;
+	return bestMove;
 }
 
 int AIController::minimax(int depth, int alpha, int beta, bool maximizingPlayer)
