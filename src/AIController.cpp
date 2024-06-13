@@ -4,7 +4,7 @@
 AIController::AIController(Color color)
     :Controller(color)
 {
-    depth = 3;
+    depth = 1;
 }
 
 bool AIController::playTurn(Move& bestMove)
