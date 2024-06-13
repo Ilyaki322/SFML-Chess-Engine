@@ -24,8 +24,24 @@ enum Piece {
 
 struct Move
 {
+	//--- for normal move
 	int startSquare;
 	int targetSquare;
+
+	//--- for specialMove
+
+	int specialStartSquare;
+	int SpecialTargetSquare;
+	Piece promotionVal;
+
+	/*
+	* example specialMove:
+	*	enPassant --> startSquare = start  -- targetSquare = end -- SpecialStart = start -- speciaTarget = enpassant pawn 
+	*	castle --> startSquare = start  -- targetSquare = start+2 -- SpecialStart = RookPlace -- specialTarget = rookPlac-2 
+	*	promotion --> startSquare = start  -- targetSquare = end -- promotionVal = val;
+	*	
+	*/
+	
 };
 struct Stack {
 	Move move;
@@ -41,6 +57,8 @@ const int WHITE = 8;
 
 enum Color { White = WHITE, Black = BLACK };
 
+
+enum MovementDirection { All = 0,  Forward = 8 ,  Diagonal1 = 9  , Diagonal2 = 7 , Side = 1 };
 
 const int LEFT = -1;
 const int RIGHT = 1;
