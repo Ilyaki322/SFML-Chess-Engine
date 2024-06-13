@@ -2,11 +2,14 @@
 #include "Board.h"
 #include "GameManager.h"
 #include "Assets.h"
+#include "SFMLBoard.h"
+
+#include <iostream> // debug
 
 
-PlayerController::PlayerController(GameManager& manager, sf::RenderWindow& window, Color color)
+PlayerController::PlayerController(GameManager& manager, sf::RenderWindow& window, Color color, SFMLBoard& board)
 	: IObserver(manager), Controller(color), m_window(window),
-	  m_firstClick(true), m_turnReady(false)
+	  m_firstClick(true), m_turnReady(false), m_sfmlBoard(board)
 {}
 
 
@@ -18,23 +21,11 @@ bool PlayerController::turnReady()
 
 Move PlayerController::playTurn()
 {
+	Move move = { -1, -1 };
 	//bool firstClick = false;
 
 	////rotateScreen();
 
-	//while (m_window.isOpen())
-	//{
-	//	m_window.clear();
-	//	m_window.clear(sf::Color(125, 125, 125, 255));
-
-	//	for (auto event = sf::Event{}; m_window.pollEvent(event);)
-	//	{
-	//		switch (event.type)
-	//		{
-	//		case sf::Event::Closed:
-	//			m_window.close();
-	//			break;
-	//		case sf::Event::MouseButtonReleased:
 	//		{
 	//			auto location = m_window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
 	//			sf::RectangleShape tempShape({ 768.f,768.f });
@@ -57,6 +48,9 @@ Move PlayerController::playTurn()
 	//}
 
 	//return false;
+
+	m_turnReady = false;
+	return move;
 }
 
 void PlayerController::eventUpdate(sf::Event& event, Color color)
@@ -66,7 +60,32 @@ void PlayerController::eventUpdate(sf::Event& event, Color color)
 		return;
 	}
 
+	auto location = m_window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y }); 
+	sf::RectangleShape tempShape({ 768.f,768.f });
 
+	if (tempShape.getGlobalBounds().contains(location))
+	{
+		if (m_firstClick)
+		{
+			if (m_sfmlBoard.clickedOnCorrectPiece(location, m_color))
+			{
+				int y = int(location.y / TILE_SIZE);
+				int x = int(location.x / TILE_SIZE + y * DOWN);
+
+				sf::Color color;
+				m_color == Black ? color = sf::Color::Black : color = sf::Color::White;
+				m_sfmlBoard.colorTiles(x, color);
+				m_firstClick = false;
+			}
+			
+		}
+		else
+		{
+			m_sfmlBoard.resetTileColors();
+			m_firstClick = true;
+			m_turnReady = true;
+		}
+	}
 }
 
 

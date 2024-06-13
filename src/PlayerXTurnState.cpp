@@ -1,4 +1,7 @@
 #include "PlayerXTurnState.h"
+#include "GameManager.h"
+
+#include <iostream>
 
 PlayerXTurnState::PlayerXTurnState(GameManager& manager, const int player, const int players)
 	: GameState(manager), m_numOfPlayers(players), m_playerNum(player)
@@ -12,6 +15,7 @@ void PlayerXTurnState::execute()
 	{
 		auto move = m_playerController->playTurn();
 		// tell board to update
+		m_manager.nextTurn();
 		m_manager.setState(std::make_unique<PlayerXTurnState>(m_manager, ((m_playerNum + 1) % m_numOfPlayers), m_numOfPlayers));
 	}
 }

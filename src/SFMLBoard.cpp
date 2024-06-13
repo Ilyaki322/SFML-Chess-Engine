@@ -7,14 +7,7 @@
 
 SFMLBoard::SFMLBoard()
 {
-	int hui[64] = { 0,0,0,0,0,0,0,0,
-				   0,18,17,18,19,18,20,0,
-				   0,0,0,0,0,0,0,0,
-				   0,0,0,0,0,0,0,0,
-				   0,0,0,0,0,0,0,0,
-				   0,0,0,0,0,0,0,0,
-				   0,10,9,10,11,10,0,0,
-				   0,0,0,0,0,0,0,0, };
+	
 	initTiles();
 	initBoard(hui);
 }
@@ -52,5 +45,34 @@ void SFMLBoard::draw(sf::RenderWindow& window)
 	for (int x = 0; x < SIZE; x++)
 	{
 		m_tiles[x]->draw(window);
+	}
+}
+
+bool SFMLBoard::clickedOnCorrectPiece(sf::Vector2f pos, Color color)
+{
+	int y = int(pos.y / TILE_SIZE);
+	int x = int(pos.x / TILE_SIZE + y * DOWN);
+
+	if (x < 0 || x > 60) return false;
+	
+	Color c = ((hui[x] & 0b10000) > 0) ? Black : White;
+	if (m_tiles[x]->isOccupied() && c == color)
+	{
+		return true;
+	}
+
+	return false;
+}
+
+void SFMLBoard::colorTiles(int tile, sf::Color& color)
+{
+	m_tiles[tile]->setColor(color);
+}
+
+void SFMLBoard::resetTileColors()
+{
+	for (auto& i : m_tiles)
+	{
+		i->resetColor();
 	}
 }

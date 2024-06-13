@@ -1,7 +1,7 @@
 #pragma once
-#include "IObservable.h"
+//#include "IObservable.h"
 #include "Utilities.h"
-
+class IObservable;
 class IObserver
 {
 public:

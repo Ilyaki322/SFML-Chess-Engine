@@ -7,5 +7,6 @@ void IObservable::add(IObserver& obs)
 
 void IObservable::remove(IObserver& obs)
 {
-	std::remove(m_observers.begin(), m_observers.end(), obs);
+	//std::remove(m_observers.begin(), m_observers.end(), &obs);
+	m_observers.erase(std::find(m_observers.begin(), m_observers.end(), &obs));
 }

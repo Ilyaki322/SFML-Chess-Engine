@@ -1,10 +1,10 @@
 #pragma once
-#include "GameManager.h"
 
+class GameManager;
 class GameState
 {
 public:
-	GameState(GameManager& manager) : m_manager(manager) {};
+	GameState(GameManager& manager);
 	virtual ~GameState() {};
 
 	virtual void execute() = 0; 

@@ -3,11 +3,11 @@
 #include "Controller.h"
 #include "SFMLBoard.h"
 #include "IObservable.h"
+#include "GameState.h"
 
 const int ScreenSizeX = 1536, ScreenSizeY = 768;
 //const int ScreenSizeX = 768, ScreenSizeY = 768;
 
-class GameState;
 class GameManager : public IObservable
 {
 public:
@@ -15,6 +15,7 @@ public:
 
 	void update();
 	void setState(std::unique_ptr<GameState> newState);
+	void nextTurn();
 
 	Controller* getPlayer(const int i);
 

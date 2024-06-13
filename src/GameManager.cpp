@@ -2,7 +2,6 @@
 #include "PlayerController.h"
 #include "AIController.h"
 #include "Utilities.h"
-#include "GameState.h"
 #include "PlayerXTurnState.h"
 
 #include <iostream> // debug
@@ -20,9 +19,10 @@ GameManager::GameManager()
 	//m_blackPlayer = std::make_unique<PlayerController>(m_window, Black);
 	//m_blackPlayer = std::make_unique<AIController>(Black);
 
-	m_currentState = std::make_unique<PlayerXTurnState>(*this, 2, 0);
-	m_players.push_back(std::make_unique<PlayerController>(m_window, White));
-	m_players.push_back(std::make_unique<PlayerController>(m_window, Black));
+	m_players.push_back(std::make_unique<PlayerController>(*this, m_window, White, m_sfmlBoard));
+	m_players.push_back(std::make_unique<PlayerController>(*this, m_window, Black, m_sfmlBoard));
+
+	m_currentState = std::make_unique<PlayerXTurnState>(*this, 0, 2);
 
 }
 
@@ -30,16 +30,6 @@ void GameManager::update()
 {
 	while (m_window.isOpen())
 	{
-		//if (m_whiteTurn && m_whitePlayer->turnReady())
-		//{
-		//	//Board::instance().makeMove(move);
-		//	m_whiteTurn = false;
-		//}
-		//if (!m_whiteTurn && m_blackPlayer->turnReady())
-		//{
-		//	//Board::instance().makeMove(move);
-		//	m_whiteTurn = true;
-		//}
 		handleEvents();
 		m_currentState->draw();
 		m_currentState->execute();
@@ -51,7 +41,6 @@ void GameManager::draw()
 {
 	m_window.clear();
 	m_window.clear(sf::Color(125, 125, 125, 255));
-	//Board::instance().draw(m_window);
 	m_sfmlBoard.draw(m_window);
 	m_window.display();
 }
@@ -68,6 +57,7 @@ void GameManager::handleEvents()
 
 		default:
 			notify(event);
+			break;
 		}
 	}
 }
@@ -89,4 +79,9 @@ Controller* GameManager::getPlayer(const int i)
 void GameManager::setState(std::unique_ptr<GameState> newState)
 {
 	m_currentState = std::move(newState);
+}
+
+void GameManager::nextTurn()
+{
+	m_whiteTurn = !m_whiteTurn;
 }

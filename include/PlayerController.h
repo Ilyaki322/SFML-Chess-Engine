@@ -5,11 +5,12 @@
 #include <SFML/Graphics.hpp>
 
 class GameManager;
+class SFMLBoard;
 
 class PlayerController : public Controller, public IObserver
 {
 public:
-	PlayerController(GameManager& manager, sf::RenderWindow& window, Color color);
+	PlayerController(GameManager& manager, sf::RenderWindow& window, Color color, SFMLBoard& board);
 
 	bool turnReady() override;
 	Move playTurn() override;
@@ -21,9 +22,7 @@ private:
 	void rotateScreen();
 
 	sf::RenderWindow& m_window;
-
-	sf::Vector2i m_startPosition;
-	sf::Vector2i m_endPosition;
+	SFMLBoard& m_sfmlBoard;
 
 	bool m_firstClick;
 	bool m_turnReady;
