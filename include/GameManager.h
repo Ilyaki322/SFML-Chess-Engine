@@ -7,12 +7,16 @@
 const int ScreenSizeX = 1536, ScreenSizeY = 768;
 //const int ScreenSizeX = 768, ScreenSizeY = 768;
 
+class GameState;
 class GameManager : public IObservable
 {
 public:
-	GameManager ();
+	GameManager();
 
 	void update();
+	void setState(std::unique_ptr<GameState> newState);
+
+	Controller* getPlayer(const int i);
 
 private:
 
@@ -25,8 +29,10 @@ private:
 	bool m_firstClick;
 	bool m_whiteTurn;
 
-	std::unique_ptr<Controller> m_whitePlayer;
-	std::unique_ptr<Controller> m_blackPlayer;
-	
+	//std::unique_ptr<Controller> m_whitePlayer;
+	//std::unique_ptr<Controller> m_blackPlayer;
+	std::vector<std::unique_ptr<Controller>> m_players;
+	std::unique_ptr<GameState> m_currentState;
+
 	SFMLBoard m_sfmlBoard;
 };

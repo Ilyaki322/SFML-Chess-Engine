@@ -2,9 +2,12 @@
 #include "PlayerController.h"
 #include "AIController.h"
 #include "Utilities.h"
+#include "GameState.h"
+#include "PlayerXTurnState.h"
 
 #include <iostream> // debug
 #include "Assets.h" // for font
+
 
 GameManager::GameManager()
 	//: m_board("RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr")
@@ -13,11 +16,13 @@ GameManager::GameManager()
 	m_window.create(sf::VideoMode(ScreenSizeX, ScreenSizeY), "MainMenu");
 
 	//Board::instance().setBoard("RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr");//"RNBQ1K1RPP1pBPPP2P582b58ppp1nNpprnbqk2r");
-
-	m_whitePlayer = std::make_unique<PlayerController>(m_window, White);
+	//m_whitePlayer = std::make_unique<PlayerController>(m_window, White);
 	//m_blackPlayer = std::make_unique<PlayerController>(m_window, Black);
-	m_blackPlayer = std::make_unique<AIController>(Black);
+	//m_blackPlayer = std::make_unique<AIController>(Black);
 
+	m_currentState = std::make_unique<PlayerXTurnState>(*this, 2, 0);
+	m_players.push_back(std::make_unique<PlayerController>(m_window, White));
+	m_players.push_back(std::make_unique<PlayerController>(m_window, Black));
 
 }
 
@@ -25,19 +30,19 @@ void GameManager::update()
 {
 	while (m_window.isOpen())
 	{
+		//if (m_whiteTurn && m_whitePlayer->turnReady())
+		//{
+		//	//Board::instance().makeMove(move);
+		//	m_whiteTurn = false;
+		//}
+		//if (!m_whiteTurn && m_blackPlayer->turnReady())
+		//{
+		//	//Board::instance().makeMove(move);
+		//	m_whiteTurn = true;
+		//}
 		handleEvents();
-
-		if (m_whiteTurn && m_whitePlayer->turnReady())
-		{
-			//Board::instance().makeMove(move);
-			m_whiteTurn = false;
-		}
-		if (!m_whiteTurn && m_blackPlayer->turnReady())
-		{
-			//Board::instance().makeMove(move);
-			m_whiteTurn = true;
-		}
-
+		m_currentState->draw();
+		m_currentState->execute();
 		draw();
 	}
 }
@@ -74,4 +79,14 @@ void GameManager::notify(sf::Event& event)
 	{
 		i->eventUpdate(event, color);
 	}
+}
+
+Controller* GameManager::getPlayer(const int i)
+{
+	return m_players[i].get();
+}
+
+void GameManager::setState(std::unique_ptr<GameState> newState)
+{
+	m_currentState = std::move(newState);
 }

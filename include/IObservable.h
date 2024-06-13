@@ -1,5 +1,6 @@
 #pragma once
 #include "IObserver.h"
+#include "SFML/Graphics.hpp"
 
 #include <vector>
 
