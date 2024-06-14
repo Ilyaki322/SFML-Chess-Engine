@@ -3,18 +3,18 @@
 #include "AIController.h"
 #include "Utilities.h"
 #include "PlayerXTurnState.h"
+#include "NBoard.h"
 
 #include <iostream> // debug
 #include "Assets.h" // for font
 
 
-GameManager::GameManager()
-	//: m_board("RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr")
-	: m_firstClick(false), m_whiteTurn(true)
+GameManager::GameManager(std::array<int, SIZE> board)
+	//: m_board("RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr") //"RNBQ1K1RPP1pBPPP2P582b58ppp1nNpprnbqk2r");
+	: m_firstClick(false), m_whiteTurn(true), m_sfmlBoard(board)
 {
 	m_window.create(sf::VideoMode(ScreenSizeX, ScreenSizeY), "MainMenu");
 
-	//Board::instance().setBoard("RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr");//"RNBQ1K1RPP1pBPPP2P582b58ppp1nNpprnbqk2r");
 	//m_whitePlayer = std::make_unique<PlayerController>(m_window, White);
 	//m_blackPlayer = std::make_unique<PlayerController>(m_window, Black);
 	//m_blackPlayer = std::make_unique<AIController>(Black);

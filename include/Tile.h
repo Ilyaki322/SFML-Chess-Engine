@@ -13,6 +13,7 @@ public:
 	bool isOccupied() const;
 
 	void placePiece(std::unique_ptr<SFMLPiece> piece);
+	std::unique_ptr<SFMLPiece> getPiece();
 	void setColor(const sf::Color& color);
 	void resetColor();
 	void draw(sf::RenderWindow& window);

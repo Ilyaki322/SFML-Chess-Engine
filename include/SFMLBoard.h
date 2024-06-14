@@ -10,11 +10,12 @@
 
 //class Tile;
 class SFMLPiece;
+class NBoard;
 
 class SFMLBoard
 {
 public:
-	SFMLBoard();
+	SFMLBoard(std::array<int, SIZE> board);
 
 	void draw(sf::RenderWindow& window);
 	bool clickedOnCorrectPiece(sf::Vector2f pos, Color);
@@ -22,19 +23,22 @@ public:
 	void colorTiles(int tile, const sf::Color& color);
 	void resetTileColors();
 
+	void makeMove(Move move);
+
 private:
 
 	void initTiles();
-	void initBoard(const int board[64]);
+	void initBoard(std::array<int, SIZE> board);
 
 	std::array<std::unique_ptr<Tile>, SIZE> m_tiles;
+	NBoard& m_BoardRef;
 
-	int hui[64] = { 0,0,0,0,0,0,0,0,
+	/*int hui[64] = { 0,0,0,0,0,0,0,0,
 				   0,18,17,18,19,18,20,0,
 				   0,0,0,0,0,0,0,0,
 				   0,0,0,0,0,0,0,0,
 				   0,0,0,0,0,0,0,0,
 				   0,0,0,0,0,0,0,0,
 				   0,10,9,10,11,10,0,0,
-				   0,0,0,0,0,0,0,0, };
+				   0,0,0,0,0,0,0,0, };*/
 };

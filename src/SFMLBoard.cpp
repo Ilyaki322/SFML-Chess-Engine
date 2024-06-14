@@ -1,15 +1,16 @@
 #include "SFMLBoard.h"
 #include "Tile.h"
 #include "SFMLPieceFactory.h"
+#include "NBoard.h"
 
 #include <map>
 #include <SFML/Graphics.hpp>
 
-SFMLBoard::SFMLBoard()
+SFMLBoard::SFMLBoard(std::array<int, SIZE> board)
+	: m_BoardRef(NBoard::instance())
 {
-	
 	initTiles();
-	initBoard(hui);
+	initBoard(board);
 }
 
 
@@ -27,7 +28,7 @@ void SFMLBoard::initTiles()
 	}
 }
 
-void SFMLBoard::initBoard(const int const board[64])
+void SFMLBoard::initBoard(std::array<int, SIZE> board)
 {
 	SFMLPieceFactory factory;
 
@@ -55,7 +56,7 @@ bool SFMLBoard::clickedOnCorrectPiece(sf::Vector2f pos, Color color)
 
 	if (x < 0 || x > 60) return false;
 	
-	Color c = ((hui[x] & 0b10000) > 0) ? Black : White;
+	Color c = ((m_BoardRef.m_board[x] & 0b10000) > 0) ? Black : White;
 	if (m_tiles[x]->isOccupied() && c == color)
 	{
 		return true;
@@ -75,4 +76,21 @@ void SFMLBoard::resetTileColors()
 	{
 		i->resetColor();
 	}
+}
+
+void SFMLBoard::makeMove(Move move)
+{
+	m_BoardRef.move(move);
+
+	m_tiles[move.targetSquare]->placePiece(m_tiles[move.startSquare]->getPiece());
+	m_tiles[move.startSquare]->placePiece(nullptr);
+
+	if (move.specialStartSquare == -1)
+	{
+		return;
+	}
+
+	m_tiles[move.specialTargetSquare]->placePiece(m_tiles[move.specialStartSquare]->getPiece());
+	m_tiles[move.specialStartSquare]->placePiece(nullptr);
+	
 }

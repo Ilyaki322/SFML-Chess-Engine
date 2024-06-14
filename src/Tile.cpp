@@ -27,6 +27,11 @@ void Tile::placePiece(std::unique_ptr<SFMLPiece> piece)
 	}	
 }
 
+std::unique_ptr<SFMLPiece> Tile::getPiece()
+{
+	return std::move(m_piece);
+}
+
 void Tile::setColor(const sf::Color& color)
 {
 	m_tile.setFillColor(color);

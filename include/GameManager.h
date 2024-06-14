@@ -10,7 +10,7 @@ const int ScreenSizeX = 1536, ScreenSizeY = 768;
 class GameManager : public IObservable
 {
 public:
-	GameManager();
+	GameManager(std::array<int, SIZE> board);
 
 	void update();
 	void setState(std::unique_ptr<GameState> newState);
