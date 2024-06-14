@@ -1,6 +1,7 @@
 #include "AIController.h"
 #include<iostream> // DEBUG
 #include "SpecialMove.h"
+#include "Board.h"
 AIController::AIController(Color color)
     :Controller(color)
 {

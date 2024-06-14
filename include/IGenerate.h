@@ -1,6 +1,5 @@
 #pragma once
 #include "Utilities.h"
-#include "NBoard.h"
 #include <vector>
 #include "PieceLogic.h"
 class IGenerate {
@@ -10,5 +9,4 @@ public:
 	std::vector<Move> generatePiece(int x);
 
 private:
-
 };

@@ -32,7 +32,7 @@ private:
 	SpecialMove();
 	SpecialMove(const SpecialMove&) = default;
 	SpecialMove& operator=(const SpecialMove&) = default;
-	std::array<int, 64> pieceArray;
+	std::array<int, 64> m_board;
 	std::array<int, 64> blackThreatArray; // This array sums all the threats to one square. white piece add 1 ans black add -1
 	std::array<int, 64> whiteThreatArray; // This array sums all the threats to one square. white piece add 1 ans black add -1
 	void save();

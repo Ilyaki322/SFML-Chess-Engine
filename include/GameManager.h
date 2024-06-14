@@ -1,5 +1,4 @@
 #pragma once
-#include "Board.h"
 #include "Controller.h"
 #include "SFMLBoard.h"
 #include "IObservable.h"

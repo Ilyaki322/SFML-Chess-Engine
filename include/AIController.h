@@ -1,6 +1,5 @@
 #pragma once
 #include "Controller.h"
-#include "Board.h"
 class AIController : public Controller
 {
 public:

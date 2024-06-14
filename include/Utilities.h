@@ -1,12 +1,12 @@
 #pragma once 
 #include <array>
 #include <SFML/Graphics.hpp>
+#include <vector>
 
 const int SIZE = 64;
 const int FirstRow = 8 , LastRow = 55;
 const int Moved = 32;
 const int BKingBegin = 4, WKingBegin = 60;
-
 enum EndMove {
 	EnPassant,
 	Castle,
@@ -33,7 +33,7 @@ struct Move
 	//--- for specialMove
 
 	int specialStartSquare;
-	int SpecialTargetSquare;
+	int specialTargetSquare;
 	Piece promotionVal;
 
 	/*
@@ -49,7 +49,8 @@ struct Stack {
 	Move move;
 	int lastWKing;
 	int lastBKing;
-	std::array<int, 64> backUpPieceArray;
+	int enPassant;
+	std::array<int, 64> backUpm_board;
 	std::array<int, 64> backUpBlackThreatArray;
 	std::array<int, 64> backUpWhiteThreatArray;
 };
@@ -77,13 +78,3 @@ const sf::Color ERROR_TILE = sf::Color::Red;
 const sf::Color LAST_TURN_TILE = sf::Color(255, 165, 0);
 
 const int TILE_SIZE = 96;
-
-/*
-static int vectorToInt(sf::Vector2f v)
-{
-	int y = int(v.y / TILE_SIZE);
-	int x = int(v.x / TILE_SIZE + y * DOWN);
-
-	return x;
-}
-*/
