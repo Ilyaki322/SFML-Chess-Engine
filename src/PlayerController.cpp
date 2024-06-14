@@ -47,7 +47,6 @@ void PlayerController::eventUpdate(sf::Event& event, Color color)
 			{
 				IGenerate generator;
 				m_moves = generator.generatePiece(x);
-
 				for (auto& i : m_moves)
 				{
 					m_sfmlBoard.colorTiles(i.targetSquare, sf::Color::Green);

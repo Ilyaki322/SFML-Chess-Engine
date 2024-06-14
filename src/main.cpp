@@ -9,6 +9,7 @@ int main()
 	FenAlgorithm fen;
 	NBoard& inst = NBoard::instance();
 	fen.setBoard(inst.m_board, "RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr");
+	inst.setBoard(inst.m_board);/// change
 	GameManager game;
 	game.update();
 }

@@ -2,7 +2,7 @@
 #include <array>
 #include <SFML/Graphics.hpp>
 #include <vector>
-
+#include <iostream> //DEBUG
 const int SIZE = 64;
 const int FirstRow = 8 , LastRow = 55;
 const int Moved = 32;

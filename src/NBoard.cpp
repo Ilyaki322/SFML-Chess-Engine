@@ -1,5 +1,5 @@
 #include "NBoard.h"
-
+#include <iostream> //DEBUG
 NBoard::NBoard()
 {
 }

@@ -1,6 +1,6 @@
 #include "IGenerate.h"
 #include "NBoard.h"
-
+#include <iostream> // DEBUG
 IGenerate::IGenerate()
 {
 }
@@ -34,6 +34,10 @@ std::vector<Move> IGenerate::generatePiece(int x)
 	int color = (NBoard::instance().m_board[x] & White) > 0 ? White : Black;
 	int king = color == White ? NBoard::instance().m_WKing : NBoard::instance().m_BKing;
 	std::vector<int> check;
-	pieceLogic.check(king,check , color);
-	return pieceLogic.generate(check, piece);
+	std::vector<Move> moves;
+	
+	if (pieceLogic.check(king, check, color)) {
+		return pieceLogic.generate(check,x);
+	}
+	return moves;
 }
