@@ -9,9 +9,9 @@
 #include "Assets.h" // for font
 
 
-GameManager::GameManager(std::array<int, SIZE> board)
+GameManager::GameManager()
 	//: m_board("RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr") //"RNBQ1K1RPP1pBPPP2P582b58ppp1nNpprnbqk2r");
-	: m_firstClick(false), m_whiteTurn(true), m_sfmlBoard(board)
+	: m_firstClick(false), m_whiteTurn(true), m_sfmlBoard()
 {
 	m_window.create(sf::VideoMode(ScreenSizeX, ScreenSizeY), "MainMenu");
 
@@ -81,7 +81,9 @@ void GameManager::setState(std::unique_ptr<GameState> newState)
 	m_currentState = std::move(newState);
 }
 
-void GameManager::nextTurn()
+void GameManager::nextTurn(Move& move)
 {
+	NBoard::instance().move(move);
+	m_sfmlBoard.updateBoard();
 	m_whiteTurn = !m_whiteTurn;
 }

@@ -10,11 +10,11 @@ const int ScreenSizeX = 1536, ScreenSizeY = 768;
 class GameManager : public IObservable
 {
 public:
-	GameManager(std::array<int, SIZE> board);
+	GameManager();
 
 	void update();
 	void setState(std::unique_ptr<GameState> newState);
-	void nextTurn();
+	void nextTurn(Move &move);
 
 	Controller* getPlayer(const int i);
 

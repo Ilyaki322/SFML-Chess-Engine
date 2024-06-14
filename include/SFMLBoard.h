@@ -15,21 +15,20 @@ class NBoard;
 class SFMLBoard
 {
 public:
-	SFMLBoard(std::array<int, SIZE> board);
+	SFMLBoard();
 
 	void draw(sf::RenderWindow& window);
 	bool clickedOnCorrectPiece(sf::Vector2f pos, Color);
 
 	void colorTiles(int tile, const sf::Color& color);
 	void resetTileColors();
-
-	void makeMove(Move move);
+	void updateBoard();
+	//void makeMove(Move move);
 
 private:
 
 	void initTiles();
-	void initBoard(std::array<int, SIZE> board);
-
+	
 	std::array<std::unique_ptr<Tile>, SIZE> m_tiles;
 	NBoard& m_BoardRef;
 

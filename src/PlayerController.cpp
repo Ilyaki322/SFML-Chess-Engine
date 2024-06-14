@@ -10,7 +10,7 @@
 
 PlayerController::PlayerController(GameManager& manager, sf::RenderWindow& window, Color color, SFMLBoard& board)
 	: IObserver(manager), Controller(color), m_window(window),
-	  m_firstClick(true), m_turnReady(false), m_sfmlBoard(board)
+	m_firstClick(true), m_turnReady(false), m_sfmlBoard(board), m_chosenMove({ -1, -1 })
 {}
 
 
@@ -22,36 +22,8 @@ bool PlayerController::turnReady()
 
 Move PlayerController::playTurn()
 {
-	Move move = { -1, -1 };
-	//bool firstClick = false;
-
-	////rotateScreen();
-
-	//		{
-	//			auto location = m_window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
-	//			sf::RectangleShape tempShape({ 768.f,768.f });
-
-	//			if (tempShape.getGlobalBounds().contains(location)) {
-	//				if (firstClick) {
-	//					firstClick = false;
-	//					return Board::instance().handleSecondClick(location, move);
-	//				}
-	//				else {
-	//					firstClick = Board::instance().handleFirstClick(location, m_color);
-	//				}
-	//			}
-	//			
-	//		}
-	//		}
-	//	}
-	//	Board::instance().draw(m_window);
-	//	m_window.display();
-	//}
-
-	//return false;
-
 	m_turnReady = false;
-	return move;
+	return m_chosenMove;
 }
 
 void PlayerController::eventUpdate(sf::Event& event, Color color)
@@ -64,19 +36,19 @@ void PlayerController::eventUpdate(sf::Event& event, Color color)
 	auto location = m_window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y }); 
 	sf::RectangleShape tempShape({ 768.f,768.f });
 
+	int y = int(location.y / TILE_SIZE);
+	int x = int(location.x / TILE_SIZE + y * DOWN);
+
 	if (tempShape.getGlobalBounds().contains(location))
 	{
 		if (m_firstClick)
 		{
 			if (m_sfmlBoard.clickedOnCorrectPiece(location, m_color))
 			{
-				int y = int(location.y / TILE_SIZE);
-				int x = int(location.x / TILE_SIZE + y * DOWN);
-
 				IGenerate generator;
-				Moves moves = generator.generatePiece(x);
+				m_moves = generator.generatePiece(x);
 
-				for (auto& i : moves)
+				for (auto& i : m_moves)
 				{
 					m_sfmlBoard.colorTiles(i.targetSquare, sf::Color::Green);
 					if (i.specialStartSquare != -1) m_sfmlBoard.colorTiles(i.specialTargetSquare, sf::Color::Green);
@@ -89,8 +61,16 @@ void PlayerController::eventUpdate(sf::Event& event, Color color)
 		else
 		{
 			m_sfmlBoard.resetTileColors();
+
 			m_firstClick = true;
-			m_turnReady = true;
+			for (auto& i : m_moves)
+			{
+				if (i.targetSquare == x)
+				{
+					m_turnReady = true;
+					m_chosenMove = i;
+				}
+			}
 		}
 	}
 }

@@ -15,7 +15,7 @@ void PlayerXTurnState::execute()
 	{
 		auto move = m_playerController->playTurn();
 		// tell board to update
-		m_manager.nextTurn();
+		m_manager.nextTurn(move);
 		m_manager.setState(std::make_unique<PlayerXTurnState>(m_manager, ((m_playerNum + 1) % m_numOfPlayers), m_numOfPlayers));
 	}
 }

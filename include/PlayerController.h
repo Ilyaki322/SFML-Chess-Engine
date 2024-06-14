@@ -28,4 +28,6 @@ private:
 
 	bool m_firstClick;
 	bool m_turnReady;
+	Moves m_moves;
+	Move m_chosenMove;
 };

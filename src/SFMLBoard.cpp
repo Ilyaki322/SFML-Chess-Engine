@@ -6,11 +6,11 @@
 #include <map>
 #include <SFML/Graphics.hpp>
 
-SFMLBoard::SFMLBoard(std::array<int, SIZE> board)
+SFMLBoard::SFMLBoard()
 	: m_BoardRef(NBoard::instance())
 {
 	initTiles();
-	initBoard(board);
+	updateBoard();
 }
 
 
@@ -28,15 +28,20 @@ void SFMLBoard::initTiles()
 	}
 }
 
-void SFMLBoard::initBoard(std::array<int, SIZE> board)
+void SFMLBoard::updateBoard()
 {
 	SFMLPieceFactory factory;
+	std::array<int, 64> &board = m_BoardRef.m_board;
 
 	for (int i = 0; i < 64; i++)
 	{
 		if (board[i] != 0)
 		{
 			m_tiles[i]->placePiece(factory.create(board[i], m_tiles[i]->getPosition()));
+		}
+		else
+		{
+			m_tiles[i]->placePiece(nullptr);
 		}
 	}
 }
@@ -78,19 +83,19 @@ void SFMLBoard::resetTileColors()
 	}
 }
 
-void SFMLBoard::makeMove(Move move)
-{
-	m_BoardRef.move(move);
-
-	m_tiles[move.targetSquare]->placePiece(m_tiles[move.startSquare]->getPiece());
-	m_tiles[move.startSquare]->placePiece(nullptr);
-
-	if (move.specialStartSquare == -1)
-	{
-		return;
-	}
-
-	m_tiles[move.specialTargetSquare]->placePiece(m_tiles[move.specialStartSquare]->getPiece());
-	m_tiles[move.specialStartSquare]->placePiece(nullptr);
-	
-}
+//void SFMLBoard::makeMove(Move move)
+//{
+//	m_BoardRef.move(move);
+//
+//	m_tiles[move.targetSquare]->placePiece(m_tiles[move.startSquare]->getPiece());
+//	m_tiles[move.startSquare]->placePiece(nullptr);
+//
+//	if (move.specialStartSquare == -1)
+//	{
+//		return;
+//	}
+//
+//	m_tiles[move.specialTargetSquare]->placePiece(m_tiles[move.specialStartSquare]->getPiece());
+//	m_tiles[move.specialStartSquare]->placePiece(nullptr);
+//	
+//}
