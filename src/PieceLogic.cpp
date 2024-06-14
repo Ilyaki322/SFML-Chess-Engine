@@ -616,6 +616,7 @@ bool PieceLogic::checkCheck(std::vector<Move> moves, int color,int direction)
 bool PieceLogic::checkPin(std::vector<Move> moves, int color, int direction)
 {
 	std::vector<int> empty;
+	if (moves.empty()) return false;
 	if (moves.back().targetSquare + direction > 63 || moves.back().targetSquare + direction < 0) return false;
 	if ((moves.back().targetSquare + direction) % 8 == 0 && moves.back().targetSquare % 8 == 7)return false;
 	if ((moves.back().targetSquare + direction) % 8 == 7 && moves.back().targetSquare % 8 == 0)return false;
