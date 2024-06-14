@@ -2,7 +2,7 @@
 #include "PlayerController.h"
 #include "AIController.h"
 
-
+#include "Board.h"
 #include "Pieces.h" // FOR ENUM CHANGE LATER
 #include <iostream> // debug
 #include "Assets.h" // for font

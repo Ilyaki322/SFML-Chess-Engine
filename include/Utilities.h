@@ -1,5 +1,7 @@
 #pragma once 
 #include <array>
+#include <SFML/Graphics.hpp>
+#include <vector>
 
 const int SIZE = 64;
 const int FirstRow = 8 , LastRow = 55;
@@ -31,7 +33,7 @@ struct Move
 	//--- for specialMove
 
 	int specialStartSquare;
-	int SpecialTargetSquare;
+	int specialTargetSquare;
 	Piece promotionVal;
 
 	/*
@@ -47,7 +49,8 @@ struct Stack {
 	Move move;
 	int lastWKing;
 	int lastBKing;
-	std::array<int, 64> backUpPieceArray;
+	int enPassant;
+	std::array<int, 64> backUpm_board;
 	std::array<int, 64> backUpBlackThreatArray;
 	std::array<int, 64> backUpWhiteThreatArray;
 };

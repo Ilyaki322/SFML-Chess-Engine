@@ -1,5 +1,4 @@
 #pragma once
-#include "Board.h"
 #include "Controller.h"
 
 const int ScreenSizeX = 1536, ScreenSizeY = 768;
