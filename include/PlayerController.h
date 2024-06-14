@@ -22,6 +22,7 @@ public:
 private:
 
 	void rotateScreen();
+	void firstClick(const int pos);
 
 	sf::RenderWindow& m_window;
 	SFMLBoard& m_sfmlBoard;

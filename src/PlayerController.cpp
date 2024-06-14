@@ -39,25 +39,16 @@ void PlayerController::eventUpdate(sf::Event& event, Color color)
 	int y = int(location.y / TILE_SIZE);
 	int x = int(location.x / TILE_SIZE + y * DOWN);
 
+	
+
 	if (tempShape.getGlobalBounds().contains(location))
 	{
 		if (m_firstClick)
 		{
-			if (m_sfmlBoard.clickedOnCorrectPiece(location, m_color))
-			{
-				IGenerate generator;
-				m_moves = generator.generatePiece(x);
-				for (auto& i : m_moves)
-				{
-					m_sfmlBoard.colorTiles(i.targetSquare, sf::Color::Green);
-					if (i.specialStartSquare != -1) m_sfmlBoard.colorTiles(i.specialTargetSquare, sf::Color::Green);
-				}
-
-				m_firstClick = false;
-			}
-			
+			firstClick(x);
 		}
-		else
+
+		else // second click
 		{
 			m_sfmlBoard.resetTileColors();
 
@@ -68,9 +59,29 @@ void PlayerController::eventUpdate(sf::Event& event, Color color)
 				{
 					m_turnReady = true;
 					m_chosenMove = i;
+					return;
 				}
 			}
+
+			firstClick(x);
 		}
+	}
+}
+
+void PlayerController::firstClick(const int pos)
+{
+	if (m_sfmlBoard.clickedOnCorrectPiece(pos, m_color))
+	{
+		IGenerate generator;
+		m_moves = generator.generatePiece(pos);
+
+		for (auto& i : m_moves)
+		{
+			m_sfmlBoard.colorTiles(i.targetSquare, sf::Color::Green);
+			if (i.specialStartSquare != -1) m_sfmlBoard.colorTiles(i.specialTargetSquare, sf::Color::Green);
+		}
+
+		m_firstClick = false;
 	}
 }
 

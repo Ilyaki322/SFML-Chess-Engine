@@ -54,12 +54,9 @@ void SFMLBoard::draw(sf::RenderWindow& window)
 	}
 }
 
-bool SFMLBoard::clickedOnCorrectPiece(sf::Vector2f pos, Color color)
+bool SFMLBoard::clickedOnCorrectPiece(const int x, Color color)
 {
-	int y = int(pos.y / TILE_SIZE);
-	int x = int(pos.x / TILE_SIZE + y * DOWN);
-
-	if (x < 0 || x > 60) return false;
+	if (x < 0 || x > 64) return false;
 	
 	Color c = ((m_BoardRef.m_board[x] & 0b10000) > 0) ? Black : White;
 	if (m_tiles[x]->isOccupied() && c == color)

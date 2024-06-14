@@ -18,7 +18,7 @@ public:
 	SFMLBoard();
 
 	void draw(sf::RenderWindow& window);
-	bool clickedOnCorrectPiece(sf::Vector2f pos, Color);
+	bool clickedOnCorrectPiece(const int x, Color);
 
 	void colorTiles(int tile, const sf::Color& color);
 	void resetTileColors();
