@@ -1,14 +1,14 @@
 #pragma once
 
 #include "Utilities.h"
-//#include "Tile.h"
+#include "Tile.h"
 //#include "SFMLPiece.h"
 
 #include <array>
 #include <memory>
 #include <vector>
 
-class Tile;
+//class Tile;
 class SFMLPiece;
 
 class SFMLBoard
@@ -19,7 +19,7 @@ public:
 	void draw(sf::RenderWindow& window);
 	bool clickedOnCorrectPiece(sf::Vector2f pos, Color);
 
-	void colorTiles(int tile, sf::Color& color);
+	void colorTiles(int tile, const sf::Color& color);
 	void resetTileColors();
 
 private:

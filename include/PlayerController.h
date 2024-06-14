@@ -7,6 +7,8 @@
 class GameManager;
 class SFMLBoard;
 
+typedef std::vector<Move> Moves;
+
 class PlayerController : public Controller, public IObserver
 {
 public:

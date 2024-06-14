@@ -3,6 +3,7 @@
 #include "GameManager.h"
 #include "Assets.h"
 #include "SFMLBoard.h"
+#include "IGenerate.h"
 
 #include <iostream> // debug
 
@@ -72,9 +73,15 @@ void PlayerController::eventUpdate(sf::Event& event, Color color)
 				int y = int(location.y / TILE_SIZE);
 				int x = int(location.x / TILE_SIZE + y * DOWN);
 
-				sf::Color color;
-				m_color == Black ? color = sf::Color::Black : color = sf::Color::White;
-				m_sfmlBoard.colorTiles(x, color);
+				IGenerate generator;
+				Moves moves = generator.generatePiece(x);
+
+				for (auto& i : moves)
+				{
+					m_sfmlBoard.colorTiles(i.targetSquare, sf::Color::Green);
+					if (i.specialStartSquare != -1) m_sfmlBoard.colorTiles(i.specialTargetSquare, sf::Color::Green);
+				}
+
 				m_firstClick = false;
 			}
 			

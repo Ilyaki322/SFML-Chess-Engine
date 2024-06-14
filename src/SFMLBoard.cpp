@@ -64,7 +64,7 @@ bool SFMLBoard::clickedOnCorrectPiece(sf::Vector2f pos, Color color)
 	return false;
 }
 
-void SFMLBoard::colorTiles(int tile, sf::Color& color)
+void SFMLBoard::colorTiles(int tile, const sf::Color& color)
 {
 	m_tiles[tile]->setColor(color);
 }
