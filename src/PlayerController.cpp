@@ -75,8 +75,10 @@ void PlayerController::firstClick(const int pos)
 		IGenerate generator;
 		m_moves = generator.generatePiece(pos);
 
+		if (m_moves.empty()) m_sfmlBoard.colorTiles(pos, sf::Color::Red);
 		for (auto& i : m_moves)
 		{
+			
 			m_sfmlBoard.colorTiles(i.targetSquare, sf::Color::Green);
 			if (i.specialStartSquare != -1) m_sfmlBoard.colorTiles(i.specialTargetSquare, sf::Color::Green);
 		}

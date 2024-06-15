@@ -13,7 +13,7 @@ bool AIController::turnReady()
 
 Move AIController::playTurn()
 {
-    depth = 2;
+    depth = 4;
     IGenerate generate;
     Move bestMove = { -1, -1 , -1, -1 ,PawnVal};
     int bestValue = (m_color == WHITE) ? std::numeric_limits<int>::min() : std::numeric_limits<int>::max();

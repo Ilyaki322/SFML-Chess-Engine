@@ -17,7 +17,9 @@ void BoardStack::insert(std::array<int, SIZE> arr, int whiteKing, int blackKing,
 
 Stack BoardStack::LastMove()
 {
-	return m_stack.back() ;
+	auto back = m_stack.back();
+	m_stack.pop_back();
+	return back;
 }
 
 std::list<Stack> BoardStack::allMoves()

@@ -13,11 +13,19 @@ std::vector<std::vector<Move>> IGenerate::generateAll(int Color)
 	std::vector<int> check;
 	std::vector < std::vector<Move>> all;
 	if (pieceLogic.check(king, check, color)) {
-		for (const auto& i : NBoard::instance().m_board) {
+		/*for (const auto& i : NBoard::instance().m_board) {
 			int myColor = (i & White) > 0 ? White : Black;
 			if (myColor == color) {
 				int piece = (i & 0b111);
 				all.push_back(pieceLogic.generate(check, piece));
+			}
+		}*/
+		for (int i = 0; i < SIZE; i++)
+		{
+			if (NBoard::instance().m_board[i] == 0) continue;
+			int myColor = (NBoard::instance().m_board[i] & White) > 0 ? White : Black;
+			if (myColor == color) {
+				all.push_back(pieceLogic.generate(check, i));
 			}
 		}
 	}
