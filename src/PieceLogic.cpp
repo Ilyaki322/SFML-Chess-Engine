@@ -10,42 +10,42 @@ bool PieceLogic::check(int king ,std::vector<int>& checkSquares , int color)
 	int foundOne = 0;
 	std::vector<Move> moves;
 	std::vector<int> empty;
-	moves = slidingMove(BOT_LEFT, king, empty);
+	moves = slidingMove(BOT_LEFT, king, empty,color);
 	if (checkCheck(moves, color,BOT_LEFT)) {
 		insertMoveToInt(moves, checkSquares);
 		foundOne++;
 	}
-	moves = slidingMove(BOT_RIGHT, king, empty);
+	moves = slidingMove(BOT_RIGHT, king, empty,color);
 	if (checkCheck(moves, color, BOT_RIGHT)) {
 		insertMoveToInt(moves, checkSquares);
 		foundOne++;
 	}
-	moves = slidingMove(TOP_LEFT, king, empty);
+	moves = slidingMove(TOP_LEFT, king, empty,color);
 	if (checkCheck(moves, color , TOP_LEFT)) {
 		insertMoveToInt(moves, checkSquares);
 		foundOne++;
 	}
-	moves = slidingMove(TOP_RIGHT, king, empty);
+	moves = slidingMove(TOP_RIGHT, king, empty,color);
 	if (checkCheck(moves, color , TOP_RIGHT)) {
 		insertMoveToInt(moves, checkSquares);
 		foundOne++;
 	}
-	moves = slidingMove(UP, king, empty);
+	moves = slidingMove(UP, king, empty,color);
 	if (checkCheck(moves, color , UP)) {
 		insertMoveToInt(moves, checkSquares);
 		foundOne++;
 	}
-	moves = slidingMove(DOWN, king, empty);
+	moves = slidingMove(DOWN, king, empty,color);
 	if (checkCheck(moves, color , DOWN)) {
 		insertMoveToInt(moves, checkSquares);
 		foundOne++;
 	}
-	moves = slidingMove(LEFT, king, empty);
+	moves = slidingMove(LEFT, king, empty,color);
 	if (checkCheck(moves, color , LEFT)) {
 		insertMoveToInt(moves, checkSquares);
 		foundOne++;
 	}
-	moves = slidingMove(RIGHT, king, empty);
+	moves = slidingMove(RIGHT, king, empty,color);
 	if (checkCheck(moves, color , RIGHT)) {
 		insertMoveToInt(moves, checkSquares);
 		foundOne++;
@@ -124,47 +124,47 @@ MovementDirection PieceLogic::kingPin(int target)
 	std::vector<Move> moves;
 	std::vector<int> empty;
 	if ((king - target) % Diagonal1 == 0) {
-		moves = slidingMove(BOT_RIGHT, king, empty);
+		moves = slidingMove(BOT_RIGHT, king, empty,color);
 		if (!checkCheck(moves, color , BOT_RIGHT)) {
 			if (checkPin(moves, color, BOT_RIGHT, king))
 				return Diagonal1;
 		}
-		moves = slidingMove(TOP_LEFT, king, empty);
+		moves = slidingMove(TOP_LEFT, king, empty,color);
 		if (!checkCheck(moves, color , TOP_LEFT)) {
 			if (checkPin(moves, color, TOP_LEFT, king))
 				return Diagonal1;
 		}
 	}
 	if ((king - target) % Forward == 0) {
-		moves = slidingMove(DOWN, king, empty);
+		moves = slidingMove(DOWN, king, empty,color);
 		if (!checkCheck(moves, color,DOWN)) {
 			if (checkPin(moves, color ,DOWN, king))
 				return Forward;
 		}
-		moves = slidingMove(UP, king, empty);
+		moves = slidingMove(UP, king, empty,color);
 		if (!checkCheck(moves, color ,UP)) {
 			if (checkPin(moves, color, UP, king))
 				return Forward;
 		}
 	}
 	if ((king - target) % Diagonal2 == 0) {
-		moves = slidingMove(BOT_LEFT, king, empty);
+		moves = slidingMove(BOT_LEFT, king, empty,color);
 		if (!checkCheck(moves, color , BOT_LEFT)) {
 			if (checkPin(moves, color, BOT_LEFT, king))
 				return Diagonal2;
 		}
-		moves = slidingMove(TOP_RIGHT, king, empty);
+		moves = slidingMove(TOP_RIGHT, king, empty,color);
 		if (!checkCheck(moves, color , TOP_RIGHT)) {
 			if (checkPin(moves, color, TOP_RIGHT, king))
 				return Diagonal2;
 		}
 	}
-	moves = slidingMove(LEFT, king, empty);
+	moves = slidingMove(LEFT, king, empty,color);
 	if (!checkCheck(moves, color , LEFT)) {
 		if (checkPin(moves, color, LEFT, king))
 			return Side;
 	}
-	moves = slidingMove(RIGHT, king, empty);
+	moves = slidingMove(RIGHT, king, empty,color);
 	if (!checkCheck(moves, color , RIGHT)) {
 		if (checkPin(moves, color, RIGHT, king))
 			return Side;
@@ -177,94 +177,101 @@ std::vector<Move> PieceLogic::kingMove(int start, std::vector<int> Incheck)
 	Piece p = PawnVal;
 	std::vector<Move> moves;
 	bool inCheck = !Incheck.empty();
-	std::vector<int> checkSquares;
 	int color = (NBoard::instance().m_board[start] & White) > 0 ? White : Black;
 	bool castleRight , castleLeft;
 	if (!inCheck) castleRight =castleLeft = true;
 	else castleRight = castleLeft = false;
-		
 	if (start % 8 != 0) 
-		if (checkDirection(moves, start, LEFT)) {
+		if (checkDirection(moves, start, LEFT,color)) {
+			std::vector<int> checkSquares;
 			if(check(start+LEFT , checkSquares, color) && checkSquares.size()==0)
-				if (inCheck) {
-					if (std::find(Incheck.begin(), Incheck.end(), start + LEFT) == Incheck.end()) {
-						moves.push_back({ start, start + LEFT , -1 , -1 , p });
-					}
-				}
-				else {
+				//if (inCheck) {
+					//if (std::find(Incheck.begin(), Incheck.end(), start + LEFT) == Incheck.end()) {
+						//moves.push_back({ start, start + LEFT , -1 , -1 , p });
+					//}
+				//}
+				//else {
 					moves.push_back({ start, start + LEFT, -1 , -1 , p });
 					castleLeft = true;
-				}
+				//}
 		}
 	if (start % 8 != 7) 
-		if (checkDirection(moves, start, RIGHT)) {
+		if (checkDirection(moves, start, RIGHT,color)) {
+			std::vector<int> checkSquares;
 			if (check(start + RIGHT, checkSquares, color) && checkSquares.size() == 0)
-				if (inCheck) {
-					if (std::find(Incheck.begin(), Incheck.end(), start + RIGHT) == Incheck.end()) {
-						moves.push_back({ start, start + RIGHT , -1 , -1 , p });
-					}
-				}
-				else {
+				//if (inCheck) {
+					//if (std::find(Incheck.begin(), Incheck.end(), start + RIGHT) == Incheck.end()) {
+					//	moves.push_back({ start, start + RIGHT , -1 , -1 , p });
+					//}
+				//}
+				//else {
 					moves.push_back({ start, start + RIGHT , -1 , -1 , p });
 					castleRight = true;
-				}
+				//}
 		}
 	if (start - 8 > 0) 
-		if (checkDirection(moves, start, UP)) {
+		if (checkDirection(moves, start, UP,color)) {
+			std::vector<int> checkSquares;
 			if (check(start + UP, checkSquares, color) && checkSquares.size() == 0)
-				if (inCheck) {
-					if (std::find(Incheck.begin(), Incheck.end(), start + UP) == Incheck.end()) {
-						moves.push_back({ start, start + UP , -1 , -1 , p });
-					}
-				}
-				else moves.push_back({ start, start + UP, -1 , -1 , p });
+				//if (inCheck) {
+				//	if (std::find(Incheck.begin(), Incheck.end(), start + UP) == Incheck.end()) {
+				//		moves.push_back({ start, start + UP , -1 , -1 , p });
+				//	}
+				//}
+				//else
+				moves.push_back({ start, start + UP, -1 , -1 , p });
 		}
 	if (start + 8 < 63)
-		if (checkDirection(moves, start, DOWN)) {
+		if (checkDirection(moves, start, DOWN,color)) {
+			std::vector<int> checkSquares;
 			if (check(start + DOWN, checkSquares, color) && checkSquares.size() == 0)
-				if (inCheck) {
-					if (std::find(Incheck.begin(), Incheck.end(), start + DOWN) == Incheck.end()) {
-						moves.push_back({ start, start + DOWN , -1 , -1 , p });
-					}
-				}
-				else moves.push_back({ start, start + DOWN , -1 , -1 , p });
+				//if (inCheck) {
+				//	if (std::find(Incheck.begin(), Incheck.end(), start + DOWN) == Incheck.end()) {
+					moves.push_back({ start, start + DOWN , -1 , -1 , p });
+				//	}
+				//}
+				//else moves.push_back({ start, start + DOWN , -1 , -1 , p });
 		}
 
-	if (checkCorner(moves, start, TOP_LEFT)) {
+	if (checkCorner(moves, start, TOP_LEFT,color)) {
+		std::vector<int> checkSquares;
 		if (check(start + TOP_LEFT, checkSquares, color) && checkSquares.size() == 0)
-			if (inCheck) {
-				if (std::find(Incheck.begin(), Incheck.end(), start + TOP_LEFT) == Incheck.end()) {
+			//if (inCheck) {
+			//	if (std::find(Incheck.begin(), Incheck.end(), start + TOP_LEFT) == Incheck.end()) {
 					moves.push_back({ start, start + TOP_LEFT , -1 , -1 , p });
-				}
-			}
-			else moves.push_back({ start, start + TOP_LEFT, -1 , -1 , p });
+			//	}
+		//	}
+		//	else moves.push_back({ start, start + TOP_LEFT, -1 , -1 , p });
 	}
-	if (checkCorner(moves, start, TOP_RIGHT)) {
+	if (checkCorner(moves, start, TOP_RIGHT,color)) {
+		std::vector<int> checkSquares;
 		if (check(start + TOP_RIGHT, checkSquares, color) && checkSquares.size() == 0)
-			if (inCheck) {
-				if (std::find(Incheck.begin(), Incheck.end(), start + TOP_RIGHT) == Incheck.end()) {
+			//if (inCheck) {
+			//	if (std::find(Incheck.begin(), Incheck.end(), start + TOP_RIGHT) == Incheck.end()) {
 					moves.push_back({ start, start + TOP_RIGHT, -1 , -1 , p });
-				}
-			}
-			else moves.push_back({ start, start + TOP_RIGHT , -1 , -1 , p });
+			///	}
+		//	}
+		//	else moves.push_back({ start, start + TOP_RIGHT , -1 , -1 , p });
 	}
-	if (checkCorner(moves, start, BOT_LEFT)){
+	if (checkCorner(moves, start, BOT_LEFT,color)){
+		std::vector<int> checkSquares;
 		if (check(start + BOT_LEFT, checkSquares, color) && checkSquares.size() == 0)
-			if (inCheck) {
-				if (std::find(Incheck.begin(), Incheck.end(), start + BOT_LEFT) == Incheck.end()) {
+			//if (inCheck) {
+			//	if (std::find(Incheck.begin(), Incheck.end(), start + BOT_LEFT) == Incheck.end()) {
 					moves.push_back({ start, start + BOT_LEFT , -1 , -1 , p });
-				}
-			}
-			else moves.push_back({ start, start + BOT_LEFT , -1 , -1 , p });
+			//	}
+			//}
+		//	else moves.push_back({ start, start + BOT_LEFT , -1 , -1 , p });
 	}
-	if(checkCorner(moves, start, BOT_RIGHT)) {
+	if(checkCorner(moves, start, BOT_RIGHT,color)) {
+		std::vector<int> checkSquares;
 		if (check(start + BOT_RIGHT, checkSquares, color) && checkSquares.size() == 0)
-			if (inCheck) {
-				if (std::find(Incheck.begin(), Incheck.end(), start + BOT_RIGHT) == Incheck.end()) {
+			//if (inCheck) {
+			//	if (std::find(Incheck.begin(), Incheck.end(), start + BOT_RIGHT) == Incheck.end()) {
 					moves.push_back({ start, start + BOT_RIGHT , -1 , -1 , p });
-				}
-			}
-			else moves.push_back({ start, start + BOT_RIGHT, -1 , -1 , p });
+		//		}
+		//	}
+		//	else moves.push_back({ start, start + BOT_RIGHT, -1 , -1 , p });
 	}
 	if (castleLeft && castle(start, LEFT))moves.push_back({ start, start + LEFT*2  , start+LEFT*4 , start+LEFT , p });
 	if (castleRight && castle(start , RIGHT)) moves.push_back({ start, start + RIGHT*2 , start+RIGHT*3 , start+RIGHT  , p});
@@ -278,17 +285,17 @@ std::vector<Move> PieceLogic::bishopMove(int start, std::vector<int> Incheck)
 	std::vector<Move> toInsert;
 	MovementDirection direction = kingPin(start);
 	if (!Incheck.empty() && direction != All)return moves;  // ---cant move-- check and pin 
-
+	int color = (NBoard::instance().m_board[start] & White) > 0 ? White : Black;
 	if (direction == Diagonal1 || direction == All) {
-		toInsert = (slidingMove(BOT_RIGHT, start, Incheck));
+		toInsert = (slidingMove(BOT_RIGHT, start, Incheck,color));
 		moves.insert(moves.end(), toInsert.begin(), toInsert.end());
-		toInsert = slidingMove(TOP_LEFT, start, Incheck);
+		toInsert = slidingMove(TOP_LEFT, start, Incheck,color);
 		moves.insert(moves.end(), toInsert.begin(), toInsert.end());
 	}
 	if (direction == Diagonal2 || direction == All) {
-		toInsert = slidingMove(BOT_LEFT, start, Incheck);
+		toInsert = slidingMove(BOT_LEFT, start, Incheck,color);
 		moves.insert(moves.end(), toInsert.begin(), toInsert.end());
-		toInsert = slidingMove(TOP_RIGHT, start, Incheck);
+		toInsert = slidingMove(TOP_RIGHT, start, Incheck,color);
 		moves.insert(moves.end(), toInsert.begin(), toInsert.end());
 	}
 	return moves;
@@ -302,9 +309,9 @@ std::vector<Move> PieceLogic::knightMove(int start, std::vector<int> Incheck)
 
 	Piece p = PawnVal;
 	bool inCheck = !Incheck.empty();
-
+	int color = (NBoard::instance().m_board[start] & White) > 0 ? White : Black;
 	if (start % 8 != 0 && start + 16 < 64) 
-		if(checkDirection(move, start, (2 * DOWN) + LEFT))
+		if(checkDirection(move, start, (2 * DOWN) + LEFT , color))
 			if (inCheck) {
 				if (std::find(Incheck.begin(), Incheck.end(), start + (2 * DOWN) + LEFT) != Incheck.end()) {
 					move.push_back({ start, start + (2 * DOWN) + LEFT , -1 , -1 , p });
@@ -312,7 +319,7 @@ std::vector<Move> PieceLogic::knightMove(int start, std::vector<int> Incheck)
 			}
 			else move.push_back({ start, start + (2 * DOWN) + LEFT, -1 , -1 , p });
 	if (start % 8 != 7 && start + 16 < 64) 
-		if (checkDirection(move, start, (2 * DOWN) + RIGHT))
+		if (checkDirection(move, start, (2 * DOWN) + RIGHT,color))
 			if (inCheck) {
 				if (std::find(Incheck.begin(), Incheck.end(), start + (2 * DOWN) + RIGHT) != Incheck.end()) {
 					move.push_back({ start, start + (2 * DOWN) + RIGHT , -1 , -1 , p });
@@ -320,7 +327,7 @@ std::vector<Move> PieceLogic::knightMove(int start, std::vector<int> Incheck)
 			}
 			else move.push_back({ start, start + (2 * DOWN) + RIGHT, -1 , -1 , p });
 	if (start - 16 > 0 && start % 8 != 7) 
-		if(checkDirection(move, start, (2 * UP) + RIGHT))
+		if(checkDirection(move, start, (2 * UP) + RIGHT,color))
 			if (inCheck) {
 				if (std::find(Incheck.begin(), Incheck.end(), start + (2 * UP) + RIGHT) != Incheck.end()) {
 					move.push_back({ start, start + (2 * UP) + RIGHT , -1 , -1 , p });
@@ -328,7 +335,7 @@ std::vector<Move> PieceLogic::knightMove(int start, std::vector<int> Incheck)
 			}
 			else move.push_back({ start, start + (2 * UP) + RIGHT, -1 , -1 , p });
 	if (start - 16 > 0 && start % 8 != 0) 
-		if(checkDirection(move, start, (2 * UP) + LEFT))
+		if(checkDirection(move, start, (2 * UP) + LEFT,color))
 			if (inCheck) {
 				if (std::find(Incheck.begin(), Incheck.end(), start + (2 * UP) + LEFT) != Incheck.end()) {
 					move.push_back({ start, start + (2 * UP) + LEFT , -1 , -1 , p });
@@ -336,7 +343,7 @@ std::vector<Move> PieceLogic::knightMove(int start, std::vector<int> Incheck)
 			}
 			else move.push_back({ start, start + (2 * UP) + LEFT, -1 , -1 , p });
 	if (start % 8 > 1 && start + 8 < 64) 
-		if(checkDirection(move, start, (2 * LEFT) + DOWN))
+		if(checkDirection(move, start, (2 * LEFT) + DOWN,color))
 			if (inCheck) {
 				if (std::find(Incheck.begin(), Incheck.end(), start + (2 * LEFT) + DOWN) != Incheck.end()) {
 					move.push_back({ start, start + (2 * LEFT) + DOWN , -1 , -1 , p });
@@ -344,7 +351,7 @@ std::vector<Move> PieceLogic::knightMove(int start, std::vector<int> Incheck)
 			}
 			else move.push_back({ start, start + (2 * LEFT) + DOWN, -1 , -1 , p });
 	if (start % 8 > 1 && start - 8 > 0) 
-		if(checkDirection(move, start, (2 * LEFT) + UP))
+		if(checkDirection(move, start, (2 * LEFT) + UP,color))
 			if (inCheck) {
 				if (std::find(Incheck.begin(), Incheck.end(), start + (2 * LEFT) + UP) != Incheck.end()) {
 					move.push_back({ start, start + (2 * LEFT) + UP , -1 , -1 , p });
@@ -352,7 +359,7 @@ std::vector<Move> PieceLogic::knightMove(int start, std::vector<int> Incheck)
 			}
 			else move.push_back({ start, start + (2 * LEFT) + UP, -1 , -1 , p });
 	if (start % 8 < 6 && start - 8 > 0) 
-		if(checkDirection(move, start, (2 * RIGHT) + UP))
+		if(checkDirection(move, start, (2 * RIGHT) + UP,color))
 			if (inCheck) {
 				if (std::find(Incheck.begin(), Incheck.end(), start + (2 * RIGHT) + UP) != Incheck.end()) {
 					move.push_back({ start, start + (2 * RIGHT) + UP , -1 , -1 , p });
@@ -360,13 +367,13 @@ std::vector<Move> PieceLogic::knightMove(int start, std::vector<int> Incheck)
 			}
 			else move.push_back({ start, start + (2 * RIGHT) + UP, -1 , -1 , p });
 	if (start % 8 < 6 && start + 8 < 64) 
-		if(checkDirection(move, start, (2 * RIGHT) + DOWN))
+		if(checkDirection(move, start, (2 * RIGHT) + DOWN,color))
 			if (inCheck) {
-				if (std::find(Incheck.begin(), Incheck.end(), start + (2 * LEFT) + DOWN) != Incheck.end()) {
-					move.push_back({ start, start + (2 * LEFT) + DOWN , -1 , -1 , p });
+				if (std::find(Incheck.begin(), Incheck.end(), start + (2 * RIGHT) + DOWN) != Incheck.end()) {
+					move.push_back({ start, start + (2 * RIGHT) + DOWN , -1 , -1 , p });
 				}
 			}
-			else move.push_back({ start, start + (2 * LEFT) + DOWN, -1 , -1 , p });
+			else move.push_back({ start, start + (2 * RIGHT) + DOWN, -1 , -1 , p });
 
 	return move;
 }
@@ -377,29 +384,29 @@ std::vector<Move> PieceLogic::queenMove(int start, std::vector<int> Incheck)
 	std::vector<Move> toInsert;
 	MovementDirection direction = kingPin(start);
 	if (!Incheck.empty() && direction != All)return moves;  // ---cant move-- check and pin 
-
+	int color = (NBoard::instance().m_board[start] & White) > 0 ? White : Black;
 	if (direction == Forward || direction == All) {
-		toInsert = (slidingMove(UP, start, Incheck));
+		toInsert = (slidingMove(UP, start, Incheck,color));
 		moves.insert(moves.end(), toInsert.begin(), toInsert.end());
-		toInsert = slidingMove(DOWN, start, Incheck);
+		toInsert = slidingMove(DOWN, start, Incheck , color);
 		moves.insert(moves.end(), toInsert.begin(), toInsert.end());
 	}
 	if (direction == Side || direction == All) {
-		toInsert = slidingMove(LEFT, start, Incheck);
+		toInsert = slidingMove(LEFT, start, Incheck , color);
 		moves.insert(moves.end(), toInsert.begin(), toInsert.end());
-		toInsert = slidingMove(RIGHT, start, Incheck);
+		toInsert = slidingMove(RIGHT, start, Incheck,color);
 		moves.insert(moves.end(), toInsert.begin(), toInsert.end());
 	}
 	if (direction == Diagonal1 || direction == All) {
-		toInsert = (slidingMove(BOT_RIGHT, start, Incheck));
+		toInsert = (slidingMove(BOT_RIGHT, start, Incheck,color));
 		moves.insert(moves.end(), toInsert.begin(), toInsert.end());
-		toInsert = slidingMove(TOP_LEFT, start, Incheck);
+		toInsert = slidingMove(TOP_LEFT, start, Incheck,color);
 		moves.insert(moves.end(), toInsert.begin(), toInsert.end());
 	}
 	if (direction == Diagonal2 || direction == All) {
-		toInsert = slidingMove(BOT_LEFT, start, Incheck);
+		toInsert = slidingMove(BOT_LEFT, start, Incheck,color);
 		moves.insert(moves.end(), toInsert.begin(), toInsert.end());
-		toInsert = slidingMove(TOP_RIGHT, start, Incheck);
+		toInsert = slidingMove(TOP_RIGHT, start, Incheck,color);
 		moves.insert(moves.end(), toInsert.begin(), toInsert.end());
 	}
 	return moves;
@@ -532,24 +539,25 @@ std::vector<Move> PieceLogic::rookMove(int start, std::vector<int> Incheck)
 	std::vector<Move> moves;
 	std::vector<Move> toInsert;
 	MovementDirection direction = kingPin(start);
+	int color = (NBoard::instance().m_board[start] & White) > 0 ? White : Black;
 	if (!Incheck.empty() && direction != All)return moves;  // ---cant move-- check and pin 
 
 	if (direction == Forward || direction == All) {
-		toInsert = (slidingMove(UP, start, Incheck));
+		toInsert = (slidingMove(UP, start, Incheck,color));
 		moves.insert(moves.end(), toInsert.begin(), toInsert.end());
-		toInsert = slidingMove(DOWN, start, Incheck);
+		toInsert = slidingMove(DOWN, start, Incheck,color);
 		moves.insert(moves.end(), toInsert.begin(), toInsert.end());
 	}
 	if (direction == Side || direction == All) {
-		toInsert = slidingMove(LEFT, start, Incheck);
+		toInsert = slidingMove(LEFT, start, Incheck,color);
 		moves.insert(moves.end(), toInsert.begin(), toInsert.end());
-		toInsert = slidingMove(RIGHT, start, Incheck);
+		toInsert = slidingMove(RIGHT, start, Incheck,color);
 		moves.insert(moves.end(), toInsert.begin(), toInsert.end());
 	}
 	return moves;
 }
 
-std::vector<Move> PieceLogic::slidingMove(int direction, int start, std::vector<int> inCheck)
+std::vector<Move> PieceLogic::slidingMove(int direction, int start, std::vector<int> inCheck , int color)
 {
 	
 	std::vector<Move> moves;
@@ -560,7 +568,6 @@ std::vector<Move> PieceLogic::slidingMove(int direction, int start, std::vector<
 	if (pos + 8 > 63 && (direction == BOT_LEFT || direction == BOT_RIGHT || direction == DOWN)) return moves;
 	Piece p = PawnVal;
 
-	int color = (NBoard::instance().m_board[start] & White) > 0 ? White : Black;
 	bool isCheck = !inCheck.empty();
 	bool run = true;
 	
@@ -625,7 +632,7 @@ bool PieceLogic::checkPin(std::vector<Move> moves, int color, int direction,int 
 	if (moves.empty()) {
 		if ((king + direction) < 64 && king + direction > -1 &&
 			NBoard::instance().m_board[king + direction] != 0) {
-			moves = slidingMove(direction, king + direction, empty);
+			moves = slidingMove(direction, king + direction, empty,color);
 			if (checkCheck(moves, color, direction)) {
 				return true;
 			}
@@ -637,7 +644,7 @@ bool PieceLogic::checkPin(std::vector<Move> moves, int color, int direction,int 
 	if ((moves.back().targetSquare + direction) % 8 == 0 && moves.back().targetSquare % 8 == 7)return false;
 	if ((moves.back().targetSquare + direction) % 8 == 7 && moves.back().targetSquare % 8 == 0)return false;
 	
-	moves = slidingMove(direction, moves.back().targetSquare + direction, empty);
+	moves = slidingMove(direction, moves.back().targetSquare + direction, empty,color);
 	if (checkCheck(moves, color , direction)) {
 		return true;
 	}
@@ -662,9 +669,8 @@ bool PieceLogic::checkInSquare(int place, int jump, int color)
 	return false;
 }
 
-bool PieceLogic::checkDirection(std::vector<Move>& move, const int pos, const int direction) const
+bool PieceLogic::checkDirection(std::vector<Move>& move, const int pos, const int direction, int color) const
 {
-	int color = (NBoard::instance().m_board[pos] & White) > 0 ? White : Black;
 	if (NBoard::instance().m_board[pos + direction]==0){
 		return true;
 	}
@@ -676,7 +682,7 @@ bool PieceLogic::checkDirection(std::vector<Move>& move, const int pos, const in
 	return false;
 }
 
-bool PieceLogic::checkCorner(std::vector<Move>& move, const int pos, const int corner) const
+bool PieceLogic::checkCorner(std::vector<Move>& move, const int pos, const int corner,int color) const
 {
 	if (pos + corner < 0 || pos + corner > 63) return false;
 	if (pos % 8 == 0 && (corner == TOP_LEFT || corner == BOT_LEFT)) return false;
@@ -684,7 +690,7 @@ bool PieceLogic::checkCorner(std::vector<Move>& move, const int pos, const int c
 	if (pos - 8 < 0 && (corner == TOP_RIGHT || corner == TOP_LEFT)) return false;
 	if (pos + 8 > 63 && (corner == BOT_LEFT || corner == BOT_RIGHT)) return false;
 
-	return checkDirection(move, pos, corner);
+	return checkDirection(move, pos, corner,color);
 }
 
 bool PieceLogic::castle(int king, int direction)
@@ -700,10 +706,10 @@ bool PieceLogic::castle(int king, int direction)
 
 	if (NBoard::instance().m_board[king + direction] != 0 || 
 		NBoard::instance().m_board[king + direction*2] != 0){
-		if(direction == LEFT && NBoard::instance().m_board[king + direction * 3] != 0)
-			return false;
 		return false;
 	}
+	if (direction == LEFT && NBoard::instance().m_board[king + direction * 3] != 0)
+		return false;
 	if ((!check(king + direction, checkSquares, color) || checkSquares.size() != 0))return false;
 	if ((!check(king + direction * 2, checkSquares, color) || checkSquares.size() != 0))return false;
 	return true;

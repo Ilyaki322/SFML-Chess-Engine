@@ -16,12 +16,12 @@ private:
 	std::vector<Move> rookMove(int start, std::vector<int> Incheck);
 	std::vector<Move> pawnMove(int start, std::vector<int> Incheck);
 	std::vector<Move> queenMove(int start, std::vector<int> Incheck);
-	std::vector<Move> slidingMove(int direction ,int start , std::vector<int> inCheck);
+	std::vector<Move> slidingMove(int direction ,int start , std::vector<int> inCheck , int color);
 	bool checkCheck(std::vector<Move> moves, int color , int direction);
 	bool checkPin(std::vector<Move> moves, int color , int direction, int king);
 	void insertMoveToInt(std::vector<Move> from, std::vector<int>& to);
 	bool checkInSquare(int place , int jump , int color); // for knight move
-	bool checkDirection(std::vector<Move>& move, const int pos, const int direction) const;
-	bool checkCorner(std::vector<Move>& move, const int pos, const int corner) const;
+	bool checkDirection(std::vector<Move>& move, const int pos, const int direction,int color) const;
+	bool checkCorner(std::vector<Move>& move, const int pos, const int corner,int color) const;
 	bool castle(int king, int direction);
 };
