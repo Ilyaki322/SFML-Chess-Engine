@@ -5,7 +5,7 @@
 class PlayerXTurnState : public GameState
 {
 public:
-	PlayerXTurnState(GameManager& manager, const int player, const int players);
+	PlayerXTurnState(GameManager& manager, const int player);
 
 	void execute() override;
 	void draw() override;
@@ -13,6 +13,5 @@ public:
 private:
 
 	Controller* m_playerController;
-	const int m_numOfPlayers;
 	const int m_playerNum;
 };

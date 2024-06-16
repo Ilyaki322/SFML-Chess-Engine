@@ -7,6 +7,7 @@
 
 #include <iostream> // debug
 #include "Assets.h" // for font
+#include "TestAI.h"
 
 
 GameManager::GameManager()
@@ -19,11 +20,12 @@ GameManager::GameManager()
 	//m_blackPlayer = std::make_unique<PlayerController>(m_window, Black);
 	//m_blackPlayer = std::make_unique<AIController>(Black);
 
-	m_players.push_back(std::make_unique<PlayerController>(*this, m_window, White, m_sfmlBoard));
-	m_players.push_back(std::make_unique<AIController>(Black));
-	//m_players.push_back(std::make_unique<PlayerController>(*this, m_window, Black, m_sfmlBoard));
+	//m_players.push_back(std::make_unique<PlayerController>(*this, m_window, White, m_sfmlBoard));
+	//m_players.push_back(std::make_unique<AIController>(Black));
+	m_players.push_back(std::make_unique<TestAI>(White));
+	m_players.push_back(std::make_unique<PlayerController>(*this, m_window, Black, m_sfmlBoard));
 
-	m_currentState = std::make_unique<PlayerXTurnState>(*this, 0, 2);
+	m_currentState = std::make_unique<PlayerXTurnState>(*this, 0);
 
 }
 
@@ -32,7 +34,6 @@ void GameManager::update()
 	while (m_window.isOpen())
 	{
 		handleEvents();
-		m_currentState->draw();
 		m_currentState->execute();
 		draw();
 	}
@@ -40,9 +41,9 @@ void GameManager::update()
 
 void GameManager::draw()
 {
-	m_window.clear();
 	m_window.clear(sf::Color(125, 125, 125, 255));
 	m_sfmlBoard.draw(m_window);
+	m_currentState->draw();
 	m_window.display();
 }
 
@@ -72,9 +73,19 @@ void GameManager::notify(sf::Event& event)
 	}
 }
 
+sf::RenderWindow& GameManager::getWindow()
+{
+	return m_window;
+}
+
 Controller* GameManager::getPlayer(const int i)
 {
 	return m_players[i].get();
+}
+
+int GameManager::getNumOfPlayers() const
+{
+	return int(m_players.size());
 }
 
 void GameManager::setState(std::unique_ptr<GameState> newState)
