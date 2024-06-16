@@ -11,42 +11,42 @@ bool PieceLogic::check(int king ,std::vector<int>& checkSquares , int color)
 	std::vector<Move> moves;
 	std::vector<int> empty;
 	moves = slidingMove(BOT_LEFT, king, empty,color);
-	if (checkCheck(moves, color,BOT_LEFT)) {
+	if (checkCheck(moves, color,BOT_LEFT,king)) {
 		insertMoveToInt(moves, checkSquares);
 		foundOne++;
 	}
 	moves = slidingMove(BOT_RIGHT, king, empty,color);
-	if (checkCheck(moves, color, BOT_RIGHT)) {
+	if (checkCheck(moves, color, BOT_RIGHT, king)) {
 		insertMoveToInt(moves, checkSquares);
 		foundOne++;
 	}
 	moves = slidingMove(TOP_LEFT, king, empty,color);
-	if (checkCheck(moves, color , TOP_LEFT)) {
+	if (checkCheck(moves, color , TOP_LEFT, king)) {
 		insertMoveToInt(moves, checkSquares);
 		foundOne++;
 	}
 	moves = slidingMove(TOP_RIGHT, king, empty,color);
-	if (checkCheck(moves, color , TOP_RIGHT)) {
+	if (checkCheck(moves, color , TOP_RIGHT, king)) {
 		insertMoveToInt(moves, checkSquares);
 		foundOne++;
 	}
 	moves = slidingMove(UP, king, empty,color);
-	if (checkCheck(moves, color , UP)) {
+	if (checkCheck(moves, color , UP, king)) {
 		insertMoveToInt(moves, checkSquares);
 		foundOne++;
 	}
 	moves = slidingMove(DOWN, king, empty,color);
-	if (checkCheck(moves, color , DOWN)) {
+	if (checkCheck(moves, color , DOWN, king)) {
 		insertMoveToInt(moves, checkSquares);
 		foundOne++;
 	}
 	moves = slidingMove(LEFT, king, empty,color);
-	if (checkCheck(moves, color , LEFT)) {
+	if (checkCheck(moves, color , LEFT, king)) {
 		insertMoveToInt(moves, checkSquares);
 		foundOne++;
 	}
 	moves = slidingMove(RIGHT, king, empty,color);
-	if (checkCheck(moves, color , RIGHT)) {
+	if (checkCheck(moves, color , RIGHT, king)) {
 		insertMoveToInt(moves, checkSquares);
 		foundOne++;
 	}
@@ -125,50 +125,52 @@ MovementDirection PieceLogic::kingPin(int target)
 	std::vector<int> empty;
 	if ((king - target) % Diagonal1 == 0) {
 		moves = slidingMove(BOT_RIGHT, king, empty,color);
-		if (!checkCheck(moves, color , BOT_RIGHT)) {
+		if (!checkCheck(moves, color , BOT_RIGHT, king)) {
 			if (checkPin(moves, color, BOT_RIGHT, king))
 				return Diagonal1;
 		}
 		moves = slidingMove(TOP_LEFT, king, empty,color);
-		if (!checkCheck(moves, color , TOP_LEFT)) {
+		if (!checkCheck(moves, color , TOP_LEFT, king)) {
 			if (checkPin(moves, color, TOP_LEFT, king))
 				return Diagonal1;
 		}
 	}
 	if ((king - target) % Forward == 0) {
 		moves = slidingMove(DOWN, king, empty,color);
-		if (!checkCheck(moves, color,DOWN)) {
+		if (!checkCheck(moves, color,DOWN, king)) {
 			if (checkPin(moves, color ,DOWN, king))
 				return Forward;
 		}
 		moves = slidingMove(UP, king, empty,color);
-		if (!checkCheck(moves, color ,UP)) {
+		if (!checkCheck(moves, color ,UP, king)) {
 			if (checkPin(moves, color, UP, king))
 				return Forward;
 		}
 	}
 	if ((king - target) % Diagonal2 == 0) {
 		moves = slidingMove(BOT_LEFT, king, empty,color);
-		if (!checkCheck(moves, color , BOT_LEFT)) {
+		if (!checkCheck(moves, color , BOT_LEFT, king)) {
 			if (checkPin(moves, color, BOT_LEFT, king))
 				return Diagonal2;
 		}
 		moves = slidingMove(TOP_RIGHT, king, empty,color);
-		if (!checkCheck(moves, color , TOP_RIGHT)) {
+		if (!checkCheck(moves, color , TOP_RIGHT, king)) {
 			if (checkPin(moves, color, TOP_RIGHT, king))
 				return Diagonal2;
 		}
 	}
 	moves = slidingMove(LEFT, king, empty,color);
-	if (!checkCheck(moves, color , LEFT)) {
-		if (checkPin(moves, color, LEFT, king))
-			return Side;
-	}
+	if(!moves.empty() && moves.back().targetSquare+LEFT == target)
+		if (!checkCheck(moves, color , LEFT, king)) {
+			if (checkPin(moves, color, LEFT, king))
+				return Side;
+		}
 	moves = slidingMove(RIGHT, king, empty,color);
-	if (!checkCheck(moves, color , RIGHT)) {
-		if (checkPin(moves, color, RIGHT, king))
-			return Side;
-	}
+	if (!moves.empty() && moves.back().targetSquare + RIGHT == target)
+		if (!checkCheck(moves, color , RIGHT, king)) {
+			if (checkPin(moves, color, RIGHT, king))
+				return Side;
+		}
 	return All;
 }
 
@@ -178,103 +180,71 @@ std::vector<Move> PieceLogic::kingMove(int start, std::vector<int> Incheck)
 	std::vector<Move> moves;
 	bool inCheck = !Incheck.empty();
 	int color = (NBoard::instance().m_board[start] & White) > 0 ? White : Black;
-	bool castleRight , castleLeft;
-	if (!inCheck) castleRight =castleLeft = true;
+	bool castleRight, castleLeft;
+	if (!inCheck) castleRight = castleLeft = true;
 	else castleRight = castleLeft = false;
-	if (start % 8 != 0) 
-		if (checkDirection(moves, start, LEFT,color)) {
+
+
+	if (start % 8 != 0) {
+		if (checkDirection(moves, start, LEFT, color)) {
 			std::vector<int> checkSquares;
-			if(check(start+LEFT , checkSquares, color) && checkSquares.size()==0)
-				//if (inCheck) {
-					//if (std::find(Incheck.begin(), Incheck.end(), start + LEFT) == Incheck.end()) {
-						//moves.push_back({ start, start + LEFT , -1 , -1 , p });
-					//}
-				//}
-				//else {
-					moves.push_back({ start, start + LEFT, -1 , -1 , p });
-					castleLeft = true;
-				//}
+			if (check(start + LEFT, checkSquares, color) && (checkSquares.size() == 0)) {
+				moves.push_back({ start, start + LEFT , -1 , -1 , p });
+				castleLeft = true;
+			}
 		}
-	if (start % 8 != 7) 
-		if (checkDirection(moves, start, RIGHT,color)) {
+	}
+
+	if (start % 8 != 7){
+		if (checkDirection(moves, start, RIGHT, color)) {
 			std::vector<int> checkSquares;
-			if (check(start + RIGHT, checkSquares, color) && checkSquares.size() == 0)
-				//if (inCheck) {
-					//if (std::find(Incheck.begin(), Incheck.end(), start + RIGHT) == Incheck.end()) {
-					//	moves.push_back({ start, start + RIGHT , -1 , -1 , p });
-					//}
-				//}
-				//else {
+			if (check(start + RIGHT, checkSquares, color) && checkSquares.size() == 0) {
 					moves.push_back({ start, start + RIGHT , -1 , -1 , p });
 					castleRight = true;
-				//}
+			}
 		}
-	if (start - 8 > 0) 
-		if (checkDirection(moves, start, UP,color)) {
+	}
+
+	if (start - 8 > 0) {
+		if (checkDirection(moves, start, UP, color)) {
 			std::vector<int> checkSquares;
 			if (check(start + UP, checkSquares, color) && checkSquares.size() == 0)
-				//if (inCheck) {
-				//	if (std::find(Incheck.begin(), Incheck.end(), start + UP) == Incheck.end()) {
-				//		moves.push_back({ start, start + UP , -1 , -1 , p });
-				//	}
-				//}
-				//else
-				moves.push_back({ start, start + UP, -1 , -1 , p });
+					moves.push_back({ start, start + UP , -1 , -1 , p });
 		}
-	if (start + 8 < 63)
-		if (checkDirection(moves, start, DOWN,color)) {
+	}
+
+
+	if (start + 8 < 63) {
+		if (checkDirection(moves, start, DOWN, color)) {
 			std::vector<int> checkSquares;
 			if (check(start + DOWN, checkSquares, color) && checkSquares.size() == 0)
-				//if (inCheck) {
-				//	if (std::find(Incheck.begin(), Incheck.end(), start + DOWN) == Incheck.end()) {
-					moves.push_back({ start, start + DOWN , -1 , -1 , p });
-				//	}
-				//}
-				//else moves.push_back({ start, start + DOWN , -1 , -1 , p });
+				moves.push_back({ start, start + DOWN , -1 , -1 , p });
 		}
+	}
 
 	if (checkCorner(moves, start, TOP_LEFT,color)) {
 		std::vector<int> checkSquares;
-		if (check(start + TOP_LEFT, checkSquares, color) && checkSquares.size() == 0)
-			//if (inCheck) {
-			//	if (std::find(Incheck.begin(), Incheck.end(), start + TOP_LEFT) == Incheck.end()) {
-					moves.push_back({ start, start + TOP_LEFT , -1 , -1 , p });
-			//	}
-		//	}
-		//	else moves.push_back({ start, start + TOP_LEFT, -1 , -1 , p });
+		if (check(start + TOP_LEFT, checkSquares, color) && checkSquares.size() == 0) {
+			moves.push_back({ start, start + TOP_LEFT , -1 , -1 , p });
+		}
 	}
 	if (checkCorner(moves, start, TOP_RIGHT,color)) {
 		std::vector<int> checkSquares;
-		if (check(start + TOP_RIGHT, checkSquares, color) && checkSquares.size() == 0)
-			//if (inCheck) {
-			//	if (std::find(Incheck.begin(), Incheck.end(), start + TOP_RIGHT) == Incheck.end()) {
-					moves.push_back({ start, start + TOP_RIGHT, -1 , -1 , p });
-			///	}
-		//	}
-		//	else moves.push_back({ start, start + TOP_RIGHT , -1 , -1 , p });
+		if (check(start + TOP_RIGHT, checkSquares, color)&&checkSquares.size() == 0)
+				moves.push_back({ start, start + TOP_RIGHT, -1 , -1 , p });
 	}
 	if (checkCorner(moves, start, BOT_LEFT,color)){
 		std::vector<int> checkSquares;
-		if (check(start + BOT_LEFT, checkSquares, color) && checkSquares.size() == 0)
-			//if (inCheck) {
-			//	if (std::find(Incheck.begin(), Incheck.end(), start + BOT_LEFT) == Incheck.end()) {
-					moves.push_back({ start, start + BOT_LEFT , -1 , -1 , p });
-			//	}
-			//}
-		//	else moves.push_back({ start, start + BOT_LEFT , -1 , -1 , p });
+		if (check(start + BOT_LEFT, checkSquares, color)&&checkSquares.size() == 0)
+				moves.push_back({ start, start + BOT_LEFT , -1 , -1 , p });
 	}
 	if(checkCorner(moves, start, BOT_RIGHT,color)) {
 		std::vector<int> checkSquares;
-		if (check(start + BOT_RIGHT, checkSquares, color) && checkSquares.size() == 0)
-			//if (inCheck) {
-			//	if (std::find(Incheck.begin(), Incheck.end(), start + BOT_RIGHT) == Incheck.end()) {
-					moves.push_back({ start, start + BOT_RIGHT , -1 , -1 , p });
-		//		}
-		//	}
-		//	else moves.push_back({ start, start + BOT_RIGHT, -1 , -1 , p });
+		if(check(start + BOT_RIGHT, checkSquares, color) && checkSquares.size() == 0) 
+				moves.push_back({ start, start + BOT_RIGHT , -1 , -1 , p });
 	}
-	if (castleLeft && castle(start, LEFT))moves.push_back({ start, start + LEFT*2  , start+LEFT*4 , start+LEFT , p });
-	if (castleRight && castle(start , RIGHT)) moves.push_back({ start, start + RIGHT*2 , start+RIGHT*3 , start+RIGHT  , p});
+	if (!inCheck&& castleLeft && castle(start, LEFT))moves.push_back({ start, start + LEFT*2  , start+LEFT*4 , start+LEFT , p });
+	if (!inCheck && castleRight && castle(start , RIGHT)) moves.push_back({ start, start + RIGHT*2 , start+RIGHT*3 , start+RIGHT  , p});
 
 	return moves;
 }
@@ -604,10 +574,18 @@ std::vector<Move> PieceLogic::slidingMove(int direction, int start, std::vector<
 	return moves;
 }
 
-bool PieceLogic::checkCheck(std::vector<Move> moves, int color,int direction)
+bool PieceLogic::checkCheck(std::vector<Move>& moves, int color,int direction,int king)
 {
-	if (moves.empty()) return false;
-	
+	std::vector<int>empty;
+	if (moves.empty()) {
+		if ((king + direction) < 64 && king + direction > -1 &&
+			(NBoard::instance().m_board[king + direction] & 0b111) == KingVal) {
+			moves = slidingMove(direction, king + direction, empty, color);
+		}
+		else return false;
+	}
+	if (moves.empty())return false;
+
 	if (NBoard::instance().m_board[moves.back().targetSquare] == 0) return false;
 	int piece = (NBoard::instance().m_board[moves.back().targetSquare] & 0b111);
 	if (direction % Forward == 0 || Side % direction == 0) {
@@ -633,7 +611,7 @@ bool PieceLogic::checkPin(std::vector<Move> moves, int color, int direction,int 
 		if ((king + direction) < 64 && king + direction > -1 &&
 			NBoard::instance().m_board[king + direction] != 0) {
 			moves = slidingMove(direction, king + direction, empty,color);
-			if (checkCheck(moves, color, direction)) {
+			if (checkCheck(moves, color, direction, king)) {
 				return true;
 			}
 			return false;
@@ -645,7 +623,7 @@ bool PieceLogic::checkPin(std::vector<Move> moves, int color, int direction,int 
 	if ((moves.back().targetSquare + direction) % 8 == 7 && moves.back().targetSquare % 8 == 0)return false;
 	
 	moves = slidingMove(direction, moves.back().targetSquare + direction, empty,color);
-	if (checkCheck(moves, color , direction)) {
+	if (checkCheck(moves, color , direction, king)) {
 		return true;
 	}
 	return false;

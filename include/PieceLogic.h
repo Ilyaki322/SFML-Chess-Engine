@@ -17,7 +17,7 @@ private:
 	std::vector<Move> pawnMove(int start, std::vector<int> Incheck);
 	std::vector<Move> queenMove(int start, std::vector<int> Incheck);
 	std::vector<Move> slidingMove(int direction ,int start , std::vector<int> inCheck , int color);
-	bool checkCheck(std::vector<Move> moves, int color , int direction);
+	bool checkCheck(std::vector<Move> &moves, int color , int direction,int king);
 	bool checkPin(std::vector<Move> moves, int color , int direction, int king);
 	void insertMoveToInt(std::vector<Move> from, std::vector<int>& to);
 	bool checkInSquare(int place , int jump , int color); // for knight move

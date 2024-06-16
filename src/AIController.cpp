@@ -13,7 +13,7 @@ bool AIController::turnReady()
 
 Move AIController::playTurn()
 {
-    depth = 4;
+    depth = 3;
     IGenerate generate;
     Move bestMove = { -1, -1 , -1, -1 ,PawnVal};
     int bestValue = (m_color == WHITE) ? std::numeric_limits<int>::min() : std::numeric_limits<int>::max();
@@ -83,7 +83,12 @@ int AIController::evaluateBoard()
 {
     int score = 0;
     int pieceValue = 0;
+    int counter = 0;
     for (int x = 0; x < 64; x++) {
+        if (NBoard::instance().m_board[x] != 0) counter++;
+    }
+    for (int x = 0; x < 64; x++) {
+        if (NBoard::instance().m_board[x] == 0) continue;
         int piece = NBoard::instance().m_board[x];
         int color = (piece & White) > 0 ? White : Black;
         int pieceType = (piece & 0b111);
@@ -116,7 +121,9 @@ int AIController::evaluateBoard()
             }
             case KingVal: {
                 pieceValue = color == White ? 900 : -900;
-                pieceValue += color == White ? whiteKingTableMidgame[x] : -blackKingTableMidgame[x];
+                if(counter < 6)
+                    pieceValue += color == White ? whiteKingTableEndgame[x] : -blackKingTableEndgame[x];
+                else pieceValue += color == White ? whiteKingTableMidgame[x] : -blackKingTableMidgame[x];
                 break;
             }
         }
