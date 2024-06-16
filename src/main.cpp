@@ -14,6 +14,7 @@ int main()
 	inst.setBoard(inst.m_board);/// change
 	GameManager game;
 	game.update();*/
+	//hui
 
 	StateMachine game;
 	game.update();
