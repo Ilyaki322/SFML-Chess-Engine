@@ -37,3 +37,25 @@ std::vector<Move> IGenerate::generatePiece(int x)
 	pieceLogic.check(king, check, color);
 	return pieceLogic.generate(check,x);
 }
+
+bool IGenerate::isMate(int color)
+{
+	PieceLogic pieceLogic;
+	int king = color == White ? NBoard::instance().m_WKing : NBoard::instance().m_BKing;
+	std::vector<int> check;
+	std::vector < std::vector<Move>> all;
+	if (pieceLogic.check(king, check, color) && check.size() == 0) return false;
+	if (pieceLogic.check(king, check, color)) {
+		for (int i = 0; i < SIZE; i++) {
+			if (NBoard::instance().m_board[i] == 0) continue;
+			int myColor = (NBoard::instance().m_board[i] & White) > 0 ? White : Black;
+			if (myColor == color) {
+				all.push_back(pieceLogic.generate(check, i));
+			}
+		}
+	}
+	for (auto pieceMove : all)
+		if (pieceMove.size() != 0)return false;
+
+	return true;
+}
