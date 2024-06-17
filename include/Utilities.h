@@ -50,9 +50,10 @@ struct Stack {
 	int lastWKing;
 	int lastBKing;
 	int enPassant;
-	std::array<int, 64> backUpm_board;
-	std::array<int, 64> backUpBlackThreatArray;
-	std::array<int, 64> backUpWhiteThreatArray;
+	int startValue;
+	int targetValue;
+	int specialStartVal;
+	int specialTargetVal;
 };
 
 const int BLACK = 16;
