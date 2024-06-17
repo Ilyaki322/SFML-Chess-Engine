@@ -637,19 +637,20 @@ bool PieceLogic::checkPin(std::vector<Move> moves, int color, int direction,int 
 			NBoard::instance().m_board[king + direction] != 0) {
 			moves = slidingMove(direction, king + direction, empty,color);
 			if (checkCheck(moves, color, direction, king)) {
-				return true;
+				if ((NBoard::instance().m_board[moves.back().targetSquare] & 0b111) != PawnVal)return true;
 			}
 			return false;
 		}
 		else return false;
 	}
+	if (NBoard::instance().m_board[moves.back().targetSquare] != 0) return false;
 	if (moves.back().targetSquare + direction > 63 || moves.back().targetSquare + direction < 0) return false;
 	if ((moves.back().targetSquare + direction) % 8 == 0 && moves.back().targetSquare % 8 == 7)return false;
 	if ((moves.back().targetSquare + direction) % 8 == 7 && moves.back().targetSquare % 8 == 0)return false;
 	
 	moves = slidingMove(direction, moves.back().targetSquare + direction, empty,color);
 	if (checkCheck(moves, color , direction, king)) {
-		return true;
+		if ((NBoard::instance().m_board[moves.back().targetSquare] & 0b111) != PawnVal)return true;
 	}
 	return false;
 }
