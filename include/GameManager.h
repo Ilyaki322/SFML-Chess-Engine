@@ -16,7 +16,9 @@ public:
 	void setState(std::unique_ptr<GameState> newState);
 	void nextTurn(Move &move);
 
+	sf::RenderWindow& getWindow();
 	Controller* getPlayer(const int i);
+	int getNumOfPlayers() const;
 
 private:
 

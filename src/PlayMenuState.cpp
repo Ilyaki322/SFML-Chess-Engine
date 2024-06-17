@@ -21,20 +21,20 @@ PlayMenuState::PlayMenuState(sf::RenderWindow& window, StateMachine& state)
 	m_PvB[2].setString("AI");
 	m_BvP[2].setString("Player");
 
-	setText(m_exit, sf::Color::Red, {(float)m_window.getSize().x / 2, (float)m_window.getSize().y / 8 + 500 });
-	setText(m_Puzzle, sf::Color::Red, {(float)m_window.getSize().x / 2, (float)m_window.getSize().y / 8 + 100 });
+	setText(m_exit, sf::Color::Red, {(float)m_window.getSize().x / 2, (float)m_window.getSize().y / 8 + 400 });
+	setText(m_Puzzle, sf::Color::Red, {(float)m_window.getSize().x / 2, (float)m_window.getSize().y / 8 });
 
-	setText(m_PvP[0], sf::Color::White, { (float)m_window.getSize().x / 2, (float)m_window.getSize().y / 4 + 100 });
-	setText(m_PvB[0], sf::Color::White, { (float)m_window.getSize().x / 2, (float)m_window.getSize().y / 4 + 200 });
-	setText(m_BvP[0], sf::Color::White, { (float)m_window.getSize().x / 2, (float)m_window.getSize().y / 4 + 300 });
+	setText(m_PvP[0], sf::Color::White, { (float)m_window.getSize().x / 2 - 100, (float)m_window.getSize().y / 4 + 30 });
+	setText(m_PvB[0], sf::Color::White, { (float)m_window.getSize().x / 2 - 100, (float)m_window.getSize().y / 4 + 130 });
+	setText(m_BvP[0], sf::Color::White, { (float)m_window.getSize().x / 2 - 100, (float)m_window.getSize().y / 4 + 230 });
 
-	setText(m_PvP[1], sf::Color::Red, { m_PvP[0].getGlobalBounds().width + 100, 100 });
-	setText(m_PvB[1], sf::Color::Red, { m_PvB[0].getGlobalBounds().width + 100, 100 });
-	setText(m_BvP[1], sf::Color::Red, { m_BvP[0].getGlobalBounds().width + 100, 100 });
+	setText(m_PvP[1], sf::Color::Red, { m_PvP[0].getGlobalBounds().getPosition().x + 120, m_PvP[0].getGlobalBounds().getPosition().y + 5 });
+	setText(m_PvB[1], sf::Color::Red, { m_PvB[0].getGlobalBounds().getPosition().x + 120, m_PvB[0].getGlobalBounds().getPosition().y + 5 });
+	setText(m_BvP[1], sf::Color::Red, { m_BvP[0].getGlobalBounds().getPosition().x + 70, m_BvP[0].getGlobalBounds().getPosition().y + 3 });
 
-	setText(m_PvP[2], sf::Color::Black, { m_PvP[1].getGlobalBounds().width + 100, 100 });
-	setText(m_PvB[2], sf::Color::Black, { m_PvB[1].getGlobalBounds().width + 100, 100 });
-	setText(m_BvP[2], sf::Color::Black, { m_BvP[1].getGlobalBounds().width + 100, 100 });
+	setText(m_PvP[2], sf::Color::Black, { m_PvP[1].getGlobalBounds().getPosition().x + 110, m_PvP[0].getGlobalBounds().getPosition().y + 6 });
+	setText(m_PvB[2], sf::Color::Black, { m_PvB[1].getGlobalBounds().getPosition().x + 100, m_PvB[0].getGlobalBounds().getPosition().y + 6 });
+	setText(m_BvP[2], sf::Color::Black, { m_BvP[1].getGlobalBounds().getPosition().x + 110, m_BvP[0].getGlobalBounds().getPosition().y + 6 });
 }
 
 void PlayMenuState::draw()

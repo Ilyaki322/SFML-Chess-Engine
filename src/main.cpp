@@ -1,6 +1,7 @@
 #include "GameManager.h"
 #include "NBoard.h"
 #include "FenAlgorithm.h"
+#include "StateMachine.h"
 
 #include <iostream>
 
@@ -12,4 +13,8 @@ int main()
 	inst.setBoard(inst.m_board);/// change
 	GameManager game;
 	game.update();
+
+	/*StateMachine game;
+	game.update();*/
+
 }

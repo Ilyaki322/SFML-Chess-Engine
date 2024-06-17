@@ -6,6 +6,7 @@ class PlayMenuState : public MenuState
 {
 public:
 	PlayMenuState(sf::RenderWindow& window, StateMachine& state);
+	virtual ~PlayMenuState() {};
 
 	virtual void draw() override;
 	virtual void handleEvents() override;
