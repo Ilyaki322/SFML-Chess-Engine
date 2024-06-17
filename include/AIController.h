@@ -1,6 +1,8 @@
 #pragma once
 #include "Controller.h"
 #include "IGenerate.h"
+
+class NBoard;
 class AIController : public Controller
 {
 public:
@@ -9,7 +11,7 @@ public:
 	bool turnReady() override;
 
 private:
-	int minimax(int depth, int alpha, int beta, bool maximizingPlayer);
+	int minimax(int depth, int alpha, int beta, bool maximizingPlayer, NBoard& ins);
 	int evaluateBoard();
 	int depth;
 

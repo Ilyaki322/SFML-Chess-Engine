@@ -17,6 +17,8 @@ FenAlgorithm::FenAlgorithm()
 void FenAlgorithm::setBoard(/*std::array<std::shared_ptr<Tile>, 64> &tiles, */std::array<int, 64>& squares, std::string stage)
 {
 	//PiecesFactory theCreator;
+	for (int i = 0; i < 64; i++)
+		squares[i]  = 0;
 	for (int j = 0, point = 0; j < 64 && point < stage.size(); j++, point++) {
 		if (isdigit(stage[point])) {
 

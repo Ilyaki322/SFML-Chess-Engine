@@ -9,13 +9,19 @@ public:
 	void setBoard(std::array<int,SIZE> arr );
 	void move(Move move);
 	void undo();
-	int m_passant;
-	int m_WKing;
-	int m_BKing;
-	std::array<int,SIZE> m_board ;
+
+
+	int getPiece(int x)const;
+	bool enPassant(int x)const;
+	int getKing(int color)const;
+	std::array<int, SIZE> &getBoard();
 private:
 	NBoard();
 	NBoard(const NBoard&) = default;
 	NBoard& operator=(const NBoard&) = default;
 	BoardStack m_stack;
+	std::array<int, SIZE> m_board;
+	int m_passant;
+	int m_WKing;
+	int m_BKing;
 };

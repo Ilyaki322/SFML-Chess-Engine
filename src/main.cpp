@@ -9,8 +9,9 @@ int main()
 {
 	FenAlgorithm fen;
 	NBoard& inst = NBoard::instance();
-	fen.setBoard(inst.m_board, "RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr");
-	inst.setBoard(inst.m_board);/// change
+	std::array<int, SIZE> arr;
+	fen.setBoard(arr, "RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr");
+	inst.setBoard(arr);/// To change
 	GameManager game;
 	game.update();
 

@@ -31,7 +31,7 @@ void SFMLBoard::initTiles()
 void SFMLBoard::updateBoard()
 {
 	SFMLPieceFactory factory;
-	std::array<int, 64> &board = m_BoardRef.m_board;
+	std::array<int, 64> &board = m_BoardRef.getBoard();
 
 	for (int i = 0; i < 64; i++)
 	{
@@ -58,7 +58,7 @@ bool SFMLBoard::clickedOnCorrectPiece(const int x, Color color)
 {
 	if (x < 0 || x > 64) return false;
 	
-	Color c = ((m_BoardRef.m_board[x] & 0b10000) > 0) ? Black : White;
+	Color c = ((m_BoardRef.getPiece(x) & 0b10000) > 0) ? Black : White;
 	if (m_tiles[x]->isOccupied() && c == color)
 	{
 		return true;

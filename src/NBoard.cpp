@@ -1,5 +1,6 @@
 #include "NBoard.h"
-#include <iostream> //DEBUG
+#include <iostream> 
+
 NBoard::NBoard()
 {
 }
@@ -73,4 +74,25 @@ void NBoard::undo()
 	m_BKing = s.lastBKing;
 	m_WKing = s.lastWKing;
 	m_passant = s.enPassant;
+}
+
+int NBoard::getPiece(int x)const
+{
+	return m_board[x];
+}
+
+bool NBoard::enPassant(int x)const
+{
+	return x == m_passant;
+}
+
+int NBoard::getKing(int color)const
+{
+	return (color & White) > 0 ? m_WKing : m_BKing;
+}
+
+
+std::array<int, SIZE>& NBoard::getBoard()
+{
+	return m_board;
 }

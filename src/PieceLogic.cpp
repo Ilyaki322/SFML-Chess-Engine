@@ -99,7 +99,8 @@ bool PieceLogic::check(int king ,std::vector<int>& checkSquares , int color)
 
 std::vector<Move> PieceLogic::generate(std::vector<int> Incheck, int piecePlace)
 {
-	int piece = NBoard::instance().m_board[piecePlace] & 0b111 ; // piece type
+	NBoard& ins = NBoard::instance();
+	int piece = ins.getPiece(piecePlace) & 0b111 ; // piece type
 	switch (piece)
 	{
 	case PawnVal:
@@ -119,8 +120,9 @@ std::vector<Move> PieceLogic::generate(std::vector<int> Incheck, int piecePlace)
 
 MovementDirection PieceLogic::kingPin(int target)
 {
-	int color = (NBoard::instance().m_board[target] & White) > 0 ? White : Black;
-	int king = color == BLACK ? NBoard::instance().m_BKing : NBoard::instance().m_WKing;
+	NBoard& ins = NBoard::instance();
+	int color = (ins.getPiece(target) & White) > 0 ? White : Black;
+	int king = ins.getKing(color);
 	std::vector<Move> moves;
 	std::vector<int> empty;
 	if ((king - target) % Diagonal1 == 0) {
@@ -176,10 +178,11 @@ MovementDirection PieceLogic::kingPin(int target)
 
 std::vector<Move> PieceLogic::kingMove(int start, std::vector<int> Incheck)
 {
+	NBoard& ins = NBoard::instance();
 	Piece p = PawnVal;
 	std::vector<Move> moves;
 	bool inCheck = !Incheck.empty();
-	int color = (NBoard::instance().m_board[start] & White) > 0 ? White : Black;
+	int color = (ins.getPiece(start) & White) > 0 ? White : Black;
 	bool castleRight, castleLeft;
 	if (!inCheck) castleRight = castleLeft = true;
 	else castleRight = castleLeft = false;
@@ -205,7 +208,7 @@ std::vector<Move> PieceLogic::kingMove(int start, std::vector<int> Incheck)
 		}
 	}
 
-	if (start - 8 > 0) {
+	if (start - 8 > -1) {
 		if (checkDirection(moves, start, UP, color)) {
 			std::vector<int> checkSquares;
 			if (check(start + UP, checkSquares, color) && checkSquares.size() == 0)
@@ -214,7 +217,7 @@ std::vector<Move> PieceLogic::kingMove(int start, std::vector<int> Incheck)
 	}
 
 
-	if (start + 8 < 63) {
+	if (start + 8 < 64) {
 		if (checkDirection(moves, start, DOWN, color)) {
 			std::vector<int> checkSquares;
 			if (check(start + DOWN, checkSquares, color) && checkSquares.size() == 0)
@@ -251,11 +254,12 @@ std::vector<Move> PieceLogic::kingMove(int start, std::vector<int> Incheck)
 
 std::vector<Move> PieceLogic::bishopMove(int start, std::vector<int> Incheck)
 {
+	NBoard& ins = NBoard::instance();
 	std::vector<Move> moves;
 	std::vector<Move> toInsert;
 	MovementDirection direction = kingPin(start);
 	if (!Incheck.empty() && direction != All)return moves;  // ---cant move-- check and pin 
-	int color = (NBoard::instance().m_board[start] & White) > 0 ? White : Black;
+	int color = (ins.getPiece(start) & White) > 0 ? White : Black;
 	if (direction == Diagonal1 || direction == All) {
 		toInsert = (slidingMove(BOT_RIGHT, start, Incheck,color));
 		moves.insert(moves.end(), toInsert.begin(), toInsert.end());
@@ -279,7 +283,7 @@ std::vector<Move> PieceLogic::knightMove(int start, std::vector<int> Incheck)
 
 	Piece p = PawnVal;
 	bool inCheck = !Incheck.empty();
-	int color = (NBoard::instance().m_board[start] & White) > 0 ? White : Black;
+	int color = (NBoard::instance().getPiece(start) & White) > 0 ? White : Black;
 	if (start % 8 != 0 && start + 16 < 64) 
 		if(checkDirection(move, start, (2 * DOWN) + LEFT , color))
 			if (inCheck) {
@@ -296,7 +300,7 @@ std::vector<Move> PieceLogic::knightMove(int start, std::vector<int> Incheck)
 				}
 			}
 			else move.push_back({ start, start + (2 * DOWN) + RIGHT, -1 , -1 , p });
-	if (start - 16 > 0 && start % 8 != 7) 
+	if (start - 16 > -1 && start % 8 != 7) 
 		if(checkDirection(move, start, (2 * UP) + RIGHT,color))
 			if (inCheck) {
 				if (std::find(Incheck.begin(), Incheck.end(), start + (2 * UP) + RIGHT) != Incheck.end()) {
@@ -354,7 +358,7 @@ std::vector<Move> PieceLogic::queenMove(int start, std::vector<int> Incheck)
 	std::vector<Move> toInsert;
 	MovementDirection direction = kingPin(start);
 	if (!Incheck.empty() && direction != All)return moves;  // ---cant move-- check and pin 
-	int color = (NBoard::instance().m_board[start] & White) > 0 ? White : Black;
+	int color = (NBoard::instance().getPiece(start) & White) > 0 ? White : Black;
 	if (direction == Forward || direction == All) {
 		toInsert = (slidingMove(UP, start, Incheck,color));
 		moves.insert(moves.end(), toInsert.begin(), toInsert.end());
@@ -384,12 +388,13 @@ std::vector<Move> PieceLogic::queenMove(int start, std::vector<int> Incheck)
 
 std::vector<Move> PieceLogic::pawnMove(int start, std::vector<int> Incheck)
 {
+	NBoard& ins = NBoard::instance();
 	std::vector<Move> moves;
 	int forward;
 	int pos = start;
 	MovementDirection direction = kingPin(start);
 	if (!Incheck.empty() && direction != All)return moves;  // ---cant move-- check and pin
-	int color = (NBoard::instance().m_board[pos] & White) > 0 ? White : Black;
+	int color = (ins.getPiece(pos) & White) > 0 ? White : Black;
 	bool inCheck = !Incheck.empty();
 
 
@@ -403,9 +408,8 @@ std::vector<Move> PieceLogic::pawnMove(int start, std::vector<int> Incheck)
 	}
 
 	if (direction == All || direction == Forward) {
-		if (NBoard::instance().m_board[pos + forward] == 0)
+		if (ins.getPiece(pos + forward) == 0)
 		{
-			//if (!(pos + forward > 55 || pos + forward < 8)) {
 				if (inCheck) {
 					if (std::find(Incheck.begin(), Incheck.end(), pos + forward) != Incheck.end()) {
 						if ((pos + forward > 55 || pos + forward < 8)) {//promotion
@@ -426,9 +430,8 @@ std::vector<Move> PieceLogic::pawnMove(int start, std::vector<int> Incheck)
 					}
 					else moves.push_back({ pos, pos + forward , -1 , -1 , p });
 				}
-			//}
 	
-			if ((NBoard::instance().m_board[pos] & Moved) > 0 && (NBoard::instance().m_board[pos + forward * 2] == 0))
+			if ((ins.getPiece(pos) & Moved) > 0 && (ins.getPiece(pos + forward * 2) == 0))
 			{
 				if (inCheck) {
 					if (std::find(Incheck.begin(), Incheck.end(), pos + forward*2) != Incheck.end()) {
@@ -442,8 +445,8 @@ std::vector<Move> PieceLogic::pawnMove(int start, std::vector<int> Incheck)
 	if (direction == All || direction == Diagonal2) {
 		if (pos % 8 != 7)
 		{
-			if (NBoard::instance().m_board[pos + forward + RIGHT] != 0) {
-				int enemyColor = (NBoard::instance().m_board[pos + forward + RIGHT] & White) > 0 ? White : Black;
+			if (ins.getPiece(pos + forward + RIGHT) != 0) {
+				int enemyColor = (ins.getPiece(pos + forward + RIGHT) & White) > 0 ? White : Black;
 				if (enemyColor != color) {
 					if (inCheck) {
 						if (std::find(Incheck.begin(), Incheck.end(), pos + forward +RIGHT) != Incheck.end()) {
@@ -467,10 +470,10 @@ std::vector<Move> PieceLogic::pawnMove(int start, std::vector<int> Incheck)
 				}
 			}
 
-			if (NBoard::instance().m_board[pos + RIGHT] != 0) {
-				int enemyColor = (NBoard::instance().m_board[pos + RIGHT] & White) > 0 ? White : Black;
+			if (ins.getPiece(pos + RIGHT) != 0) {
+				int enemyColor = (ins.getPiece(pos + RIGHT) & White) > 0 ? White : Black;
 				if (color != enemyColor) {
-					if (pos + RIGHT == NBoard::instance().m_passant)
+					if (ins.enPassant(pos + RIGHT))
 					{
 						if (inCheck) {
 							if (std::find(Incheck.begin(), Incheck.end(), pos + forward + RIGHT) != Incheck.end()) {
@@ -487,8 +490,8 @@ std::vector<Move> PieceLogic::pawnMove(int start, std::vector<int> Incheck)
 	if (direction == All || direction == Diagonal1) {
 		if (pos % 8 != 0)
 		{
-			if (NBoard::instance().m_board[pos + forward + LEFT]) {
-				int enemyColor = (NBoard::instance().m_board[pos + forward + LEFT] & White) > 0 ? White : Black;
+			if (ins.getPiece(pos + forward + LEFT)) {
+				int enemyColor = (ins.getPiece(pos + forward + LEFT) & White) > 0 ? White : Black;
 				if (enemyColor != color) {
 					if (inCheck) {
 						if (std::find(Incheck.begin(), Incheck.end(), pos + forward + LEFT) != Incheck.end()) {
@@ -510,10 +513,10 @@ std::vector<Move> PieceLogic::pawnMove(int start, std::vector<int> Incheck)
 					else moves.push_back({ pos, pos + forward + LEFT , -1 , -1 , p });
 				}
 			}
-			if (NBoard::instance().m_board[pos + LEFT] != 0) {
-				int enemyColor = (NBoard::instance().m_board[pos + LEFT] & White) > 0 ? White : Black;
+			if (ins.getPiece(pos + LEFT) != 0) {
+				int enemyColor = (ins.getPiece(pos + LEFT) & White) > 0 ? White : Black;
 				if (color != enemyColor) {
-					if (pos + LEFT == NBoard::instance().m_passant)
+					if (ins.enPassant(pos + LEFT))
 					{
 						if (inCheck) {
 							if (std::find(Incheck.begin(), Incheck.end(), pos + forward + LEFT) != Incheck.end()) {
@@ -534,7 +537,7 @@ std::vector<Move> PieceLogic::rookMove(int start, std::vector<int> Incheck)
 	std::vector<Move> moves;
 	std::vector<Move> toInsert;
 	MovementDirection direction = kingPin(start);
-	int color = (NBoard::instance().m_board[start] & White) > 0 ? White : Black;
+	int color = (NBoard::instance().getPiece(start) & White) > 0 ? White : Black;
 	if (!Incheck.empty() && direction != All)return moves;  // ---cant move-- check and pin 
 
 	if (direction == Forward || direction == All) {
@@ -554,7 +557,7 @@ std::vector<Move> PieceLogic::rookMove(int start, std::vector<int> Incheck)
 
 std::vector<Move> PieceLogic::slidingMove(int direction, int start, std::vector<int> inCheck , int color)
 {
-	
+	NBoard& ins = NBoard::instance();
 	std::vector<Move> moves;
 	int pos = start;
 	if (pos % 8 == 0 && (direction == BOT_LEFT || direction == TOP_LEFT || direction == LEFT)) return moves;
@@ -575,7 +578,7 @@ std::vector<Move> PieceLogic::slidingMove(int direction, int start, std::vector<
 		{
 			if (direction != UP && direction != DOWN) run = false;
 		}
-		if (NBoard::instance().m_board[i]==0) // empty square
+		if (ins.getPiece(i)==0) // empty square
 		{
 			if (isCheck) {
 				if (std::find(inCheck.begin(), inCheck.end(), i) != inCheck.end()) {
@@ -586,7 +589,7 @@ std::vector<Move> PieceLogic::slidingMove(int direction, int start, std::vector<
 				moves.push_back({ pos, i , -1 , -1 , p });
 			continue;
 		}
-		int enemyColor = (NBoard::instance().m_board[i] & White) > 0 ? White : Black;
+		int enemyColor = (ins.getPiece(i) & White) > 0 ? White : Black;
 		if (color == enemyColor) return moves;
 		if (isCheck) {
 			if (std::find(inCheck.begin(), inCheck.end(), i) != inCheck.end()) {
@@ -601,18 +604,19 @@ std::vector<Move> PieceLogic::slidingMove(int direction, int start, std::vector<
 
 bool PieceLogic::checkCheck(std::vector<Move>& moves, int color,int direction,int king)
 {
+	NBoard& ins = NBoard::instance();
 	std::vector<int>empty;
 	if (moves.empty()) {
 		if ((king + direction) < 64 && king + direction > -1 &&
-			(NBoard::instance().m_board[king + direction] & 0b111) == KingVal) {
+			(ins.getPiece(king + direction) & 0b111) == KingVal) {
 			moves = slidingMove(direction, king + direction, empty, color);
 		}
 		else return false;
 	}
 	if (moves.empty())return false;
 
-	if (NBoard::instance().m_board[moves.back().targetSquare] == 0) return false;
-	int piece = (NBoard::instance().m_board[moves.back().targetSquare] & 0b111);
+	if (ins.getPiece(moves.back().targetSquare) == 0) return false;
+	int piece = (ins.getPiece(moves.back().targetSquare) & 0b111);
 	if (direction % Forward == 0 || Side % direction == 0) {
 		if (piece == RookVal || piece == QueenVal) return true;
 		return false;
@@ -631,26 +635,27 @@ bool PieceLogic::checkCheck(std::vector<Move>& moves, int color,int direction,in
 
 bool PieceLogic::checkPin(std::vector<Move> moves, int color, int direction,int king)
 {
+	NBoard& ins = NBoard::instance();
 	std::vector<int> empty;
 	if (moves.empty()) {
 		if ((king + direction) < 64 && king + direction > -1 &&
-			NBoard::instance().m_board[king + direction] != 0) {
+			ins.getPiece(king + direction) != 0) {
 			moves = slidingMove(direction, king + direction, empty,color);
 			if (checkCheck(moves, color, direction, king)) {
-				if ((NBoard::instance().m_board[moves.back().targetSquare] & 0b111) != PawnVal)return true;
+				if ((ins.getPiece(moves.back().targetSquare) & 0b111) != PawnVal)return true;
 			}
 			return false;
 		}
 		else return false;
 	}
-	if (NBoard::instance().m_board[moves.back().targetSquare] != 0) return false;
+	if (ins.getPiece(moves.back().targetSquare) != 0) return false;
 	if (moves.back().targetSquare + direction > 63 || moves.back().targetSquare + direction < 0) return false;
 	if ((moves.back().targetSquare + direction) % 8 == 0 && moves.back().targetSquare % 8 == 7)return false;
 	if ((moves.back().targetSquare + direction) % 8 == 7 && moves.back().targetSquare % 8 == 0)return false;
 	
 	moves = slidingMove(direction, moves.back().targetSquare + direction, empty,color);
 	if (checkCheck(moves, color , direction, king)) {
-		if ((NBoard::instance().m_board[moves.back().targetSquare] & 0b111) != PawnVal)return true;
+		if ((ins.getPiece(moves.back().targetSquare) & 0b111) != PawnVal)return true;
 	}
 	return false;
 }
@@ -664,8 +669,9 @@ void PieceLogic::insertMoveToInt(std::vector<Move> from, std::vector<int>& to)
 
 bool PieceLogic::checkInSquare(int place, int jump, int color)
 {
-	if ((NBoard::instance().m_board[place + jump] & 0b111) == KnightVal) {
-		int enemyColor = (NBoard::instance().m_board[place + jump] & White) > 0 ? White : Black;
+	NBoard& ins = NBoard::instance();
+	if ((ins.getPiece(place + jump) & 0b111) == KnightVal) {
+		int enemyColor = (ins.getPiece(place + jump) & White) > 0 ? White : Black;
 		if (enemyColor != color) {
 			return true;
 		}
@@ -675,10 +681,11 @@ bool PieceLogic::checkInSquare(int place, int jump, int color)
 
 bool PieceLogic::checkDirection(std::vector<Move>& move, const int pos, const int direction, int color) const
 {
-	if (NBoard::instance().m_board[pos + direction]==0){
+	NBoard& ins = NBoard::instance();
+	if (ins.getPiece(pos + direction)==0){
 		return true;
 	}
-	int enemyColor = (NBoard::instance().m_board[pos + direction] & White) > 0 ? White : Black;
+	int enemyColor = (ins.getPiece(pos + direction) & White) > 0 ? White : Black;
 	if (enemyColor != color)
 	{
 		return true;
@@ -699,20 +706,21 @@ bool PieceLogic::checkCorner(std::vector<Move>& move, const int pos, const int c
 
 bool PieceLogic::castle(int king, int direction)
 {
-	int color = (NBoard::instance().m_board[king] & White) > 0 ? White : Black;
+	NBoard& ins = NBoard::instance();
+	int color = (ins.getPiece(king) & White) > 0 ? White : Black;
 	int rook = direction == RIGHT ? 7 : 0;
 	std::vector<int> checkSquares;
 	rook += color == White ?  56 : 0;
 	
-	if ((NBoard::instance().m_board[rook] & 0b111) != RookVal) return false;
-	if (((NBoard::instance().m_board[king] & Moved) == 0))return false;
-	if (((NBoard::instance().m_board[rook] & Moved) == 0))return false;
+	if ((ins.getPiece(rook) & 0b111) != RookVal) return false;
+	if (((ins.getPiece(king) & Moved) == 0))return false;
+	if (((ins.getPiece(rook) & Moved) == 0))return false;
 
-	if (NBoard::instance().m_board[king + direction] != 0 || 
-		NBoard::instance().m_board[king + direction*2] != 0){
+	if (ins.getPiece(king + direction) != 0 || 
+		ins.getPiece(king + direction*2) != 0){
 		return false;
 	}
-	if (direction == LEFT && NBoard::instance().m_board[king + direction * 3] != 0)
+	if (direction == LEFT && ins.getPiece(king + direction * 3) != 0)
 		return false;
 	if ((!check(king + direction, checkSquares, color) || checkSquares.size() != 0))return false;
 	if ((!check(king + direction * 2, checkSquares, color) || checkSquares.size() != 0))return false;

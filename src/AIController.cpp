@@ -13,6 +13,7 @@ bool AIController::turnReady()
 
 Move AIController::playTurn()
 {
+    NBoard& ins = NBoard::instance();
     depth = 3;
     IGenerate generate;
     Move bestMove = { -1, -1 , -1, -1 ,PawnVal};
@@ -20,9 +21,9 @@ Move AIController::playTurn()
     std::vector<std::vector<Move>> allMoves = generate.generateAll(m_color);
     for (auto i : allMoves) {
         for (auto &move : i) {
-            NBoard::instance().move(move);
-            int boardValue = minimax(depth - 1, std::numeric_limits<int>::min(), std::numeric_limits<int>::max(), m_color == BLACK);
-            NBoard::instance().undo();
+            ins.move(move);
+            int boardValue = minimax(depth - 1, std::numeric_limits<int>::min(), std::numeric_limits<int>::max(), m_color == BLACK,ins);
+            ins.undo();
 
             if ((m_color == WHITE && boardValue > bestValue) || (m_color == BLACK && boardValue < bestValue)) {
                 bestValue = boardValue;
@@ -33,7 +34,7 @@ Move AIController::playTurn()
 	return bestMove;
 }
 
-int AIController::minimax(int depth, int alpha, int beta, bool maximizingPlayer)
+int AIController::minimax(int depth, int alpha, int beta, bool maximizingPlayer , NBoard& ins)
 {
     if (depth == 0) {
         return evaluateBoard();
@@ -46,9 +47,9 @@ int AIController::minimax(int depth, int alpha, int beta, bool maximizingPlayer)
         for (const auto& i : allMoves) {
             for (const auto& move : i) {
 
-                NBoard::instance().move(move);
-                int eval = minimax(depth - 1, alpha, beta, false);
-                NBoard::instance().undo();
+                ins.move(move);
+                int eval = minimax(depth - 1, alpha, beta, false,ins);
+                ins.undo();
 
                 maxEval = std::max(maxEval, eval);
                 alpha = std::max(alpha, eval);
@@ -64,9 +65,9 @@ int AIController::minimax(int depth, int alpha, int beta, bool maximizingPlayer)
         for (const auto& i : allMoves) {
             for (const auto& move : i) {
 
-                NBoard::instance().move(move);
-                int eval = minimax(depth - 1, alpha, beta, true);
-                NBoard::instance().undo();
+                ins.move(move);
+                int eval = minimax(depth - 1, alpha, beta, true,ins);
+                ins.undo();
 
                 minEval = std::min(minEval, eval);
                 beta = std::min(beta, eval);
@@ -81,15 +82,16 @@ int AIController::minimax(int depth, int alpha, int beta, bool maximizingPlayer)
 
 int AIController::evaluateBoard()
 {
+    NBoard& ins = NBoard::instance();
     int score = 0;
     int pieceValue = 0;
     int counter = 0;
     for (int x = 0; x < 64; x++) {
-        if (NBoard::instance().m_board[x] != 0) counter++;
+        if (ins.getPiece(x) != 0) counter++;
     }
     for (int x = 0; x < 64; x++) {
-        if (NBoard::instance().m_board[x] == 0) continue;
-        int piece = NBoard::instance().m_board[x];
+        if (ins.getPiece(x) == 0) continue;
+        int piece = ins.getPiece(x);
         int color = (piece & White) > 0 ? White : Black;
         int pieceType = (piece & 0b111);
         if (piece) {

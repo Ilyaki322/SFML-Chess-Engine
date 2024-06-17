@@ -7,15 +7,16 @@ IGenerate::IGenerate()
 
 std::vector<std::vector<Move>> IGenerate::generateAll(int Color)
 {
+	NBoard& ins = NBoard::instance();
 	PieceLogic pieceLogic;
 	int color = (Color & White) > 0 ? White : Black;
-	int king = color == White ? NBoard::instance().m_WKing : NBoard::instance().m_BKing;
+	int king = ins.getKing(color);
 	std::vector<int> check;
 	std::vector < std::vector<Move>> all;
 	if (pieceLogic.check(king, check, color)) {
 		for (int i = 0; i < SIZE; i++){
-			if (NBoard::instance().m_board[i] == 0) continue;
-			int myColor = (NBoard::instance().m_board[i] & White) > 0 ? White : Black;
+			if (ins.getPiece(i) == 0) continue;
+			int myColor = (ins.getPiece(i) & White) > 0 ? White : Black;
 			if (myColor == color) {
 				all.push_back(pieceLogic.generate(check, i));
 			}
@@ -29,10 +30,11 @@ std::vector<std::vector<Move>> IGenerate::generateAll(int Color)
 
 std::vector<Move> IGenerate::generatePiece(int x)
 {
+
 	PieceLogic pieceLogic;
-	int piece = (NBoard::instance().m_board[x] & 0b111);
-	int color = (NBoard::instance().m_board[x] & White) > 0 ? White : Black;
-	int king = color == White ? NBoard::instance().m_WKing : NBoard::instance().m_BKing;
+	int color = (NBoard::instance().getPiece(x) & White) > 0 ? White : Black;
+	int king = NBoard::instance().getKing(color);
+
 	std::vector<int> check;
 	pieceLogic.check(king, check, color);
 	return pieceLogic.generate(check,x);
@@ -40,15 +42,17 @@ std::vector<Move> IGenerate::generatePiece(int x)
 
 bool IGenerate::isMate(int color)
 {
+	NBoard& ins = NBoard::instance();
 	PieceLogic pieceLogic;
-	int king = color == White ? NBoard::instance().m_WKing : NBoard::instance().m_BKing;
+	int king = ins.getKing(color);
+
 	std::vector<int> check;
 	std::vector < std::vector<Move>> all;
 	if (pieceLogic.check(king, check, color) && check.size() == 0) return false;
 	if (pieceLogic.check(king, check, color)) {
 		for (int i = 0; i < SIZE; i++) {
-			if (NBoard::instance().m_board[i] == 0) continue;
-			int myColor = (NBoard::instance().m_board[i] & White) > 0 ? White : Black;
+			if (ins.getPiece(i) == 0) continue;
+			int myColor = (ins.getPiece(i) & White) > 0 ? White : Black;
 			if (myColor == color) {
 				all.push_back(pieceLogic.generate(check, i));
 			}
