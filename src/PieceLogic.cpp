@@ -394,6 +394,8 @@ std::vector<Move> PieceLogic::pawnMove(int start, std::vector<int> Incheck)
 
 
 	(color == BLACK) ? forward = DOWN : forward = UP;
+
+	Move move = {  pos, pos + forward  , -1 , -1 , QueenVal  };
 	Piece p = PawnVal;
 
 	if (pos + forward > 64 || pos + forward < 0) { // Out of Range
@@ -403,7 +405,7 @@ std::vector<Move> PieceLogic::pawnMove(int start, std::vector<int> Incheck)
 	if (direction == All || direction == Forward) {
 		if (NBoard::instance().m_board[pos + forward] == 0)
 		{
-			if (!(pos + forward > 55 || pos + forward < 8)) {
+			//if (!(pos + forward > 55 || pos + forward < 8)) {
 				if (inCheck) {
 					if (std::find(Incheck.begin(), Incheck.end(), pos + forward) != Incheck.end()) {
 						if ((pos + forward > 55 || pos + forward < 8)) {//promotion
@@ -424,7 +426,7 @@ std::vector<Move> PieceLogic::pawnMove(int start, std::vector<int> Incheck)
 					}
 					else moves.push_back({ pos, pos + forward , -1 , -1 , p });
 				}
-			}
+			//}
 	
 			if ((NBoard::instance().m_board[pos] & Moved) > 0 && (NBoard::instance().m_board[pos + forward * 2] == 0))
 			{
@@ -445,10 +447,22 @@ std::vector<Move> PieceLogic::pawnMove(int start, std::vector<int> Incheck)
 				if (enemyColor != color) {
 					if (inCheck) {
 						if (std::find(Incheck.begin(), Incheck.end(), pos + forward +RIGHT) != Incheck.end()) {
-							moves.push_back({ pos, pos + forward + RIGHT , -1 , -1 , p });
+							if ((pos + forward > 55 || pos + forward < 8)) {//promotion
+								moves.push_back({ pos, pos + forward + RIGHT  , -1 , -1 , QueenVal });
+								moves.push_back({ pos, pos + forward + RIGHT , -1 , -1 , RookVal });
+								moves.push_back({ pos, pos + forward + RIGHT , -1 , -1 , KnightVal });
+								moves.push_back({ pos, pos + forward + RIGHT , -1 , -1 ,  BishopVal });
+							}
+							else moves.push_back({ pos, pos + forward + RIGHT, -1 , -1 , p });
 						}
 					}
-					else moves.push_back({ pos, pos + forward + RIGHT , -1 , -1 , p });
+					else if ((pos + forward > 55 || pos + forward < 8)) {//promotion
+						moves.push_back({ pos, pos + forward + RIGHT  , -1 , -1 , QueenVal });
+						moves.push_back({ pos, pos + forward + RIGHT , -1 , -1 , RookVal });
+						moves.push_back({ pos, pos + forward + RIGHT , -1 , -1 , KnightVal });
+						moves.push_back({ pos, pos + forward + RIGHT , -1 , -1 ,  BishopVal });
+					}
+					else moves.push_back({ pos, pos + forward + RIGHT, -1 , -1 , p });
 					
 				}
 			}
@@ -478,11 +492,22 @@ std::vector<Move> PieceLogic::pawnMove(int start, std::vector<int> Incheck)
 				if (enemyColor != color) {
 					if (inCheck) {
 						if (std::find(Incheck.begin(), Incheck.end(), pos + forward + LEFT) != Incheck.end()) {
-							moves.push_back({ pos, pos + forward + LEFT , -1 , -1 , p });
+							if ((pos + forward > 55 || pos + forward < 8)) {//promotion
+								moves.push_back({ pos, pos + forward + LEFT   , -1 , -1 , QueenVal });
+								moves.push_back({ pos, pos + forward + LEFT  , -1 , -1 , RookVal });
+								moves.push_back({ pos, pos + forward + LEFT  , -1 , -1 , KnightVal });
+								moves.push_back({ pos, pos + forward + LEFT  , -1 , -1 ,  BishopVal });
+							}
+							else moves.push_back({ pos, pos + forward + LEFT , -1 , -1 , p });
 						}
 					}
+					else if ((pos + forward > 55 || pos + forward < 8)) {//promotion
+						moves.push_back({ pos, pos + forward + LEFT   , -1 , -1 , QueenVal });
+						moves.push_back({ pos, pos + forward + LEFT  , -1 , -1 , RookVal });
+						moves.push_back({ pos, pos + forward + LEFT  , -1 , -1 , KnightVal });
+						moves.push_back({ pos, pos + forward + LEFT  , -1 , -1 ,  BishopVal });
+					}
 					else moves.push_back({ pos, pos + forward + LEFT , -1 , -1 , p });
-					
 				}
 			}
 			if (NBoard::instance().m_board[pos + LEFT] != 0) {
