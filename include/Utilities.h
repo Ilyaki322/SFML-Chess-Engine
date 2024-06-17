@@ -46,13 +46,10 @@ struct Move
 	
 };
 struct Stack {
-	Move move;
 	int lastWKing;
 	int lastBKing;
 	int enPassant;
 	std::array<int, 64> backUpm_board;
-	std::array<int, 64> backUpBlackThreatArray;
-	std::array<int, 64> backUpWhiteThreatArray;
 };
 
 const int BLACK = 16;

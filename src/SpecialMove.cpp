@@ -11,8 +11,8 @@ SpecialMove::SpecialMove()
 void SpecialMove::save()
 {
 	struct Stack s;
-	s.backUpBlackThreatArray = blackThreatArray;
-	s.backUpWhiteThreatArray = whiteThreatArray;
+	//s.backUpBlackThreatArray = blackThreatArray;
+	//s.backUpWhiteThreatArray = whiteThreatArray;
 	s.backUpm_board = m_board;
 	s.lastBKing = m_bKing;
 	s.lastWKing = m_wKing;
@@ -22,8 +22,8 @@ void SpecialMove::save()
 void SpecialMove::undo()
 {
 	auto backUp = lastMoves.begin();
-	blackThreatArray = backUp->backUpBlackThreatArray;
-	whiteThreatArray = backUp->backUpWhiteThreatArray;
+	//blackThreatArray = backUp->backUpBlackThreatArray;
+	//whiteThreatArray = backUp->backUpWhiteThreatArray;
 	m_board = backUp->backUpm_board;
 	m_bKing= backUp->lastBKing ;
 	m_wKing = backUp->lastWKing;
