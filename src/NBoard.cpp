@@ -34,11 +34,8 @@ void NBoard::setBoard(std::array<int, SIZE> arr)
 
 void NBoard::move(Move move)
 {
-	m_stack.insert(move, m_WKing, m_BKing, m_passant , 
-		m_board[move.targetSquare] , 
-		m_board[move.startSquare],
-		move.specialStartSquare != -1 ? m_board[move.specialTargetSquare] : -1,
-		move.specialStartSquare != -1 ? m_board[move.specialStartSquare] : -1);
+	m_stack.insert(m_board, m_WKing, m_BKing, m_passant);
+
 	int color = (m_board[move.startSquare] & WHITE) > 0 ? WHITE : BLACK;
 	if (move.promotionVal == PawnVal) { 
 		m_board[move.targetSquare] = m_board[move.startSquare];
@@ -73,24 +70,10 @@ void NBoard::move(Move move)
 void NBoard::undo()
 {
 	Stack s =  m_stack.LastMove();
+	m_board = s.backUpm_board;
 	m_BKing = s.lastBKing;
 	m_WKing = s.lastWKing;
 	m_passant = s.enPassant;
-	Move move = s.move;
-
-	int color = (m_board[move.targetSquare] & WHITE) > 0 ? WHITE : BLACK;
-	if (move.promotionVal == PawnVal) {
-		m_board[move.startSquare] = s.startValue;
-		m_board[move.targetSquare] = s.targetValue;
-		if (move.specialStartSquare != -1) {// -- en passant or castle
-			m_board[move.specialStartSquare] = s.specialStartVal;
-			m_board[move.specialTargetSquare] = s.specialTargetVal;
-		}
-	}
-	if (move.promotionVal != PawnVal) { //--- promotion
-		m_board[move.startSquare] = PawnVal | color;
-		m_board[move.targetSquare] = s.specialTargetVal;
-	}
 }
 
 int NBoard::getPiece(int x)const

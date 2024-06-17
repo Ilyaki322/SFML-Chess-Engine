@@ -5,12 +5,12 @@
 class BoardStack {
 public:
 	BoardStack();
-	void insert(std::array<int,SIZE> arr);
-	void insert(Move move, int whiteKing, int blackKing, int enPassant,int tValue, int sValue, int specialtVal , int specialSval);
+	void insert(std::array<int,SIZE> arr , int whiteKing , int blackKing , int enPassant );
 	Stack LastMove();
-	std::list<std::array<int, SIZE>> allMoves();
+	std::list<Stack> allMoves();
 
 private:
-	std::list<std::array<int, SIZE>> m_boardStack;
-	std::vector <Stack> m_movesStack;
+	std::list<Stack> m_stack;
+
+
 };
