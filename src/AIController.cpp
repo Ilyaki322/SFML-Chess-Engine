@@ -2,7 +2,7 @@
 #include<iostream> // DEBUG
 #include "NBoard.h"
 AIController::AIController(Color color)
-    :Controller(color), m_useBook(true), m_book(&m_Openingbook.getStart())
+    :Controller(color), m_useBook(false), m_book(&m_Openingbook.getStart())
 {
     srand(time(NULL));
 }
@@ -115,6 +115,7 @@ int AIController::minimax(int depth, int alpha, int beta, bool maximizingPlayer 
 
 int AIController::evaluateBoard()
 {
+
     NBoard& ins = NBoard::instance();
     int score = 0;
     int pieceValue = 0;
@@ -130,32 +131,32 @@ int AIController::evaluateBoard()
         if (piece) {
             switch (pieceType) {
             case PawnVal: {
-                pieceValue = color == White ? 10 : -10;
+                pieceValue = color == White ? 100 : -100;
                 pieceValue += color == White ? whitePawnTable[x] : -blackPawnTable[x];
                 break;
             }
             case RookVal: {
-                pieceValue = color == White ? 50 : -50 ;
+                pieceValue = color == White ? 500 : -500 ;
                 pieceValue += color == White ? whiteRookTable[x] : -blackRookTable[x];
                 break;
             }
             case KnightVal: {
-                pieceValue = color == White ? 30 : -30;
+                pieceValue = color == White ? 320 : -320;
                 pieceValue += color == White ? whiteKnightTable[x] : -blackKnightTable[x];
                 break;
             }
             case BishopVal: {
-                pieceValue = color == White ? 30 : -30;
+                pieceValue = color == White ? 330 : -330;
                 pieceValue += color == White ? whiteBishopTable[x] : -blackBishopTable[x];
                 break;
             }
             case QueenVal: {
-                pieceValue = color == White ? 90 : -90;
+                pieceValue = color == White ? 900 : -900;
                 pieceValue += color == White ? whiteQueenTable[x] : -blackQueenTable[x];
                 break;
             }
             case KingVal: {
-                pieceValue = color == White ? 900 : -900;
+                pieceValue = color == White ? 2000 : -2000;
                 if(counter < 6)
                     pieceValue += color == White ? whiteKingTableEndgame[x] : -blackKingTableEndgame[x];
                 else pieceValue += color == White ? whiteKingTableMidgame[x] : -blackKingTableMidgame[x];
