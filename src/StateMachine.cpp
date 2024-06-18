@@ -1,7 +1,7 @@
 #include "StateMachine.h"
 #include "MenuState.h"
 #include "MainMenuState.h"
-
+#include "PlayMenuState.h" // To delete
 StateMachine::StateMachine()
 {
 	m_window.create(sf::VideoMode(720, 578), "MainMenu");

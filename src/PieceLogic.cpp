@@ -233,7 +233,10 @@ std::vector<Move> PieceLogic::kingMove(int start, std::vector<int> Incheck)
 	}
 	if (!inCheck&& castleLeft && castle(start, LEFT))moves.push_back({ start, start + LEFT*2  , start+LEFT*4 , start+LEFT , p });
 	if (!inCheck && castleRight && castle(start , RIGHT)) moves.push_back({ start, start + RIGHT*2 , start+RIGHT*3 , start+RIGHT  , p});
-
+	for (auto i = moves.begin(); i != moves.end(); i++) {
+		if ((ins.getPiece(i->targetSquare) & 0b111) == KingVal)
+			moves.erase(i);
+	}
 	return moves;
 }
 
