@@ -2,7 +2,7 @@
 #include<iostream> // DEBUG
 #include "NBoard.h"
 AIController::AIController(Color color)
-    :Controller(color), m_useBook(false), m_book(&m_Openingbook.getStart())
+    :Controller(color), m_useBook(true), m_book(&m_Openingbook.getStart())
 {
     srand(time(NULL));
 }
