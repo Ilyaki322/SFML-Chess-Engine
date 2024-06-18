@@ -2,6 +2,7 @@
 #include <iostream> 
 
 NBoard::NBoard()
+	:m_lastMove({ -1, -1 })
 {
 }
 
@@ -35,6 +36,7 @@ void NBoard::setBoard(std::array<int, SIZE> arr)
 void NBoard::move(Move move)
 {
 	m_stack.insert(m_board, m_WKing, m_BKing, m_passant);
+	m_lastMove = move;
 
 	int color = (m_board[move.startSquare] & WHITE) > 0 ? WHITE : BLACK;
 	if (move.promotionVal == PawnVal) { 
@@ -95,4 +97,9 @@ int NBoard::getKing(int color)const
 std::array<int, SIZE>& NBoard::getBoard()
 {
 	return m_board;
+}
+
+Move NBoard::getLastMove()
+{
+	return m_lastMove;
 }

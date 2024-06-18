@@ -34,7 +34,7 @@ struct Move
 
 	int specialStartSquare;
 	int specialTargetSquare;
-	Piece promotionVal;
+	Piece promotionVal = PawnVal;
 
 	/*
 	* example specialMove:
@@ -56,7 +56,6 @@ const int BLACK = 16;
 const int WHITE = 8;
 
 enum Color { White = WHITE, Black = BLACK };
-
 
 enum MovementDirection { All = 0,  Forward = 8 ,  Diagonal1 = 9  , Diagonal2 = 7 , Side = 1 };
 

@@ -15,6 +15,9 @@ public:
 	bool enPassant(int x)const;
 	int getKing(int color)const;
 	std::array<int, SIZE> &getBoard();
+
+	Move getLastMove();
+
 private:
 	NBoard();
 	NBoard(const NBoard&) = default;
@@ -24,4 +27,6 @@ private:
 	int m_passant;
 	int m_WKing;
 	int m_BKing;
+
+	Move m_lastMove;
 };

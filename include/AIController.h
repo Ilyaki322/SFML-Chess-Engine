@@ -1,6 +1,7 @@
 #pragma once
 #include "Controller.h"
 #include "IGenerate.h"
+#include "OpeningBook.h"
 
 class NBoard;
 class AIController : public Controller
@@ -11,9 +12,17 @@ public:
 	bool turnReady() override;
 
 private:
+    Move playByBook();
 	int minimax(int depth, int alpha, int beta, bool maximizingPlayer, NBoard& ins);
 	int evaluateBoard();
 	int depth;
+
+    OpeningBook m_Openingbook;
+    bool m_useBook;
+    book* m_book;
+
+
+
 
 
     const int whitePawnTable[SIZE] = {

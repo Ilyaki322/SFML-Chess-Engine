@@ -2,8 +2,9 @@
 #include<iostream> // DEBUG
 #include "NBoard.h"
 AIController::AIController(Color color)
-    :Controller(color)
+    :Controller(color), m_useBook(true), m_book(&m_Openingbook.getStart())
 {
+    srand(time(NULL));
 }
 
 bool AIController::turnReady()
@@ -13,6 +14,11 @@ bool AIController::turnReady()
 
 Move AIController::playTurn()
 {
+    if (m_useBook)
+    {
+        return playByBook();
+    }
+
     NBoard& ins = NBoard::instance();
     depth = 3;
     IGenerate generate;
@@ -32,6 +38,33 @@ Move AIController::playTurn()
         }
     }
 	return bestMove;
+}
+
+Move AIController::playByBook()
+{
+    Move lastMove = NBoard::instance().getLastMove();
+    if (lastMove.startSquare == -1)
+    {
+        int random = rand() % m_book->size();
+        Move move = { (*m_book)[random].start, (*m_book)[random].target };
+        m_book = &(*m_book)[random].children;
+        return move;
+    }
+
+    Color enemyColor = m_color == White ? Black : White;
+    bookMove tofind = { lastMove.startSquare, lastMove.targetSquare, enemyColor };
+    auto match = std::find(m_book->begin(), m_book->end(), tofind);
+    if (match == m_book->end())
+    {
+        m_useBook = false;
+        return playTurn();
+    }
+     
+    m_book = &(*match).children;
+    int random = rand() % m_book->size();
+    Move move = { (*m_book)[random].start, (*m_book)[random].target };
+    m_book = &(*m_book)[random].children;
+    return move;
 }
 
 int AIController::minimax(int depth, int alpha, int beta, bool maximizingPlayer , NBoard& ins)

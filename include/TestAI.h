@@ -12,7 +12,7 @@ public:
 
 private:
 
-	int moveGenerationTest(int depth);
+	int moveGenerationTest(int depth, bool white);
 
 	IGenerate generator;
 };
