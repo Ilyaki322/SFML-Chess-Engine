@@ -36,7 +36,7 @@ struct Move
 
 	int specialStartSquare;
 	int specialTargetSquare;
-	Piece promotionVal;
+	Piece promotionVal = PawnVal;
 	
 };
 enum Difficult {
