@@ -9,7 +9,6 @@ public:
 	std::vector<Move> generate(std::vector<int> Incheck , int piecePlace );
 	MovementDirection kingPin(int target); //return the type of can do move (forward / diagonal / sides) or 0 if the piece is not in pin
 	std::vector<Move> kingMove(int start, std::vector<int> Incheck);
-
 private:
 	std::vector<Move> bishopMove(int start , std::vector<int> Incheck);
 	std::vector<Move> knightMove(int start, std::vector<int> Incheck);

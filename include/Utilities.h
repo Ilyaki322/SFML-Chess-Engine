@@ -2,7 +2,9 @@
 #include <array>
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <string>
 #include <iostream> //DEBUG
+
 const int SIZE = 64;
 const int FirstRow = 8 , LastRow = 55;
 const int Moved = 32;
@@ -34,28 +36,30 @@ struct Move
 
 	int specialStartSquare;
 	int specialTargetSquare;
-	Piece promotionVal = PawnVal;
-
-	/*
-	* example specialMove:
-	*	enPassant --> startSquare = start  -- targetSquare = end -- SpecialStart = start -- speciaTarget = enpassant pawn 
-	*	castle --> startSquare = start  -- targetSquare = start+2 -- SpecialStart = RookPlace -- specialTarget = rookPlac-2 
-	*	promotion --> startSquare = start  -- targetSquare = end -- promotionVal = val;
-	*	
-	*/
+	Piece promotionVal;
 	
 };
+enum Difficult {
+	FirstTime=400,Beginner=1000, Intermediate=1300, Hard=1600, Expert=1800
+};
+const int NumOfPuzzleInLevel = 200;
 struct Stack {
 	int lastWKing;
 	int lastBKing;
 	int enPassant;
 	std::array<int, 64> backUpm_board;
 };
+struct PuzzleStruct {
+	std::string board;
+	std::string name;
+	std::vector<Move> moves;
+};
 
 const int BLACK = 16;
 const int WHITE = 8;
 
 enum Color { White = WHITE, Black = BLACK };
+
 
 enum MovementDirection { All = 0,  Forward = 8 ,  Diagonal1 = 9  , Diagonal2 = 7 , Side = 1 };
 

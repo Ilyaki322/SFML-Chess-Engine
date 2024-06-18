@@ -4,52 +4,28 @@
 PieceLogic::PieceLogic()
 {
 }
-
+//--------------------------------------------------------------------------
+// This function goes through all the possible moves that can reach the king 
+// and checks if it is threatened.
+// 
+// If the king is in chess and no piece can defend it, the function will return false 
+// If there are pieces who can protect him, it will return true
+//---------------------------------------------------------------------------
 bool PieceLogic::check(int king ,std::vector<int>& checkSquares , int color)
 {
+	std::vector<int> direction = { BOT_LEFT , BOT_RIGHT , TOP_LEFT , TOP_RIGHT , UP , DOWN , LEFT , RIGHT };
 	int foundOne = 0;
 	std::vector<Move> moves;
 	std::vector<int> empty;
-	moves = slidingMove(BOT_LEFT, king, empty,color);
-	if (checkCheck(moves, color,BOT_LEFT,king)) {
-		insertMoveToInt(moves, checkSquares);
-		foundOne++;
+
+	for (auto i : direction) {
+		moves = slidingMove(i, king, empty, color);
+		if (checkCheck(moves, color, i, king)) {
+			insertMoveToInt(moves, checkSquares);
+			foundOne++;
+		}
 	}
-	moves = slidingMove(BOT_RIGHT, king, empty,color);
-	if (checkCheck(moves, color, BOT_RIGHT, king)) {
-		insertMoveToInt(moves, checkSquares);
-		foundOne++;
-	}
-	moves = slidingMove(TOP_LEFT, king, empty,color);
-	if (checkCheck(moves, color , TOP_LEFT, king)) {
-		insertMoveToInt(moves, checkSquares);
-		foundOne++;
-	}
-	moves = slidingMove(TOP_RIGHT, king, empty,color);
-	if (checkCheck(moves, color , TOP_RIGHT, king)) {
-		insertMoveToInt(moves, checkSquares);
-		foundOne++;
-	}
-	moves = slidingMove(UP, king, empty,color);
-	if (checkCheck(moves, color , UP, king)) {
-		insertMoveToInt(moves, checkSquares);
-		foundOne++;
-	}
-	moves = slidingMove(DOWN, king, empty,color);
-	if (checkCheck(moves, color , DOWN, king)) {
-		insertMoveToInt(moves, checkSquares);
-		foundOne++;
-	}
-	moves = slidingMove(LEFT, king, empty,color);
-	if (checkCheck(moves, color , LEFT, king)) {
-		insertMoveToInt(moves, checkSquares);
-		foundOne++;
-	}
-	moves = slidingMove(RIGHT, king, empty,color);
-	if (checkCheck(moves, color , RIGHT, king)) {
-		insertMoveToInt(moves, checkSquares);
-		foundOne++;
-	}
+
 	///----knight 
 	if (king % 8 != 0 && king + 16 < 64) 
 		if (checkInSquare(king, LEFT + DOWN * 2, color)) {
@@ -117,7 +93,11 @@ std::vector<Move> PieceLogic::generate(std::vector<int> Incheck, int piecePlace)
 		return knightMove(piecePlace, Incheck);
 	}
 }
-
+//--------------------------------------------------------------------------------
+//This function checks the direction of the king for a piece of his suit, 
+// if after the piece there is an actual threat the function will 
+// return the direction of the threat
+//---------------------------------------------------------------------------------
 MovementDirection PieceLogic::kingPin(int target)
 {
 	NBoard& ins = NBoard::instance();
@@ -175,7 +155,12 @@ MovementDirection PieceLogic::kingPin(int target)
 		}
 	return All;
 }
-
+//---------------------------------------------------------------------------------
+//In the following functions we check the movement of the pieces in relation to the king 
+// and whether there is a checker on the board
+// In all of them, we will put the move into the vector only if it does not 
+// put the king in check
+//---------------------------------------------------------------------------------
 std::vector<Move> PieceLogic::kingMove(int start, std::vector<int> Incheck)
 {
 	NBoard& ins = NBoard::instance();
@@ -396,8 +381,10 @@ std::vector<Move> PieceLogic::pawnMove(int start, std::vector<int> Incheck)
 	if (!Incheck.empty() && direction != All)return moves;  // ---cant move-- check and pin
 	int color = (ins.getPiece(pos) & White) > 0 ? White : Black;
 	bool inCheck = !Incheck.empty();
-
-
+	if (direction == Diagonal1 && color == BLACK)
+		direction = Diagonal2;
+	else if (direction == Diagonal2 && color == BLACK)
+		direction = Diagonal1;
 	(color == BLACK) ? forward = DOWN : forward = UP;
 
 	Move move = {  pos, pos + forward  , -1 , -1 , QueenVal  };
@@ -442,7 +429,7 @@ std::vector<Move> PieceLogic::pawnMove(int start, std::vector<int> Incheck)
 			}
 		}
 	}
-	if (direction == All || direction == Diagonal2) {
+	if (direction == All || direction == Diagonal2 ) {
 		if (pos % 8 != 7)
 		{
 			if (ins.getPiece(pos + forward + RIGHT) != 0) {
@@ -554,7 +541,10 @@ std::vector<Move> PieceLogic::rookMove(int start, std::vector<int> Incheck)
 	}
 	return moves;
 }
-
+//-----------------------------------------------------------------------------------------------
+// This function performs continuous movement
+// Used by the queen, rook, bishop and for checking chess
+//-----------------------------------------------------------------------------------------
 std::vector<Move> PieceLogic::slidingMove(int direction, int start, std::vector<int> inCheck , int color)
 {
 	NBoard& ins = NBoard::instance();

@@ -1,0 +1,1000 @@
+400 86P16pK2P2k2R77r88 2 32 39 47 39 endgame hangingPiece mate mateIn1 oneMove rookEndgame
+400 6K1P4PPP82PR41p67p2r2pp16k1 4 26 33 50 2 27 3 2 3 backRankMate endgame mate mateIn2 rookEndgame short
+413 7KP6P7p4R36P12Pr2p1R4p25k2 4 42 50 43 3 28 4 3 4 endgame mate mateIn2 rookEndgame short
+430 2R3K15PPP884Pp24p2p2q3p11r3k2 4 2 50 57 1 50 2 1 2 backRankMate endgame mate mateIn2 rookEndgame short
+460 R4RK11B2BP1P1P1Q1NP1P1Pp41Np1n32q2np1pb3pbpr4rk1 2 21 36 42 7 mate mateIn1 middlegame oneMove
+464 81k62p51P63PP2K4p2p88 4 35 44 18 10 44 52 10 2 advancedPawn crushing endgame pawnEndgame promotion short
+465 3Rr1K1PN4P16pP2P2p23P2p13p4pp5k4r3 2 3 4 60 4 endgame mate mateIn1 oneMove
+467 2R3K1r4PPP2p5P3B385p24np1p6k1 6 2 18 8 0 28 1 0 1 18 2 1 2 backRankMate endgame long mate mateIn3
+475 2KR4P1P5bP65pRP84k1p1Bp3p22rr4 2 2 1 59 3 endgame hangingPiece mate mateIn1 oneMove
+477 3K41p1p43k2P16pP7p8P5p18 2 48 56 9 1 advancedPawn endgame mate mateIn1 oneMove promotion queenEndgame
+496 1K6PP3Q1P3qPN281pR1pp27p5k1p8 4 1 0 19 3 34 2 3 2 endgame mate mateIn2 short
+497 86KP6P11Pn51p66p13R1p1p6k1 4 51 35 26 20 14 21 20 35 crushing endgame fork short
+498 RN1Q1RK1PP3PPP4P32Pn2n13p43qp3pp3pppr3k2r 2 3 27 43 15 kingsideAttack mate mateIn1 middlegame oneMove
+518 3B46n181PK1P2P4p31p1k3p88 4 31 39 14 20 26 19 20 3 crushing endgame fork short
+518 5R22Q4K7rPP2P2b3P3B3p4pp1Nnpq13k4 2 15 23 54 22 mate mateIn1 middlegame oneMove
+522 R2Q1RK1PPP2PPP4B3B2N2n12bN4b2q4p4ppprn3rk1 2 27 33 43 15 kingsideAttack mate mateIn1 oneMove opening
+533 R1BQ1RK11PP2PPPP3P34b33pP1q12p1p3p1p2pppr4rk1 2 13 29 38 14 kingsideAttack mate mateIn1 middlegame oneMove
+537 R5K1PPP2R1P3PB1q183b1P22p5ppp2pp12k4r 2 15 22 63 7 endgame mate mateIn1 oneMove
+542 3R1R24Q2K2N1P2P2P2P25q22p4rpp3ppp5r1k 2 5 6 37 23 mate mateIn1 middlegame oneMove
+553 1N3R1KR1Qr3PP4P25b1q8B3p2p2p2pp15rk1 2 1 11 31 15 mate mateIn1 middlegame oneMove
+557 R2Q1RK11PPBBPPPP1N1P383pq32pb1n2pp3pppr1b2rk1 2 18 24 36 15 kingsideAttack mate mateIn1 oneMove opening
+578 5R1Kq6P4P1Pp2PB44PQp182p5k2r4 6 5 0 8 0 27 0 59 3 37 5 3 5 endgame fork long mate mateIn3 sacrifice
+582 6K1RBRP1PPPP73pp31r3N25b27p7k 4 9 27 33 1 10 2 1 2 backRankMate endgame mate mateIn2 short
+583 2R3K15P1P1r3p1k1P5p5N282b58 4 2 50 17 1 50 2 1 2 endgame mate mateIn2 short
+585 6K1r4PPP4B31P61p2p3p2R1pp186k1 4 43 45 8 0 20 2 0 2 backRankMate endgame mate mateIn2 short
+587 88P3R1K16P12p1NPnP7p5pp12r2k2 4 20 18 38 28 22 21 28 18 crushing endgame fork short
+593 R2QR1K12p2P1PPP1P1BPb2P54q38ppp2pppr3r1k1 4 3 10 36 4 0 4 60 4 kingsideAttack mate mateIn2 middlegame short
+596 6q16p1KP6PB1P43Q48pp64k3 2 35 34 6 0 endgame
+597 885P21pk57P7p6K18 6 54 47 25 17 47 54 17 9 39 47 9 1 advancedPawn crushing endgame long pawnEndgame promotion
+597 2R4K1P3PPPP3q38Qpp1pr28p5pp5rk1 4 13 20 37 5 2 5 61 5 backRankMate endgame mate mateIn2 queenRookEndgame short
+600 2R3K15qPP4P32P52p58pQ4pp5r1k 4 6 7 13 5 2 5 61 5 backRankMate endgame mate mateIn2 sacrifice short
+607 RN1QKB1RP2BPP22P2N1P4n1P12Pp45qb1ppp2ppprn2k2r 2 21 27 45 13 attackingF2F7 mate mateIn1 middlegame oneMove
+608 5RK15PP12nNP33P2P11p1p47p5pp15rk1 4 5 2 18 12 6 5 12 2 crushing endgame fork short
+615 R4RK11PQ1BPPPP1NP43pPq28p2bb2p1pp2pp1r4rk1 2 18 3 29 15 kingsideAttack mate mateIn1 middlegame oneMove
+619 2R1R1K1P1Q1BPPP1P2PN22P3p12p52q1pb2pb3p1p1rr3k1 2 21 11 42 14 kingsideAttack mate mateIn1 middlegame oneMove
+619 R1B3K1P4PPP1Pq1PB23N43Q4np3b1p5pp1r4rk1 2 0 1 18 4 mate mateIn1 middlegame oneMove
+619 2R3K1P4PPP1P2P31RQ2p2N71p1r2p1p5bpk2r4 4 26 50 43 3 2 3 59 3 backRankMate mate mateIn2 middlegame short
+621 R3R2KPP1BB2p4Pq2Q3b1N13P43b4ppp2p21k1r3r 2 12 21 28 21 kingsideAttack mate mateIn1 middlegame oneMove
+622 1K1R4PP64nQ2q2P42P1N1P12p1p3pp3ppR2kr1r2 2 21 20 24 3 crushing hangingPiece middlegame oneMove queensideAttack
+634 6K15PPP2p51N3n22P52R2p24R1pp1k1r4 4 42 50 59 3 52 4 3 4 endgame mate mateIn2 short
+640 2B2R1K1PP3PP1P64P2q3Qb31p1p4R1p3pp2kr3r 2 35 42 31 15 kingsideAttack mate mateIn1 middlegame oneMove
+640 3R3KPPP4P6Pp5P22bb4Qpp5p1B3prk3r3 4 3 35 60 4 40 5 4 5 endgame mate mateIn2 short
+642 R3R1K1PP1Q2PP3P42PpNP22p2p24r3pp2q1pp4r1k1 6 28 38 44 4 0 4 52 4 11 4 60 4 crushing kingsideAttack long middlegame
+646 6K15PPP2rp43bq1N13k1p26p17p4RQ2 4 60 28 18 2 28 4 2 4 endgame mate mateIn2 short
+660 Rr4K1P3RPPP5B22P52pN1p2p2bb35pkp1r6 4 0 1 57 1 12 4 1 4 mate mateIn2 middlegame short
+661 R5K1PP3PpN4Q32P2Bb11N1B3q2n5pppr42kr4 2 15 30 39 7 mate mateIn1 middlegame oneMove
+668 6K1PPn2PP15N1P2R1N1n16Bp2p3B1pp2r1p13r3k 4 38 52 59 3 21 4 3 4 kingsideAttack mate mateIn2 middlegame short
+669 2KR2NRPPP1B384Pbn1B72p1b3Qp1q42kr1r2 4 2 1 51 3 12 3 59 3 mate mateIn2 middlegame queensideAttack short
+675 R3KB1RPP1N1PP12P2NP14P31p2n32pqb3pQ3ppp3rkb1r 2 21 36 43 11 mate mateIn1 oneMove opening
+683 85PK1P1Q2rP11P1n42P1p1p1p1p3RR1p4q11r4k1 4 46 54 62 54 18 4 54 47 advantage endgame short
+683 6K13N1P1PP1n3P13pp382PR3p6pk4r3 4 43 27 18 12 6 14 12 27 advantage endgame fork short
+686 R5RK1B61Q3PP1b1P1Pp23Pp2P1p1p42p2p2r1q1kr2 2 0 24 58 23 mate mateIn1 middlegame oneMove
+687 2KR1B1R1P1NPPPPPqP53n45b27pppp1Qpp12kr3r 2 11 17 27 17 mate mateIn1 middlegame oneMove queensideAttack
+687 6K15PPP1R64P382Pp3p1r3pp1r5k1 4 42 49 56 0 17 1 0 1 backRankMate endgame mate mateIn2 rookEndgame short
+689 6K182r3k12pPbp23NR3888 4 36 28 18 2 28 4 2 4 endgame mate mateIn2 short
+691 8PN2K2P2P2P2b1p1Pp2pp3R24k2r7p8 4 37 29 47 15 12 20 15 9 advantage endgame short skewer
+696 R75PK1P1r1P1P11P1N3P3p4pp3p1p4nkp18 2 27 37 52 37 crushing endgame hangingPiece oneMove
+699 4r385kPK5P1P5p1p5R288 2 45 37 4 7 endgame master mate mateIn1 oneMove rookEndgame
+702 7r5P2p4K22BpP34p3R4pk188 4 40 16 7 23 21 30 23 16 crushing endgame short skewer
+702 RNr2RqKPP1N2PP7nQ5b13p48p4ppp5rk1 2 5 6 2 6 kingsideAttack mate mateIn1 middlegame oneMove
+704 8P71P1k41pP52K1p3888 6 34 25 36 28 26 34 28 20 34 42 20 12 advancedPawn crushing endgame long pawnEndgame quietMove
+705 R1B3K1P4PPP1P2R1Q12Pq481p2p2pp4ppn2r1r2k 4 0 1 27 3 20 4 3 4 kingsideAttack mate mateIn2 middlegame short
+706 6RKP1P1R2P4Q2q2P581p2p1prp3k2p8 4 20 44 23 44 12 44 52 44 advantage endgame short
+713 R3R1K1P6P2P2rPb1P63Q4np5pB1b3p15r1k 4 4 12 21 5 0 5 61 5 mate mateIn2 middlegame short
+716 2KR46Q1P1B1P31P2p1P11pPrp1p1p1q2b22p52k5 4 14 28 35 3 2 3 42 28 crushing discoveredAttack endgame queensideAttack short
+716 R1B1KB1RPP1N1PPP2P1P34n1b12b52p4pppp2pp1r2r2k1 2 11 28 59 3 mate mateIn1 middlegame oneMove
+717 R3K2RP4P22Q3PP3nN34p31p1p2p1p1p4pr4q1k 4 4 2 27 12 2 1 12 18 crushing fork middlegame short
+717 2R1R1K11P4PPP2rB35P2q3Pp2b1Q2Np1p1p3np5r1k 2 2 34 32 4 hangingPiece kingsideAttack mate mateIn1 middlegame oneMove
+717 RN1QKBNRPPPB1PPP83q42b54p3pp3ppprnb1k1nr 2 1 18 27 13 attackingF2F7 mate mateIn1 oneMove opening
+725 8888P1k5p72K58 6 50 49 34 33 49 50 33 32 50 42 32 25 crushing endgame long pawnEndgame
+734 3R42r58P7p2p3K1p3k1p82b1R3 2 39 47 10 15 endgame mate mateIn1 oneMove
+736 R4RK12Q1BPPPP3P31P1Np32Ppqb21n5rpp3ppp3r2k1 2 27 37 36 15 kingsideAttack mate mateIn1 middlegame oneMove
+739 3Q1r1KPP5P4b1P13PN33BR37ppp4p11r3q1k 2 3 5 61 5 hangingPiece mate mateIn1 middlegame oneMove
+745 R3NK24qPPPP2P41P3Q23N4pp61p3pppr3r1k1 4 5 6 12 4 0 4 60 4 backRankMate mate mateIn2 middlegame short
+751 R1BQK1NRPPPPBPPP84n32q1p38ppp2ppprnb1k2r 2 11 19 34 13 attackingF2F7 mate mateIn1 oneMove opening
+757 5RK1R1PQ3P1P4Npp2r2P11pP3p11nq2p25b22r3k1 2 11 27 42 14 mate mateIn1 middlegame oneMove
+758 r2R2K14BPPP1Q2P33B41Pbp41p3p24qbpp3r2k1 4 3 0 34 27 20 27 52 12 advantage middlegame short
+762 2R5P4K22N51n65bN13p2p1pp3p1p6k1 4 8 16 25 19 13 20 19 2 crushing endgame fork short
+773 R1B3K13N1RPP3rnP2PPbrP38p6p1pp2pp16k1 4 11 26 19 3 13 5 3 5 kingsideAttack mate mateIn2 middlegame short
+773 4R1K11P3Pp1P1PB43PR1p12Nb2B1p1n51p3kn12r4r 2 28 30 63 7 mate mateIn1 middlegame oneMove
+777 1RB1Q1K1N4P1P6P13n41P1p1pp15n1ppBpq45rk1 4 2 9 27 21 6 14 21 4 advantage fork middlegame short
+784 1N1QR2KR3B1PPP2Pqb22P51Pp55b2pp1n1pppr3r1k1 4 12 21 20 4 3 4 60 4 backRankMate mate mateIn2 middlegame short
+786 R1QK3RPB3PPP1P1P41b1N44qp28pp4pp4rrk1 4 2 10 36 4 7 4 60 4 mate mateIn2 middlegame sacrifice short
+786 3K4r5PPP5N13P1N2p72B1P32p3pp1r4k1 2 44 52 57 1 endgame mate mateIn1 oneMove
+787 R1BQ1K1RPPP1N2P2NP2P1B5nb3pp3pq63n1pppr1b1k2r 2 18 35 41 13 mate mateIn1 middlegame oneMove
+788 3R1R1KP1P4P6P13b41Q3b24p3p2q1ppp2r3kr 4 33 51 37 28 5 21 28 21 doubleBishopMate mate mateIn2 middlegame short
+794 881kp1K2P8p6p84B38 4 20 19 18 10 52 16 17 16 endgame
+796 85P281P2p31p1b2KP2p54Rpk18 4 52 36 53 45 38 31 45 36 crushing endgame fork short
+803 R1B2RK1PP1NQPPP2P53Ppq282nb4ppp2pppr3k2r 2 11 28 29 15 kingsideAttack mate mateIn1 middlegame oneMove
+807 2R51b2RPB11P1K1Q1P2P1PpP1pPpPq1p11p1k1p1p4r37r 2 2 10 36 27 mate mateIn1 middlegame oneMove
+815 3RR31K6P2P1n21P3P1P1p4P1p1q52p2Q21k1rr3 4 4 60 59 60 53 60 42 60 crushing endgame short
+815 R1KQ1B1RPP4PP4bN22P1PN21p2p3p2q3p3p1pp11rb2rk1 2 2 1 43 3 hangingPiece mate mateIn1 middlegame oneMove queensideAttack
+819 RN2K2RPP3P22PB1PP13n43p41p61p2pppp2r1kb1r 4 18 27 58 2 4 12 2 7 crushing middlegame short skewer
+822 2K4R1PP5P6P3P4q2p1P23Q3p1p3pR12k1r3 4 54 53 60 4 7 4 32 4 endgame mate mateIn2 short
+823 R4RK1PP3P23PBB1q2P5Q6pp1pb41pp2pp12kr3r 2 21 14 23 15 master mate mateIn1 middlegame oneMove
+823 1R1B3K3R2PP5P24P3r3p3q1N2n1p6pk8 2 42 32 40 5 endgame mate mateIn1 oneMove
+826 2KR1R2PPP1n37PB3P1P14p3p2q3p1pp2Qp11k1r3r 4 2 1 43 3 5 3 59 3 backRankMate mate mateIn2 middlegame short
+839 R1BQ1RK1P1PP1P21BP2p1P86qP1np5pp3ppprn3rk1 2 6 15 38 14 mate mateIn1 middlegame oneMove
+842 1K5R1P3P1PP3Q1P14B31p3r2p4q1p4r1pk1n2R3 4 28 37 45 37 1 0 52 20 crushing middlegame short
+843 884n36P15Bp15k1K88 4 47 39 20 37 30 37 45 37 crushing endgame short
+844 5B1R1P3K2P2P44NP1b2B1Pn28ppp3pp1k1r1r2 4 7 31 37 31 34 61 59 61 advantage middlegame short
+846 4K3P4R1P1P3r24pP21p3k2p6p88 4 13 21 28 21 4 13 37 29 crushing endgame short
+848 R3K2R5PPP2nBPN21B1Pn33p4p3p31p3pppr1b1k2r 6 25 18 28 18 4 11 18 28 19 28 35 28 advantage long middlegame
+855 8P3KPP12n1P1P13P42N2kp12R2p1pp73r4 2 12 21 38 30 endgame mate mateIn1 oneMove
+857 4R1K1PRr1rPPP4P3887pp3bpp16k1 4 4 12 10 2 12 4 2 4 backRankMate endgame mate mateIn2 short
+862 R1BQ1RK1PP2B2N2N1P1q13P2p13p43bp3pp1n3pr1b2rk1 2 6 7 22 15 opening
+862 2r56PK2P55kp11N2p2R888 4 39 55 30 22 15 23 2 7 endgame mate mateIn2 short
+865 83r3P4R1PKp75Ppp4Bk288 4 20 16 38 30 23 31 11 15 deflection endgame mate mateIn2 short
+867 84K1P16bP4p2p85n24Q1pk8 4 12 20 45 35 20 28 35 52 crushing endgame fork master short
+867 4RK1RPP3P1P83n3Q3N43pbp2pp4ppr2kr3 4 31 27 44 23 5 6 60 4 deflection discoveredAttack mate mateIn2 middlegame short
+871 6K1PPr2P1P2B2b25p21N5p1p4p1p2R46k1 4 51 48 10 2 18 4 2 4 endgame mate mateIn2 short
+874 2Bq2K11Q3P1P2P1RBPb1Pp1P2N1p2p1p15n1p2p1np23r2k1 4 21 3 59 3 20 4 3 4 kingsideAttack master mate mateIn2 middlegame short
+875 R6KP5P12PPBN1P3P43p1n1Q2n2q2ppp4p2kr4 6 20 38 37 22 7 15 22 39 38 45 39 45 advantage fork long middlegame
+877 1R1Q1RK1B1P2PPBP1PP1N25p22pp1np1ppn51b6r2q1r1k 4 21 38 59 38 15 29 38 29 advantage hangingPiece master middlegame short
+877 RNBQK2RPPPP1P1P4PB26nq3pp38ppp2pp1rnb1kb2 4 21 30 58 30 3 30 31 30 advantage opening short trappedPiece
+878 R4RK11PP2PPPP2P1Q25n21B2p1q11p3n21p3pppN1b2k1r 4 21 22 29 12 6 7 12 22 crushing fork middlegame short
+879 6K15PP17P1pP1PQ22pP4R2p3p2q2pp11r4k1 4 29 43 50 43 40 43 25 17 crushing endgame short
+883 1R1Q1RK14B2PP2P1Nr11PPpP32p5p3pn21pq1bpp12k4r 2 15 22 50 22 kingsideAttack mate mateIn1 middlegame oneMove
+884 R3KBNRPq4PP2P54nB21N1QP3p71pp2pppr1b1kb1r 2 0 3 9 13 mate mateIn1 middlegame oneMove
+884 86bP7r3p1PP16r14N1KpR3R1p16k1 2 29 38 14 28 endgame mate mateIn1 oneMove
+887 7KPP4QP2P1n1B13Ppr21p2N3p3P32q52k5 4 14 12 29 5 12 5 20 5 advantage endgame short
+889 4K2RPP3P1P6P11n2N33R45Bppp6rr3kb2 4 35 59 56 59 45 59 60 59 advantage middlegame short
+890 3R1RK1PBQ2PP11P2P2P4N2n2p2p21p1b4pq4pp3r1rk1 2 28 43 49 14 kingsideAttack mate mateIn1 middlegame oneMove
+891 R1B2R1K1P3PP11NP4Q1PqP4p2p43bpn25ppp2r2rk1 2 17 32 26 5 hangingPiece kingsideAttack mate mateIn1 middlegame oneMove
+894 3r44RPPKP6P81P61p62N1bkpp8 4 16 24 52 43 14 22 43 50 advantage endgame fork master short
+894 R2K3R1P2BPPPP3PN2Qb1P4pp64bq25ppp2r1r1k1 2 24 33 44 17 mate mateIn1 middlegame oneMove
+897 R4K2PP3P25P27q4P32p4p2Q2pp15rk1 4 50 42 31 7 5 12 7 0 crushing endgame short skewer
+898 R2QK2RPPP2P1P2N1PNP14B32b1n35q1ppppp2p1r1b2rk1 2 21 36 45 13 attackingF2F7 mate mateIn1 oneMove opening
+898 1Q2R1K11R2BPPPPP62P51ppPn3p2p43qrppp4r1k1 4 12 5 36 21 14 21 52 4 crushing discoveredAttack kingsideAttack middlegame short
+904 4KqR1P2B42P1P1R12PPp1Q12p4P4p2ppp1n1rp15rk1 4 6 5 53 5 4 12 61 13 mate mateIn2 middlegame short
+905 R4R1KPP1BB1P11Q1P44P1p12b1p1p12p2p2pp4k1r1b2q2 4 14 22 61 63 7 14 63 23 mate mateIn2 middlegame short
+905 R4RK13B1PPP3P1N2pP2Pn21P2p31p3b1pr1p3p13k1r2 4 11 18 29 12 6 7 12 18 crushing fork middlegame short
+905 2KR3R5NB13P1P1PQ1PpPp21Pn3ppp71pq51n1k3r 4 24 0 34 17 2 9 17 0 advantage fork middlegame short
+906 5K21P3P1PP1RPPn1Bp1Q5r3pPR181pp4p2q1r2k 4 38 39 21 11 5 12 11 26 crushing fork middlegame short
+907 2Q3RKP1Rr1P1P1P3B285q28pp3p1p1k4r1 4 2 11 37 21 6 14 21 14 endgame hangingPiece mate mateIn2 short
+909 R1BR1BK12Q2P1PP3P1P12P1pN24np2p2bPr1q1pp3ppr5k1 4 26 34 36 21 6 14 47 15 kingsideAttack mate mateIn2 middlegame short
+911 5q21P4RK8P2QP2r86ppp7k7 2 15 22 5 29 endgame mate mateIn1 oneMove
+913 6K17PPP1Rn1B12PpRP22p3p17pppb55rk1 2 29 38 61 5 endgame mate mateIn1 oneMove
+914 3R1R1KBP4P1P1P1Q1NP4PP21pp52q1prp1pb4bpr6k 2 28 36 42 14 kingsideAttack mate mateIn1 middlegame oneMove
+915 2B3K16PPP5Q1p3P32p1pP22pq3p1R3pp13r2k1 4 15 23 43 3 6 15 3 2 advantage endgame fork short
+916 R1R3qKP5PP5N1nQ71B1p42n1p3pb3ppp2r1k2r 2 2 6 23 13 mate mateIn1 middlegame oneMove smotheredMate
+917 R1BQ1BKRPPP3PP2N53PP1n183p1q2ppp2ppprnb1k2r 2 15 23 45 13 mate mateIn1 oneMove opening
+920 2R1R1qK2QB2PN4P2n1P1Np384rn22b2ppp6k1 2 4 6 23 13 middlegame
+921 R71Q4K11P1N1P1P1pP1PpPpr1pPp1p13p2k18q3b3 4 0 3 32 8 3 11 8 9 crushing endgame pin short
+923 bR4K1P2q1PPP4P3888p1Q3pp3r2k1 4 1 0 11 3 0 3 59 3 backRankMate endgame mate mateIn2 sacrifice short
+923 84KPP14PN2n2r3PbR61p2p36pp6k1 4 33 32 24 18 12 5 27 3 crushing endgame master short
+924 R5qKP5PP1P1B3n2Qp488pp4pp5r1k 2 0 6 23 13 endgame mate mateIn1 oneMove smotheredMate
+924 6K17rP2P2P1p1Pp1Pp12pQRpP11R2P34q1k17r 6 41 49 15 7 35 7 63 7 6 7 52 49 attraction crushing endgame exposedKing kingsideAttack long
+925 RN3RK11B1P1PP1P2P1Q21PP1pn1q83b4pBp2ppprn3rk1 2 21 22 29 12 mate mateIn1 middlegame oneMove
+928 8P1q4K1P5P2P2PQ12b3N1p6k2p58 2 15 22 10 13 endgame mate mateIn1 oneMove
+930 8P5R12P3K12P56P15B2pp64q1k1 4 14 11 60 20 22 30 20 11 crushing endgame fork master short
+931 4RR1KPPP2P1P3P2Pp4Q34b1p1p71pp2q2rk6 4 28 36 53 21 7 6 21 14 endgame mate mateIn2 short
+932 1K3B1RP1P2PPPb1P51p3r282n1Q3p1p3pp3r3k 2 44 42 59 3 endgame mate mateIn1 oneMove
+933 4R1K15PPP82Pn4N7p4p25kpp2r5 4 4 2 27 12 6 5 12 2 crushing endgame fork short
+933 2K2RNR1Bb53Q3P6P1p4P22nN1p22p3pp3q1rk1 4 2 10 42 25 10 11 25 19 crushing fork middlegame short
+935 R1BR2K1PPP3PP84N36p1ppB1pb22p1nk21rb4r 4 28 38 45 38 2 38 52 42 advantage middlegame short
+937 R3QR1KP1Pb1P1P3P2Pn4P1q12B1p32p5p4pppr2r2k1 2 4 11 30 21 middlegame
+945 4N32P2PPP1K68pPp51n3p25kpp8 4 4 19 34 26 17 18 26 19 advantage endgame fork knightEndgame short
+946 4R1RKP1P3Bq83NP1nQ2n51pp2pP1pb2p3r4rk1 2 31 15 30 13 mate mateIn1 middlegame oneMove smotheredMate
+946 6K1P1P1Q1PP1P63q42p58pp4p13k1N2 4 6 7 27 0 12 3 0 3 backRankMate endgame mate mateIn2 short
+946 2R1RK21P2B31pP1P2P3Bn33p1q1p8pQ3pp1r5k1 4 5 6 37 13 6 7 28 22 kingsideAttack mate mateIn2 middlegame short
+947 2B2RK15RPPP3P31PqPp33pP34p1pQpp2b2pr4rk1 4 47 23 61 13 5 13 26 2 crushing middlegame short
+947 R4R2PP5K2P1B1b16P14P34pr2pp4pp5rk1 4 15 22 45 5 0 5 61 5 crushing endgame short
+953 6R185q1P1Pp3p11P1pQ1Kp3N4p7k5r1 2 38 31 21 23 endgame mate mateIn1 oneMove
+954 6K14Q1PP4P3P2Pq33p46Rpp5p15r1k 4 46 22 28 1 12 5 61 5 endgame mate mateIn2 short
+955 5R2P1QN1KPP2PB2N11P3q1B3p1P21np4ppp1b2p14rrk1 2 11 21 29 20 mate mateIn1 middlegame oneMove
+956 RN3R1KPBpP2PP1P64P2Q5PN11b4b1ppp5rn1q1rk1 2 37 46 61 5 backRankMate hangingPiece mate mateIn1 middlegame oneMove
+956 6K1P4P21P4PP3B43pP1n11p2p2pp3rkp12R5 4 23 31 38 21 6 14 21 27 crushing endgame fork short
+961 1RB1K2R1PQ2PBPP1NPPNP12P3n12p1n32qp2p1pp2ppbpr1b2rk1 4 4 6 36 21 14 21 42 21 crushing kingsideAttack opening short
+961 81P2KP2P1B4r2P53P1n23pR2ppp3kp18 4 18 25 37 27 12 5 27 44 crushing endgame fork short
+961 2R2R1KPB5p1PN2Q1B4n1P12pP43b4pp1q2pp4rrk1 4 18 28 61 21 5 21 60 28 advantage capturingDefender intermezzo middlegame short
+962 R4qKR3N1PPPPP2P1n183p42p1p3p4pQ11r2kr2 2 11 5 22 12 mate mateIn1 middlegame oneMove smotheredMate
+962 R1B3RK1PQ2P1PP1NPPP22B1p2q2p4n3b4pp1n1pppr4rk1 2 18 28 31 15 kingsideAttack mate mateIn1 middlegame oneMove
+963 2R2R1K1PQN1PP1P74pr28p1P4p1pq3pn4r1k1 4 2 4 29 31 7 6 50 15 kingsideAttack mate mateIn2 middlegame short
+966 81KP3r11P6P74b2P6Bp7R6k1 4 9 1 14 6 1 8 6 0 endgame mate mateIn2 short
+967 R6R2K3B1P2P1P23p2P1P1P3P16n11pp2pk13rr3 4 21 29 60 12 10 17 12 14 advantage endgame fork master short
+967 R4RK11B2P2P3P1rPq2Q3n1PPp58ppp3pp3r3k 4 5 21 23 15 6 5 15 7 kingsideAttack mate mateIn2 middlegame short
+969 R1BQ1RK1PPP1NP21B1P3q4N34n31bp5p4ppprn3rk1 2 2 29 36 21 master mate mateIn1 oneMove opening
+974 3RR1K15PP1P6P1P1P3Q4P1N1p1p3q11pn2p1p3r2rk 4 14 22 46 38 31 38 62 38 advantage middlegame short
+974 882K4P8p73n47R4k3 6 55 48 43 33 18 17 33 48 17 24 48 42 crushing defensiveMove endgame fork long
+976 4RK2P4P22PQ3P1P4P182q3p1p1p2pp11r4k1 4 8 16 42 7 5 12 57 60 crushing endgame short
+976 4R1K1r1r3PR87P6Bp2b53k48 4 4 5 10 14 15 14 8 14 crushing endgame short
+978 R1BQ1R1K1P2NPP1P4B1b2PPPp1q2b1p3p2p2r11pp3pprn4k1 2 14 23 31 23 kingsideAttack mate mateIn1 middlegame oneMove
+978 2q1KB1RP2RP1PP1Q62P2P285b1pppp2ppk7r 4 11 3 45 18 17 18 2 18 middlegame
+981 1R1N4PpP53KP32nP41p1p4p74r31k6 2 3 9 52 20 endgame hookMate mate mateIn1 oneMove
+984 RN3RK1P4P24P1PP4p33P3Q3q1p21pbk1prpr7 6 1 18 54 22 13 22 43 22 6 7 22 15 kingsideAttack long mate mateIn3 middlegame sacrifice
+985 1R6P1PN2PK2P2P1P4Qn1q6p11p3p2p1p3kp8 4 14 22 31 23 15 6 23 14 endgame mate mateIn2 short
+985 RN2K2R3P1PqPP2N4Q2P4882p1nppp1k1r1b1r 4 7 5 14 28 4 3 28 19 crushing fork middlegame short
+987 3R2K12r2PP11P2P2P82p53p1q1p5kp11Q6 4 57 43 45 13 6 7 13 14 endgame mate mateIn2 short
+988 3R3KPP2B1PP82P1P1p13R3p1b2p3pp63r1rk1 4 35 39 59 3 12 3 61 5 backRankMate endgame mate mateIn2 short
+988 3R48P3P31P3PrK5p1p2q5ppp2k23Q4 2 31 39 42 46 endgame mate mateIn1 oneMove
+988 R4RK1B4PP1P3B2P4P1Q11pp1q3p3pr1p6p1rb4k1 2 0 2 36 15 mate mateIn1 middlegame oneMove
+991 R3KB1RPPPQ1PPP2N2N23Pp36B12p1pnp1pp1n1p1pr1bqkb1r 4 18 28 45 28 38 59 28 11 advantage hangingPiece opening short
+992 5qK15P1P4P1Pp1b1Pp35p285Qp12r4k 4 6 5 58 2 5 12 2 4 endgame mate mateIn2 short
+993 R3K2R3QPP1P3P2P1P1P4NpP2pp23pbq1pb1p3p1r5k1 4 11 32 48 13 4 13 56 32 attackingF2F7 crushing discoveredAttack middlegame short
+996 R4RK1PP1B1PPP2N1P33N2pq4np22pbQ2ppp1r42k4r 4 27 37 36 21 6 7 31 15 kingsideAttack mate mateIn2 middlegame short
+997 R6RP3Q2K1P1P41n1pP1r14pp24q3pp61k6 2 0 6 44 47 endgame mate mateIn1 oneMove
+998 6K11R3PP17P1PnrP31p65p1p2N3p16k1 4 50 33 27 3 6 15 26 9 advantage endgame short
+999 3QR36R1P1P2PPK2pPPB1P1p4pq2p2p2p2nr2p4r2k 2 22 30 39 31 mate mateIn1 middlegame oneMove
+999 R4R2PPP3BK7P5B23pb1Q12pq2b1pp4k1r3r3 4 0 4 36 29 5 29 60 4 crushing discoveredAttack fork middlegame short
+1001 3RR1K1P4PPP2P52bB486pQppp2q1pr4rk1 6 4 20 53 13 6 7 13 5 3 5 61 5 backRankMate long mate mateIn3 middlegame sacrifice
+1002 3R1RK15P2P1B3PP1P2P1Q12pNn3ppq53n1ppp1r2r1k1 4 30 38 36 21 6 14 21 38 crushing fork middlegame short
+1006 R2QK2R1q3PP12n1B2P8p73p43nkpppN6r 2 3 2 9 12 mate mateIn1 middlegame oneMove
+1010 R5RK1rQ2P22P1PB22pP4P1Np1p2p1q1bnp16k11r6 4 34 44 42 44 10 9 57 9 crushing middlegame short
+1011 4R2RP1QN2K11P3P22P2p22pPbb2p2p2B11p1q2k1r4r2 4 7 55 54 46 55 51 37 10 crushing middlegame short
+1011 3q45Q24P1K15P1P6P184Rppp5rk1 4 29 37 3 43 13 29 43 52 crushing endgame fork short
+1020 R4NRK5P1P5p1q1PP1p1p13Pb1Q11P1p3rp1p4k8 4 38 30 23 15 5 15 47 15 kingsideAttack mate mateIn2 middlegame sacrifice short
+1026 8B6Pp5P11PK3p12P1kp22b588 4 25 33 42 35 26 25 35 8 bishopEndgame crushing endgame short skewer
+1027 3R1KR13p1P1PP3b31P2q1P11Q2p35p1Npp3p2r4r1k 2 13 20 28 21 mate mateIn1 middlegame oneMove
+1028 RQ5R1P3Kn1P1P1p1PPp2P41q2N34p1p11p3pp12r1k2r 4 13 14 33 12 14 6 12 13 mate mateIn2 middlegame short
+1028 6RK4Q1P15PqP87r4p1p15p24B1k1 4 12 40 39 23 14 23 22 23 endgame mate mateIn2 sacrifice short
+1029 2KR1B2PP1N2P14P3n1P53P2p13p1q2pppk1p2Q7 4 3 4 45 9 2 3 24 18 endgame mate mateIn2 queensideAttack short
+1030 2R1Q1K14B1PP5P2P7pP1pNpq13nb31p5p5r1k 4 2 50 38 20 6 5 20 36 crushing fork middlegame short
+1030 82P53NK31P5PP2k1pP11p2n1p1p6p8 4 10 26 35 26 32 41 48 41 advantage endgame knightEndgame short
+1036 6K186P13n1Pp12p1Rp22B2k23P43r4 4 42 24 27 21 6 13 21 36 crushing endgame fork master short
+1038 5RK11B3PPP8rN681R2p1p15p1p2r2k2 4 5 0 24 0 9 0 58 2 backRankMate endgame mate mateIn2 short
+1039 3R1RK1P5PP881ppr1P2p3P2p6p13r2k1 4 44 52 35 3 52 60 59 60 crushing endgame rookEndgame short
+1040 R2Q41PPB1PK1P2P1PrP4R2q2b1pn28ppp2pppr5k1 4 13 22 31 22 14 7 22 23 deflection mate mateIn2 middlegame short
+1041 R3K2RP1P1B1P11Pp1bN25qP182p5pp1nkpp1Q7 4 0 3 29 22 4 5 22 13 mate mateIn2 middlegame short
+1043 3R42R2PK1b3P1P11P5P1Q5p6p1pp2qp24r1k1 4 3 51 52 28 14 6 28 10 advantage endgame fork short
+1047 R3Q1K1PP3P21BN3P13P2n17q1pp4pp1Bb1pp1r5k1 4 4 52 39 15 6 5 15 13 kingsideAttack mate mateIn2 middlegame short
+1051 2R1K31r4r181P2R31P2P31p6p3k38 2 36 44 14 6 endgame mate mateIn1 oneMove rookEndgame
+1054 8KB4P17Pn4P2p3Pp21r4p11p4R1k7 4 9 16 24 18 8 0 41 1 arabianMate endgame master mate mateIn2 short
+1057 1R1R2K13p1PPPBn6P5B16p1p1n4p1p3p23rr1k1 4 1 17 60 4 3 4 11 4 advancedPawn mate mateIn2 middlegame promotion short
+1058 3K45R23pr3PbP51P2kp21p2P36R18 2 44 52 20 4 endgame mate mateIn1 oneMove
+1058 R1BQ1RK14PPBPP4NP11PPnq32b51p6pbpp1pppr4rk1 4 25 34 27 12 3 12 28 12 advantage kingsideAttack middlegame short
+1059 R2QK2RPPP2PPP4PN22B1n34Bp21pn1p3pbp1q1ppr3k2r 4 26 33 52 25 10 18 25 33 crushing fork middlegame short
+1059 R1BQ3KPP3qB12P1R33P2n182n1p3ppp2pp12k4r 4 20 23 63 23 14 23 13 15 middlegame
+1061 R71r2P3P2B4p1P52K1kP1P7p81r6 2 0 6 57 58 endgame mate mateIn1 oneMove
+1062 2KR3RPPPQ1P22NB44P1P14b1pPpp1p3p1bp1qp2r3k2r 4 13 21 36 29 11 29 38 29 crushing middlegame pin short
+1067 R3K2RQP3PPPP2BPN23Pn3n2N1b23q3pppp2pp13rr1k1 4 35 18 28 18 9 18 37 19 crushing discoveredAttack middlegame short
+1068 2R4Rr76bK2P4p1P1Pppp12N2k288 2 2 5 38 30 endgame mate mateIn1 oneMove
+1068 8P2K42P57Pp3nk21p1R2p17p8 4 43 41 36 26 11 19 26 41 crushing endgame fork short
+1072 4RK22r1p1PP85n281p2k2pR5B18 4 5 13 29 19 13 22 19 4 crushing endgame fork short
+1073 6RK5qr1PQ1P3R4Pb22p1pp1p1p1P41p6r4k2 4 6 14 13 5 14 6 5 23 endgame mate mateIn2 short
+1073 3Nr2KPP4PP6Q17n1p3N2pq61bp2Bpk8 2 22 4 49 14 master mate mateIn1 middlegame oneMove
+1076 R4RK11P1BBPP1P3PN1P2pP4n2p4p2b2bp1Q3pp1r2q1rk1 4 49 35 43 15 6 15 59 35 advantage discoveredAttack middlegame short
+1076 1R4K15P2P1b3P13nP31p2pB2p72p4R1k3r2 4 1 2 27 12 6 14 12 2 advantage endgame fork short
+1077 6K12r3PP8P1b2R22p4p1R66pk8 6 29 37 10 2 6 13 2 5 13 20 5 37 advantage endgame long skewer
+1077 R3QKNRPP2B2P2P1bP1b3PNp1q88ppp3pprn3rk1 2 6 23 31 23 mate mateIn1 oneMove opening
+1077 R5KRPr4PP3nN33Pp36b182QP1ppp5rk1 6 15 31 38 20 6 15 20 29 50 29 19 29 crushing fork hangingPiece long middlegame
+1078 2R1R1K1PPQ2PP12P4p3PP1q15p22pBp3pp1n4r3k2r 2 28 37 30 14 kingsideAttack mate mateIn1 middlegame oneMove
+1080 R2QKB1RPP1B1PP12N4P2Pq42b1Pbpp5p2ppp52kr2nr 2 3 21 27 11 master mate mateIn1 middlegame oneMove
+1081 3R1R1K1P4QPPq3pP12p51p68pkn56r1 4 5 21 17 3 21 5 3 35 advantage endgame hangingPiece short
+1082 5RK1P4PPP1P2P32P3Q181b3q2pppR2pp5rk1 6 5 3 45 13 6 7 13 5 3 5 61 5 backRankMate endgame long mate mateIn3 sacrifice
+1083 R1BQRBK1PP3PPP2P2N26n13pb31p4p1p1q2p1pr1b2rk1 4 15 23 36 15 21 15 50 15 kingsideAttack mate mateIn2 opening short
+1086 1K62P51P3P2Pq6p3Q1P181pp2p1k8 4 36 28 25 28 21 28 55 46 crushing endgame queenEndgame short
+1087 3QRRK1PPP3PP4P1N13Pp1n13p1P1p2pq4pp3pp13rr1k1 4 5 29 30 20 4 20 43 29 capturingDefender crushing middlegame short
+1088 1R65PPPr72PpK383Nn1p15p1p6k1 4 1 49 44 34 28 27 34 49 advantage endgame fork short
+1089 881P61p61k681K68 6 49 50 33 34 50 49 34 27 49 42 27 18 crushing endgame long master pawnEndgame
+1091 R1B5PPPP2P12N52B2RK13P43b4ppp2ppprn3rk1 4 29 28 53 37 30 23 37 28 advantage fork middlegame short
+1092 R2QK1NRPPP2PPP83Pp31b62q5ppNk1ppprB3bnr 8 50 56 61 25 10 18 25 18 9 18 42 18 3 11 18 0 advantage deflection middlegame veryLong
+1092 R4RK1PPP2PPP2N2Q23b41p6p5pB1p2qp1prn2r1k1 4 5 4 52 4 0 4 60 4 kingsideAttack mate mateIn2 middlegame short
+1094 7K3Q1PRPP4P1r1P1PPR283q2p1pp3pkr8 4 29 30 23 15 14 15 43 15 endgame mate mateIn2 short
+1095 5RK12R2PPP1Pn51p1r482B55ppp3r2k1 4 10 2 18 12 6 7 12 2 crushing endgame fork short
+1095 2R1KB1RP4PPP1P1P42N1b1n13r42Q1pq25ppp5rk1 2 19 28 45 13 attackingF2F7 mate mateIn1 middlegame oneMove
+1096 2R3K15Pb1PQ1P2P13pN33n3q8pP4ppr3r1k1 2 49 56 39 7 mate mateIn1 middlegame oneMove
+1097 3Q45PKPP1PPB1Pq4P34p1n1p1p4p5pp16k1 4 14 7 38 21 3 6 21 6 crushing endgame short
+1098 R1BQ1RK11P4B1PN3N22PpP32p1n31p4p1p2b2bp2rqr1k1 4 2 38 36 21 3 21 59 38 advantage kingsideAttack middlegame short
+1099 R1B2RK1P5BP3Q1PP13nP384b3p1p2ppp1r1q1rk1 4 2 20 27 21 5 21 59 19 crushing discoveredAttack kingsideAttack middlegame short
+1100 6K12RQ2P15BqPP71PP53P4p5pp4rr1k 4 11 13 60 4 13 4 22 4 advantage endgame short xRayAttack
+1103 4K33B3Pk5P11P61pP3b12p4pp4B22b5 4 15 31 38 11 4 11 16 25 bishopEndgame crushing endgame short
+1109 1K6P1PBQP1P1P1P483np1r13b4pppq1p1R1k6 6 11 38 35 18 1 9 18 12 55 63 51 58 advantage endgame fork long
+1111 R4RK1PPB3P12P4P4nPQ11pqp4p3pb1B5pp12r2rk1 4 6 7 28 13 5 13 34 13 crushing fork middlegame short
+1113 4RNK15P1r6P1P3Q1p12P1b2r2PP2p1pR3p2k6q 6 42 50 15 7 6 14 39 15 5 15 63 15 kingsideAttack long mate mateIn3 middlegame sacrifice
+1116 885Pr18P4k1KpR688 2 41 40 22 23 endgame mate mateIn1 oneMove rookEndgame
+1116 81pr51R2PP26PP4K36p12k2p1p8 6 36 45 10 42 45 53 42 41 17 9 41 9 advantage endgame long rookEndgame
+1118 2R3K11P3P1P1PPr2P12N54pp22p1b1p12R4p3r2k1 8 50 42 19 3 2 3 59 3 6 14 44 35 13 21 35 42 advantage endgame fork veryLong
+1120 R2Q3R1PPK1PPPPBNP1N282pp2b1p1n51p3pppr1bqr1k1 4 21 38 59 38 13 29 38 29 middlegame
+1127 R4RK12Q3PP1N2P3Pr1Pn33pN32p1p2pp1q2pp15rk1 4 10 42 50 42 36 42 25 17 advantage middlegame short
+1128 RN4K11Q4PP1p2P31p1PnP2P2p4p3p35ppp2r3k1 4 9 17 58 2 17 3 2 3 endgame mate mateIn2 short
+1128 R2QKB1RPP1B1PPP2N2N21b1PP3q6p2n1pp2pp1p2p1r1b1k1nr 4 5 33 25 18 11 18 32 33 advantage capturingDefender opening short
+1129 3R1RK11BQ2PB1P2P2p11PPbN2q4p3p1n51pp3pp3r1rk1 2 9 27 31 15 mate mateIn1 middlegame oneMove
+1129 2R3K1p4PP11q4NP3p486rpQ4ppk8 4 2 0 17 1 0 1 8 1 advancedPawn crushing endgame promotion short
+1130 5Q1KPPB3P12P1q2b2pN4pp1p45R23p2k17r 4 14 23 63 23 5 23 20 23 crushing endgame master short
+1130 1RR3K15P1P2PB1P2Q2PP382n1p3ppp1qppp2kr3r 4 1 49 52 38 6 7 38 2 crushing fork middlegame short
+1130 8P4K21PP1R33r44r2P5k2p78 4 20 36 27 29 13 22 45 36 crushing endgame intermezzo master masterVsMaster rookEndgame short
+1135 R74Q2r3P3K1Pp2q21p1Bn34P36pp6k1 2 12 15 29 30 endgame master mate mateIn1 oneMove
+1135 8R784K1P1P2P2p1rB1p3p5b25k2 4 8 10 53 46 28 27 46 10 crushing endgame short skewer
+1137 RN1QK2RPP3PP14P2P1b1P43B1n25p1pppp2p2r2qk2r 4 1 18 25 18 9 18 59 35 advantage middlegame short
+1137 RN2K2RPP4PP2P1PN23Pn33Q1p21p1b2k1p5pp1r1q3r 4 4 6 43 15 6 15 59 35 crushing discoveredAttack kingsideAttack middlegame short
+1140 RNB2RK11P3P1P2P2NPB4Q3P6pp2n1qp11ppbnp21r2kb1r 6 2 38 43 28 23 51 60 51 38 45 28 45 crushing hangingPiece long opening
+1144 88PP62P1K1P1p1pP2p13k2np82B5 4 28 37 46 52 37 45 52 58 crushing endgame fork short
+1144 1NB1K1NR1P2PPBP6P13nP35p26p1ppp4p2kr1b1r 4 28 37 27 10 4 5 59 3 backRankMate mate mateIn2 middlegame short
+1145 R3RBK15P1P1P3p22PQPnpqP2P47ppp62kr3r 6 27 48 29 23 6 7 23 13 48 13 31 13 crushing deflection kingsideAttack long middlegame
+1147 4R2KPP4P12P57R3pb1r12pkp3p78 4 14 30 36 22 4 44 43 44 advantage endgame fork short
+1149 RNB3NRPPPP2PP1Q62B1Kqb13Pp38ppp2ppprn2k2r 2 28 19 29 27 mate mateIn1 oneMove opening
+1151 82r3KP6P1P2B1P21P1pP1N15Qp1p4p1p5qk1 4 14 23 61 47 23 30 47 39 endgame mate mateIn2 short
+1153 7r4n1PKP2PP2P1P2N34p2pp1pQ41p3qp17k 4 15 7 53 5 7 15 5 6 endgame mate mateIn2 short
+1153 R3R3P5K11QP4PN2P1p24P31p1bp1q1p1pn2pNr5k1 4 14 15 46 22 15 7 22 23 advantage deflection middlegame short
+1154 8881p6Nk5P2p4Kp78 8 47 54 33 32 39 47 25 17 47 55 17 9 55 63 9 1 advancedPawn crushing endgame hangingPiece promotion veryLong
+1155 6RR1P5p2P5P1pP2K13p2P1p2kp36rr8 6 6 14 54 38 30 38 55 54 38 45 54 14 attraction crushing endgame long rookEndgame sacrifice skewer
+1157 R2QKB1RPPP2PPP3P1NN11b1pP2B4p32n2n2ppp2pp1r1bqk2r 4 10 18 27 18 9 18 25 18 crushing opening short
+1157 2R1K2RPP1BB1PP1Q2PP23N42Pp4p1p2nb11pbq1pppr4rk1 4 17 49 50 22 15 22 51 49 crushing discoveredAttack middlegame short
+1158 R1B1K1NR6PPP1b2Q22B3n14pb21q6ppp2Npp2kr3r 2 21 18 41 13 mate mateIn1 middlegame oneMove
+1159 1R5K6BP1b2Q3Pq1rP1P14pP2p4p1p1p4p16k1 6 20 17 25 17 1 17 27 3 14 5 3 5 advantage endgame long
+1160 88P1P3K11Pp1PP1P1p4ppp4pk188 4 29 37 46 47 22 23 38 30 crushing defensiveMove endgame pawnEndgame short
+1162 R3RBK11q5r6P11PQ3p12pPP33b2pBpp5pr5k1 2 36 43 9 13 mate mateIn1 middlegame oneMove
+1164 3K4PP2P1p17r4P33pP1p11Bp1k2bQ78 6 41 50 23 7 3 10 14 6 48 6 7 6 advancedPawn advantage endgame long promotion
+1165 4RRK1PB1r1PPP1P62B581p4pnp4p1p2r2bk1 6 4 12 11 12 26 12 58 10 12 3 10 9 advantage fork long middlegame
+1167 3R4P71P1PQ1PK4P1p12p2P21p3p2p2r46kq 4 23 30 51 54 30 21 63 39 crushing endgame short
+1168 BK5RP2r1qP1bP3B1P85p2p5p1kpQ4p2r5 4 50 58 11 9 0 9 13 9 mate mateIn2 middlegame queensideAttack sacrifice short
+1168 RNB2RK1PP3P1P4P1P12PQ42p53pb2pp3bpp1r2qk2r 4 27 54 52 45 54 63 45 63 crushing middlegame short trappedPiece
+1171 3rRK21P2RPPPP75q282p5pp3pQpk2r4 6 4 3 59 3 12 4 29 26 5 6 3 4 backRankMate deflection endgame long mate mateIn3
+1174 6KR4P1B11N1P2P12N1P1p11PbPR2pQp4b1p1q51kn2r1r 4 12 20 34 20 26 20 50 36 crushing deflection kingsideAttack middlegame short
+1175 4RRK17PP4PP11PP2B281pb2rqpp1Q3p15r1k 4 4 52 45 29 50 42 46 42 advantage middlegame pin short
+1175 R1RQ2K11q2B1P12NPP2PP1P1P31p2p32pp1n2r2b1pppr5k1 4 2 1 9 18 1 17 18 32 crushing hangingPiece middlegame short
+1176 K5R181rP1P3P4P25Pp1p6p2R51r4k1 2 37 45 17 16 endgame mate mateIn1 oneMove rookEndgame
+1176 R1BQ1B1RPPP1K1PP83bP34q38ppNp1ppprnb2k1r 4 50 56 36 28 2 20 28 20 mate mateIn2 opening short
+1177 3rB35KP1881k61p3n27R8 4 55 47 45 30 13 21 30 47 crushing endgame fork master short
+1178 R1BQ1B1RPPK2q22N4P2P1p1P12b52n1p1p1pp3pp1r3k2r 4 3 12 42 27 10 1 27 12 crushing fork middlegame pin short
+1178 q6rP4PKP5NP11P2Q386ppp4p1k4R3 2 28 36 0 5 endgame mate mateIn1 oneMove
+1179 R3K2RPPP1BPPP2N53QP34n33p1q2ppp2pppr1b1k2r 4 18 35 36 21 12 21 45 27 crushing discoveredAttack middlegame short
+1181 R76r1P2P3K4Pp21P1Q3p8pppN2r1k2n4 4 51 36 54 22 23 31 14 15 endgame mate mateIn2 short
+1182 R1BQK2RPP3PPP2N1PB22PN481pnb2p1pbppqp1p2kr2nr 4 3 24 42 27 21 49 58 49 advantage opening pin short
+1182 1R2K2RP1Q1B1P11P3PpP4Pp23PnN1p1p1p1b2p2q1p21kr3r1 6 10 11 36 21 12 21 45 18 11 18 58 18 advantage clearance long middlegame pin sacrifice
+1184 4R1K1PPP2PQ16P13PRBp17r2p1N1p1pp5q2k2n1r 4 44 61 39 7 14 7 55 7 kingsideAttack mate mateIn2 middlegame short
+1185 7K5Q23P3r2N51P1P43b3p1p1b2p16k1 4 7 14 23 15 14 6 15 13 crushing endgame master short skewer
+1186 8PPP3q181K3R1P2Q2n2p3p1p13R41r4k1 4 25 16 14 22 10 18 22 29 advantage endgame fork short
+1187 R3R1K11P2brBP2P3P1P781b6ppp3pp7k 2 24 32 13 5 doubleCheck endgame mate mateIn1 oneMove
+1188 1R4K17P3PQPPpP1P1P3p1N1p31np3q15ppk1r6 4 34 51 41 51 1 57 51 57 advantage endgame hangingPiece short
+1190 R2QR31B2n1KPP2Pr1P11P65q1p8ppp2pp16k1 4 4 12 37 21 14 6 20 12 advantage endgame intermezzo short
+1192 K2R1B1R1P3PPPP4N24b2Qq2p2B13P1n2pp3ppp2rbk2r 4 38 45 59 45 31 45 54 45 opening
+1193 88P5r1K1R4PppP3B12p52k58 6 24 32 22 16 32 25 16 24 25 17 24 26 crushing endgame long skewer
+1194 8Pr62P3K13P2P17P1bp1R3pp3kpN8 4 44 43 41 50 22 21 50 43 crushing endgame pin short
+1194 81r4P12P2P1K3P1p2R2pR1p15k2p2r48 4 36 35 51 55 23 30 9 14 deflection endgame mate mateIn2 rookEndgame short
+1195 R1BQR1K1PP3PPP5N22P52pP43bpn2ppq2ppp2kr3r 4 35 44 43 15 21 15 59 3 advantage discoveredAttack kingsideAttack middlegame short
+1196 R1KR4P1P1BPPP2P3B12b588pp2bppp3r1rk1 4 12 26 52 16 2 1 59 3 deflection mate mateIn2 middlegame queensideAttack short
+1196 R2QKB1RPP2PPPP2N2N21n1P1B2q2p1b28pp2ppppr3kbnr 4 21 11 25 10 3 10 37 10 crushing fork opening short
+1196 6K15PPPP3P31P1B482n2p2pp3kpp8 4 25 33 42 27 20 27 53 44 advantage defensiveMove endgame short
+1197 1b2K3P6P5PP12PP42N52p4pp1k2pp18 6 34 40 50 41 40 34 1 8 4 12 8 26 advantage defensiveMove endgame long
+1197 5RK1P5PP1P2P33N1Qp18p71p2q1ppk1r3n1 4 29 30 52 20 6 7 58 2 advantage endgame short
+1198 5RK16PP1p63PP1N1p1P55p21r2k1pp8 4 27 35 17 9 34 42 9 1 advancedPawn crushing endgame promotion short
+1199 82Pb2KPkB61p3p22R5887r 4 34 38 29 21 14 21 11 38 crushing discoveredAttack endgame short
+1202 1K2R2RPPQ1B34b2PNp1P4p1Pp2P12p3p15pkpr1b1q3 4 10 19 58 37 19 37 46 37 advantage middlegame pin short
+1203 882K1P32P2P1P2p2R1p3kn384b3 4 18 19 60 46 20 28 46 37 crushing endgame pin short
+1203 5BK1P3QP21P2B1PP1pP1q32p5p4pp11b2b2p6k1 2 20 29 28 7 endgame mate mateIn1 oneMove
+1203 3R1RK1PP2PPBP1Q4P182pn47ppb3qp11k1r3r 6 3 35 59 35 14 35 53 35 17 35 49 35 advantage long middlegame
+1204 R1B2RK1PP3PP14PN22B1Q1n12p1n2q8pp4ppr3k2r 4 26 44 36 21 14 21 39 15 kingsideAttack mate mateIn2 middlegame short
+1204 R5BK4r2N6bq1P4P1P1PQ3p8pp3pp16k1 2 35 39 23 14 mate mateIn1 middlegame oneMove
+1205 R3K2RPP4PP2P1P31p2NP23qb2Q2p2p2p4p1pr4rk1 4 39 37 36 18 9 18 35 37 crushing discoveredAttack middlegame short
+1206 7K5PRPP2PQ1P11P4p13PP3q7pp5r6k1 6 19 27 40 5 14 6 55 15 7 15 5 23 attraction deflection endgame long mate mateIn3 sacrifice
+1207 3RK2R5PPPP3PN21PP1Q34B3p1p2p1p1pq1b1p1r1b1r1k1 4 36 45 52 25 16 25 60 28 crushing discoveredAttack middlegame short
+1209 2R3K11QR3PP4P3P1rPpP2pP1q1p21p2p36pp2r3k1 4 9 17 26 10 2 10 35 17 crushing discoveredAttack endgame short
+1215 RNBQ1RK11PP1BPPPP3PN24n33p1b1p2nb4ppp3p1r2qk2r 4 3 35 43 15 21 15 59 35 crushing discoveredAttack kingsideAttack middlegame short
+1216 2RK2NR1B1P3PP2Q2P11P2n34p31pn1Bq2p5ppr4r1k 4 2 42 28 13 3 10 13 19 crushing fork middlegame short
+1217 2R1K3PP3rP14P1p14B1R181pp4p81k3r2 6 30 22 13 5 4 11 61 13 11 19 5 2 advantage deflection endgame exposedKing long
+1224 R1B4R1PPK2P1P1P3NP6b182n5ppp2pppr3r1k1 2 23 30 56 59 mate mateIn1 middlegame oneMove
+1225 R4KNRP1P3PP1PNP44Q2b4p31q2np2pp3p1pr3k2r 2 18 35 41 13 mate mateIn1 middlegame oneMove
+1225 2B1K2R7PR4q2P1QPP3pN64r1p11p3pbp5rk1 6 7 5 44 28 16 20 28 20 2 20 21 20 crushing exposedKing long middlegame
+1226 5B1K8P2P1q23pP34Q2Pp4nPp1R4p15rk1 6 5 14 21 3 7 15 45 30 15 22 30 36 crushing endgame exposedKing fork long
+1227 R3K2RP4PPP2P1PN22P1Q1n11Pp1p31p6p1pq2pp1r3rk1 6 0 3 51 3 4 3 30 13 3 10 13 28 middlegame
+1228 R2Q2K13NPR1PP1B2P1b1PBn1pP12P1p2p2p5b2q2p13rr2k 6 11 28 27 21 12 21 51 3 0 3 59 3 advantage discoveredAttack kingsideAttack long middlegame
+1233 885K27rP4n22R3ppR4pk18 4 32 40 37 27 21 20 27 42 crushing endgame fork short
+1236 RNBQK2RPP3PPP4PN281Bpn42n1b3pp3pppr2qkb1r 2 21 36 59 32 advantage oneMove opening
+1239 R1B2RK12P3PPPBn2P23P1Q23p42p2n2pp4ppr1bq3k 4 16 24 18 12 6 7 12 29 advantage fork middlegame short
+1240 R1B3K1PP2q1NP1Q2P1P15R281bp5p1p2ppp3r1r1k 4 29 13 59 3 17 3 12 3 advantage kingsideAttack middlegame short
+1240 2R3K1PP3PP183PpN21b3pn13R41k66r1 6 29 35 38 21 6 7 62 63 43 47 63 47 endgame long mate mateIn3 pin
+1245 5R1K3B2P1P2P1R1P1PP1b32pQb2p1p1p2p1p7r2q1r1k 6 21 61 59 61 5 61 56 61 35 36 43 36 crushing long middlegame
+1245 7K6P17P2N5p6pr3Q1pq1pp2R21k6 4 44 51 47 2 7 15 2 26 crushing endgame fork short
+1249 1R4K1P1Q2P21P2N32P1pq1P5B1p2p3b1pp4bk3r4 4 10 28 29 28 37 28 46 28 advantage middlegame short xRayAttack
+1250 84K32pp42k52n4Q888 6 12 3 18 10 3 11 34 17 11 20 10 2 advancedPawn crushing deflection endgame exposedKing long promotion
+1251 2K5P4RP11PPn2B12n1P2P1Np58p3kpNp3b1r2 6 2 1 19 13 22 13 26 11 1 10 11 28 advantage long middlegame
+1252 8r74P1KP3Pp1P13p2pp4k3pR1Nn38 4 30 39 52 37 22 30 8 14 endgame mate mateIn2 short
+1253 6R1PP5r2B1PK2B75pp15p2p4k23r4 2 20 28 59 19 endgame master masterVsMaster mate mateIn1 oneMove
+1253 K2R3R3B2PP1qN1P33p41B2n34bQ2ppp4p2kr3r 4 3 1 17 16 18 8 16 8 mate mateIn2 middlegame queensideAttack short
+1254 R1BQKB1RPP1P1PPP2N1PN283np32n1b3ppp2pppr2qkb1r 2 5 26 35 18 advantage oneMove opening
+1254 2KR42PQ2P1PP2r2P5P2Np1n4p1p3p14qp22k5 6 32 42 52 16 2 1 35 18 11 18 20 18 advantage endgame fork long
+1254 RN2K2RPr2PPBP2bQ4885q2p1p2ppp5rk1 4 19 18 9 1 0 1 45 18 advantage intermezzo middlegame short
+1255 1K1R41PPRB1P14P34pP1Pq4p2p3b1Np6p15rk1 4 46 61 32 8 1 2 8 0 endgame mate mateIn2 queensideAttack short
+1258 86q15R1P1P1r1K2P7p3Q1p17p7k 2 29 20 14 11 endgame mate mateIn1 oneMove
+1261 R3R1K1PP1n1P1P2P3P13N43p1Q22p3qpp4pp1r4rk1 6 0 3 46 37 27 37 11 21 6 5 21 4 advantage fork long middlegame
+1265 2K4RPPPQ2BR2NP1P24Pp24n2Pp1ppb2q1p3p22kr3r 4 14 23 36 21 11 13 21 15 advantage fork middlegame short
+1265 4RRK1PPq4P6BP2BQPP23P41p1b2n1p1p2ppp2kr3r 4 28 36 43 34 27 34 41 34 crushing middlegame pin short
+1268 3R2K1PPP2PP17P81ppQ482q2ppp4r1k1 4 35 51 60 4 3 4 50 51 crushing deflection endgame short
+1269 84K1P17PR3pP28p2r45kpp8 4 24 28 43 44 12 21 44 28 crushing endgame rookEndgame short
+1269 R3KB1RPPP2PPP83QN36B15n2ppppb1ppr1bq1rk1 6 4 2 45 28 5 26 62 63 38 52 59 52 advantage long opening
+1270 R2QK2RPPP2PP13BbN1P4n388ppq2ppprn2r1k1 4 13 20 50 22 4 5 22 13 mate mateIn2 middlegame short
+1270 2RK3R1b1Q1P24B32P1p31P1P2p11p1p1q1pp71k3r2 4 2 10 45 21 11 12 21 7 crushing fork middlegame short
+1272 RNBR2K1PP3PP14PN1P81Qnn41b2p2ppp3pp1r2q1rk1 4 1 18 35 18 3 59 18 33 advantage middlegame short
+1275 R4RK1P1Q2PPP3nP31p1Pp3N2pNn21k3q25ppp2r4r 6 10 58 63 58 36 51 41 32 51 45 54 45 crushing hangingPiece long middlegame
+1276 6R15P1KP1R1Q1P11P2p1qP2P2p27rppp4r6k1 6 20 29 47 31 22 31 55 31 18 23 31 23 endgame long mate mateIn3 sacrifice
+1276 2R3K1PB3P1P1P1rP1P14q31p6pb3p1p6pk2Q5 4 58 42 19 3 2 3 28 42 crushing deflection endgame short
+1277 2KR3RPPP2PP12P2N1P4p2B1B1Q3b2nb1p2pppq2ppr3k2r 4 21 27 43 29 2 1 51 35 advantage discoveredAttack middlegame short
+1279 R1B3K1PP1P1RP13N1N22P1p2P1B62n2p2pb3qpp5rk1 4 21 4 28 19 33 42 49 42 advantage middlegame short
+1279 RNBQ1BNRPP1K2PP83Pq32pn44p3pp3ppprn2kb1r 4 6 21 28 20 11 10 35 25 mate mateIn2 opening short
+1280 R1B2RK11P3P1PP5P13b2Q1q2b48pp4pBr4r1k 6 55 1 27 13 5 13 32 4 13 5 4 5 fork long mate mateIn3 middlegame sacrifice
+1281 3Q1K26P1P3q2P1B1b487p5pp16k1 2 3 12 20 6 endgame mate mateIn1 oneMove
+1282 r71PP4PPK3q2B1P582p4p1Q4pk3R4 4 17 25 42 34 25 34 21 49 advantage discoveredAttack endgame short
+1283 R1BQ1BKRPPP4P2NPp33N1q23p1P23b4pppn2p1rnb1k2r 2 18 12 29 13 mate mateIn1 oneMove opening
+1287 R71P3P22B1NK1PP5Pp2p3p1pp2rp23r1k28 4 0 3 44 20 21 20 51 3 crushing endgame short
+1288 1R2R1K11PPQ3PP1NP1qP15P21ppp4p5p11b3pkp3r1r2 6 11 14 21 14 6 14 35 27 14 5 27 18 crushing discoveredAttack kingsideAttack long middlegame
+1288 2R3K11B1N2PPP2br31P68p6p1Np2pp1r5k1 6 2 50 20 4 6 13 4 12 13 22 12 11 advantage fork long middlegame
+1289 R2QKB1RPP1BPPPP2bP483np1N12n1b3ppp2pppr2qk2r 4 38 44 18 11 3 11 53 44 advantage intermezzo opening short
+1292 6K15P1P4P1P13Nq1pp2P2R27k2p58 4 37 29 28 1 6 14 31 23 endgame mate mateIn2 short
+1293 4R1K11q3P1P3Q2P16n1P7p5pp5p1k8 4 4 52 9 13 6 7 13 15 endgame mate mateIn2 short
+1294 R4RK11P2BPPPPQBPP384ppN12n3p1pppb2bpr1q2r1k 4 38 53 61 53 17 53 51 44 advantage middlegame sacrifice short
+1294 RN1BK1NRPP4PB2P1P2P3Pp33p2pQ2p4ppp2q3rnbk1bnr 6 6 12 62 45 39 46 63 62 46 62 45 62 advantage clearance long opening trappedPiece
+1295 5R22P2RKP1P2r1P1P1N52PQ4p1n2p1p1p2q1p13r3k 6 26 20 59 35 20 35 52 28 14 6 28 35 advantage fork long middlegame
+1297 6K12BN1PP14P2P2P1p2q1PpQp31p1p1rp16kpn7 4 35 56 31 13 6 15 13 11 crushing endgame fork short
+1301 R7p1K1Q32P1Pn23ppP22q5P76p16k1 2 12 3 34 18 endgame mate mateIn1 oneMove
+1301 1B3RK1P2P1PPP2Bp3Q2P56qr2pb2p1pR3p1pr5k1 4 49 53 39 23 53 54 62 61 crushing middlegame pin short
+1302 88P75PP11p4K14k1p15p28 4 29 37 46 37 30 37 44 36 crushing endgame pawnEndgame short zugzwang
+1303 8P3r32P1p2K83P1P1P1p1b42pk1p21Q6 6 57 62 12 15 23 30 15 14 30 21 14 62 crushing endgame exposedKing long skewer
+1304 86P14KPRP5r25ppk888 4 20 12 39 31 22 38 31 38 crushing endgame rookEndgame short trappedPiece
+1304 R1B4K4QPRbP1NP1n1q1P2p35P22p5pp4ppr3k2r 4 12 28 15 36 14 15 23 15 discoveredAttack kingsideAttack mate mateIn2 middlegame short
+1305 5nR14P2K2P4P1PpPB3Pp1p2q1p75Q1p6rk 4 6 5 38 22 15 7 22 23 deflection endgame mate mateIn2 short
+1305 1RB1K2RP6P3r1PPB4r32b2p1b2p51p4pp2k5 2 21 28 19 3 mate mateIn1 middlegame oneMove
+1308 88PK64PpPPp2Bk31p1n3p88 4 17 18 43 28 35 28 36 28 crushing endgame short
+1308 8882r2p1P5R2P6p6K11k6 6 37 53 26 50 53 50 57 50 40 48 50 49 crushing endgame long pin rookEndgame
+1311 6K1P4PQP5P24N33n45B2ppb2qpp6k1 4 14 30 35 45 28 45 53 45 advantage endgame short
+1315 R5K13P1P1PPQB3P185p2b4n2pBp3pp1r2q2k 4 49 42 57 17 42 60 45 60 crushing middlegame short
+1315 R4RK1P2r1PP14P2P1pq54BQ27ppb2bpN12r3k1 4 0 2 26 2 5 2 58 2 crushing middlegame short
+1316 82P51P1Pb2P1p3pK12pB44Pk1pR76r1 6 30 39 62 38 39 47 38 35 48 53 45 44 crushing endgame fork long
+1317 R3K2R4BP1PP2P2P11P1QP33b42p4ppp2qpp13rr1k1 4 13 21 35 28 27 28 52 45 advantage middlegame sacrifice short
+1317 1R3RK11PP2PP13P3P4P3P1p1p33Bp1p1pp1n2p12r1k2r 4 10 26 58 42 43 36 51 36 advantage endgame short trappedPiece
+1318 5R22P2P1rP5K182P1P32nQ2nqpNRp1k23r4 4 43 45 53 62 45 46 47 46 crushing middlegame short
+1319 R1BR2K1PP2NPB16P1Q1rb44p34b3p3npp13q1k1r 4 24 40 27 13 6 13 59 3 advantage discoveredAttack kingsideAttack middlegame short
+1319 RN2K2RP4PP11PP1PN1P4nB2pQ1p42n4p2pqbpp1r4rk1 4 21 36 42 36 33 51 36 51 advantage middlegame short
+1320 1R3K2q3B1PP1Np2P24P31p1P43Q1p1p3n1bp11r4k1 4 1 0 8 17 43 51 18 10 advancedPawn crushing middlegame short
+1322 7K6P1P6R2kb2p11p65p288 4 23 22 45 37 22 21 30 21 crushing endgame quietMove short
+1323 5RK1P4PPP882P1pp22q5Q1p3pp5rk1 4 8 24 61 56 48 56 42 56 advantage endgame short trappedPiece
+1324 82Q1P1K13P1NP13p3P1P1np2pPp3q2p5p11k6 4 10 26 35 20 14 6 20 26 crushing endgame fork short
+1326 87P81B2K31P2nP21p1P1p1pp1Rr2p14k3 2 50 51 60 51 advantage endgame oneMove
+1327 3R3RPQ3PK13PP1P16q12p1p1n11p4pPp4p1p3r2k1 6 9 36 30 21 14 6 21 3 6 14 3 21 advantage endgame interference long
+1327 2R52RPNnK1PQ1nP1P11P1Np2P8pp63q1ppp2rr2k1 4 10 58 51 23 14 6 23 7 mate mateIn2 middlegame short
+1328 R1BQ2K1PP3P1P2P3P12pPR2N82nbp2ppp3pp1r2q1rk1 4 3 30 53 37 30 23 37 28 advantage fork middlegame short
+1328 3R1RK1P3PPBP1P4P15B23p4p1n1b2p1p1r1pp13r2k1 4 3 11 54 38 29 36 42 36 advantage middlegame short
+1330 RNB1R1K1P4PP13B1N1P3p4r2p42p2n1p1Qbn1pp13q1rk1 4 21 27 51 34 49 42 34 19 crushing fork middlegame short
+1332 R3r2KP2q1PP11Pn3QP2P53P42N2p1pp1p3p16k1 4 0 4 11 4 7 15 18 12 crushing endgame short
+1332 R4RK12P1QPB15NP1P2Pp2B2p5Npq1p2p1b1n2b12k1r2r 6 27 34 28 21 14 21 42 21 12 21 49 21 advantage fork long middlegame
+1335 RNBQK2RPP3P22P4PB2P2P13p46b1p1qnpppp2r1kb1r 4 3 21 46 28 21 12 28 7 advantage middlegame short skewer
+1336 884K35P1P5p26p16k18 4 20 27 54 47 27 19 47 39 crushing endgame pawnEndgame short
+1336 R3R3PK1Q41N3q21P2p32P2b26p11p3p1pr3B1k1 6 17 27 21 16 9 10 28 20 27 37 20 11 advancedPawn crushing discoveredAttack long middlegame
+1338 R5RK1P2Q32N2B1p4P1b14b2pPpp2p2p5q11k4r1 6 21 30 39 30 12 30 54 30 6 30 62 30 crushing long middlegame
+1339 R1BR4PPP1K1b12NBNP23bP34n2np71ppr1ppp2kr4 4 20 14 39 22 12 4 36 21 deflection mate mateIn2 middlegame short
+1345 2R2RK1PP1B2P14P1N1N3pPq12pp42Qbb33n1p23rk2r 4 42 43 30 22 11 4 22 15 crushing hangingPiece kingsideAttack middlegame short
+1345 84R1K11rPn1P2P5P16p1R4pk188 4 12 10 19 4 14 13 4 10 advantage endgame fork short
+1346 81P65K1PP2P1p23p1kP11p6p5p18 4 23 31 54 46 31 39 46 39 crushing endgame pawnEndgame quietMove short zugzwang
+1346 86PP1r2n34pP27K5bppR2R1p21B4k1 2 39 47 20 37 endgame mate mateIn1 oneMove
+1348 6K15P23p2P12p52pb3P4p2pP4ppk2R5 6 58 34 19 11 34 35 44 35 48 56 11 3 advancedPawn crushing endgame long promotion
+1350 81PKQ1RP1P2P1R1P8p1pr3p1p4q16p12kr4 4 21 37 35 37 13 37 46 37 crushing endgame short
+1351 R2K1B1R1B1P1q2PPN4P2PnQ382pb4pp4pprn3rk1 4 18 12 13 5 7 5 61 5 mate mateIn2 opening short
+1351 2B3RK2Q4qP4r22P1PnR11P2p31p3b22p2k27r 4 10 15 63 15 7 15 21 23 attraction mate mateIn2 middlegame short
+1357 R1B2R2PPP2P1K2N2bNP3Pp2q1B2Q34pn2p4ppp2rr2k1 4 5 7 45 30 15 6 30 36 crushing middlegame pin short
+1358 5K1R1P2NP1P1P2Bn21pP1p1P1R1p3p1p77p3rkb1r 6 32 40 59 3 5 14 21 31 14 23 3 7 advantage deflection long middlegame
+1359 81P3P1K2B2pnBP72p57q3Q2p15r1k 2 15 22 47 29 endgame mate mateIn1 oneMove
+1360 5R24Q1PKP71PP4p4P1q14p2nppp2p22k5 6 26 34 38 22 15 7 47 30 12 30 22 30 crushing endgame long
+1361 4R1K12PQ1P2P1PP1P1P5p1q84r3ppp2ppp6k1 4 4 28 44 46 6 5 31 23 crushing endgame kingsideAttack short
+1361 4R3Q4KP14BP1P3P43n3q2p2p1p6p14r2k 4 8 24 39 31 14 22 31 23 endgame
+1364 R1BQ1RK1P2P1PPP2P51P2P31B2p31bp2q1ppp1p1pp1r1b1r1k1 2 2 9 42 33 crushing hangingPiece middlegame oneMove
+1366 2R3K12n2PP14P2P3Pp3pr5N4p1Qp1pq3p17k 4 2 10 33 1 10 2 1 2 endgame mate mateIn2 short
+1368 3RKB1RPP2PPPP5Q286q18ppp2ppp3rr1k1 4 12 20 38 32 9 25 32 25 crushing middlegame short
+1368 2B2RK13NQPPP8N3P1n12p1p3P5p1q4pbp2b2rk1 4 2 16 58 40 12 30 40 5 crushing middlegame short skewer
+1369 4R1K11PP2PPP3B41q1p44RpQ11p2b3p4rpp4r1k1 6 19 37 53 37 38 37 44 37 36 60 62 53 crushing long middlegame
+1370 R1B2RK1PPP1PPBP6P13rN35b24n3ppp2ppp2k2b1r 4 10 18 27 28 14 28 37 28 advantage middlegame short
+1370 R2Q1RK1PP1NBP1B4P1P13P2pP3p1n1p2n2p2pppbq32krr3 4 12 19 37 20 13 20 52 20 crushing kingsideAttack middlegame short
+1378 R3RBK12Pr1rP1PPQ1P34p1Pq1pp57pp4pp16k1 6 18 36 13 14 5 14 31 13 6 7 13 14 clearance kingsideAttack long mate mateIn3 middlegame sacrifice
+1380 R1BB1RK1PP2QPP15N1P82b1P2b1np3q1pp3pppr4rk1 4 3 10 39 21 12 21 46 10 crushing middlegame pin short
+1380 R3B1R1P3Q1pK2P1P1q11P2bP1p3pPp24p3pppr42k3r1 6 4 22 31 22 15 23 51 55 12 39 55 39 exposedKing long mate mateIn3 middlegame
+1381 888P1P3P1p2P2K13p2p12p2k28 6 38 47 53 45 47 55 45 38 55 54 38 30 advantage endgame long pawnEndgame zugzwang
+1382 R3KB1RP4PP11P2P2P4n32pn2pQp6p1p2k3r2q1b1B 4 0 3 59 32 17 25 32 25 crushing middlegame short
+1385 R3KB1R1B2P1PPP1Q1p1N11P62Pq48pp1bbp1p2kr3r 6 0 3 35 3 4 3 51 24 3 2 59 3 attraction doubleCheck long mate mateIn3 middlegame sacrifice
+1385 R3KR2P1P4P2P1P1P13P482n1q1pQppp2N1pr4rk1 4 53 38 44 20 4 3 61 5 deflection mate mateIn2 middlegame short
+1387 R2Q1RK1P4PPP8B2nP2N1p1Pp33p3pp1q2pp1r4rk1 6 0 2 50 2 3 2 27 12 6 7 12 2 advantage attraction fork long middlegame sacrifice
+1390 882r2PP12p2K22R2p1P4k2p6p18 4 34 37 18 21 29 21 44 37 crushing deflection endgame rookEndgame short
+1393 R3K2R1P2QPPPP3PN23P1B2q2p42n1p3pp3ppp2r1kb1r 4 12 11 61 25 16 25 32 0 crushing master middlegame pin short
+1393 R1B3NRPPP1K2P3P1QP12B52bNp2p3q4ppp2pp1rnb2rk1 4 2 20 58 30 21 30 39 30 crushing middlegame pin short
+1394 RN1QKB1RPPP1PPPP3P1N284p1B12p2n2pp1pbppprnbqk2r 4 21 36 59 32 38 11 32 36 advantage fork opening short
+1401 1R1Q1RK11PP1BPPPP1N2N23n1B22b51p3pq1pbpp2pp2k1r1nr 2 21 27 46 14 kingsideAttack mate mateIn1 oneMove opening
+1405 84KP21P1PB2rP1P3R1p1p1r1p11pk588 4 30 38 23 20 13 20 36 38 crushing endgame intermezzo short
+1406 2K3R11P6P1P2Q2q2P2R18p3r1pB1pp2p1p4r1k1 4 21 13 44 12 13 12 60 12 advantage middlegame short
+1408 2KR3RPPP2PPP1BN1B33Q42pp1b25n1ppp1n2p1r2qr2k 4 27 11 35 27 20 27 34 27 advantage fork middlegame short
+1408 R2BR1K11P1Q1PP17PP2P4p1Pp1p22p3pB1pq1n2prb2r2k 8 11 38 50 15 6 5 15 7 5 12 52 62 38 20 60 20 crushing discoveredAttack kingsideAttack middlegame veryLong
+1413 R1BQ1BK1PP1N2N12P1P1q183p42p2n2pp3pppr3r1k1 4 11 17 45 30 3 30 22 30 crushing middlegame short
+1418 RN1QKBNRPPP2P23P44n1PP2bppPB12n5ppp3ppr1bqk2r 4 38 59 34 13 4 12 42 27 attackingF2F7 mate mateIn2 opening short
+1419 R2R1K21PQ2bPPPN3N22B1Pqn15P22p5pp3pppr3r1k1 4 15 23 30 20 5 13 20 10 crushing fork middlegame short
+1422 1R1Q1RK11P1B1PPPP3PN22BPn3n1pN41p1q4pb2bpppr4rk1 2 26 8 49 35 advantage middlegame oneMove
+1423 84rPKPP5P11P1R42Rn2N1p1p2r21p4pp6k1 6 38 28 35 20 14 23 45 47 34 39 47 39 anastasiaMate endgame long mate mateIn3 pin
+1424 3R41P3RK1P2Q3P2rPP1Pp1p3P2p2q1p22p2p22kr4 4 13 11 26 27 19 27 43 22 advantage endgame sacrifice short
+1425 R1B1R1K1PP2BPP15N1P3n4q2p1b23r1n1ppQ3pp15rk1 4 2 11 27 21 12 21 32 11 advantage kingsideAttack middlegame short
+1430 5QK12R2P1PP7p3qnP182p1p1pk1R5p5r2 4 10 26 29 12 5 12 28 12 crushing endgame short
+1430 R2QK2RPP3P22BBPN1P3Pn1P13p42n1pqb1pp3pppr3k2r 2 23 31 28 18 advantage middlegame oneMove
+1431 5RK1P1P2PPP1PNb1R23q3p3p2Q11np5pp4p14rrk1 6 21 19 27 13 5 13 60 4 13 5 61 5 kingsideAttack long mate mateIn3 middlegame sacrifice
+1432 85P1P5PK13B1Q284q1pp4b2k8 4 29 36 52 43 21 29 43 36 crushing endgame pin short
+1433 1R3RK1PPPQ42N1B2P1r1pp1P1q4P22pb4p2b1ppp5rk1 4 18 28 27 20 28 45 54 45 crushing master middlegame short
+1434 R2Q1RK1PP1BPPBP3P1NPb4N34p31nn2p2pppq2pp2kr1b1r 4 28 34 61 34 14 23 51 23 crushing hangingPiece opening short
+1439 2R3K1PP3P24P1P11B1Pp1n11pR2p2p1b4q5Q22rk4 10 6 5 47 7 5 12 7 21 12 11 21 13 11 18 13 20 18 10 20 19 deflection dovetailMate fork mate mateIn5 middlegame veryLong
+1441 R1BQ1RK1PPPP1PPP5N26b12bqp38ppp2ppBrn3r1k 4 15 23 30 21 3 21 35 21 crushing opening short
+1441 5RK1P4PP1r2q43P2b14B31Q4p11R3p1p2r3k1 8 41 45 19 5 6 15 16 23 14 23 5 23 15 6 58 2 mate mateIn4 middlegame veryLong xRayAttack
+1443 1QR2RK11B1N1PP1P3P2P1P1n44q2Bp2b1n21p3ppp2r2rk1 4 11 21 27 21 39 21 36 15 kingsideAttack mate mateIn2 middlegame short
+1446 R3R3PBP4r1PN3P15K26N12bb1n2ppp4p2k5 4 29 37 15 13 38 21 13 21 advantage middlegame short
+1447 88r3b31P4K12P5p3NBp13R3p6k1 6 44 38 55 39 30 21 20 38 21 28 38 45 advantage deflection discoveredAttack endgame long
+1448 R2Q1R2PPP1NPKP3P2P13nP1q14b1Bp1p1p1np1p1p1pp24k2r 6 38 45 30 21 14 6 27 12 3 12 21 12 advantage fork long middlegame
+1448 2KR3RPP3PPP2QP43nNp1q4p38ppp4pr4rk1 6 14 22 27 12 2 11 12 18 22 31 18 3 advantage fork long middlegame
+1449 3R3R5qPB7PP3Q1Kp2b1p3pp1pk386n1 4 28 46 62 45 46 45 13 45 crushing middlegame short
+1450 2R2RK11P1r1PPP2N1P31P61B2b34bp2pp3p1p1k1r4 4 5 3 36 18 3 11 18 11 crushing middlegame short
+1450 R2Q2K16PPPB3P21PP54q3pn1R1n1p5pp12b2rk1 4 43 41 36 20 6 7 20 41 advantage fork middlegame short
+1451 3R48P6P2p3p12Bb1P2p1p2pK16p16k1 2 23 30 35 53 endgame mate mateIn1 oneMove
+1451 RQ3K1R3BBPPP3nPN24N34pbp15p2pppqb2p1k1r3r 4 12 19 51 19 1 19 59 19 advantage master middlegame short
+1452 2KR3RPB2PP1P6P11P63Bb3pp4p1r2n1p1r4k3 4 35 42 48 50 2 1 50 42 advantage middlegame pin short
+1456 R5K15PP1PP4R12QP1rN13n42p5pp1q2pp4r1k1 4 30 36 60 36 27 36 29 26 advantage middlegame short
+1457 2R3K15P2P4pP11P1q3P6B11p1b2Q1p1p3p11k5r 6 2 4 43 22 4 60 63 60 46 60 57 49 crushing endgame long pin
+1458 85P2n1K1P1P1p3B2P1pk4p888 4 22 30 33 25 18 9 16 26 crushing endgame short
+1459 R2Q1K1RPP1NB1P12P1b2P3N3q3p48ppp2pppr1b1r1k1 2 27 21 31 13 mate mateIn1 oneMove opening
+1461 86KPP5P11P1Q41p1p1q1pp73k48 4 15 31 37 28 27 28 35 28 crushing endgame queenEndgame short
+1462 RN1R2K1PB3PPP8p1PPp31QPp1p21Pn3p11p4bpr2q1rk1 4 1 16 56 32 9 18 32 33 crushing middlegame short trappedPiece
+1466 R4QR1P1P1K31P1P43B1P1Pq74pPp1pp1b1r1pr5k1 4 5 23 44 36 23 51 53 51 crushing middlegame short
+1467 RNBQ1RK1PPP1B1P14P1n17q3pP38ppp2pppr3k2r 4 5 21 31 7 6 13 22 28 kingsideAttack mate mateIn2 middlegame short
+1468 82r4P1P3P2P3P1K12N4n2R3pkp4p1p8 4 15 31 10 14 30 23 39 29 endgame mate mateIn2 short
+1468 R1BQ1R1KPPP2P1P3P2Pq3pP34p2p8ppp1np22kr3r 2 3 21 23 5 hangingPiece kingsideAttack mate mateIn1 middlegame oneMove
+1469 1RB3K1P1n2PP11P5P3P1Q23p2pq8pp3pp14r1k1 6 29 38 60 4 6 15 39 38 2 38 4 1 crushing endgame intermezzo long
+1474 6K15PPP7R1b1nP34p2Q1p3pBp2pR2p1r4r1k 4 46 37 56 0 39 3 0 3 backRankMate mate mateIn2 middlegame short
+1477 R1B1R1K1PPQ2PP12NP3P6n182pb3pppqn1pp12k1r2r 2 23 30 60 4 hangingPiece kingsideAttack mate mateIn1 middlegame oneMove
+1481 3Q1K1R6PP1P3P2P1P54pq21p4p1pr3p1p6k1 4 14 30 49 51 30 37 51 3 crushing endgame short
+1484 1QR1N1K1b2B1PB13PP1PP1P61p6q2p1bpp4pp1k2r5 4 2 58 8 1 58 56 40 41 advantage hangingPiece middlegame short
+1486 6K1R3Q2P3P2PpPPP1P1r14pPqnp2p2N11pp51k6 6 12 21 39 22 15 22 30 22 21 22 38 22 crushing endgame fork long
+1486 86PP82K1k1n16p17p83B4 4 15 23 30 20 26 34 20 14 crushing endgame short
+1487 2B4R4Q1K1P1P1P1PB1P2pNnP3pn3p6kbpq56r1 6 2 9 30 20 14 15 36 21 12 21 28 21 crushing long middlegame
+1490 R1B1K2RPPP2PPP3P44Q31Bp52n1p2pppq2pp1r3kb1r 4 2 29 50 32 29 11 32 33 advantage fork middlegame short
+1492 4RRK1PPq3PP3pB34P382n4pppp2Q21k1r3r 6 5 13 19 11 13 11 59 11 20 11 10 11 advancedPawn crushing long middlegame
+1493 R4RK17PP5Pq2r2P22P58p1Q2ppp2r3k1 6 50 48 26 10 5 13 10 13 6 13 23 15 attraction capturingDefender crushing endgame long
+1493 R6KP1PQbqBP1P4P14p3p2P1P27p1p3pp15rk1 6 0 5 28 20 11 4 12 5 4 13 20 13 advancedPawn advantage endgame long
+1496 6RK4pqPP1P6P7p1p581pQ3pp4B2k 4 50 59 13 6 7 6 12 4 advancedPawn attraction endgame mate mateIn2 promotion short
+1496 2KR1R26P1P1q1P1pPQ3p3n74p3ppp4r2k5 4 24 10 32 17 2 1 18 0 endgame mate mateIn2 pin queensideAttack short
+1497 R2Q1R21P3PKPP2P2P13pNB21pp52n3p1p2q1pbp2r2rk1 4 28 34 51 35 34 28 53 37 crushing fork middlegame short
+1498 R4RK1PPP1NPQ14B34P2q4P1nr8p1p3pp7k 4 0 3 38 21 14 21 31 15 kingsideAttack mate mateIn2 middlegame sacrifice short
+1504 1R1R1BK12Q52B1P1qPP1PNp32b2p2p3p2p1b4p11r2r1k1 4 10 14 22 20 6 7 20 18 crushing fork middlegame short
+1505 R1BQ1RK1PP2BP23P42Pr3q2p52n1pn2pp4pp2k5 6 2 20 45 30 12 30 27 30 3 30 31 30 crushing kingsideAttack long middlegame
+1506 2R55P23pKnPPp3pN25p2r2k2p17p3B4 4 59 50 43 51 29 19 28 19 crushing endgame short
+1508 8P2Q2B11P4KP2Pb1BP12pP4p2p1pp14q1np6k1 4 14 21 46 38 29 38 45 38 advantage endgame short
+1508 6RK3N2QPP3P31P1PpPRB3n1rp1p1p4p1pb2r24q1k1 4 14 28 60 28 11 28 35 20 crushing kingsideAttack master middlegame short
+1509 3q45PKP1P1n1PB16P18p6p1N3pp14Qbk1 4 22 43 19 4 60 4 3 4 crushing endgame short
+1510 2KR1BNRPPPN2QP3P1P23np1P12bp1PB15n2ppp1q1ppr1b1r1k1 6 3 4 27 10 2 10 28 19 5 19 52 4 attraction discoveredAttack equality long opening queensideAttack
+1510 B4R1K2P1q1PPP4N28pP4bQ4P2p1b4p11nr4k 4 5 4 49 21 4 12 21 39 advantage middlegame short
+1511 R2Q3RPP1K2BP3Pb1PN2P1p33N1p22nq3ppppp2p1r1b2rk1 4 35 20 43 19 11 2 19 20 crushing deflection middlegame short
+1511 6K1PP1NN1PP1Q2P33Pp1n11B1p41n1bb2ppR4p15rk1 6 11 28 43 15 6 7 61 5 12 6 5 6 kingsideAttack long mate mateIn3 middlegame
+1516 5R1KP1P1PP1P1P3B1Q5q22pR43bn1rppp4p17k 8 5 6 46 6 7 6 29 2 23 5 43 15 6 15 2 5 advantage attraction deflection discoveredAttack kingsideAttack middlegame veryLong
+1519 RNBQK2R2P1BPPPP3PN21P2n1b12Ppp32n5pp2bpppr2qk2r 4 1 11 28 18 2 9 18 3 crushing middlegame short trappedPiece
+1519 6K14r2P5k25p28886R1 2 62 61 12 4 endgame mate mateIn1 oneMove rookEndgame
+1522 1R1R2K11B3P2P1QP2Pqp2nP2P2p1N34b1p15pbpr5k1 2 18 34 27 12 mate mateIn1 middlegame oneMove
+1522 3R1RK1P4PPP3B486q12Q1b1ppp4p1krr6 4 19 26 57 58 42 56 58 56 advantage middlegame short
+1523 R2Q2KRPP4B12P53Pp1P14P1q14b3ppp2p1pr3k2r 4 14 28 38 20 6 14 20 28 crushing fork master middlegame short
+1524 R7P1q3K12P2NPP82Q52P51p3p22k3rr 6 34 13 62 22 14 22 63 62 21 38 62 38 attraction crushing endgame long pin sacrifice
+1524 4R3P1P3PK4QP1P2pP41p6p5q12Rb1ppp4rk2 6 20 13 46 43 13 22 43 22 15 22 60 4 advantage endgame fork long
+1525 4R2KPP5P2P3Pp4P3Np1P2b13p3p3k44r3 4 18 26 38 11 4 5 11 32 advantage endgame fork short
+1526 82R2BKPPQR3P11P1P481p3p2pq2r1pp3br2k 6 14 6 52 4 13 4 60 4 6 13 49 7 crushing kingsideAttack long middlegame sacrifice
+1527 6R12P1K3P2P44P31p2n32pNkpp18r7 4 19 27 44 43 27 36 43 36 crushing endgame short
+1532 2K1B2RP1QN2RPpP1rP2P1p2p3b1P1q32p4p5pp15rk1 6 11 26 36 0 10 1 19 3 2 3 0 1 attraction crushing deflection exposedKing long middlegame pin queensideAttack
+1533 RN2KB1R4PPPP2BQ41b1N43n48pp3pppr1bq1rk1 8 18 25 35 25 19 26 59 27 26 27 25 10 4 11 10 27 advantage attraction discoveredAttack fork opening sacrifice veryLong
+1536 R2QKBNRPP3PPP2N1P32pPpB25p24bn2ppp3pprn1qkb1r 6 5 26 44 26 3 24 49 33 18 33 26 33 advantage hangingPiece long opening
+1539 4R1K1PR2Pn1P6P12Pp42pB2Q16p1p6pr3qr1k 4 35 56 13 23 6 14 23 38 crushing fork middlegame short
+1542 R6R4K1P1P1P1P31P4Q1p1Pbp1p12p3pP5q1p5rk1 4 0 5 35 26 12 4 26 5 crushing endgame short skewer
+1543 R5KRPP1qN1r11Q5P4n31p2P2p8p1p52k5 4 6 14 11 12 14 6 12 13 endgame hangingPiece mate mateIn2 short
+1543 1R3RK11BQ3BPP1P3P12nP1P25p25qp1ppp3bp2kr3r 4 14 49 58 49 10 17 26 41 advantage defensiveMove hangingPiece middlegame short
+1546 2RR2K1PP1N1PPP84Nrp12p2b2p1p4p2k1b35r2 6 14 22 29 28 11 28 37 28 3 4 52 38 advantage long middlegame
+1550 5RK14N1B1PP2B2P2Q2P24Pn24n3p1bq2pp5r1k 6 26 35 51 35 14 35 37 20 35 44 20 5 crushing fork long middlegame
+1553 R4RK1Q4PBPP1N3P11Pn2r22PP43p2q1ppp1n1ppr1b3k1 4 22 29 58 23 13 21 26 20 advantage middlegame pin short
+1557 3NR35PKP1P1B2P11P1p2p11p1rRp22p1bk1pp74r3 6 36 35 44 35 14 5 35 14 5 14 60 4 crushing deflection endgame long
+1558 7N1R2K35r24Pk24n35p288 6 7 13 21 13 12 13 36 19 13 6 19 9 attraction crushing endgame exposedKing fork long sacrifice
+1558 8881b65P1P3K1k24rp1R5R2 4 43 35 52 36 35 42 25 61 advantage discoveredAttack endgame short
+1561 R4R23P1P1KPQN2pB16qP1p63P3rpp4ppr6k 8 18 35 47 31 15 6 31 7 6 7 30 23 22 15 23 14 attraction exposedKing mate mateIn4 middlegame sacrifice veryLong
+1563 R4RK11P4PP2N4QPq1P41B1pP1B11p2p1p1pb1n1pbp3r1rk1 4 38 59 25 27 6 7 61 59 advantage intermezzo middlegame short
+1565 5K1rPP3P22P2n26p18pp2k32p53R1R1N 2 5 14 7 6 endgame hookMate mate mateIn1 oneMove
+1566 1KR4RP1P3PP1P1B1P23pP3Q3p31n3p1pppq3pb1kr5 4 1 9 41 26 19 26 50 32 crushing discoveredAttack middlegame short
+1567 3R1RK1PPB2PPP2N4Q82bpr2p5qp1p4p23r2k1 4 3 19 45 13 5 13 36 4 kingsideAttack mate mateIn2 middlegame pin sacrifice short
+1567 R3K31PQ2PRPP3BB23P43n42N1q3p1p1b1pp3r1rbk 4 42 59 35 20 59 44 20 10 advantage middlegame short
+1568 4RRK1P6P2P1B1P14QN1p1P4q18ppb2rp14br1k 8 29 46 38 46 28 46 53 5 4 5 61 5 6 5 60 46 middlegame
+1569 4R1K1PB2R1P14P34n1q11PpP2rp1p4r11B3ppkQ7 6 35 43 30 14 12 14 38 14 6 7 28 13 fork long mate mateIn3 middlegame sacrifice
+1569 86K1P3P1P11p1PpPk1p1R1Rp1P2p4p1b3rp18 6 34 32 25 17 36 34 17 9 32 33 42 33 advancedPawn crushing endgame long
+1570 2BR44B37KPPPN1RP14r3p2p1n21pp2pp1r1b3k1 4 23 31 54 38 31 22 38 29 advantage fork middlegame short
+1570 R2Q1R21B4P1P3PpK12BN2n11P2q38pp3pppr1b2rk1 2 22 21 36 20 mate mateIn1 middlegame oneMove
+1571 R1B2R1KN5Pb1P2P1q1PpBPp3p4p22Q3pkr2n3p8 6 26 44 48 50 5 21 22 4 7 15 50 42 equality long middlegame
+1571 2q5K1P51P3P2PpP1P1P1Q3pNpP2p2p27p5bk1 6 37 47 61 47 32 59 47 61 59 45 2 10 advantage endgame hangingPiece long
+1576 R2QK2R1B3PBPP3PN21Pn52P52pPqn2pp3pppr1b2rk1 4 9 18 26 20 13 20 44 20 advantage middlegame short
+1577 88bP62P1p34N33k1K2p78 8 45 37 28 20 36 19 20 12 37 29 16 25 19 25 12 4 advancedPawn crushing deflection endgame master promotion quietMove veryLong
+1579 2R2RK1PP4PP1B1Q1PB13pP32b51q4r1pp1n1ppp3r2k1 4 2 26 46 22 15 22 51 36 crushing master middlegame sacrifice short
+1580 R1R3K11PQNBPPnP2P3P3pPb22B3q14b2pppp2pp1r4rk1 4 34 61 44 23 14 22 29 22 advantage middlegame pin short
+1582 82K2P24P33Pp33NQ3q3b1p15p26k1 4 35 18 40 19 10 9 19 11 crushing endgame master short superGM
+1582 6K12PQ3R2PP2PbP4p22r5p4b21B3ppp4r1k1 6 11 29 60 4 6 13 4 5 13 12 5 29 advantage exposedKing long middlegame skewer
+1582 4R1K15PPP5N21q1P42Pp4Q3pp1p6p13br1k1 6 4 44 25 1 21 4 1 4 44 4 60 4 crushing endgame long xRayAttack
+1583 R3K3P1PQBP1P1P2Bb23npN285q1ppp4p12r2r1k 4 20 27 45 29 11 29 61 29 advantage middlegame short
+1583 R6KP3n1P17P3q42P1p37pp5pk5Q2 4 0 5 12 22 7 15 22 5 endgame equality fork short
+1583 RN3K1RPBPP3P1P3QPq5P22pp1n22pb4p4p1p2k1r3 4 21 14 60 4 5 4 23 14 crushing deflection middlegame short
+1583 RN1Q1R1KPBP1N1Bp1P2P34n1Pq2pp42n5pp3pp1r3kb1r 2 12 29 28 22 mate mateIn1 middlegame oneMove
+1584 81P3NK1P2PQR22P3P1p1p1p1rp1p2kpr14b38 4 14 23 39 30 23 15 30 21 crushing endgame fork short
+1586 1K1R1N1RrB1QB1P11P5P1n2pP2qpPP1p22p1b36ppr5k1 6 11 27 8 0 9 0 32 8 1 2 8 10 clearance exposedKing fork long mate mateIn3 middlegame sacrifice
+1588 2RR2K14BPPPP3PQ21P63Pr1q1p2p41p1b1pppr5k1 6 12 26 51 30 21 22 30 3 22 38 36 38 advantage long middlegame skewer
+1589 4K2R1R5B5p2P3P2q1Q1B2p11p1p4p1p4p1k1rr3 10 9 13 60 28 35 28 31 28 4 3 28 27 13 11 27 0 3 10 0 7 advantage exposedKing fork middlegame pin skewer veryLong
+1590 2R1R1K1P4PP11P2Q2P4r381q5ppp3pp14r1k1 4 20 41 28 4 6 15 48 41 crushing endgame intermezzo queenRookEndgame short
+1592 1N1n1RK14PPBP2P3P16b1R1bp42p2q25ppp6k1 4 32 34 30 12 5 3 12 3 crushing middlegame short
+1593 R3R1K1PPP2PPP1N64P33pn2QpB1p1q1p3b1pp1r4rk1 4 28 35 51 30 4 36 30 39 advantage middlegame short trappedPiece
+1595 R2Q1RK1PP1NNP22PB2Bq3P43p3n2n5ppp1bpppr3r1k1 4 12 29 39 29 22 29 23 19 advantage capturingDefender middlegame short
+1596 R1B2RK1PP3PPP3P42P2nN12p1p1pQ1pnp3pp5q1r2k1b2 2 5 3 29 39 crushing hangingPiece middlegame oneMove
+1598 5K21P5b2P2P28Ppp2R1PQ2p3p5p24rkr1 4 40 33 62 6 5 13 60 4 advantage defensiveMove endgame short
+1598 R4RK1PPQ2PP12B4P4B2q3P1p21p1b3ppbp3p1r4rk1 4 28 21 31 29 14 22 29 21 crushing middlegame short
+1599 RNB1KB1R1P3PPPPQ2PN22PPn33p1b2p1n1p31pp2pppr2qkb1r 4 17 49 42 32 49 56 59 56 advantage middlegame short trappedPiece
+1600 85PK1r1N3P17P2PPk37p7p8 6 35 43 16 18 43 51 18 19 34 42 36 44 crushing endgame hangingPiece long
+1600 R3R1K1PP2Q1PB1BP2P1P8p2p1P22p2n1p1p3ppnr2q1rk1 6 8 24 59 41 12 13 41 17 0 16 17 26 advantage fork long middlegame
+1600 R1R51PKN1NPP2P2P2P3P32p1p1ppbpn1B3p1k3p13r1b1r 4 44 26 59 11 10 11 40 26 crushing middlegame short
+1601 R4RK14QPP1P1PPN1p11P5P3pp2p1b2qn2pp3pk13r4 4 13 22 45 30 19 27 36 27 advantage middlegame short
+1602 R1BQK2R1P3PPPP1P1P34B2q1p6p1nb45ppp2r2rk1 8 3 21 42 36 21 37 54 46 37 29 36 19 28 19 43 29 crushing discoveredAttack middlegame veryLong
+1603 2RQ1RK1PB2N1PP5P21PN1P33Pp1pn3p3ppp1b1rb1r2q2k1 4 26 43 59 41 2 34 41 43 advantage fork master middlegame short
+1604 R1Q2RK11B2BPPP4P3P1N5pPp3r11q3np11b2ppbp3r2k1 8 26 41 38 14 6 7 14 13 12 21 49 21 7 6 13 14 crushing deflection discoveredAttack kingsideAttack middlegame veryLong
+1604 RNBQK1NR1PPP1PP1P6P4P31Bp52np2p1pp2ppbpr1bqk1nr 6 11 19 59 32 1 18 54 18 9 18 32 33 advantage fork long opening
+1605 1R3K1r2R3B14q32p2P285P2p4Q26rk 2 14 7 62 6 endgame master mate mateIn1 oneMove
+1605 1RBB44KPP1P3P2PNP2pp24b1pp2n3n1ppk53r4 6 24 34 29 21 14 21 28 21 12 21 59 3 advantage long middlegame
+1607 R1BQ1RK1PP4PP3B44Nb1q81np5p1pb2ppr4rk1 4 2 29 61 29 5 29 31 29 equality middlegame short
+1607 RNBQR1K11PP2PP11P1P1N1P87b1n1b4ppp2pppr2q1rk1 4 2 38 39 21 38 59 21 3 advantage opening short
+1610 2B56P1p1K2P22pP43p1kp14p2p88 6 2 16 37 29 16 43 29 20 43 61 47 39 advantage bishopEndgame defensiveMove endgame long
+1610 2R3K15P1P6P11PQ52Bq44pbp15p1p2r3k1 4 26 29 45 38 29 26 38 2 advantage endgame short skewer
+1610 4R3P1K1R1PP1P3B22Pr4p1n52p51p4pp3r1k2 4 12 13 34 19 4 5 19 13 advantage endgame fork master short
+1610 2R3K1P5rN6kP2RP2b1B2n3Q3p3p86Q1 4 6 5 35 20 5 4 14 12 fork mate mateIn2 middlegame short
+1611 2RR1BK11P3P1PP1N55QP11p1pr3p2q2p11b2n1kp3r4 6 3 4 36 4 29 43 4 5 6 5 59 43 advantage kingsideAttack long middlegame
+1617 R2QK2R1PPB1P1PP1N3P13P3qbB1pn38pp3ppprnb1r1k1 4 22 31 36 21 4 5 58 23 doubleCheck mate mateIn2 middlegame short
+1618 7K4R1QPPP1Pp32P5p1p1qp1N2n4p1p5k4r3 6 12 20 36 0 14 6 0 6 7 6 60 20 crushing endgame long
+1619 R2QK2R1P3PP1P1NPBN1P4P31B2p31nnq1p2pppb2pp1k1r1b1r 6 3 10 42 27 20 27 36 27 33 51 27 18 advantage long middlegame
+1619 R1R2Q1KPP5P3r1bP12p2P23N1p22P5p3bp1p5k1r 6 7 6 52 34 5 13 34 13 6 13 21 35 advantage kingsideAttack long middlegame
+1620 R3R1K11P3PB12P1Q1P1P2B41p5rp3p2r1b2qppp6k1 4 24 33 39 7 14 7 47 7 kingsideAttack mate mateIn2 middlegame sacrifice short
+1620 1R3K1br3PP1Q81bn2B21P1pN31pP1p1p16q14k3 6 36 26 8 0 15 7 0 1 5 14 1 7 crushing long middlegame pin skewer
+1623 87p84br2K4p22B2kp1P72R5 6 48 56 15 7 58 61 45 38 56 59 38 30 advancedPawn crushing defensiveMove endgame long promotion
+1627 R3N1RKP3bP21PBPP1P12P1p1n1Q1pp42p1r3p1q2pppr5k1 4 32 50 44 47 7 14 47 15 mate mateIn2 middlegame short
+1628 R1BR42QN2BK2PnP1q1PP2p2P5pN11n4p1ppp3bpr1b2r1k 4 15 22 54 36 22 23 19 13 mate mateIn2 middlegame short
+1628 R4RK1PP3PPP3Q1N23P2q13n2B12p4ppp2bpp1r4rk1 4 38 52 35 29 21 4 29 19 crushing middlegame short
+1630 2R2RK1PP1B1P1P3Q2P15N22b5pp3q23n1pppb4rk1 6 11 18 45 42 29 35 42 35 19 35 56 35 advantage long master middlegame quietMove
+1631 R5K1PPP2PB12N1B36q12PQ46r1ppp2ppp4r1k1 4 35 49 50 42 6 5 30 14 crushing middlegame quietMove short
+1632 881P1pK32p51p4PPp1p2P25k28 4 17 26 33 26 39 47 53 46 crushing endgame pawnEndgame short
+1633 2KR3R1PPQ4PBNP3P3bP1P13p4p1p2n1p1p1q1pp12k1r2r 4 28 35 27 20 11 20 60 20 advantage middlegame pin short
+1633 6k14r3R5PK2N2P1P7p6p188 2 26 20 12 15 endgame mate mateIn1 oneMove
+1634 R5R11P1r2KP8Pp3q2p4B22p2nQp5P25r1k 2 14 7 11 15 mate mateIn1 middlegame oneMove
+1637 4r35p1KPP3pP17P81p1P42R3pp6k1 6 43 51 4 7 15 7 13 5 7 15 5 14 advancedPawn attraction endgame long mate mateIn3 promotion rookEndgame
+1638 8P1R51P2Q35PKP1p4P12pr4pk63q4 6 31 39 59 51 30 22 43 19 10 18 19 20 endgame equality long pin
+1638 86KP4P1P1P1N1kN2pPbR2n11p3p24r1pp8 6 14 13 38 23 13 5 23 29 35 34 41 34 advantage endgame long
+1638 R1B1R1K1PPPP1PPP1Q65N23Bnp22bb4pp2qp1pr3k1r1 4 11 27 36 21 6 7 52 4 discoveredAttack kingsideAttack mate mateIn2 middlegame pin short
+1639 1KR3R14qP1PP2P41P1QN31p6p2b42p2rpp3r3k 4 28 38 53 13 27 13 12 13 crushing middlegame short
+1639 R4RK14PP1P1QpP2P1P7p2nNp21b4r13bB1pp1q4k1 4 36 51 41 13 5 13 57 17 advantage discoveredAttack middlegame short
+1639 q5r15PKPP5P11P3B21p3pp1p76kp2QQ4 2 14 23 0 5 endgame mate mateIn1 oneMove
+1639 R2QKBNRPP1B1PPP2N1P31bPPp33p42n2n2ppp2pppr1bqk2r 4 18 28 45 28 11 25 42 25 advantage hangingPiece opening short
+1639 R5K1PPqB2PP4P33Pp1Q14P34p2Rpp2bpp12r2rk1 8 11 18 58 18 9 18 10 18 0 5 18 20 6 7 20 47 crushing fork middlegame veryLong
+1640 R2QR3PPP3KP2N1Bn2888ppp1q1ppr4rk1 6 20 29 21 4 3 4 52 4 0 4 61 29 crushing long middlegame
+1640 1R2B1K11P2p3P2r2P1R73p3p83r2p16k1 4 6 13 19 3 13 12 3 1 advantage endgame master short superGM
+1642 R1B1R3PPP1K32N3PP882Qb1q2p4ppp4rrk1 6 2 20 60 20 12 20 43 29 22 29 45 42 advantage attraction discoveredAttack exposedKing long middlegame sacrifice
+1643 4K381R3p23b1k24p3888 4 4 5 36 28 17 49 28 20 crushing endgame quietMove short
+1644 1K2R31PQ5P3P1P13NpP2q1Bn1pP12n3p1pp1k4r7 4 27 42 32 4 1 8 49 42 crushing hangingPiece intermezzo middlegame short
+1645 4R1K11PQ3P1P1P1P1p1p6R1p2q36p16p13r1rk1 6 10 46 36 20 4 20 59 3 20 4 3 4 endgame long mate mateIn3 sacrifice
+1646 2R585KPP5P23q45p2R5pp5k2 6 21 30 55 39 30 31 54 38 31 39 38 29 crushing discoveredAttack endgame long queenRookEndgame
+1647 R1BQR1K1PPP1NPPP83P2nq1p1BN3p2b45ppprnb1r1k1 8 36 21 43 15 21 15 31 15 6 5 15 7 12 6 30 15 kingsideAttack mate mateIn4 opening veryLong
+1647 RN1Q1RK11BP3B1P4PPb1P2p33pP3p71ppqbpp1r3k2r 4 21 28 23 14 36 44 51 44 advantage middlegame short
+1647 6K1P5P11PQ1P1p13P41B5p4bq25pk18 4 18 4 45 31 20 28 31 15 crushing endgame short
+1648 81PNNRK2P1PB1PP1p2P42pp41p1n3p1b1n1kp15r2 6 21 29 34 26 19 46 53 46 12 44 61 45 advantage long middlegame
+1649 R1B1K2R3P1PB1P1NbPQP17P2b1pp2pr4n12pq3p5rk1 4 31 39 36 28 21 3 46 36 crushing defensiveMove middlegame short
+1649 8PPK3Q12PP1R24P2Rq3pBb17ppp4k1r7 4 31 47 32 24 9 17 24 8 crushing middlegame short
+1650 R4RK1PPBQ1P1P4PP27n3p48pp3pppr2q1rk1 4 11 19 59 38 6 7 38 14 kingsideAttack mate mateIn2 middlegame short
+1650 R4R1KPP1q1QB1N2Pp1PP1nP52B2p22n5pp4ppr1b1r1k1 8 34 20 11 20 0 4 20 13 4 60 62 53 5 13 53 60 advantage middlegame veryLong
+1650 8P6P5P21P1P43p1pp1K1pk47p8 4 15 23 55 39 8 24 38 30 crushing endgame pawnEndgame quietMove short
+1651 R2QR1K11PnBBPPPP4N24q1b188ppp2ppp2krr3 4 21 38 30 12 38 28 12 3 advantage middlegame short
+1652 1R6P2K1PP1r3P2P2pNp38k6p3b2p18 4 1 9 26 18 11 2 18 9 advancedPawn crushing endgame fork short
+1653 R4RK1PB3PBP6P14P3qbpP44Qp2p3b1pp1r1r1k2 4 5 1 33 51 44 51 59 51 crushing middlegame short trappedPiece
+1654 1R3Q1Kr4P24r33N3P4q385ppk1R6 6 5 14 20 4 1 4 36 4 14 6 4 28 crushing exposedKing long middlegame
+1656 81PK5Pn1RB3p1r51p2k3888 4 10 3 36 28 19 43 28 20 crushing endgame short
+1657 R2Q1R2P3PPKP2PPB1P14N32p1p32n2p2pp1qb1pp2kr3r 6 28 34 52 34 20 34 51 35 12 28 35 34 crushing fork long middlegame
+1657 1Q3R1K2N4PR2P1BPp3rp33b1p23q4ppP52k4r 4 10 27 28 21 7 6 43 16 advantage middlegame short
+1658 83K4PR1P1P2r4pP11pk1p2P7p6p18 6 11 18 24 16 17 16 33 25 18 11 25 16 attraction crushing endgame fork long rookEndgame sacrifice
+1661 R3BRK11P2B1P1P4N1P3QP33P43b2n1pp1b1ppp1qrr2k1 4 4 18 43 34 6 7 34 27 crushing middlegame pin short
+1661 1K1R4P1P2PP13R1N1P3Q4q6p4r3ppp2pp14r1k1 4 19 17 44 43 27 43 50 43 advantage middlegame short
+1661 R3K2RPrq1BPPP5N24P1b14p1B13p4Q2n1ppp4kb1r 2 0 2 10 12 mate mateIn1 middlegame oneMove
+1662 1N63K1b2Pk1PP35P22p2p1P7pp5p18 4 1 18 13 20 11 20 17 18 crushing deflection endgame master short
+1663 R4RK1PPP3PP83BQPr13Pn33p1q2ppp2pp1r5k1 4 29 36 45 5 6 5 30 28 advantage kingsideAttack middlegame short
+1663 R1B2RK14qPPP1P1P1N2P1Q5p6p1b3n22p2pp1r3r1k1 4 21 38 12 13 5 13 60 4 clearance kingsideAttack mate mateIn2 middlegame pin sacrifice short
+1663 5R2PP3RK14B2P1nP1Q32p2P21p1P2p1p4q1p1r2r1k1 4 37 46 53 13 20 13 60 28 crushing middlegame short
+1664 R4K21B2P36q12Pp41Pp2Qp11p6R5pp5rk1 4 48 56 22 23 5 4 23 37 crushing endgame master pin short
+1664 6K13R1P1P6P11Q2p3884Bpppq1rb2k1 4 52 59 58 2 6 14 28 20 advantage discoveredAttack endgame short
+1665 2K1R3BPP1Q1P1P1P1r3p5nB2qp1R1P2p4p1p3pp14r1k1 4 12 11 20 4 31 4 34 6 clearance crushing middlegame short
+1666 5RK1r4PQ14P2P2r3P1p1R52P1q1p15p1p6k1 6 5 2 26 34 2 34 8 0 14 5 0 5 advantage endgame long
+1666 2R2RK13B2PPPQ2P31P1nB38p3p2p1p2b1p12rq1rk1 4 2 58 27 12 6 7 61 5 backRankMate deflection mate mateIn2 middlegame short
+1667 R2Q2K12P2PBP1P4P12N51pq2b25n25ppp2r3k1 8 3 43 33 26 43 34 58 34 0 56 34 58 56 58 37 58 advantage middlegame veryLong
+1667 5R26K1P4PR11P2Pr1p3B4p2p1rp11pp52k5 6 22 30 29 30 21 30 31 23 14 23 45 5 endgame
+1668 R2K1R2PPP2p23P2PP3p1B25rp12p5p1p4p4r1k1 4 29 50 60 4 5 4 13 5 advancedPawn advantage endgame promotion short
+1668 R2Q2K1PPP2PPP3P1N22B1R1bB2p1p1p12n2n1pppp2p2r2qr1k1 4 31 38 47 38 28 30 45 30 crushing middlegame short
+1671 2R5rB2K1PP1R2P31b2p31r1n42N53k1ppp8 4 42 25 33 25 17 25 35 25 crushing middlegame pin short
+1672 8RrP3K12pP1RP1P2pP35P1pr7p76k1 6 8 9 18 9 21 5 40 24 5 1 24 25 advancedPawn crushing defensiveMove endgame long rookEndgame
+1672 4R1K11P2B1PPP2N3p3P1P2p2Q2B11p1b1pq16p12rr3k 4 19 36 43 36 35 21 36 27 crushing middlegame short
+1673 2Q1R35P1PPPK52B1p34qb28p4p1p6k1 6 18 25 48 32 25 24 37 51 26 33 36 33 endgame long mate mateIn3
+1676 R4RK1P1P3P12P1PQ25p1q2N57rp5pp5r1k 6 20 29 31 15 6 13 61 29 13 20 29 21 advantage intermezzo long middlegame pin
+1679 2RR41B2PnKP2P2NP1P2P41P1Q2p11p1b3pp2q1p22r2rk1 6 21 36 13 3 36 51 3 20 14 21 20 35 equality fork long middlegame sacrifice
+1679 1R3RK1P4PPP82q5Q2N41p2r31kpp1ppp3r4 4 5 2 26 2 1 2 41 32 crushing middlegame short
+1680 4R1K12r1R2PP5P11P61p1Q4p4rq13p2pk8 4 35 51 10 12 51 23 55 62 crushing defensiveMove endgame short
+1680 R4R1KPPP1Q1Pb2N3q13P43p4p4p21p3p1pr4k1r 4 5 45 22 31 45 53 61 53 crushing middlegame short
+1680 2R4KPB5P6P14p33r46p1pp5R1k2r3 6 2 50 35 3 7 14 3 11 14 23 11 9 advantage endgame fork long
+1681 5RK11BP1NPBPPPN1P1P14p32p5ppn2np11b1r1pbp6k1 6 18 28 45 28 9 54 28 11 54 18 11 5 advantage long middlegame
+1681 R1B2RK12QNPPBPPPnP1NP13p42p1p3b2b1n25ppp1r1q1rk1 4 5 4 36 28 11 28 45 28 advantage middlegame short
+1681 R3RNK1PQ1B3P3b2Pp1p1p1P2q3P381p3pb12kr3r 4 9 25 32 35 25 34 35 34 crushing middlegame short
+1682 R3R1K1PPPQPP22N1n2B3Np2pp1nP43p2p11pp2pb1r2qr1k1 4 13 20 59 38 6 7 38 22 crushing master middlegame short
+1682 R2QKB1R1P3PPPP1NPB33nP34N31n2b3ppp1bpppr2q1rk1 4 36 21 44 17 20 27 17 3 advantage opening short
+1684 R3K2R1PPQBPPPP1N2N23P4b2p45p2ppp1q1pprnb1r1k1 6 4 6 32 18 11 18 52 12 0 4 12 33 capturingDefender crushing long middlegame
+1685 1K1R3RP3r1P1q1P52PP1P25NP11pn3Q1p1pp3nr4k2 6 3 11 12 11 46 54 61 60 37 43 50 43 crushing hangingPiece long middlegame
+1687 R3K1R1PBq2Q21P5P2NP482nb1p2ppp3pp4r2k 4 4 5 10 19 5 14 60 12 crushing middlegame pin short
+1688 86K11P4P1P1P3NPp4k21p1b42p3p18 8 30 20 37 28 20 35 28 19 22 30 19 10 30 38 10 17 advantage defensiveMove endgame veryLong
+1688 2RR2K11B2BPPPPP2P34p3Qprn1p2p2qb2p6p12r3k1 6 32 25 35 25 3 43 34 2 9 2 58 2 crushing long middlegame
+1690 2R1R1K1PP3P1P6P11Q61NP2n25qp1pp1b3p1k1r1b2 4 25 32 51 33 32 33 37 27 crushing master middlegame short
+1691 2R3K1PB1N1nP11P1Q1N1P3p48p71b2q1ppr3r1k1 6 6 13 52 20 19 20 27 20 13 12 20 11 advancedPawn advantage discoveredAttack fork long middlegame
+1691 5R2P77K1r4P182p4Ppp2kr26Rb 4 5 53 52 53 62 63 53 46 endgame equality short
+1691 R7PP2K1P12P4BN2pPr22p5p1p51p3r21k6 6 18 27 29 28 12 19 28 27 19 18 27 24 crushing endgame exposedKing fork long
+1694 R2KQ2RPPP1BrPp3PP36bq4p32p5pp4ppNn1k4 6 12 30 31 30 3 2 30 14 4 13 14 13 crushing long middlegame
+1694 3RR1K11P3PP1P4Q1P3P41p2P31np1pN1pp1r1qpp15r1k 6 21 19 54 45 19 20 63 55 36 45 52 45 crushing long middlegame
+1694 4RR1KPPP2Q22NP2rp84p34qb2ppp52k3r1 8 13 45 22 6 5 6 62 6 4 6 44 45 6 62 58 51 advantage defensiveMove exposedKing middlegame veryLong
+1695 7RP2Q2K12P2R23PP1P11pp3p13b3rp4q26kr 6 21 53 47 15 7 15 63 15 14 21 15 11 crushing endgame exposedKing long skewer
+1696 6r15p22R587P1P2k2p1K4P18 6 18 21 6 54 49 56 54 53 21 13 53 13 crushing endgame long rookEndgame
+1696 81P1KNP2P1NPB1R14p2q8p1p1p3Q1b2rpp1n4k1 4 18 28 50 32 11 10 53 48 advantage discoveredAttack middlegame short
+1698 2B1R31R4KP2PQ2P1P2P43np1p11pp1q2pp5k13rr3 6 4 36 44 36 27 36 35 29 22 29 59 19 crushing discoveredAttack long middlegame sacrifice
+1700 2RQ1RK13NBPPPP3P33Bn33pnp23q4p1b2pppr4rk1 4 11 28 36 21 6 7 43 15 discoveredAttack kingsideAttack mate mateIn2 middlegame short
+1700 RN1R2K14QPPP1P6P1BBn34P3pp2p31bq1bpppr2r2k1 4 1 11 59 27 11 28 27 28 crushing hangingPiece middlegame short
+1700 R1BQ1RK1PPPP1PPP2N52B1p382pq1n2p1p1bpppr1b2rk1 4 5 4 45 30 3 30 58 30 crushing opening short
+1701 3K482pp3PPb2p1R1p72B2k288 4 42 28 18 10 3 2 25 16 advancedPawn crushing endgame short
+1703 87P5qPK3pp36pp1P1Q1pk1Rp68 2 43 52 21 5 endgame mate mateIn1 oneMove
+1704 5R1KPr2r1PP6R185P25q1p5ppkQ7 6 8 24 45 37 56 21 37 21 22 21 12 14 crushing endgame long
+1706 R1BQ2K1PPP2PPP2NP483pRP2p1p2n1p2p1bpp1r2qr1k1 4 13 21 52 34 19 27 60 36 advantage discoveredAttack middlegame pin short
+1706 R1B3K16PnP3P1P11P1P1R28p1p1Q1p11pq2pp14rk1r 4 44 46 50 29 22 29 53 46 crushing middlegame short
+1707 81Pk1K3P4P23p1N21p4P1p77b8 4 38 46 55 46 29 46 27 19 crushing endgame sacrifice short
+1710 R2Q1RK11P1N1PPP2PBPN2P2P1B23p3npp2p31bpnbpppr2q1rk1 6 19 55 62 55 21 38 52 38 3 39 38 47 advantage hangingPiece long opening
+1711 R1B5PPPP2rK3N3b7P2Np42p3q1p1Q2ppp6k1 2 15 23 46 30 mate mateIn1 middlegame oneMove
+1711 3R3R1KP51P1P1N1P82Q2P22p55qppr1b3kr 4 34 42 58 49 42 18 49 21 equality middlegame short skewer
+1712 R4RK11P2rPPPP72PQN3q2N4p71p3pppr1b2bk1 4 35 41 12 28 27 28 32 41 advantage deflection middlegame short
+1713 84BPPKP3P2P1PP1p34Rp21p4p1pb3k1p1r6 4 15 22 53 45 36 33 49 42 crushing endgame short
+1714 7K2Q3BP1P3NP1R2PR1n12Pq3pp3pb23n1pp11r4k1 6 24 26 35 28 10 28 30 13 7 6 13 28 advantage attraction fork long middlegame sacrifice
+1714 86PP2P55pP1P5p1k3K1np2pB48 4 44 37 46 31 37 36 31 14 advantage endgame short
+1715 81P1q1KPP5P22P52pNp1p12n1Q385k2 6 13 22 11 4 22 30 4 31 30 37 42 27 crushing endgame long
+1717 2RQ2K11PR2PNPPq2B1P13P43n42rbp2ppp3pp12r3k1 4 14 4 35 20 10 42 20 3 crushing middlegame short
+1718 1R1Q1RK1P1P2P22PP3P4NqP14p36n1pp3ppp3rr1k1 4 3 11 29 28 19 28 59 11 middlegame
+1719 R4RK11B3n2P4P1P883bp2pQp4p12rq2k1 4 48 13 43 34 6 15 34 13 advantage middlegame pin short
+1719 3Q1R25BK13P3PP3Ppn14p33pr1q11Rp2rp16k1 4 23 30 29 21 14 22 53 29 advantage clearance middlegame short
+1722 3R2K15P1P4P1P1r1rp483RP1p1p3k2p8 4 3 27 26 27 43 27 24 27 crushing endgame rookEndgame short
+1723 R1BQ1RK11PB2PPPP5N12p4q1p1pr3p2b1n25ppp5rk1 4 2 20 45 30 3 30 31 30 crushing middlegame short
+1723 4RR25K1PP1QBPP22P4q5p21p1pr1p1pbp4p6k1 6 13 14 31 30 14 7 49 21 5 21 30 21 advantage deflection long middlegame pin
+1725 R1BQ1R24BP1K2P1P1PP3Pp31P3bppp3p31pqn1p21k1r3r 4 33 40 39 31 40 49 31 22 advantage middlegame short
+1727 2RR2K11P3PP1P4N1P3P4Q1pnP3p3p2p1p2qpp12rr2k1 4 2 34 49 41 34 58 41 32 advantage fork middlegame short
+1728 1N1Q1RK11B2PPBPP2P2Pb82p1p35n1p3qbpp15rk1 6 1 11 23 14 6 14 51 49 13 21 49 9 advantage attraction fork long middlegame
+1728 R2Q1R2P2N1PPKBP62Pq48p3pn25pppr1br2k1 4 11 21 27 29 15 6 59 3 crushing discoveredAttack middlegame short
+1729 R1B2RK11PP3PP3P4P2pP32p1bP2p1q1p2p1p3Qp12k2r1r 6 53 44 42 44 37 44 36 15 6 15 61 5 crushing deflection kingsideAttack long middlegame
+1730 1R3R1B5P1rP2PBQP14P3p1pPpK21P1p1r21p3kbp8 4 37 30 55 39 30 38 54 47 mate mateIn2 middlegame short
+1731 3R2K16BP4p1P11P62Pp44r3Qp3qpk8 6 34 42 53 13 6 7 20 12 48 13 12 3 advancedPawn crushing endgame long promotion
+1732 2R1RK28P6q1PP1pP21Q3p1p8B5pk8 4 5 12 23 21 12 11 21 19 endgame mate mateIn2 short
+1733 1R2Q1K12P3PPPPB1PRN12p1nP22Pp1p2b1p1p1pp81r1q1rk1 4 17 26 57 1 4 1 28 18 advantage middlegame pin short
+1734 2KR41BQP1P1PP3P2P2P2pR14p2p2pb1q2p1pk2p11r5r 6 30 29 57 9 29 45 9 10 2 10 54 45 crushing long middlegame queensideAttack
+1735 7K1Pr53P4P5QP82p5pkq4p4R3 4 30 25 49 40 25 26 10 26 crushing endgame short
+1736 1K3R21P4r1P2BPP2Q1P3P13P41p1p3pp1p1q1p12b3k1 4 24 48 52 20 19 10 14 10 advantage endgame short
+1736 R4RK1P4P21PQ2bPB3PP35p1q1n5pp1p51r4k1 4 28 37 41 35 18 21 39 21 advantage middlegame short
+1736 3R4KP3rP11P5RNq1P3P8p6Q4bp24k1r1 6 47 40 25 16 8 1 13 9 24 9 16 40 advantage long middlegame pin
+1738 2RR2K1P3rPP11QPP3P5p2q4b21pB4pp4p1k5r2 4 8 24 32 34 42 21 34 13 advantage middlegame short
+1740 R4R1K1r3Pb12N1B2PP2P3q5Q23b3p2p2pp15r1k 4 7 14 31 22 14 7 22 15 mate mateIn2 middlegame pin short
+1740 6K1P4PP1bP2P2P82p53Bp2pp1R2pp13r2k1 6 43 34 59 3 6 15 3 2 50 48 16 34 advantage endgame long
+1744 2K4RPPP1rP22N2P26QP82b2q2p1R2pP11r4k1 4 18 12 45 9 2 11 57 59 crushing middlegame queensideAttack short
+1747 81P3K2P1P3P12p1q2P1p1P1p1pp5pk3Q48 4 51 44 28 44 35 44 47 54 crushing defensiveMove endgame queenEndgame short
+1747 R4RK11BQ1BPPPP3P31P1N481pn4rpbq1bpppr5k1 8 15 23 42 27 10 50 27 12 6 15 52 43 50 43 47 43 advantage fork middlegame sacrifice veryLong
+1748 2R3R11P1NKPPPP3P32pP43q4Q2rbp2p4p1pr5k1 4 40 26 35 39 14 30 44 26 crushing discoveredAttack middlegame short
+1751 88P6P1P1K2P13pP2ppp2k1p188 6 16 24 39 30 23 30 46 38 27 19 44 36 crushing endgame long pawnEndgame quietMove zugzwang
+1752 84P1R13P4P1Pp2K11Pp2r25kP1pp4p18 8 14 22 37 38 30 31 38 22 31 22 45 46 22 29 46 45 crushing defensiveMove endgame rookEndgame veryLong
+1752 5RR13KBnPq1QN1n3P2Pp31P1p44b3pp4pp5rk1 2 11 20 15 47 master mate mateIn1 middlegame oneMove
+1754 R5K11R1N1PPBPQ2p2P3b42Pp1ppn4r2p1p1B1b2q5k1 4 13 20 44 20 17 20 27 20 advantage kingsideAttack middlegame short
+1755 6K15P24P1PP1q1P41N61pQ1p1bp1NRn1pp15rk1 6 50 51 25 1 6 15 46 28 42 28 1 28 crushing long middlegame
+1756 R1B2R2PPP2QK11n1P2N12B1PPq12bNp33p3pppp2ppnr4r1k 4 13 12 30 12 22 12 17 0 advantage middlegame short
+1757 R1BQ1RK11PP3B1P5q13PP382p1p1p1pp1n2p1r3k2r 4 3 21 22 15 6 13 63 61 advantage middlegame pin short
+1758 2RR44BKP1P2PN2P1P1qP2p4p31p2bp21pQ1b3k2r2r1 4 50 18 62 14 13 14 27 20 crushing deflection middlegame pin short
+1759 5R1K4PR1NP2P1Q27qp6p1p4r12p3p1rk6 4 13 14 46 45 7 6 45 21 crushing middlegame short
+1760 1R4K17P3Q2P14rP25p21P5p1q4pk8 6 22 30 28 29 15 23 29 21 19 37 21 37 crushing endgame long
+1762 882q1KP23R43p48pkpNQ38 4 27 19 18 4 20 27 4 52 advantage endgame short skewer
+1763 1R3RK1P1Pr2PP1P2P34p31pb2N22p3bBp4p1p4r1k1 4 5 13 11 13 6 13 46 37 advantage capturingDefender middlegame short
+1764 3R1K21PR2PP1P1NPB33bP1P1pp2p34np26pp2rr2k1 4 20 27 36 27 3 2 27 18 crushing master middlegame short
+1764 R2Q1R1KPPP3PP2NB1P24P32b1B1qn2p5p1p3ppr1b2r1k 6 21 29 39 22 15 22 38 47 3 39 47 39 kingsideAttack long mate mateIn3 opening sacrifice
+1766 2B3KR6PP1P6Q2nq381N2pp26pp5bk1 4 24 26 28 4 26 5 27 12 mate mateIn2 middlegame short
+1766 6K1PRP4P1P4Pp3n1P23pPp24Q3pp4p1k1r4r 4 44 35 63 59 35 59 58 59 advantage endgame short
+1767 2RQ1R2P3P1KP1P1P1NP13B2n13q42p5p4pp12kr1b1r 6 27 6 63 15 6 15 30 20 14 13 20 3 advantage fork long middlegame pin sacrifice
+1768 2R55p2P3P3K2p44p33k45p28 8 20 27 36 28 24 25 28 20 25 18 20 12 18 11 13 5 advancedPawn crushing endgame promotion quietMove rookEndgame veryLong
+1771 R2Q1RK12P1NPBPPPN1P1P18p3n3bp1p1n22p3ppr2q1rk1 6 14 56 59 56 13 29 36 21 5 21 56 21 advantage long middlegame
+1773 R1B2RK1PPQ1BPPP4PN22PP4pN2pb21bnp41pp1npppr2q1rk1 4 12 19 42 25 19 37 25 10 advantage opening short
+1778 8PP3K283P2P13p2p12k1p31p68 6 13 20 42 33 20 19 33 25 19 10 25 26 crushing endgame long pawnEndgame
+1778 R2Q1RK1PB3PPP1P2PN281BpP3n3b4pp2qpppr1br2k1 4 3 19 48 40 33 26 49 33 advantage middlegame short
+1778 6K11P3PP1P6P81pQ5p4q1p5ppk8 4 34 18 45 18 9 18 55 46 crushing defensiveMove endgame queenEndgame short
+1778 3RR1K15PPP1PP5P1Q1pB24Pp22nN2p1pp2q1bp3r1r1k 4 29 38 52 38 43 53 61 53 advantage hangingPiece middlegame short
+1779 81P6P3k34q37Q1p3K2p78 4 39 3 28 27 3 27 20 27 crushing endgame queenEndgame short
+1780 3R1NK1P1P2QPP1P3P23p4p72b54rppp3q2k1 4 13 27 52 51 27 51 42 51 advantage endgame short
+1781 R1B1K2RPPP2PP13P1Q1P2BpP3p1b52pp2q11p3pppr1b1k2r 6 4 6 49 33 26 53 46 53 21 53 60 53 crushing long middlegame
+1781 R6BPB2K31P2P1Pb1b3PpNn4p23r4ppp52k5 4 0 3 23 5 12 5 43 3 advantage attraction deflection middlegame short
+1781 5K2PP1NBRPP2P1qN283Q46b1ppp2ppp3rr1k1 4 35 38 20 38 21 38 59 11 crushing middlegame short
+1781 2RQ1RK11P6P1P1BP1P2qp2P13p4p2b2p11p3pp12r2rk1 4 3 27 43 34 27 34 58 34 advantage middlegame short
+1782 R3R1K14pn2P1B1q1P12P1p2P2pQ41pP5p2P2pp2b2r1k 2 35 37 20 22 kingsideAttack mate mateIn1 middlegame oneMove
+1785 8p78N2P1K23b42p1P32k57B 4 63 36 50 59 24 18 8 0 advancedPawn crushing defensiveMove endgame promotion short
+1785 R1B1KB1RPP4P12P1P2P3N1P22bpQ3pq2pn1p1p3pp1r3k2r 4 5 12 34 43 27 44 43 36 advantage middlegame short trappedPiece
+1785 6K1P4PPP1B5Q3r44P2b6q1pp3ppk2R5 8 13 21 46 1 6 13 27 11 13 20 1 4 20 29 11 27 crushing endgame veryLong
+1786 bN2qB2P3nnKPBP4P184p37p5Q23k3r 4 53 13 12 29 22 29 63 62 crushing middlegame sacrifice short
+1787 R1BQ1RK1PP4PP2N1P33Pn2q8p1nb41p3Bpp2rr3k 4 3 39 43 15 6 7 28 22 kingsideAttack mate mateIn2 middlegame short
+1788 5R25P1K4PkPp3Pp31pRp1p281b67r 6 34 33 49 40 33 35 40 5 35 37 21 12 crushing endgame long
+1789 R2QK2RPP3PPP2N1P32B1n34Pp24p3ppp1q1ppr1b2rk1 4 3 27 61 59 27 59 52 59 advantage middlegame short trappedPiece
+1790 2BQ1R24N1K1P1R1p1P11P1P1Pn13p1n28pp1q1p1p6rk 4 5 21 37 31 22 31 30 13 crushing discoveredAttack middlegame sacrifice short
+1792 RNBQ2K1PPP1B1P16p13P2R13p1p26n1pp4p1r2qkb1r 8 30 46 63 7 6 7 59 31 7 6 31 15 6 5 15 7 attraction kingsideAttack mate mateIn4 middlegame sacrifice veryLong
+1793 8Pq4K13P2PP4B384n1p1Q1p4p7k 4 14 21 44 27 48 27 9 27 crushing endgame short
+1793 5RK14B1PP2P1B31Q3p1q3PPr21p62p3pp1r5k 6 5 29 31 4 29 5 37 5 12 5 4 20 crushing fork long middlegame
+1795 R4R24QKPqP2P1P1r1PNpP34p32n2b2pp61k6 4 5 7 45 31 13 5 15 7 interference mate mateIn2 middlegame pin short
+1799 2K3R1PP3P23PQ32P1P2Pp1p1pP1B3p1pRp1p1r2p1r2q1n1k 4 46 47 54 47 20 22 61 55 advantage defensiveMove middlegame short
+1800 2R5P3QKPP1N62P3B184pq2pr3ppp5rk1 6 12 21 45 9 21 12 49 17 12 9 17 9 crushing deflection long master middlegame
+1801 5R2p5PP2K3P1kn2P1p11p2P32p3p188 8 5 0 24 16 36 44 25 40 0 8 16 8 44 52 40 50 advantage defensiveMove endgame quietMove veryLong
+1803 2R5P4PK1B3PnPP2P1p34r31p1R3pp2Pqpp12Qr2k1 6 58 40 36 32 40 32 41 32 26 34 59 51 advantage long middlegame
+1805 1R3K1RP1P2P1P3P1QP14P1N11ppB4p2p2n15pq11rb2k1r 6 5 14 58 30 21 30 46 31 30 31 63 31 advantage long middlegame pin
+1808 2R3K11B3P2P2QRpP11P1P47r6ppp1pq3k5r2 6 27 35 39 7 6 7 51 23 7 6 23 14 attraction long mate mateIn3 middlegame sacrifice
+1811 883K3PP1P2kppp2P1p1B1p688 4 23 30 31 23 30 37 23 15 advancedPawn bishopEndgame crushing endgame short
+1815 5R2PPP3K184PB23P48pppk1r2r7 6 14 21 53 29 21 29 56 61 29 20 61 5 advantage attraction endgame long sacrifice skewer
+1818 1K6PRP3PP5PQ14P3p77q5p1p3r3k 6 22 36 53 45 9 57 45 36 57 59 63 54 advantage defensiveMove endgame long
+1820 2K581B1rkp1P4P32P4p1R1P1pp188 4 2 10 21 13 17 26 13 5 advancedPawn crushing endgame promotion short
+1825 5RK1PP3PPP2P3RQ4B32q5p1n1pr21p3b23r1k2 6 28 42 34 13 5 13 59 3 13 5 45 5 long mate mateIn3 middlegame sacrifice
+1828 82k4P5P25p25Kp14Q383q4 4 44 45 59 45 37 45 38 30 crushing endgame queenEndgame short
+1830 R2Q1RK1PP4BP5NP12Pp43N1p22nb3ppp3qp1r1b2rk1 4 21 27 43 34 6 7 34 27 crushing middlegame short
+1834 83K43P2PP1P1p1P21pPk1p2p4p1p88 10 11 12 40 32 25 32 35 34 12 3 33 25 3 10 34 33 32 40 33 40 crushing deflection endgame pawnEndgame quietMove veryLong
+1838 R5K11P4P12Q1B2P3NnP2P2qP32p4pppb2pp13r2k1 6 18 17 35 17 27 17 59 19 20 48 19 17 clearance crushing fork long middlegame
+1839 2K3R1P1PP3P1P62B55n22n4ppp3Q2r2q3k 4 53 37 59 27 10 18 27 6 crushing endgame short
+1841 884P31K4pP4k2p2P5B3n38 6 42 50 52 42 25 18 42 48 50 58 48 58 crushing endgame fork long
+1845 887P7k6p14q2K87Q 6 47 55 44 53 55 47 53 39 47 54 39 63 crushing endgame long queenEndgame
+1846 R6RPPKBB1PP4P33P1P1b2PnQ32p1p1p1pp2qpp13rk2r 6 0 3 53 37 20 28 31 45 28 35 45 36 advantage long middlegame quietMove trappedPiece
+1851 5RK1PB4P11P1QP2PNp1PnP2p2p44p32q1bppp2r3k1 10 5 2 50 2 9 2 58 2 6 15 2 7 15 7 28 13 7 6 13 19 attraction crushing fork middlegame sacrifice veryLong
+1853 R2QKB1RP2N1PPP1P2P383n46p1ppp2pkpr1bqr3 4 5 26 35 20 13 20 60 20 crushing master middlegame short
+1856 2RR2K15PBPP784rbq13P2ppQ4pk14r3 4 48 49 37 28 49 28 36 28 crushing master middlegame pin short
+1856 R1B2RK1PP3PPP3BPN22P1Q382np1bp1ppp4pr1bq1r1k 4 2 11 58 37 28 35 42 52 crushing middlegame short
+1866 5R1KP1Q3PP4q31P2n32P2p24r3pp1R3p5k2 4 51 49 28 22 15 22 44 47 endgame mate mateIn2 sacrifice short
+1871 R3K2R3BPPBPP1PP1NPbQ7b3p32n5pppq1ppp3rk2r 4 21 36 42 36 24 51 23 51 advantage hangingPiece middlegame short
+1875 R5K1P1QBPPNP3P2P12Pp2p12p4p2Nbpn2p1qn1p24k2r 6 10 24 51 41 24 33 48 40 33 40 50 42 advantage deflection long middlegame
+1880 84KP1P1b4P13P481p1k3p5pp1B7 4 12 19 17 35 56 35 43 35 advantage bishopEndgame endgame short
+1881 R4RK11PP1QPP11PNP2NP4p31pbp2B12pq1np1p2b3pr4rk1 4 19 28 43 22 38 20 34 20 advantage middlegame pin short
+1889 85PK16PP83q4Q1p4p6p16k1 6 14 5 35 33 40 33 42 33 5 12 62 53 crushing defensiveMove endgame long queenEndgame
+1892 2KR4PP2N36P14qP22Q52n1N3pp4pp2r4k 4 44 27 42 52 34 58 52 58 advantage middlegame pin quietMove short
+1897 R2QK1NR5P2P1P1P33Pp1P12Pp3B2p2n2pp3pq1r1b2nk1 4 7 31 45 39 4 11 39 45 advantage middlegame short
+1898 2K1RB1RPPP3P14Q2P1q2n34nP28pp3pppr2r2k1 6 20 28 25 11 2 1 11 3 4 3 59 3 backRankMate long mate mateIn3 middlegame sacrifice
+1901 R4RK1PB1n2Q13qP2P5PP12p56r1p4ppp5rk1 8 0 3 19 20 5 13 11 28 9 2 20 13 14 13 28 13 crushing exposedKing kingsideAttack middlegame veryLong
+1906 R1B1R1KBPP1N1P21QPP3b5P24N32n4qppp1bpp12kr3r 4 17 53 23 44 53 44 47 44 advantage middlegame short
+1910 R5K1b2N1PPP1Pr1P33P2q17p1p1Q2p15p26k1 6 0 8 18 2 11 5 2 5 6 5 30 3 attraction endgame long mate mateIn3 sacrifice
+1912 3R1R1K6PP1P1B4P1Pq4p3P2Q1p2p1pb1bp2pk15r2 6 19 46 53 46 5 61 46 39 3 27 54 61 advantage long middlegame
+1913 RN3RK11BQN1P1PP3P1P14p1n1nP1p41pPq44bpppr4rk1 4 9 27 43 47 15 31 52 31 advantage middlegame short
+1914 RNBQK2RPP2PPBP4N1P12PPpp23p2p15n2ppp1n2pr1bqkb1r 4 22 29 38 29 20 35 52 35 advantage master opening short
+1915 R1B1R1K1PPP2PPP3P44N1b13n2N1p1pb42pq1p1Q2k1r2r 4 55 53 43 15 6 5 60 52 crushing middlegame short
+1923 R1BQR1K13PNPPPP1NbP31P2p382p2n2p1b2pppr2q1rk1 6 2 9 50 15 6 15 45 30 15 22 59 38 attraction clearance crushing kingsideAttack long opening sacrifice
+1924 4R1K15PP1PP1P1B23p3q2R53Q3ppp1b2p13k1r1r 4 21 49 31 13 6 15 13 31 crushing fork middlegame short
+1927 R1BK1qR13N1Pp1PP2PQ21nP3P12p52p5p3bppp3rk2r 2 6 5 14 5 advancedPawn mate mateIn1 middlegame oneMove pin promotion
+1927 2R1K2RPP2N1PP4bPB15Pb1Q5p12ppq2pp1p52krr3 4 2 42 20 13 4 3 44 12 crushing discoveredAttack middlegame short
+1927 3R2RK1Q3P1NP2B41PNp44n2qpb2r2p1p3p22r2k2 6 26 41 36 21 41 51 61 52 6 14 21 15 crushing long middlegame
+1928 6K1P1B51P1QPR1P1pP3P12pPrRppp2p1p26b14qrk1 6 37 45 61 45 19 55 62 61 21 45 54 45 advantage long middlegame
+1929 5RK1PPP3P12N1BN1P3PP2Q4p3p2pprqp1ppn2p15rk1 6 27 35 45 21 5 21 61 21 35 44 51 45 crushing long middlegame pin
+1932 7N84k1K15Pp15p1p888 4 7 13 39 31 22 14 20 29 crushing deflection endgame knightEndgame short
+1937 R3R1K1PBPP1PPP1P4Q14B32b55n1pppp1qpp13rr2k 6 28 19 52 4 0 4 60 4 19 5 59 11 crushing kingsideAttack long middlegame skewer
+1942 4RRK1P1B2QPP3P41P1p2n11p1P1p2p5p12p4pr2qr1k1 4 13 27 60 4 5 4 59 31 crushing middlegame short
+1946 RN2KB1RPPP2P23P3Q4P1Pn2b1p1q12np4ppp2p1pr4rk1 4 23 31 38 2 4 12 42 27 mate mateIn2 middlegame short
+1947 81R1P1r23b42P1p2P4K31p4p16pkR7 4 56 58 28 20 11 20 13 9 advantage endgame short
+1949 5R1K7PP5P11PP1Qn1b4pp21p2b35pkp3r4 6 28 21 44 26 22 29 26 35 21 35 59 35 crushing endgame long pin sacrifice
+1950 RN2K1NRPqP2PP13P1Q27P2bBp35p1ppp1n1p2r1b2rk1 6 21 37 9 2 4 12 36 28 35 28 61 60 advantage long middlegame
+1952 2R3K1PPQBPP1P3P1NP16p12Rnp32n2p2pppq41k1r3r 2 34 42 30 21 advantage middlegame oneMove
+1955 r75PK1p5P12N581R1pk1pp1P61b6 4 41 43 57 43 26 43 0 1 crushing endgame short
+1963 3R2K1PB2Q1P11P2PN1r4n33R46q1ppb3pp4r1k1 6 35 51 23 7 6 7 28 22 7 6 22 12 middlegame
+1966 5RK1rB2NPP14P2P82P1nQp12pR41p2qpbp4r1k1 6 37 1 8 9 1 9 36 21 14 21 54 9 crushing discoveredAttack long middlegame sacrifice
+1969 4R1K11B1R1P1PP4bP11P1QP1q11p1B4p6p5pp13rrbk1 8 27 20 59 35 11 35 60 28 20 28 21 28 35 27 53 37 crushing defensiveMove middlegame veryLong
+1970 85r2p74p1P11p1k46K15P24R3 4 53 61 13 61 60 61 33 25 crushing defensiveMove endgame short
+1971 R2Q1K1RPPP1NbP13Pq2P4B34rp2b7p5pp6k1 4 28 21 13 31 3 4 31 4 advantage middlegame quietMove short
+1972 3R2K1P3r1PP1P3P21p62p5p2Q1Bpp3b1p1k4q3 6 43 51 60 20 6 7 12 4 3 4 20 4 backRankMate endgame long mate mateIn3
+1979 R788p7r5R11kp51p67K 6 38 32 41 32 63 54 49 33 0 4 33 25 crushing defensiveMove endgame long quietMove rookEndgame
+1980 2R1NRK11P1BBPP13PP34N1p11Q2p3Pnn5pppqbb1p1k3rr1 4 40 49 42 27 20 27 51 33 advantage discoveredAttack middlegame short
+1988 2K4RPP4P12B1R31p1PQ34PP2b5p1p2pqp1pr1r3k1 10 37 46 53 46 20 23 25 18 28 35 52 53 35 53 62 53 23 55 53 44 advantage middlegame veryLong
+1988 2R3K11P3PPPPQR1P33np31B1p41p1qpn2p1r3pp5k2 6 17 25 43 25 16 25 50 18 2 18 27 33 advantage long middlegame
+1990 5K21r3P26P14k1p1P2n4p3p36R13B4 4 54 30 28 21 30 28 21 28 crushing defensiveMove endgame short
+1991 RN3RK1PPP2PPP1Q2P381B1p2B12nqpn2ppp1b1pp1r3rk1 4 10 18 45 30 38 29 61 29 crushing middlegame short
+1993 R5K15PB12Q2NP181n62p2p1p1p3b2r3q1k1 4 0 56 33 18 56 60 53 60 advantage middlegame short
+2005 5K22P2Pn12P1Bp21P4rpP781p4pk3R4 4 59 51 31 23 5 6 14 20 crushing discoveredAttack endgame short
+2007 R3R2K4prPP2P1bN2PP2P1P14p36n1ppp3pp6k1 4 14 22 13 21 4 12 20 38 advantage defensiveMove endgame short
+2009 2K52r3P1P2p483n3P2p52pR2R12k5 4 2 3 35 20 3 4 10 12 endgame mate mateIn2 short
+2009 R4R21B6P3PK21P1P1P23n42p5pp4pp4rrk1 6 0 4 60 20 4 20 61 29 21 12 29 5 crushing endgame long sacrifice
+2012 2R2RK11r3PPPq1P52p1QP21b2N3p3p35ppp5rk1 6 36 26 16 24 26 43 24 28 43 28 33 5 crushing long middlegame
+2014 884K33P1P25n1P1r2k37R8 4 20 28 41 17 27 35 44 45 advantage endgame quietMove short
+2015 b1B1R1K1P4P24PQN11P5q1BPp46p11p3p1pr4rk1 4 21 35 31 25 2 11 25 33 advantage fork middlegame short
+2026 2R3K11B1R1P1PP2Q2P11P1p46q11b6pp4pp4rr1k 6 9 27 41 27 19 27 60 59 27 59 61 59 advantage long middlegame
+2032 86P12RbP1KP2p1pP23k1p26pp88 4 23 31 35 34 31 39 46 39 crushing endgame short
+2038 R1BQ1RK13NPPBP2PP1NP1PP64p3pbnpbn1p1ppq1pp1r3k2r 6 5 4 41 13 6 13 45 30 13 6 30 20 attraction crushing kingsideAttack long middlegame sacrifice
+2042 b3K2RP2Q1PPP2N1P33Np382n1pq1p6p13r2k1 6 11 2 42 27 20 27 45 27 18 12 27 25 advantage long middlegame
+2047 1K1R1B1RP3N3qb1P43pP2P4Q2p8ppp51k1r2r1 6 8 17 16 17 1 2 59 43 36 34 43 42 advantage fork long middlegame pin quietMove
+2050 R3K2RPPQN1PPP1BP1PNB16b14p1p11npb1n1ppp2qp22kr3r 4 11 28 45 28 10 28 53 37 crushing middlegame short
+2054 2R2RK11BQ2PP13P4P3PpB11P2p31n1q4ppp1b31k1r3r 6 24 32 43 47 10 50 57 56 50 59 52 59 crushing long middlegame quietMove
+2058 1R1Q1RK13b1P23P2PPP1PqB3p3p37p4npp11r1r2k1 6 3 11 57 1 5 1 27 28 19 28 59 11 advantage discoveredAttack long middlegame
+2060 R3K2RPP1Q2P12P1P386qB6b1pp3pbp4r1k1 4 39 12 60 59 11 59 38 59 crushing middlegame short
+2064 6K1P3q1P15PP13p43P2p1p6p4r1pk2RQ4 10 35 43 12 3 6 15 52 4 59 63 55 46 63 60 4 60 58 60 3 24 clearance crushing endgame quietMove veryLong
+2064 1R63B2PK3Q3PNPPbrP1qP1pP1p2p2p2p11p5p4n1k1 6 25 34 60 45 19 21 45 30 15 7 30 13 crushing long master middlegame pin
+2071 2R2RK1PP3PPP3P43nP1Q12pN41p5pp1p3p1r2q2kr 4 35 29 59 38 30 38 47 38 advantage middlegame short
+2073 R4RK1PP4PP2P1PP2Q2Np33p42pb1p23q1p1p2r3rk 2 21 28 51 23 crushing middlegame oneMove pin
+2080 8PB4P11P5P4KP1p1n1NP3p3k1p11p3p23b4 6 9 27 53 37 36 45 33 43 28 21 44 35 advantage deflection endgame long master
+2081 R2QKBNRPPP3PP2NP44n32bp2B16n1ppp2pppr1bqk2r 6 38 59 34 13 4 12 58 30 6 21 46 29 exposedKing long mate mateIn3 opening
+2084 1R2R1K13Q2P11BPP1P1PP3Pp21pn1p2pp2p2p1qb4k15r2 4 24 33 34 28 33 41 48 41 crushing discoveredAttack kingsideAttack middlegame short
+2086 2R1R1K1PP63P1n1P3p2P12pP2p14Qp1kppq55r2 6 6 14 21 31 14 5 50 15 2 10 15 10 crushing endgame long master
+2088 3R2K1P4PPP4P1B15Q22p1N3p2bqpbp6p1r5k1 6 3 43 44 43 29 26 62 55 36 46 43 3 crushing hangingPiece long middlegame
+2088 2RK3R2QBN1P1P3rP24P2P4p2p2n3p1ppb4n1k1q4 4 10 34 20 19 2 10 50 32 crushing master middlegame short
+2093 R2Q1RK1PPPB1PBP2NP1NP13nP1b12b1p33p1q2ppp2pppr3k1nr 6 11 38 27 21 14 21 45 21 3 21 30 21 crushing fork long opening
+2094 8P2N2R14KPp11p3r1p4pk2888 8 11 28 29 28 21 28 37 30 14 11 31 23 11 59 23 15 endgame
+2100 1R1Q1RK11B2BP1P2P1P1P1PP63pbnp17qppp4p1k1r1r2 4 3 17 47 23 12 30 23 30 crushing middlegame short
+2101 R5K11P5P2P1Q1Pp4P3P4N21pq5p4r22k2r2 8 32 41 53 37 41 48 58 49 48 56 61 56 0 56 49 56 advantage endgame veryLong
+2103 R2R2K13NQPPPP3P31P64n2p6q1pp1r1pp13r2k1 6 11 21 51 3 0 3 59 3 12 3 36 21 advantage kingsideAttack long middlegame pin
+2104 5r27P4R1K15P25pPp6p15k28 6 20 21 39 31 22 14 5 21 14 21 53 44 crushing defensiveMove endgame long rookEndgame
+2105 R2QR1K12P1BPPPP1PP1NB16b13pp2n6nppp3pp1r2qr1k1 4 21 36 30 12 3 12 39 22 advantage middlegame short
+2106 883nP1P14p2Pp1KR1p21P2k2p6p18 6 34 42 19 25 42 34 25 35 41 49 35 45 crushing defensiveMove endgame fork long
+2114 1RB1K2R4bP2PQ1P2P11P1p3P3B2Np1p4p1p1pq1pb14rrk1 4 38 28 12 19 17 19 51 35 advantage deflection master middlegame short
+2114 7N2q4KB1p1P2P3P44Q32p2np1R6p5rk1 4 15 22 45 28 22 31 46 38 crushing middlegame short
+2117 K1Q4R1P4B1Pq2B3n1N2PPP82pR1p1ppp3b22kr3r 8 43 59 63 59 14 28 53 26 28 1 24 9 2 9 17 20 advantage deflection middlegame veryLong
+2121 6K13Q2NPBP1P2PqPn1p4p1p3p14R32kr1R25n1r 4 53 51 61 51 14 29 38 29 crushing middlegame short
+2127 1R65PK12r51P4PB1pPnnB22p4p5p25k2 4 1 4 35 29 14 5 18 23 crushing endgame short
+2139 2R1K3PP1NBP24P1P1Q2np2R5pqp3rb3ppp52kr4 6 20 27 43 27 24 10 38 11 10 11 27 11 crushing long middlegame
+2141 R2R2K11P3P1P2QpP1B1P5p1p2q1p22n4b1pp52kr4 6 3 11 37 29 22 29 47 29 20 29 42 27 crushing defensiveMove long middlegame
+2143 R2QK2R1P3P1PP4BPb3BP33Pb35p2pp2qpkpr1r5 4 21 30 36 27 3 27 23 30 advantage middlegame short
+2145 87P2r53PbKPB3p4p6p5Pk14Qn2 6 60 36 54 55 36 43 61 46 43 46 55 46 crushing defensiveMove endgame fork long
+2151 1R2K2R2Q2PP12BP1B1P5p2PPp1p1pp5b2pp1q1n21kn4r 8 10 12 36 28 18 45 28 21 12 21 51 44 21 28 44 45 advantage fork master middlegame veryLong
+2156 N7K7p71pk3P185P25nBp8 8 0 10 25 17 8 16 17 10 16 9 26 19 9 2 19 18 advancedPawn crushing defensiveMove endgame fork veryLong
+2169 2q5P5RK2P1bP1P4P33QpN1ppp3pN1k1p4r8 4 46 52 20 29 14 22 29 22 crushing master middlegame short
+2171 5R1K1B1PNPPbPn61P2p1n13N1pQ1p5r11p1q1kpp2R5 4 58 50 15 50 38 52 51 52 crushing middlegame short
+2174 81K2R1PP1Pr1pP21k6886pp8 4 14 30 18 17 9 10 25 26 crushing defensiveMove endgame rookEndgame short
+2176 2R3K13Q1P2P5Bq1PP3bP3P41p1p3pp1R3p13r1rk1 4 11 27 61 45 2 18 59 60 crushing defensiveMove middlegame short
+2177 2RK41qNQ1RPPP3p3b1P5p2P3B3p3p1pp3p1r4rk1 8 13 61 56 61 11 20 61 5 3 12 9 2 20 2 5 2 crushing deflection exposedKing master middlegame pin veryLong
+2178 6K15PP11BP2QNP1P2Pn24p2p2R2np15pk11q1r4 4 22 12 59 19 12 29 19 21 advantage master middlegame short trappedPiece
+2180 2r55PPKP3P2P1B2p382n4pbp3Bpk3R4 4 59 51 48 57 25 43 2 3 advantage endgame short
+2183 1R2R31Pr5P2P2K1p1Bp2P15brP7p5pk18 4 4 52 10 26 19 26 37 1 crushing discoveredAttack endgame pin short
+2201 R3KB1R1P3PPPP1B1PQ282bP41q6pp1b1ppp2r1r1k1 4 21 22 34 27 18 27 41 27 advantage middlegame pin short
+2204 R4R25P1KP1P2bP12q51p2bP2p3p2Q5p21k6 12 37 44 36 22 13 22 26 12 15 23 12 14 23 31 14 15 31 38 15 11 38 37 11 47 deflection endgame equality sacrifice skewer veryLong
+2207 RN3RK15PP1P2BP31P1B2nq2Q5p71pp2pppr1b1r2k 6 27 54 63 54 34 50 60 36 50 36 30 36 crushing long opening
+2208 R1BQ1RK1PP1P1PP11N2PN1P2Pp41B2p2b2n2n2ppq2ppp2kr1b1r 6 20 27 36 28 33 42 49 42 11 19 28 21 advantage long opening
+2217 1R4R11Pq2P1K2P1PQ23P1P1P3p1p1p1pp2pp1p3r2k2r5 4 6 46 55 46 1 6 46 53 crushing defensiveMove endgame hangingPiece master short
+2218 8882K2PPPP2P45ppp1ppk48 4 26 34 49 41 34 25 41 32 crushing endgame pawnEndgame short
+2219 K6R3rqPP1PP5P82Q5p1p4p1kp58 4 34 18 11 10 7 2 10 18 crushing endgame short
+2223 5R1KPP4PPb1P1R33P48q1B1Q3ppp3pp1k1r3r 4 44 53 63 61 53 61 16 61 crushing middlegame short
+2225 R2Q1RK11P2PP1PP1N3P15B21ppB4p3p31b1nb1pp1r1q1rk1 6 29 57 44 35 18 35 51 57 35 52 59 52 advantage intermezzo long middlegame
+2227 R1B3K1PP2QPPP82Br484Rnppppp1pqb15r1k 4 44 52 53 26 12 26 27 26 crushing middlegame short
+2231 R2QR1K1PPPB1PP12NBPN1P83pn2q2nbb3ppp3ppr4rk1 4 19 12 36 21 12 21 39 36 advantage clearance kingsideAttack middlegame short
+2245 3R46K1P2p3P3bp1P1P2k42p588 4 14 22 42 34 32 40 34 26 crushing defensiveMove endgame master quietMove short
+2246 2K2B1R1P4PPPbP1QP23N42q1p35p2ppp2p1p3r2k1 4 27 10 59 3 2 3 34 20 advantage master middlegame pin short
+2257 RN5R1B2KPPPP3P1Q11P2p32Pp42p2n24bpppr1q2rk1 4 1 11 45 39 22 23 58 40 advantage middlegame short
+2258 R4RK12P2PPPP1P1B37q3Qn33p4p1p3pp4rr1k 6 20 48 36 21 14 21 60 36 35 36 43 36 advantage clearance long middlegame sacrifice
+2261 2KR1B1RPPP1PPPP8Q2N3B8p1n2n1p1ppbqpp12kr3r 4 12 20 54 38 31 22 42 27 advantage middlegame short
+2264 88P1P52pP3Ppp3K22p4k88 6 37 36 33 25 16 25 32 25 36 29 25 17 crushing endgame long pawnEndgame
+2275 6K13N1P1P2P3P11P61p2pb2R74k1pp3r4 4 11 21 59 3 6 14 37 28 advantage endgame pin short
+2275 6K16PP1r681p2n3R5ppR4pk18 8 48 49 17 1 6 13 36 19 13 20 19 34 40 46 54 46 crushing endgame fork veryLong
+2277 R1R5P71P2P1PP2K1qP22Q2N28p3rppp3r2k1 6 26 33 52 49 33 40 49 41 34 41 48 41 advantage long middlegame
+2292 1RB2RK1qP2Q1PP1n2P31bpP1P21B3p24p36pp2rr2k1 6 33 26 8 1 26 44 62 63 44 17 58 2 advantage long middlegame
+2298 R4R1K6P14q33r3Q1pP5pBp2p21k4pp4r3 6 31 55 20 22 7 6 27 31 55 31 22 31 crushing long middlegame
+2304 R4RK11BQ1BPPPP2P2N12Pb1n286b1p3qppp2rr2k1 6 5 4 52 49 12 21 49 9 10 9 27 9 crushing long middlegame
+2315 R1B3K12P2P1P2pP3b1Q1p4P3R1P16p11p1r1qkpr7 6 25 41 56 40 41 33 53 21 33 51 23 51 crushing long middlegame
+2316 6K183P2P12Pp1P1PP4p1p3pBbp1p1r1q2k1Q4R1 6 6 14 52 44 57 50 55 62 50 48 44 12 crushing endgame hangingPiece long
+2317 R3K2RPP3PPP2P2N22B1n33Qpb28pp3ppp3rqrk1 8 35 36 28 38 4 5 38 21 36 37 21 11 5 6 11 26 advantage fork middlegame pin veryLong
+2323 81P4K1P2P1PNR1QPpBq1b4pn26p11p3r26k1 10 22 37 46 37 28 35 29 38 14 5 38 2 5 12 2 20 12 3 20 19 advantage deflection middlegame veryLong
+2326 R1B2RK1PPP2PPP1B1P3b7N3ppp22n5pppkbp1Qr2q2r1 4 17 35 52 31 55 53 59 52 advantage middlegame pin short
+2333 81q3PP11P2P1K1P3p1nP2p2pNp1p4pk8Q7 6 56 49 9 36 13 29 28 21 22 23 30 13 discoveredAttack enPassant endgame long mate mateIn3
+2337 85PP11P1K3P8p1pk2pp888 4 14 22 38 30 23 30 39 30 crushing endgame pawnEndgame short
+2344 81K3P21QP1P1N11prPpPp1R2p1p1P2q1b2k6p18 6 32 34 25 18 9 10 26 34 27 34 35 27 crushing endgame long
+2357 R1Q1K3PPP1BP1P2N2PB18p1b4p2p1qn21p1n1p22k3r1 6 15 31 62 22 13 22 34 20 2 3 44 23 crushing long middlegame sacrifice
+2363 886P13K4p3Pp1p2P1k388 6 42 50 44 51 27 35 32 24 50 58 51 58 crushing endgame long pawnEndgame quietMove
+2368 RR3B25B1K1Q2PpPP3P3q5p21Ppbp31p3kp11r5r 4 0 8 31 30 17 3 63 23 crushing discoveredAttack middlegame pin short
+2369 1R2K2R2P5P1NP41P2Pp21pp2pbBp2pb34krQ12rq4 4 39 53 38 45 54 46 45 18 advantage interference middlegame short
+2370 85PK15P21P1QR2P1q64p1p15p1p2r3k1 4 21 29 58 2 29 37 33 5 crushing endgame quietMove short
+2384 2R3K1P4PP11P2P37r3p1q25kprp4p1p1Q4R1 10 57 43 37 44 43 59 45 37 6 5 31 7 5 12 7 2 62 60 44 42 advantage endgame skewer veryLong
+2388 3Q1KR12R2P1PPq1n1P283p1p24p3Br2n1pp6k1 8 48 27 49 50 10 11 50 2 6 54 62 61 3 2 19 2 crushing master masterVsMaster middlegame pin veryLong
+2392 1r65P2p1K1P1PP886p15pkp2Q5 8 18 10 16 8 58 18 54 47 18 9 1 5 9 8 5 13 advancedPawn crushing defensiveMove endgame queenRookEndgame veryLong
+2401 1K5R1QR51P1P41p3n2q1NnP36p12p2p2r5k1 10 36 44 35 18 10 18 25 18 44 53 62 53 17 25 32 34 25 34 18 9 advancedPawn crushing middlegame veryLong
+2411 2R3K1Pq3QP1p1R1PP1P82BpP34p1b11p3pppr1r3k1 4 34 16 9 18 2 18 58 18 crushing master middlegame short
+2411 R2Q1RK1PP2BPPP5N22P3b12q52n2p2pp3p1pr3r1k1 6 8 16 56 59 3 10 30 37 10 18 60 12 advantage long middlegame
+2426 5R1K1B3PPb1Q1NP31P2n3Pb1r1p23q4pp2k1pp2R5 6 5 2 35 19 58 50 43 50 2 50 15 50 crushing long middlegame
+2430 3R3RqPPKQ33P1P23nP32b1p1BP3p4ppp4b2k5 6 3 0 8 9 12 3 34 25 11 20 27 10 advantage deflection long middlegame
+2435 R4RK11B3PBP1QN1PbP13PpN21P1p2n11pPb1n2p4pppr1q2rk1 6 18 35 21 14 35 45 54 45 6 14 43 29 advantage long middlegame
+2438 R1B1q3PP3RKP2P3P12QP2b15p22p5p5pp1r3b1k 8 13 5 4 28 14 6 30 12 5 29 12 26 29 28 37 28 advantage fork middlegame veryLong
+2455 3K44RP22RP1n2PB2ppn16p11Q66bk3rr3 6 41 42 28 19 12 60 30 13 3 2 19 11 advancedPawn crushing exposedKing long middlegame sacrifice
+2461 6K1P1Qr1P1P4P1P11P682B1p1p1pb3p1p3r2k1 6 10 34 11 3 6 14 3 35 34 18 59 58 crushing endgame long
+2473 1RQ2RK1r4PP13P1BP11PNp41p2p34b1pp6bk3q1r2 4 26 32 61 21 14 21 44 35 crushing middlegame sacrifice short
+2478 R1BQR1K1PPP2PP13P1N1P3n43Bp2b5q2ppp2ppp2kr1b1r 6 2 38 45 38 21 38 39 3 35 49 58 49 advantage long opening
+2482 8PP5P6P18K4ppp4pk288 6 32 33 37 29 22 29 38 30 33 26 39 31 crushing defensiveMove endgame long pawnEndgame quietMove
+2486 5RK1P4PP17P2q2n1p6N11P61Q3pp15rk1 6 49 48 29 12 6 15 26 29 15 7 12 22 crushing endgame fork long
+2500 81P2PP1K3P2P11pRp1p1PR1p5Q2b2p11r1q2kp8 4 40 56 29 22 13 22 51 52 advantage endgame master short
+2524 88r5KP6P14PQ22b4p3p1p26k1 6 22 31 42 14 30 38 16 23 37 23 47 38 crushing deflection endgame long sacrifice
+2537 85P1P6PK5p22Pq45pk1p1Q4p8 10 50 48 35 39 23 14 29 21 14 5 39 15 5 4 15 6 4 11 6 13 crushing deflection endgame queenEndgame veryLong
+2539 6R1P1P2P1K2P3RP83pnQ23q2rppp3p1k8 6 22 46 53 46 37 58 36 30 15 14 43 15 advantage doubleCheck endgame long
+2546 3rNK1R6BP6P1PP3B24p2b1b3q2pQ3ppp6k1 6 49 57 3 59 57 36 45 36 29 36 59 11 advantage defensiveMove long middlegame
+2550 3R1RK11P3PP1P1QPBB1b4P2p81n6pppq1p22k1r1r1 6 6 7 23 14 21 14 51 30 5 6 31 23 crushing fork long middlegame sacrifice
+2561 81P4PPP74Pp27p2pk2p1K78 6 48 41 39 31 15 23 46 38 16 24 38 30 crushing endgame long pawnEndgame quietMove
+2571 81PPKN3P2B2R13P3k3p42p2n2pp3p24r3 8 19 37 60 12 11 12 31 22 37 58 45 62 58 49 62 52 advantage defensiveMove endgame quietMove veryLong
+2575 R5K1PP4B11QP3PP5B21pp55n1ppb2q1p13r1k2 4 17 33 49 14 6 14 54 38 advantage middlegame short
+2589 2Q54K2P1B4Pp1P1bP1p12P1pP22p2p21pk3q18 6 2 26 54 47 26 19 47 2 17 3 2 9 crushing endgame long master masterVsMaster quietMove
+2590 2R51rp56P11pK3p13PP34P34k38 6 26 34 25 17 34 42 9 8 35 43 52 44 crushing endgame long quietMove rookEndgame
+2605 R1B2RK1PP3PPP2P582p4p3b1Q2pp1q1p22k3rr 10 2 20 62 14 6 14 63 62 20 38 51 30 14 7 62 38 45 38 30 38 advantage attraction kingsideAttack middlegame sacrifice veryLong
+2621 8881P2K1P11p1P2p1p2k488 8 28 37 40 32 25 32 43 35 37 38 33 25 38 29 25 17 crushing endgame pawnEndgame quietMove veryLong
+2650 1R5KP2B2P12P2R22p3pq4P2P4Q2pp6n5r1k 10 7 6 30 21 44 23 31 28 1 5 21 13 5 13 28 1 6 15 61 13 advancedPawn crushing deflection middlegame veryLong
+2663 82P53K4P1P2PPP2p51p2kp2p5pp8 10 19 28 45 37 30 37 44 45 31 39 48 32 10 18 55 47 28 35 45 37 crushing endgame pawnEndgame quietMove veryLong zugzwang
+2665 6R11PQ4P3BPK23P47R2p2qp1p4p1p1r2r1k1 8 21 12 45 27 6 22 57 9 12 5 60 20 10 9 27 9 crushing middlegame pin veryLong
+2665 86P1PPP4P5k2pK1p44p2p6p18 6 33 32 44 36 17 25 35 27 14 22 29 37 crushing defensiveMove endgame long pawnEndgame quietMove
+2667 81r4P13K1PRP85k1p6p188 10 19 20 46 38 23 31 38 30 21 30 39 30 31 39 37 38 20 28 38 39 crushing endgame quietMove rookEndgame veryLong
+2689 3R2K15BPPP1n2P21P2PN281p2pn1pp4kp12r5 6 3 2 45 39 13 4 39 29 6 5 29 12 advantage endgame long
+2692 81P4R15rp11p1K44P34k388 4 27 26 21 29 26 19 29 30 crushing defensiveMove endgame rookEndgame short
+2696 5R23r1p1P886p13KP2p2P52k5 8 43 34 58 50 34 25 50 43 25 18 11 35 5 13 43 44 advantage endgame quietMove rookEndgame veryLong
+2705 6K14QPP11qp4P84P36pp7k8 4 36 44 18 10 12 11 17 9 advancedPawn crushing defensiveMove endgame queenEndgame short
+2734 5R1KPP1rN1PP4q31Q4Rp4PP21pp55pp13r2k1 6 12 29 11 3 30 54 62 63 29 46 63 54 crushing long middlegame
+2735 84K2P5PP13pp35pp12P4p1Pk58 10 15 23 28 21 12 21 47 39 23 31 38 30 21 29 50 57 29 36 27 19 crushing endgame pawnEndgame quietMove veryLong
+2748 8PP3PB12P1PN1K7p2p3Q13q2r1p1b2pk17R 6 38 39 43 51 23 31 50 59 63 59 51 59 advantage exposedKing long master middlegame
+2767 3Q1RK11P1NBPPP2P1B33Pp32Np1b22nb1n22p3pp3q1rk1 8 12 33 43 15 6 15 45 30 15 6 59 43 3 30 37 30 advantage attraction kingsideAttack middlegame sacrifice veryLong
+2770 85P22KP2P184pp1p6k188 6 18 26 37 29 26 34 46 38 34 43 38 45 crushing defensiveMove endgame long pawnEndgame zugzwang
+2788 5R21BR2PKPPP4P12Q56n1p6p3q1rp14r1k1 8 13 29 51 49 26 42 60 58 42 49 58 10 5 13 10 13 advantage fork middlegame sacrifice skewer veryLong
+2808 87PP71P5k1p4p16K1p78 8 15 23 38 30 23 30 31 30 46 53 30 21 53 45 21 29 crushing defensiveMove endgame pawnEndgame veryLong zugzwang
