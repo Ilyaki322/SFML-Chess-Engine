@@ -156,7 +156,7 @@ MovementDirection PieceLogic::kingPin(int target)
 	return All;
 }
 //---------------------------------------------------------------------------------
-//In the following functions we check the movement of the pieces in relation to the king 
+//In the following Move functions we check the movement of the pieces in relation to the king 
 // and whether there is a checker on the board
 // In all of them, we will put the move into the vector only if it does not 
 // put the king in check
@@ -233,9 +233,11 @@ std::vector<Move> PieceLogic::kingMove(int start, std::vector<int> Incheck)
 	}
 	if (!inCheck&& castleLeft && castle(start, LEFT))moves.push_back({ start, start + LEFT*2  , start+LEFT*4 , start+LEFT , p });
 	if (!inCheck && castleRight && castle(start , RIGHT)) moves.push_back({ start, start + RIGHT*2 , start+RIGHT*3 , start+RIGHT  , p});
-	for (auto i = moves.begin(); i != moves.end(); i++) {
-		if ((ins.getPiece(i->targetSquare) & 0b111) == KingVal)
-			moves.erase(i);
+	for (auto i = moves.begin(); i != moves.end();) {
+		if (i->targetSquare != -1 && kingTeritory(i->targetSquare, color)) {
+			i = moves.erase(i);
+		}
+		else i++;
 	}
 	return moves;
 }
@@ -594,15 +596,19 @@ std::vector<Move> PieceLogic::slidingMove(int direction, int start, std::vector<
 	}
 	return moves;
 }
-
+//-------------------------------------------------
+//This function checks whether the king is in check
+//--------------------------------------------------
 bool PieceLogic::checkCheck(std::vector<Move>& moves, int color,int direction,int king)
 {
+	bool firstMoves = true;
 	NBoard& ins = NBoard::instance();
 	std::vector<int>empty;
 	if (moves.empty()) {
 		if ((king + direction) < 64 && king + direction > -1 &&
 			(ins.getPiece(king + direction) & 0b111) == KingVal) {
 			moves = slidingMove(direction, king + direction, empty, color);
+			firstMoves = false;
 		}
 		else return false;
 	}
@@ -616,7 +622,7 @@ bool PieceLogic::checkCheck(std::vector<Move>& moves, int color,int direction,in
 	}
 	if (direction % Diagonal1 == 0 || direction % Diagonal2 == 0) {
 		if (piece == BishopVal || piece == QueenVal) return true;
-		if (moves.size() == 1 && piece == PawnVal) {
+		if (firstMoves && moves.size() == 1 && piece == PawnVal) {
 			if (color == White && moves.back().targetSquare < moves.back().startSquare)return true;
 			if (color == Black && moves.back().targetSquare > moves.back().startSquare)return true;
 		}
@@ -626,6 +632,9 @@ bool PieceLogic::checkCheck(std::vector<Move>& moves, int color,int direction,in
 	return false;
 }
 
+//----------------------------------------------------------------------
+//This function checks whether the piece is pin to the king
+//----------------------------------------------------------------------
 bool PieceLogic::checkPin(std::vector<Move> moves, int color, int direction,int king)
 {
 	NBoard& ins = NBoard::instance();
@@ -696,7 +705,9 @@ bool PieceLogic::checkCorner(std::vector<Move>& move, const int pos, const int c
 
 	return checkDirection(move, pos, corner,color);
 }
-
+//--------------------------------------------------------------------------------
+// This function checks whether (according to the rules of chess) the king can castle
+//--------------------------------------------------------------------------------
 bool PieceLogic::castle(int king, int direction)
 {
 	NBoard& ins = NBoard::instance();
@@ -718,5 +729,33 @@ bool PieceLogic::castle(int king, int direction)
 	if ((!check(king + direction, checkSquares, color) || checkSquares.size() != 0))return false;
 	if ((!check(king + direction * 2, checkSquares, color) || checkSquares.size() != 0))return false;
 	return true;
+}
+//-----------------------------------------------------------------
+//This function check if the king is not in other king terrtitory
+// This behavior is different from checkCheck function
+//------------------------------------------------------------------
+bool PieceLogic::kingTeritory(int king, int color)
+{
+	int enemyKing = NBoard::instance().getKing(color == White ? Black : White);
+
+	if (king + 8 == enemyKing || king - 8 == enemyKing)return true;
+	if(king % 8 != 0)
+		if (king + 7 == enemyKing || king - 9 == enemyKing|| king - 1 == enemyKing)return true;
+	if(king % 8 != 7 )
+		if (king + 9 == enemyKing || king - 7 == enemyKing || king + 1 == enemyKing)return true;
+	return false;
+}
+
+bool PieceLogic::BishopOnWhiteSquare(int pos)
+{
+	bool positiveSquare = false;
+	bool positiveRow = false;
+	int row = pos / 8;
+	if (pos % 2 == 0) positiveSquare = true;
+	if (row % 2 == 0) positiveRow = true;
+
+	if (positiveRow && positiveSquare)return true;
+	if (!positiveRow && !positiveSquare)return true;
+	return false;
 }
 
