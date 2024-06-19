@@ -16,7 +16,6 @@ FenAlgorithm::FenAlgorithm()
 
 void FenAlgorithm::setBoard(/*std::array<std::shared_ptr<Tile>, 64> &tiles, */std::array<int, 64>& squares, std::string stage)
 {
-	//PiecesFactory theCreator;
 	for (int i = 0; i < 64; i++)
 		squares[i]  = 0;
 	for (int j = 0, point = 0; j < 64 && point < stage.size(); j++, point++) {
@@ -27,9 +26,35 @@ void FenAlgorithm::setBoard(/*std::array<std::shared_ptr<Tile>, 64> &tiles, */st
 			continue;
 		}
 
-		//tiles[j]->placePiece(theCreator.create(stage[point], tiles[j]->getPosition(), isupper(stage[point]) ? Black : White));
-
 		int color = isupper(stage[point]) ? 16 : 8;
-		squares[j] = m_piecesMap[char(tolower(stage[point]))] | color | 32;
+		squares[j] = m_piecesMap[char(tolower(stage[point]))] | color;
 	}
+	
+	for (int i = 8; i < 16; i++) {
+		int color = (squares[i] & White) > 0 ? White : Black;
+		if ((squares[i] & 0b111) == PawnVal && color == Black)
+			squares[i] = squares[i] | 32;
+	}
+	for (int i = 48; i < 56; i++) {
+		int color = (squares[i] & White) > 0 ? White : Black;
+		if ((squares[i] & 0b111) == PawnVal && color == White)
+			squares[i] = squares[i] | 32;
+	}
+	int rook[] = {0,7,56,63};
+	for (int i = 0; i < 4; i++) {
+		int color = (squares[rook[i]] & White) > 0 ? White : Black;
+		if ((color == Black && i > 1) || (color == White && i<2))continue;
+		if ((squares[rook[i]] & 0b111) == RookVal)
+			squares[rook[i]] = squares[rook[i]] | 32;
+	}
+	int king[] = { 4,60 };
+	for (int i = 0; i < 2; i++) {
+		int color = (squares[king[i]] & White) > 0 ? White : Black;
+		if ((color == Black && i > 0) || (color == White && i <1 ))continue;
+		if ((squares[king[i]] & 0b111) == KingVal)
+			squares[king[i]] = squares[king[i]] | 32;
+	}
+
 }
+
+

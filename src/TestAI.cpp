@@ -5,7 +5,11 @@
 
 Move TestAI::playTurn()
 {
+<<<<<<< HEAD
 	std::cout << moveGenerationTest(2, true);
+=======
+	std::cout << moveGenerationTest(4, true);
+>>>>>>> remotes/origin/guy
 
 	Move move = { -1, -1 };
 	return move;

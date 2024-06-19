@@ -11,6 +11,5 @@ public:
 	virtual void draw() = 0;
 
 protected:
-
 	GameManager& m_manager;
 };

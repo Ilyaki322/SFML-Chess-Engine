@@ -12,8 +12,8 @@ class Pieces;
 class FenAlgorithm {
 public:
 	FenAlgorithm();
-	void setBoard(/*std::array<std::shared_ptr<Tile>, 64> &tiles ,*/ std::array<int, 64> &squares, std::string stage);
-
+	void setBoard(std::array<int, 64> &squares, std::string stage);
+	
 private:
 	std::map<char, int> m_piecesMap;
 };
