@@ -44,6 +44,11 @@ void SFMLBoard::updateBoard()
 			m_tiles[i]->placePiece(nullptr);
 		}
 	}
+	Move move = NBoard::instance().getLastMove();
+	if (move.startSquare != -1 ) {
+		colorTiles(move.startSquare, sf::Color::Red);
+		colorTiles(move.targetSquare, sf::Color::Red);
+	}
 }
 
 void SFMLBoard::draw(sf::RenderWindow& window)

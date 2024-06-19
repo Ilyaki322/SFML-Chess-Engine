@@ -11,7 +11,6 @@ public:
 	void draw() override;
 
 private:
-
 	Controller* m_playerController;
 	const int m_playerNum;
 };

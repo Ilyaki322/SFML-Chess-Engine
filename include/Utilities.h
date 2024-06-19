@@ -34,8 +34,8 @@ struct Move
 
 	//--- for specialMove
 
-	int specialStartSquare;
-	int specialTargetSquare;
+	int specialStartSquare = -1 ;
+	int specialTargetSquare = -1;
 	Piece promotionVal = PawnVal;
 	
 };
