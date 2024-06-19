@@ -20,11 +20,11 @@ GameManager::GameManager()
 	//m_blackPlayer = std::make_unique<PlayerController>(m_window, Black);
 	//m_blackPlayer = std::make_unique<AIController>(Black);
 
-	//m_players.push_back(std::make_unique<TestAI>(White));
-	m_players.push_back(std::make_unique<PlayerController>(*this, m_window, White, m_sfmlBoard));
-	m_players.push_back(std::make_unique<AIController>(Black));
+	m_players.push_back(std::make_unique<TestAI>(White));
+	//m_players.push_back(std::make_unique<PlayerController>(*this, m_window, White, m_sfmlBoard));
+	//m_players.push_back(std::make_unique<AIController>(Black));
 	
-	//m_players.push_back(std::make_unique<PlayerController>(*this, m_window, Black, m_sfmlBoard));
+	m_players.push_back(std::make_unique<PlayerController>(*this, m_window, Black, m_sfmlBoard));
 
 	m_currentState = std::make_unique<PlayerXTurnState>(*this, 0);
 

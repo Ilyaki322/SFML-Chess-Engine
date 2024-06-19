@@ -5,7 +5,7 @@
 
 Move TestAI::playTurn()
 {
-	std::cout << moveGenerationTest(6, true);
+	std::cout << moveGenerationTest(2, true);
 
 	Move move = { -1, -1 };
 	return move;
