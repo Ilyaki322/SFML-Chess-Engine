@@ -11,7 +11,7 @@
 
 
 GameManager::GameManager()
-	: m_firstClick(false), m_whiteTurn(true), m_sfmlBoard()
+	: m_firstClick(false), m_whiteTurn(false), m_sfmlBoard()
 {
 	m_window.create(sf::VideoMode(ScreenSizeX, ScreenSizeY), "MainMenu");
 
@@ -21,11 +21,11 @@ GameManager::GameManager()
 
 	//m_players.push_back(std::make_unique<TestAI>(White));
 	m_players.push_back(std::make_unique<PlayerController>(*this, m_window, White, m_sfmlBoard));
-	m_players.push_back(std::make_unique<AIController>(Black));
+	//m_players.push_back(std::make_unique<AIController>(Black));
 	
 	//m_players.push_back(std::make_unique<PlayerController>(*this, m_window, Black, m_sfmlBoard));
-	//m_currentState = std::make_unique<PuzzleController>(Black, Intermediate,*this,m_sfmlBoard);
-	m_currentState = std::make_unique<PlayerXTurnState>(*this, 0);
+	m_currentState = std::make_unique<PuzzleController>(Black, Intermediate,*this,m_sfmlBoard);
+	//m_currentState = std::make_unique<PlayerXTurnState>(*this, 0);
 }
 
 void GameManager::update()

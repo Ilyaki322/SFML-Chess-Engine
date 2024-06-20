@@ -20,7 +20,7 @@ Move AIController::playTurn()
     }
 
     NBoard& ins = NBoard::instance();
-    depth = 5;
+    depth = 3;
     IGenerate generate;
     Move bestMove = { -1, -1 , -1, -1 ,PawnVal};
     int bestValue = (m_color == WHITE) ? std::numeric_limits<int>::min() : std::numeric_limits<int>::max();
