@@ -1,4 +1,8 @@
 #pragma once
+#include <fstream>
+#include "Utilities.h"
+#include <fstream>
+#include "FenAlgorithm.h" 
 
 /*
 * this class will do:
@@ -7,7 +11,16 @@
 * 3. will have a public function to return the current move of the selected puzzle or -1 -1 if puzzle is finished
 * 4. will have a function to load next puzzle.
 */
-class PuzzleManager
-{
+class PuzzleManager {
+public:
+	PuzzleManager(Color color,Difficult d);
+	Move getCurrMove()const;
+	void deleteCurrMove();
+	void loadNextPuzzle();
 
+private:
+	Difficult m_difficult;
+	std::vector<PuzzleStruct> m_puzzle;
+	PuzzleStruct m_currPuzzle;
+	std::fstream m_file;
 };

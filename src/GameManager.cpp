@@ -4,7 +4,8 @@
 #include "Utilities.h"
 #include "PlayerXTurnState.h"
 #include "NBoard.h"
-#include "PuzzleController.h"
+#include "TODO/PuzzleGameState.h" // need to be in menu
+#include "TODO/PuzzleManager.h" // need to be in menu
 #include <iostream> // debug
 #include "Assets.h" // for font
 #include "TestAI.h"
@@ -18,13 +19,13 @@ GameManager::GameManager()
 	//m_whitePlayer = std::make_unique<PlayerController>(m_window, White);
 	//m_blackPlayer = std::make_unique<PlayerController>(m_window, Black);
 	//m_blackPlayer = std::make_unique<AIController>(Black);
-
+	PuzzleManager p(White, Intermediate);
 	//m_players.push_back(std::make_unique<TestAI>(White));
 	m_players.push_back(std::make_unique<PlayerController>(*this, m_window, White, m_sfmlBoard));
 	//m_players.push_back(std::make_unique<AIController>(Black));
 	
+	m_currentState = std::make_unique<PuzzleGameState>(White, p ,*this);
 	//m_players.push_back(std::make_unique<PlayerController>(*this, m_window, Black, m_sfmlBoard));
-	m_currentState = std::make_unique<PuzzleController>(Black, Intermediate,*this,m_sfmlBoard);
 	//m_currentState = std::make_unique<PlayerXTurnState>(*this, 0);
 }
 
@@ -94,7 +95,8 @@ void GameManager::setState(std::unique_ptr<GameState> newState)
 
 void GameManager::nextTurn(Move& move)
 {
-	NBoard::instance().move(move);
+	if(move.startSquare!=-1)
+		NBoard::instance().move(move);
 	m_sfmlBoard.updateBoard();
 	m_whiteTurn = !m_whiteTurn;
 }
