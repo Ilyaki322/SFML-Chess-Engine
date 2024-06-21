@@ -78,7 +78,7 @@ void PlayerController::firstClick(const int pos)
 		if (m_moves.empty()) m_sfmlBoard.colorTiles(pos, sf::Color::Red);
 		for (auto& i : m_moves)
 		{
-			m_sfmlBoard.colorTiles(i.targetSquare, sf::Color::Green);
+			m_sfmlBoard.colorTiles(i.targetSquare, MOVEABLE_TILE);
 			if (i.specialStartSquare != -1) m_sfmlBoard.colorTiles(i.specialTargetSquare, sf::Color::Green);
 		}
 
