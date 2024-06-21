@@ -1,6 +1,6 @@
-#include "PlayerXPromotionState.h"
+#include "GameState/PlayerXPromotionState.h"
+#include "GameState/PlayerXTurnState.h"
 #include "GameManager.h"
-#include "PlayerXTurnState.h"
 
 PlayerXPromotionState::PlayerXPromotionState(GameManager& manager, Color color, const int player, Move move)
  : GameState(manager), m_color(color), m_move(move), m_player(player),
@@ -17,7 +17,7 @@ void PlayerXPromotionState::execute()
 	}
 }
 
-void PlayerXPromotionState::draw()
+void PlayerXPromotionState::draw(float dt)
 {
 	m_box.draw();
 }

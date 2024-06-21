@@ -1,6 +1,6 @@
-#include "PlayerXTurnState.h"
+#include "GameState/PlayerXTurnState.h"
+#include "GameState/PlayerXPromotionState.h"
 #include "GameManager.h"
-#include "PlayerXPromotionState.h"
 
 PlayerXTurnState::PlayerXTurnState(GameManager& manager, const int player)
 	: GameState(manager), m_playerNum(player)
@@ -25,7 +25,7 @@ void PlayerXTurnState::execute()
 	}
 }
 
-void PlayerXTurnState::draw()
+void PlayerXTurnState::draw(float dt)
 {
 	return;
 }

@@ -74,7 +74,7 @@ void PuzzleController::execute()
 	}
 }
 
-void PuzzleController::draw()
+void PuzzleController::draw(float dt)
 {
 }
 

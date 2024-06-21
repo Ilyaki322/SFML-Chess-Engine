@@ -1,4 +1,4 @@
-#include "TODO/PuzzleGameState.h"
+#include "GameState/PuzzleGameState.h"
 #include "GameManager.h"
 #include "NBoard.h"
 PuzzleGameState::PuzzleGameState(Color color, PuzzleManager& puzzle, GameManager& manager)
@@ -38,7 +38,7 @@ void PuzzleGameState::execute()
 	}
 }
 
-void PuzzleGameState::draw()
+void PuzzleGameState::draw(float dt)
 {
 }
 

@@ -2,18 +2,19 @@
 #include "Controller.h"
 #include "SFMLBoard.h"
 #include "IObservable.h"
-#include "GameState.h"
+#include "GameState/GameState.h"
 
 const int ScreenSizeX = 1536, ScreenSizeY = 768;
 //const int ScreenSizeX = 768, ScreenSizeY = 768;
 
+typedef std::unique_ptr<GameState> gameStatePtr;
 class GameManager : public IObservable
 {
 public:
 	GameManager();
 
 	void update();
-	void setState(std::unique_ptr<GameState> newState);
+	void setState(gameStatePtr newState);
 	void nextTurn(Move &move);
 
 	sf::RenderWindow& getWindow();
@@ -23,8 +24,9 @@ public:
 private:
 
 	void notify(sf::Event& event) override;
-	void draw();
+	void draw(float dt);
 	void handleEvents();
+	void change();
 
 	sf::RenderWindow m_window;
 
@@ -34,7 +36,11 @@ private:
 	//std::unique_ptr<Controller> m_whitePlayer;
 	//std::unique_ptr<Controller> m_blackPlayer;
 	std::vector<std::unique_ptr<Controller>> m_players;
-	std::unique_ptr<GameState> m_currentState;
+
+
+	gameStatePtr m_currentState;
+	gameStatePtr m_nextState;
+	bool m_changeState;
 
 	SFMLBoard m_sfmlBoard;
 };

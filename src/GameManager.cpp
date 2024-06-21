@@ -2,9 +2,9 @@
 #include "PlayerController.h"
 #include "AIController.h"
 #include "Utilities.h"
-#include "PlayerXTurnState.h"
+#include "GameState/PlayerXTurnState.h"
 #include "NBoard.h"
-#include "TODO/PuzzleGameState.h" // need to be in menu
+#include "GameState/PuzzleGameState.h" // need to be in menu
 #include "TODO/PuzzleManager.h" // need to be in menu
 #include <iostream> // debug
 #include "Assets.h" // for font
@@ -12,7 +12,7 @@
 
 
 GameManager::GameManager()
-	: m_firstClick(false), m_whiteTurn(false), m_sfmlBoard()
+	: m_firstClick(false), m_whiteTurn(false), m_changeState(false), m_sfmlBoard()
 {
 	m_window.create(sf::VideoMode(ScreenSizeX, ScreenSizeY), "MainMenu");
 
@@ -31,19 +31,28 @@ GameManager::GameManager()
 
 void GameManager::update()
 {
+	sf::Clock deltaClock;
+	float dt;
+
 	while (m_window.isOpen())
 	{
+		dt = deltaClock.restart().asSeconds();
 		handleEvents();
 		m_currentState->execute();
-		draw();
+		draw(dt);
+
+		if (m_changeState)
+		{
+			change();
+		}
 	}
 }
 
-void GameManager::draw()
+void GameManager::draw(float dt)
 {
 	m_window.clear(sf::Color(125, 125, 125, 255));
 	m_sfmlBoard.draw(m_window);
-	m_currentState->draw();
+	m_currentState->draw(dt);
 	m_window.display();
 }
 
@@ -88,10 +97,19 @@ int GameManager::getNumOfPlayers() const
 	return int(m_players.size());
 }
 
-void GameManager::setState(std::unique_ptr<GameState> newState)
+void GameManager::setState(gameStatePtr newState)
 {
-	m_currentState = std::move(newState);
+	m_nextState = std::move(newState);
+	m_changeState = true;
 }
+
+void GameManager::change()
+{
+	m_currentState = std::move(m_nextState);
+	m_nextState = nullptr;
+	m_changeState = false;
+}
+
 
 void GameManager::nextTurn(Move& move)
 {

@@ -1,7 +1,7 @@
 #pragma once 
 #include "Utilities.h"
 #include <fstream>
-#include  "GameState.h"
+#include "GameState/GameState.h"
 #include "FenAlgorithm.h" 
 #include "PlayerController.h"
 
@@ -11,7 +11,7 @@ class PuzzleController : public GameState {
 public:
 	PuzzleController(Color color, Difficult d , GameManager& manager , SFMLBoard& sfBoard);
 	virtual void execute()override;
-	virtual void draw()override;
+	virtual void draw(float dt)override;
 private:
 	bool correctMove(Move move);
 	std::vector<PuzzleStruct> m_puzzle;

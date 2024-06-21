@@ -1,6 +1,6 @@
 #pragma once
 
-#include "GameState.h"
+#include "GameState/GameState.h"
 #include "Controller.h"
 #include "PromotionBox.h"
 
@@ -10,7 +10,7 @@ public:
 	PlayerXPromotionState(GameManager& manager, Color color, const int player, Move move);
 
 	void execute() override;
-	void draw() override;
+	void draw(float dt) override;
 
 private:
 

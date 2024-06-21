@@ -8,7 +8,7 @@ public:
 	PlayerXTurnState(GameManager& manager, const int player);
 
 	void execute() override;
-	void draw() override;
+	void draw(float dt) override;
 
 private:
 	Controller* m_playerController;

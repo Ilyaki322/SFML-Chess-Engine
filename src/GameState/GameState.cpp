@@ -1,4 +1,4 @@
-#include "GameState.h"
+#include "GameState/GameState.h"
 #include "GameManager.h"
 
 GameState::GameState(GameManager& manager)

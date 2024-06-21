@@ -1,6 +1,6 @@
 #pragma once
 #include "GameState.h"
-#include "PuzzleManager.h"
+#include "TODO/PuzzleManager.h"
 #include "Controller.h"
 #include <memory>
 
@@ -14,7 +14,7 @@ class PuzzleGameState : public GameState
 public:
 	PuzzleGameState(Color color, PuzzleManager& puzzle ,GameManager& manager);
 	virtual void execute()override;
-	virtual void draw()override;
+	virtual void draw(float dt)override;
 private:
 
 	bool correctMove();
