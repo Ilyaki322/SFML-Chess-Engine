@@ -5,17 +5,23 @@
 
 #include "MenuState.h"
 
+typedef std::unique_ptr<MenuState> statePtr;
+
 class StateMachine
 {
 public:
 	StateMachine();
 
 	void update();
-	void changeState(std::unique_ptr<MenuState> newState);
+	void changeState(statePtr newState);
 	
 private:
+	void change();
 
 	sf::RenderWindow m_window;
-	std::unique_ptr<MenuState> m_currState;
+
+	statePtr m_currState;
+	statePtr m_nextState;
+	bool m_changingState;
 
 };

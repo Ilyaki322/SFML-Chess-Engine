@@ -6,7 +6,7 @@ class MenuState
 {
 public:
 	MenuState(sf::RenderWindow& window, StateMachine& state) : m_window(window), m_stateMachine(state) {};
-	virtual ~MenuState(){}
+	virtual ~MenuState() {}
 	virtual void draw() = 0;
 	virtual void handleEvents() = 0;
 

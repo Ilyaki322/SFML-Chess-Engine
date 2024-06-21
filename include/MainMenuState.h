@@ -1,5 +1,10 @@
 #pragma once
 #include "MenuState.h"
+#include "Button.h"
+
+#include <memory>
+
+typedef std::unique_ptr<Button> buttonPtr;
 
 class MainMenuState : public MenuState
 {
@@ -14,5 +19,5 @@ private:
 
 	void handleMouseClick(sf::Event& event) override;
 
-	sf::Text m_text[3];
+	std::vector<buttonPtr> m_buttons;
 };
