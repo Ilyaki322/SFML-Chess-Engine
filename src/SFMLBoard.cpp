@@ -47,9 +47,9 @@ void SFMLBoard::updateBoard()
 	Move move = NBoard::instance().getLastMove();
 
 	resetTileColors();
-	if (move.startSquare != -1 ) {
-		colorTiles(move.startSquare, sf::Color::Red);
-		colorTiles(move.targetSquare, sf::Color::Red);
+	if (move.startSquare != -1 ) {	
+		colorTiles(move.startSquare, sf::Color(255, 127, 80));
+		colorTiles(move.targetSquare, sf::Color(255, 127, 80));
 	}
 }
 
