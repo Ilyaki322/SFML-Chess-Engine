@@ -16,6 +16,7 @@ public:
 	virtual void draw(sf::RenderWindow& window) = 0 {
 		window.draw(m_backGround);
 	}
+	virtual std::vector<Button> getButton() = 0;
 private:
 	sf::Sprite m_backGround;
 protected:

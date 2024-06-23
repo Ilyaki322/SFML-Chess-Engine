@@ -3,6 +3,8 @@
 #include "SFMLBoard.h"
 #include "IObservable.h"
 #include "GameState/GameState.h"
+#include "UI/PlayUI.h"
+#include "UI/GameUI.h"
 
 const int ScreenSizeX = 1536, ScreenSizeY = 768;
 //const int ScreenSizeX = 768, ScreenSizeY = 768;
@@ -36,7 +38,7 @@ private:
 	//std::unique_ptr<Controller> m_whitePlayer;
 	//std::unique_ptr<Controller> m_blackPlayer;
 	std::vector<std::unique_ptr<Controller>> m_players;
-
+	GameUI m_sideUI;
 
 	gameStatePtr m_currentState;
 	gameStatePtr m_nextState;
