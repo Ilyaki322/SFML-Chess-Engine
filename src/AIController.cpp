@@ -16,7 +16,11 @@ Move AIController::playTurn()
 {
     if (m_useBook)
     {
-        return playByBook();
+        auto move = playByBook();
+        if (move.startSquare != -1)
+        {
+            return move;
+        }
     }
 
     NBoard& ins = NBoard::instance();
