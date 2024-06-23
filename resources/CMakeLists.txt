@@ -12,7 +12,12 @@ configure_file ("WBishop.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("WKnight.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("WPawn.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("PuzzleWhite.txt" ${CMAKE_BINARY_DIR} COPYONLY)
+
 configure_file ("capture.wav" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("move.wav" ${CMAKE_BINARY_DIR} COPYONLY)
 
 configure_file ("games_base.txt" ${CMAKE_BINARY_DIR} COPYONLY)
+
+configure_file ("MainMenu.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("PlayMenu.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("PuzzleMenu.jpg" ${CMAKE_BINARY_DIR} COPYONLY)

@@ -27,6 +27,14 @@ Assets::Assets()
 	m_capture.loadFromFile("capture.wav");
 	m_move.loadFromFile("move.wav");
 
+	m_mainMenu.loadFromFile("MainMenu.jpg");
+	m_playMenu.loadFromFile("PlayMenu.jpg");
+	m_puzzleMenu.loadFromFile("PuzzleMenu.jpg");
+
+	m_menusMap['m'] = m_mainMenu;
+	m_menusMap['p'] = m_playMenu;
+	m_menusMap['z'] = m_puzzleMenu;
+
 	m_font.loadFromFile("C:/Windows/Fonts/Arial.ttf");
 }
 
@@ -63,6 +71,12 @@ sf::Texture& Assets::getTexture(const char c)
 	}
 
 	// add exception here?
+}
+
+sf::Texture& Assets::getMenu(const char c)
+{
+	// exception?
+	return m_menusMap[c];
 }
 
 

@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include <map>
 
 class Assets
 {
@@ -10,6 +11,7 @@ public:
 	static Assets& instance();
 
 	sf::Texture& getTexture(const char c);
+	sf::Texture& getMenu(const char c);
 	sf::Font& getFont();
 	sf::SoundBuffer& getSound(const char c);
 
@@ -18,6 +20,8 @@ private:
 	Assets();
 	Assets(const Assets&) = default;
 	Assets& operator=(const Assets&) = default;
+
+	std::map<char, sf::Texture> m_menusMap;
 
 	sf::Texture m_WKnight;
 	sf::Texture m_WKing;
@@ -32,6 +36,10 @@ private:
 	sf::Texture m_BRook;
 	sf::Texture m_BQueen;
 	sf::Texture m_BPawn;
+
+	sf::Texture m_mainMenu;
+	sf::Texture m_playMenu;
+	sf::Texture m_puzzleMenu;
 
 	sf::SoundBuffer m_move;
 	sf::SoundBuffer m_capture;

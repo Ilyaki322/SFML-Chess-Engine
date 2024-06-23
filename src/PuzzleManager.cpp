@@ -1,4 +1,4 @@
-#include "TODO/PuzzleManager.h"
+#include "PuzzleManager.h"
 #include "NBoard.h"
 PuzzleManager::PuzzleManager(Color color , Difficult d)
 	:m_difficult(d)

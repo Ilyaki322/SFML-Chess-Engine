@@ -1,5 +1,5 @@
 #include "ButtonCommand/NextStateCommand.h"
-#include "StateMachine.h"
+#include "MainMenu/StateMachine.h"
 
 NextStateCommand::NextStateCommand(StateMachine& machine, statePtr nextState)
 	: m_machine(machine), m_nextState(std::move(nextState)) {}

@@ -1,7 +1,7 @@
 #include "Assets.h"
-#include "PlayMenuState.h"
-#include "StateMachine.h"
-#include "MainMenuState.h"
+#include "MainMenu/PlayMenuState.h"
+#include "MainMenu/StateMachine.h"
+#include "MainMenu/MainMenuState.h"
 
 PlayMenuState::PlayMenuState(sf::RenderWindow& window, StateMachine& state)
 	: MenuState(window, state)
