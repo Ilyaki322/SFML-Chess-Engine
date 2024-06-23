@@ -16,7 +16,7 @@ int main()
 	GameManager game;
 	game.update();
 
-	/*StateMachine game;
-	game.update();*/
+	//StateMachine game;
+	//game.update();
 
 }

@@ -36,6 +36,7 @@ private:
 	sf::Texture m_BRook;
 	sf::Texture m_BQueen;
 	sf::Texture m_BPawn;
+	sf::Texture m_sideGameStatus;
 
 	sf::Texture m_mainMenu;
 	sf::Texture m_playMenu;

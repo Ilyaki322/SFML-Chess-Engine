@@ -5,17 +5,17 @@
 #include "GameState/PlayerXTurnState.h"
 #include "NBoard.h"
 #include "GameState/PuzzleGameState.h" // need to be in menu
-#include "PuzzleManager.h" // need to be in menu
+#include "TODO/PuzzleManager.h" // need to be in menu
 #include <iostream> // debug
 #include "Assets.h" // for font
 #include "TestAI.h"
 
 
+
 GameManager::GameManager()
-	: m_firstClick(false), m_whiteTurn(true), m_changeState(false), m_sfmlBoard()
+	: m_firstClick(false), m_whiteTurn(true), m_changeState(false), m_sfmlBoard() , m_sideUI()
 {
 	m_window.create(sf::VideoMode(ScreenSizeX, ScreenSizeY), "MainMenu");
-
 	//m_whitePlayer = std::make_unique<PlayerController>(m_window, White);
 	//m_blackPlayer = std::make_unique<PlayerController>(m_window, Black);
 	//m_blackPlayer = std::make_unique<AIController>(Black);
@@ -53,6 +53,7 @@ void GameManager::draw(float dt)
 	m_window.clear(sf::Color(125, 125, 125, 255));
 	m_sfmlBoard.draw(m_window);
 	m_currentState->draw(dt);
+	m_sideUI.draw(m_window);
 	m_window.display();
 }
 
