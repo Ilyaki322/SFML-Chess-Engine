@@ -1,5 +1,4 @@
 #include "PlayerController.h"
-#include "Board.h"
 #include "GameManager.h"
 #include "Assets.h"
 #include "SFMLBoard.h"
@@ -101,5 +100,5 @@ void PlayerController::rotateScreen()
 	
 	m_window.setView(view);
 
-	Board::instance().setRotation(rotation);
+	//Board::instance().setRotation(rotation);
 }

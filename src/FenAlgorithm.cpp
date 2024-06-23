@@ -1,8 +1,5 @@
 #include "FenAlgorithm.h"
 #include "Assets.h"
-#include "Board.h"
-#include "Pieces.h"
-//#include "PiecesFactory.h"
 
 FenAlgorithm::FenAlgorithm()
 {

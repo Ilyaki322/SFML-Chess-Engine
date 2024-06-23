@@ -1,6 +1,5 @@
 #pragma once
-#include "Pieces.h" // for MOVE struct AND Color ENUM, change later
-
+#include "Utilities.h"
 
 class Controller
 {

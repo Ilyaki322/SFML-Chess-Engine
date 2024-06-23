@@ -59,8 +59,13 @@ Move AIController::playByBook()
         m_useBook = false;
         return playTurn();
     }
-     
+    
     m_book = &(*match).children;
+    if (m_book->size() <= 0)
+    {
+        m_useBook = false;
+        return { -1, -1 };
+    }
     int random = rand() % m_book->size();
     Move move = { (*m_book)[random].start, (*m_book)[random].target };
     m_book = &(*m_book)[random].children;
