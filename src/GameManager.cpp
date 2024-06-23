@@ -5,7 +5,7 @@
 #include "GameState/PlayerXTurnState.h"
 #include "NBoard.h"
 #include "GameState/PuzzleGameState.h" // need to be in menu
-#include "TODO/PuzzleManager.h" // need to be in menu
+#include "PuzzleManager.h" // need to be in menu
 #include <iostream> // debug
 #include "Assets.h" // for font
 #include "TestAI.h"
