@@ -12,21 +12,21 @@
 
 
 GameManager::GameManager()
-	: m_firstClick(false), m_whiteTurn(false), m_changeState(false), m_sfmlBoard()
+	: m_firstClick(false), m_whiteTurn(true), m_changeState(false), m_sfmlBoard()
 {
 	m_window.create(sf::VideoMode(ScreenSizeX, ScreenSizeY), "MainMenu");
 
 	//m_whitePlayer = std::make_unique<PlayerController>(m_window, White);
 	//m_blackPlayer = std::make_unique<PlayerController>(m_window, Black);
 	//m_blackPlayer = std::make_unique<AIController>(Black);
-	PuzzleManager p(White, Intermediate);
+	//PuzzleManager p(White, Intermediate);
 	//m_players.push_back(std::make_unique<TestAI>(White));
 	m_players.push_back(std::make_unique<PlayerController>(*this, m_window, White, m_sfmlBoard));
-	//m_players.push_back(std::make_unique<AIController>(Black));
+	m_players.push_back(std::make_unique<AIController>(Black));
 	
-	m_currentState = std::make_unique<PuzzleGameState>(White, p ,*this);
+	//m_currentState = std::make_unique<PuzzleGameState>(White, p ,*this);
 	//m_players.push_back(std::make_unique<PlayerController>(*this, m_window, Black, m_sfmlBoard));
-	//m_currentState = std::make_unique<PlayerXTurnState>(*this, 0);
+	m_currentState = std::make_unique<PlayerXTurnState>(*this, 0);
 }
 
 void GameManager::update()

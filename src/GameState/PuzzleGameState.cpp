@@ -16,8 +16,6 @@ void PuzzleGameState::execute()
 			return;
 		}
 		//------start section for debug
-		Move move = m_puzzleManager->getCurrMove();
-		std::cout << move.startSquare << ' ' << move.targetSquare << '\n';
 		std::cout << "try again\npress 'u' to undo\n";
 		char c;
 		std::cin >> c;

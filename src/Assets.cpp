@@ -23,7 +23,7 @@ Assets::Assets()
 	m_WPawn.loadFromFile("WPawn.png");
 	m_WQueen.loadFromFile("WQueen.png");
 	m_WRook.loadFromFile("WRook.png");
-
+	m_sideGameStatus.loadFromFile("game_status.png");
 	m_capture.loadFromFile("capture.wav");
 	m_move.loadFromFile("move.wav");
 
@@ -60,6 +60,9 @@ sf::Texture& Assets::getTexture(const char c)
 
 	case 'b':
 		return isUpper ? m_BBishop : m_WBishop;
+
+	case 's':
+		return m_sideGameStatus;
 	}
 
 	// add exception here?

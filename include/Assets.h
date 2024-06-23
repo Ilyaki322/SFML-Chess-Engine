@@ -32,6 +32,7 @@ private:
 	sf::Texture m_BRook;
 	sf::Texture m_BQueen;
 	sf::Texture m_BPawn;
+	sf::Texture m_sideGameStatus;
 
 	sf::SoundBuffer m_move;
 	sf::SoundBuffer m_capture;
