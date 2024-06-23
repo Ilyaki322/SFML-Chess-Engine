@@ -1,7 +1,7 @@
 #pragma once
 #include "Utilities.h"
 #include "Button.h"
-
+#include "Assets.h"
 
 /*
 * this is a base class for the UI in the game/puzzle
