@@ -2,11 +2,11 @@
 #include "MainMenu/StateMachine.h"
 
 ExitCommand::ExitCommand(StateMachine& machine)
-	: m_machine(machine) {}
+	:ButtonCommand(machine){}
 
 void ExitCommand::execute()
 {
-	m_machine.exit();
+	m_stateMachine.exit();
 }
 
 

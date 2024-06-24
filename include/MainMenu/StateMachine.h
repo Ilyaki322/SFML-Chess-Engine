@@ -17,14 +17,16 @@ public:
 	void update();
 	void changeState(statePtr newState);
 	void exit();
+	void returnToMenu();
 	
 private:
 	//void change();
 	//void initStates();
 	void pop();
+	void popAll();
 
 	sf::RenderWindow m_window;
-
+	bool m_returnToMenu;
 	/*statePtr m_currState;
 	statePtr m_nextState;*/
 	std::stack<statePtr> m_stateStack;

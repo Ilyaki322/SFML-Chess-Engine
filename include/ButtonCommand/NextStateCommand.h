@@ -15,7 +15,5 @@ public:
 	void execute() override;
 
 private:
-
-	StateMachine& m_machine;
 	statePtr m_nextState;
 };

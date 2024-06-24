@@ -4,7 +4,7 @@
 class PVPCommand : public ButtonCommand
 {
 public:
-	PVPCommand() {};
+	PVPCommand(StateMachine& stateMachine);
 
 	void execute() override;
 };
