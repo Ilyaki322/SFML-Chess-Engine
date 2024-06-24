@@ -2,13 +2,13 @@
 #include "Utilities.h"
 #include "NBoard.h"
 
-
 #include <iostream> // debug
 
 GameManager::GameManager(bool whiteTurn, SFMLBoard& board, uiPtr ui)
 	: m_whiteTurn(whiteTurn), m_changeState(false), m_sfmlBoard(board), m_ui(std::move(ui))
 {
 	m_window.create(sf::VideoMode(ScreenSizeX, ScreenSizeY), "Game");
+	m_ui->initButtons(*this);
 }
 
 void GameManager::addPlayer(controllerPtr p)
@@ -59,6 +59,12 @@ void GameManager::handleEvents()
 			m_window.close();
 			break;
 
+		case sf::Event::MouseButtonReleased:
+		{
+			auto location = m_window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
+			m_ui->buttonClicked(location);
+			[[fallthrough]];
+		}
 		default:
 			notify(event);
 			break;

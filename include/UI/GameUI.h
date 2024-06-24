@@ -4,10 +4,11 @@
 const int NumOfPiece = 5;
 enum PiecePlace{PawnPlace , KnightPlace , BishopPlace , RookPlace , QueenPlace};
 
-class GameUI : public PlayUI {
+class GameUI : public PlayUI
+{
 public:
 	GameUI(StateMachine& stateMachine);
-	virtual void draw(sf::RenderWindow& window) override;
 
-private:
+	void draw(sf::RenderWindow& window) override;
+	void initButtons(GameManager& manager) override;
 };
