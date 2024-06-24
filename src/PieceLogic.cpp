@@ -108,51 +108,51 @@ MovementDirection PieceLogic::kingPin(int target)
 	if ((king - target) % Diagonal1 == 0) {
 		moves = slidingMove(BOT_RIGHT, king, empty,color);
 		if (!checkCheck(moves, color , BOT_RIGHT, king)) {
-			if (checkPin(moves, color, BOT_RIGHT, king))
+			if (checkPin(moves, color, BOT_RIGHT, king, target))
 				return Diagonal1;
 		}
 		moves = slidingMove(TOP_LEFT, king, empty,color);
 		if (!checkCheck(moves, color , TOP_LEFT, king)) {
-			if (checkPin(moves, color, TOP_LEFT, king))
+			if (checkPin(moves, color, TOP_LEFT, king, target))
 				return Diagonal1;
 		}
 	}
 	if ((king - target) % Forward == 0) {
 		moves = slidingMove(DOWN, king, empty,color);
 		if (!checkCheck(moves, color,DOWN, king)) {
-			if (checkPin(moves, color ,DOWN, king))
+			if (checkPin(moves, color ,DOWN, king, target))
 				return Forward;
 		}
 		moves = slidingMove(UP, king, empty,color);
 		if (!checkCheck(moves, color ,UP, king)) {
-			if (checkPin(moves, color, UP, king))
+			if (checkPin(moves, color, UP, king, target))
 				return Forward;
 		}
 	}
 	if ((king - target) % Diagonal2 == 0) {
 		moves = slidingMove(BOT_LEFT, king, empty,color);
 		if (!checkCheck(moves, color , BOT_LEFT, king)) {
-			if (checkPin(moves, color, BOT_LEFT, king))
+			if (checkPin(moves, color, BOT_LEFT, king, target))
 				return Diagonal2;
 		}
 		moves = slidingMove(TOP_RIGHT, king, empty,color);
 		if (!checkCheck(moves, color , TOP_RIGHT, king)) {
-			if (checkPin(moves, color, TOP_RIGHT, king))
+			if (checkPin(moves, color, TOP_RIGHT, king, target))
 				return Diagonal2;
 		}
 	}
 	moves = slidingMove(LEFT, king, empty,color);
-	if(!moves.empty() && moves.back().targetSquare+LEFT == target)
-		if (!checkCheck(moves, color , LEFT, king)) {
-			if (checkPin(moves, color, LEFT, king))
-				return Side;
-		}
+	//if(!moves.empty() && moves.back().targetSquare+LEFT == target)
+	if (!checkCheck(moves, color , LEFT, king)) {
+		if (checkPin(moves, color, LEFT, king, target))
+			return Side;
+	}
 	moves = slidingMove(RIGHT, king, empty,color);
-	if (!moves.empty() && moves.back().targetSquare + RIGHT == target)
-		if (!checkCheck(moves, color , RIGHT, king)) {
-			if (checkPin(moves, color, RIGHT, king))
-				return Side;
-		}
+	//if (!moves.empty() && moves.back().targetSquare + RIGHT == target)
+	if (!checkCheck(moves, color , RIGHT, king)) {
+		if (checkPin(moves, color, RIGHT, king, target))
+			return Side;
+	}
 	return All;
 }
 //---------------------------------------------------------------------------------
@@ -635,13 +635,13 @@ bool PieceLogic::checkCheck(std::vector<Move>& moves, int color,int direction,in
 //----------------------------------------------------------------------
 //This function checks whether the piece is pin to the king
 //----------------------------------------------------------------------
-bool PieceLogic::checkPin(std::vector<Move> moves, int color, int direction,int king)
+bool PieceLogic::checkPin(std::vector<Move> moves, int color, int direction,int king,int target)
 {
 	NBoard& ins = NBoard::instance();
 	std::vector<int> empty;
 	if (moves.empty()) {
 		if ((king + direction) < 64 && king + direction > -1 &&
-			ins.getPiece(king + direction) != 0) {
+			ins.getPiece(king + direction) != 0 && king + direction == target) {
 			moves = slidingMove(direction, king + direction, empty,color);
 			if (checkCheck(moves, color, direction, king)) {
 				if ((ins.getPiece(moves.back().targetSquare) & 0b111) != PawnVal)return true;
@@ -654,7 +654,7 @@ bool PieceLogic::checkPin(std::vector<Move> moves, int color, int direction,int 
 	if (moves.back().targetSquare + direction > 63 || moves.back().targetSquare + direction < 0) return false;
 	if ((moves.back().targetSquare + direction) % 8 == 0 && moves.back().targetSquare % 8 == 7)return false;
 	if ((moves.back().targetSquare + direction) % 8 == 7 && moves.back().targetSquare % 8 == 0)return false;
-	
+	if (moves.back().targetSquare + direction != target) return false;
 	moves = slidingMove(direction, moves.back().targetSquare + direction, empty,color);
 	if (checkCheck(moves, color , direction, king)) {
 		if ((ins.getPiece(moves.back().targetSquare) & 0b111) != PawnVal)return true;
