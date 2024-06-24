@@ -1,9 +1,10 @@
 #include "UI/GameUI.h"
+#include "NBoard.h"
 
 GameUI::GameUI()
 	:PlayUI()
 {
-	
+
 }
 
 void GameUI::draw(sf::RenderWindow& window)
