@@ -33,20 +33,22 @@ buttonPtr ButtonFactory::createButton(ButtonName name, sf::Vector2f size, sf::Ve
 	case Review:
 		
 
+	case BackToMenu:
+
 
 	case VsPlayer:
 		return std::make_unique<Button>(" ",
-			std::make_unique<PVPCommand>(),
+			std::make_unique<PVPCommand>(m_stateMachine),
 			size, pos);
 
 	case VsBlackAI:
 		return std::make_unique<Button>(" ",
-			std::make_unique<VBlackAICommand>(),
+			std::make_unique<VBlackAICommand>(m_stateMachine),
 			size, pos);
 
 	case VsWhiteAI:
 		return std::make_unique<Button>(" ",
-			std::make_unique<VWhiteAICommand>(),
+			std::make_unique<VWhiteAICommand>(m_stateMachine),
 			size, pos);
 
 	case Puzzles: {
@@ -77,27 +79,27 @@ buttonPtr ButtonFactory::createButton(ButtonName name, sf::Vector2f size, sf::Ve
 
 	case FirstTimePuzzle:
 		return std::make_unique<Button>(" ",
-			std::make_unique<PuzzleCommand>(FirstTime),
+			std::make_unique<PuzzleCommand>(m_stateMachine,FirstTime),
 			size, pos);
 
 	case BeginnerPuzzle:
 		return std::make_unique<Button>(" ",
-			std::make_unique<PuzzleCommand>(Beginner),
+			std::make_unique<PuzzleCommand>(m_stateMachine, Beginner),
 			size, pos);
 
 	case IntermediatePuzzle:
 		return std::make_unique<Button>(" ",
-			std::make_unique<PuzzleCommand>(Intermediate),
+			std::make_unique<PuzzleCommand>(m_stateMachine, Intermediate),
 			size, pos);
 
 	case HardPuzzle:
 		return std::make_unique<Button>(" ",
-			std::make_unique<PuzzleCommand>(Hard),
+			std::make_unique<PuzzleCommand>(m_stateMachine, Hard),
 			size, pos);
 
 	case ExpertPuzzle:
 		return std::make_unique<Button>(" ",
-			std::make_unique<PuzzleCommand>(Expert),
+			std::make_unique<PuzzleCommand>(m_stateMachine, Expert),
 			size, pos);
 	default:
 		break;

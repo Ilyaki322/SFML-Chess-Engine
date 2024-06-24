@@ -9,7 +9,4 @@ public:
 
 	void execute() override;
 
-private:
-
-	StateMachine& m_machine;
 };

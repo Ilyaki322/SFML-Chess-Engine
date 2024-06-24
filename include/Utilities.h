@@ -15,7 +15,7 @@ const int MENU_Y = 628;
 
 enum ButtonName
 {
-	Play, Exit, Review,
+	Play, Exit, Review , BackToMenu,
 	VsPlayer, VsBlackAI, VsWhiteAI, Puzzles,
 	FirstTimeAI, IntermediateAI, ExpertAI,
 	FirstTimePuzzle, BeginnerPuzzle, IntermediatePuzzle,

@@ -6,7 +6,7 @@ enum PiecePlace{PawnPlace , KnightPlace , BishopPlace , RookPlace , QueenPlace};
 
 class GameUI : public PlayUI {
 public:
-	GameUI();
+	GameUI(StateMachine& stateMachine);
 	virtual void draw(sf::RenderWindow& window) override;
 
 private:

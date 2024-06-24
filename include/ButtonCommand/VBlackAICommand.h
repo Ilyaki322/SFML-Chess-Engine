@@ -5,7 +5,7 @@
 class VBlackAICommand : public ButtonCommand
 {
 public:
-	VBlackAICommand() {};
+	VBlackAICommand(StateMachine &stateMachine):ButtonCommand(stateMachine) {};
 
 	void execute() override;
 };

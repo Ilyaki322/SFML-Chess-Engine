@@ -7,6 +7,7 @@
 typedef std::unique_ptr<Button> buttonPtr;
 
 class StateMachine;
+
 class ButtonFactory
 {
 public:

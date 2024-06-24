@@ -1,18 +1,14 @@
 #include "UI/GameUI.h"
 #include "NBoard.h"
 
-GameUI::GameUI()
-	:PlayUI()
+GameUI::GameUI(StateMachine& stateMachine)
+	:PlayUI(stateMachine)
 {
 
 }
 
-void GameUI::draw(sf::RenderWindow& window)
+void GameUI::draw(sf::RenderWindow &window)
 {
 	PlayUI::draw(window);
 }
 
-std::vector<Button> GameUI::getButton()
-{
-	return std::vector<Button>();
-}

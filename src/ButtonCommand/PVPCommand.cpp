@@ -8,11 +8,17 @@
 
 #include <memory>
 
+PVPCommand::PVPCommand(StateMachine& stateMachine)
+	:ButtonCommand(stateMachine)
+{
+}
+
 void PVPCommand::execute()
 {
 	NBoard::instance().setBoard("RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr");
 	SFMLBoard board;
-	auto ui = std::make_unique<GameUI>();
+	auto ui = std::make_unique<GameUI>(m_stateMachine);
+	
 	GameManager manager(true, board, std::move(ui));
 	manager.addPlayer(std::make_unique<PlayerController>(manager, manager.getWindow(), White, board));
 	manager.addPlayer(std::make_unique<PlayerController>(manager, manager.getWindow(), Black, board));

@@ -5,7 +5,7 @@
 class PuzzleCommand : public ButtonCommand
 {
 public:
-	PuzzleCommand(Difficult difficulty);
+	PuzzleCommand(StateMachine& stateMachine, Difficult difficulty);
 
 	void execute() override;
 private:
