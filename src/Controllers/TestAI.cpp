@@ -1,4 +1,4 @@
-#include "TestAI.h"
+#include "Controllers/TestAI.h"
 #include "NBoard.h"
 
 #include <iostream>

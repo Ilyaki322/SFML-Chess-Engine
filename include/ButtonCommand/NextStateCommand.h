@@ -4,7 +4,8 @@
 
 class StateMachine;
 
-typedef std::unique_ptr<MenuState> statePtr;
+//typedef std::unique_ptr<MenuState> statePtr;
+typedef std::shared_ptr<MenuState> statePtr;
 
 class NextStateCommand : public ButtonCommand
 {

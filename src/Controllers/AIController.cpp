@@ -1,4 +1,4 @@
-#include "AIController.h"
+#include "Controllers/AIController.h"
 #include<iostream> // DEBUG
 #include "NBoard.h"
 AIController::AIController(Color color)

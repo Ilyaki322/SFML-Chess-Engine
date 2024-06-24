@@ -1,7 +1,7 @@
 #pragma once
 #include "GameState.h"
 #include "PuzzleManager.h"
-#include "Controller.h"
+#include "Controllers/Controller.h"
 #include <memory>
 
 /*

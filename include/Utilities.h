@@ -13,12 +13,20 @@ const int BKingBegin = 4, WKingBegin = 60;
 const int MENU_X = 750;
 const int MENU_Y = 628;
 
+enum ButtonName
+{
+	Play, Exit, Review,
+	VsPlayer, VsBlackAI, VsWhiteAI, Puzzles,
+	FirstTimeAI, IntermediateAI, ExpertAI,
+	FirstTimePuzzle, BeginnerPuzzle, IntermediatePuzzle,
+	HardPuzzle, ExpertPuzzle
+};
+
 enum EndMove {
 	EnPassant,
 	Castle,
 	Promotion,
 	Regular
-
 };
 
 enum Piece {

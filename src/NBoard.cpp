@@ -1,4 +1,5 @@
 #include "NBoard.h"
+#include "FenAlgorithm.h"
 #include <iostream> 
 
 NBoard::NBoard()
@@ -12,25 +13,48 @@ NBoard& NBoard::instance()
 	return ins;
 }
 
-void NBoard::setBoard(std::array<int, SIZE> arr)
+//void NBoard::setBoard(std::array<int, SIZE> arr)
+//{
+//	m_board = arr;
+//	for (int i = 0 ; i < SIZE; i++) {
+//		if (m_board[i] != 0) {
+//			if ((m_board[i] & 0b111) == KingVal) {
+//				int color = (m_board[i] & WHITE) > 0 ? WHITE : BLACK;
+//				if (color == WHITE)
+//				{
+//					m_WKing = i;
+//				}
+//				else
+//				{
+//					m_BKing = i;
+//				}
+//			}
+//		}
+//	}
+//	m_passant = -1;
+//}
+
+void NBoard::setBoard(std::string fen)
 {
-	m_board = arr;
-	for (int i = 0 ; i < SIZE; i++) {
-		if (m_board[i] != 0) {
-			if ((m_board[i] & 0b111) == KingVal) {
-				int color = (m_board[i] & WHITE) > 0 ? WHITE : BLACK;
-				if (color == WHITE)
-				{
-					m_WKing = i;
-				}
-				else
-				{
-					m_BKing = i;
+	FenAlgorithm fenAlgo;
+	fenAlgo.setBoard(m_board, fen);
+
+		for (int i = 0 ; i < SIZE; i++) {
+			if (m_board[i] != 0) {
+				if ((m_board[i] & 0b111) == KingVal) {
+					int color = (m_board[i] & WHITE) > 0 ? WHITE : BLACK;
+					if (color == WHITE)
+					{
+						m_WKing = i;
+					}
+					else
+					{
+						m_BKing = i;
+					}
 				}
 			}
 		}
-	}
-	m_passant = -1;
+		m_passant = -1;
 }
 
 void NBoard::move(Move move)
@@ -99,7 +123,7 @@ std::array<int, SIZE>& NBoard::getBoard()
 	return m_board;
 }
 
-Move NBoard::getLastMove()
+Move NBoard::getLastMove() const
 {
 	return m_lastMove;
 }

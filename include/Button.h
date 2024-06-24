@@ -11,6 +11,7 @@ class Button
 {
 public:
 	Button(std::string text, commandPtr command, sf::Vector2f size, sf::Vector2f pos);
+	Button(commandPtr command, sf::Vector2f size, sf::Vector2f pos);
 
 	sf::FloatRect getGlobalBounds();
 

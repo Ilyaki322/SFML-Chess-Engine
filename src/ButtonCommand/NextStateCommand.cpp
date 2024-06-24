@@ -6,5 +6,6 @@ NextStateCommand::NextStateCommand(StateMachine& machine, statePtr nextState)
 
 void NextStateCommand::execute()
 {
-	m_machine.changeState(std::move(m_nextState));
+	//m_machine.changeState(std::move(m_nextState));
+	m_machine.changeState(m_nextState);
 }

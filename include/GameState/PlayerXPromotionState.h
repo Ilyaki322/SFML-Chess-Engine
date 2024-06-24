@@ -1,7 +1,7 @@
 #pragma once
 
 #include "GameState/GameState.h"
-#include "Controller.h"
+#include "Controllers/Controller.h"
 #include "PromotionBox.h"
 
 class PlayerXPromotionState : public GameState

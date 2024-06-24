@@ -1,5 +1,5 @@
 #pragma once
-#include "Controller.h"
+#include "Controllers/Controller.h"
 #include "SFMLBoard.h"
 #include "IObservable.h"
 #include "GameState/GameState.h"
@@ -10,10 +10,15 @@ const int ScreenSizeX = 1536, ScreenSizeY = 768;
 //const int ScreenSizeX = 768, ScreenSizeY = 768;
 
 typedef std::unique_ptr<GameState> gameStatePtr;
+typedef std::unique_ptr<Controller> controllerPtr;
 class GameManager : public IObservable
 {
 public:
-	GameManager();
+	//GameManager();
+	GameManager(bool whiteTurn, SFMLBoard& board);
+
+	void addPlayer(controllerPtr p);
+	void setStartState(gameStatePtr start);
 
 	void update();
 	void setState(gameStatePtr newState);
@@ -32,11 +37,8 @@ private:
 
 	sf::RenderWindow m_window;
 
-	bool m_firstClick;
 	bool m_whiteTurn;
 
-	//std::unique_ptr<Controller> m_whitePlayer;
-	//std::unique_ptr<Controller> m_blackPlayer;
 	std::vector<std::unique_ptr<Controller>> m_players;
 	GameUI m_sideUI;
 
@@ -44,5 +46,5 @@ private:
 	gameStatePtr m_nextState;
 	bool m_changeState;
 
-	SFMLBoard m_sfmlBoard;
+	SFMLBoard& m_sfmlBoard;
 };

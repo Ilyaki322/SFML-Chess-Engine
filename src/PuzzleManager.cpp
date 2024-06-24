@@ -36,11 +36,9 @@ PuzzleManager::PuzzleManager(Color color , Difficult d)
 			break;
 		}
 	}
-	FenAlgorithm fen;
+
 	NBoard& inst = NBoard::instance();
-	std::array<int, SIZE> arr;
-	fen.setBoard(arr, m_currPuzzle.board);
-	inst.setBoard(arr);
+	inst.setBoard(m_currPuzzle.board);
 	std::cout << m_currPuzzle.name << '\n';
 }
 
@@ -66,10 +64,7 @@ void PuzzleManager::loadNextPuzzle()
 		}
 	}
 
-	FenAlgorithm fen;
 	NBoard& inst = NBoard::instance();
-	std::array<int, SIZE> arr;
-	fen.setBoard(arr, m_currPuzzle.board);
-	inst.setBoard(arr);
+	inst.setBoard(m_currPuzzle.board);
 	std::cout << m_currPuzzle.name << '\n';
 }

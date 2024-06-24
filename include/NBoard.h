@@ -6,7 +6,8 @@
 class NBoard {
 public:
 	static NBoard& instance();
-	void setBoard(std::array<int,SIZE> arr );
+	//void setBoard(std::array<int,SIZE> arr );
+	void setBoard(std::string fen);
 	void move(Move move);
 	void undo();
 
@@ -16,7 +17,7 @@ public:
 	int getKing(int color)const;
 	std::array<int, SIZE> &getBoard();
 
-	Move getLastMove();
+	Move getLastMove() const;
 
 private:
 	NBoard();

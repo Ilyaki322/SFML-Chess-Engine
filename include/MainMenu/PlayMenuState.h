@@ -1,6 +1,9 @@
 #pragma once
 
 #include "MenuState.h"
+#include "Button.h"
+
+typedef std::unique_ptr<Button> buttonPtr;
 
 class PlayMenuState : public MenuState
 {
@@ -14,12 +17,7 @@ public:
 private:
 
 	void handleMouseClick(sf::Event& event) override;
-	void setText(sf::Text& text, sf::Color color, sf::Vector2f pos);
-
-	sf::Text m_exit;
-	sf::Text m_PvP[3];
-	sf::Text m_PvB[3];
-	sf::Text m_BvP[3];
-	//sf::Text m_BvB?
-	sf::Text m_Puzzle;
+	
+	std::vector<buttonPtr> m_buttons;
+	sf::Sprite m_menuSprite;
 };
