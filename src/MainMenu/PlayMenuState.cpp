@@ -18,7 +18,7 @@ PlayMenuState::PlayMenuState(sf::RenderWindow& window, StateMachine& state)
 	m_buttons.push_back(theCreator.createButton(VsPlayer, sf::Vector2f(250, 60), sf::Vector2f(590, 181)));
 	m_buttons.push_back(theCreator.createButton(VsBlackAI, sf::Vector2f(250, 60), sf::Vector2f(198, 313)));
 	m_buttons.push_back(theCreator.createButton(VsWhiteAI, sf::Vector2f(250, 60), sf::Vector2f(585, 276)));
-	/*m_buttons.push_back();*/
+	m_buttons.push_back(theCreator.createButton(Puzzles, sf::Vector2f(250, 60), sf::Vector2f(400, 400)));
 
 }
 

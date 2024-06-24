@@ -2,10 +2,9 @@
 #include "GameManager.h"
 #include "NBoard.h"
 PuzzleGameState::PuzzleGameState(Color color, PuzzleManager& puzzle, GameManager& manager)
-	:GameState(manager), m_computerTurn(true) , m_playerLastMove({0,0})
+	:GameState(manager), m_computerTurn(true) , m_playerLastMove({0,0}) , m_puzzleManager(puzzle) 
 {
 	m_player = m_manager.getPlayer(0);
-	m_puzzleManager = std::make_unique<PuzzleManager>(White, Intermediate); // ---> need to be(puzzle)
 }
 
 void PuzzleGameState::execute()
@@ -43,16 +42,16 @@ void PuzzleGameState::draw(float dt)
 bool PuzzleGameState::correctMove()
 {
 	if (m_playerLastMove.startSquare == 0 && m_playerLastMove.targetSquare == 0)return true;
-	if (m_playerLastMove.startSquare != m_puzzleManager->getCurrMove().startSquare ||
-		m_playerLastMove.targetSquare != m_puzzleManager->getCurrMove().targetSquare)
+	if (m_playerLastMove.startSquare != m_puzzleManager.getCurrMove().startSquare ||
+		m_playerLastMove.targetSquare != m_puzzleManager.getCurrMove().targetSquare)
 		return false;
-	m_puzzleManager->deleteCurrMove();
+	m_puzzleManager.deleteCurrMove();
 	return true;
 }
 
 void PuzzleGameState::playComputerMove()
 {
-	Move move = m_puzzleManager->getCurrMove();
+	Move move = m_puzzleManager.getCurrMove();
 	std::cout << move.startSquare << ' ' << move.targetSquare << '\n';
 	if (move.startSquare == -1) {
 		//------section for debug
@@ -62,12 +61,12 @@ void PuzzleGameState::playComputerMove()
 		while (c != 'c')
 			std::cin >> c;
 		//------end section for debug
-		m_puzzleManager->loadNextPuzzle();
+		m_puzzleManager.loadNextPuzzle();
 		m_computerTurn = true;
 		m_playerLastMove = { 0,0 };
 		return;
 	}
 	m_computerTurn = false;
 	m_manager.nextTurn(move);
-	m_puzzleManager->deleteCurrMove();
+	m_puzzleManager.deleteCurrMove();
 }

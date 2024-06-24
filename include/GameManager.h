@@ -4,18 +4,17 @@
 #include "IObservable.h"
 #include "GameState/GameState.h"
 #include "UI/PlayUI.h"
-#include "UI/GameUI.h"
 
 const int ScreenSizeX = 1536, ScreenSizeY = 768;
 //const int ScreenSizeX = 768, ScreenSizeY = 768;
-
+typedef std::unique_ptr<PlayUI> uiPtr;
 typedef std::unique_ptr<GameState> gameStatePtr;
 typedef std::unique_ptr<Controller> controllerPtr;
 class GameManager : public IObservable
 {
 public:
 	//GameManager();
-	GameManager(bool whiteTurn, SFMLBoard& board);
+	GameManager(bool whiteTurn, SFMLBoard& board , uiPtr ui);
 
 	void addPlayer(controllerPtr p);
 	void setStartState(gameStatePtr start);
@@ -40,7 +39,7 @@ private:
 	bool m_whiteTurn;
 
 	std::vector<std::unique_ptr<Controller>> m_players;
-	GameUI m_sideUI;
+	uiPtr m_ui;
 
 	gameStatePtr m_currentState;
 	gameStatePtr m_nextState;

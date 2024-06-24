@@ -22,6 +22,6 @@ private:
 
 	Move m_playerLastMove;
 	Controller* m_player;
-	std::unique_ptr<PuzzleManager> m_puzzleManager;
+	PuzzleManager& m_puzzleManager;
 	bool m_computerTurn;
 };

@@ -7,7 +7,7 @@
 
 int main()
 {
-	//srand(time(nullptr));
+	srand(time(nullptr));
 	//FenAlgorithm fen;
 	//NBoard& inst = NBoard::instance();
 	//std::array<int, SIZE> arr;
