@@ -12,6 +12,7 @@ public:
 	bool turnReady() override;
 
 private:
+    bool isGameOver(std::vector<std::vector<Move>> all);
     Move playByBook();
 	int minimax(int depth, int alpha, int beta, bool maximizingPlayer, NBoard& ins);
 	int evaluateBoard();

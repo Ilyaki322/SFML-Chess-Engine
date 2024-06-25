@@ -44,6 +44,13 @@ Move AIController::playTurn()
 	return bestMove;
 }
 
+bool AIController::isGameOver(std::vector<std::vector<Move>> all)
+{
+    for (auto i : all) 
+        if (!i.empty())return false;
+    return true;
+}
+
 Move AIController::playByBook()
 {
     Move lastMove = NBoard::instance().getLastMove();
@@ -78,11 +85,14 @@ Move AIController::playByBook()
 
 int AIController::minimax(int depth, int alpha, int beta, bool maximizingPlayer , NBoard& ins)
 {
-    if (depth == 0) {
+    if (depth == 0) 
         return evaluateBoard();
-    }
+    
     IGenerate generate;
     std::vector<std::vector<Move>> allMoves  = generate.generateAll(maximizingPlayer ? WHITE : BLACK);
+    
+    if(isGameOver(allMoves))
+        return evaluateBoard();
 
     if (maximizingPlayer) {
         int maxEval = std::numeric_limits<int>::min();
@@ -96,7 +106,7 @@ int AIController::minimax(int depth, int alpha, int beta, bool maximizingPlayer 
                 maxEval = std::max(maxEval, eval);
                 alpha = std::max(alpha, eval);
                 if (beta <= alpha) {
-                    break;
+                    return maxEval;
                 }
             }
         }
@@ -114,7 +124,7 @@ int AIController::minimax(int depth, int alpha, int beta, bool maximizingPlayer 
                 minEval = std::min(minEval, eval);
                 beta = std::min(beta, eval);
                 if (beta <= alpha) {
-                    break;
+                    return minEval;
                 }
             }
         }
