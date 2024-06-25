@@ -3,6 +3,7 @@
 PuzzleManager::PuzzleManager(Color color , Difficult d)
 	:m_difficult(d)
 {	
+	srand(time(nullptr));
 	m_file.open("PuzzleWhite.txt");
 	int dif;
 	std::string line;
@@ -26,20 +27,7 @@ PuzzleManager::PuzzleManager(Color color , Difficult d)
 		std::getline(m_file, s.name);			//---- reading puzzle name
 		m_puzzle.push_back(s);
 	}
-
-	int random = rand() % NumOfPuzzleInLevel;
-	int count = 0;
-	for (auto i = m_puzzle.begin();i != m_puzzle.end(); i++ , count++) {
-		if (count = random) {
-			m_currPuzzle = *i;
-			m_puzzle.erase(i);
-			break;
-		}
-	}
-
-	NBoard& inst = NBoard::instance();
-	inst.setBoard(m_currPuzzle.board);
-	std::cout << m_currPuzzle.name << '\n';
+	loadNextPuzzle();
 }
 
 Move PuzzleManager::getCurrMove() const
@@ -57,7 +45,7 @@ void PuzzleManager::loadNextPuzzle()
 	int random = rand() % m_puzzle.size();
 	int count = 0;
 	for (auto i = m_puzzle.begin(); i != m_puzzle.end(); i++, count++) {
-		if (count = random) {
+		if (count == random) {
 			m_currPuzzle = *i;
 			m_puzzle.erase(i);
 			break;
@@ -67,4 +55,11 @@ void PuzzleManager::loadNextPuzzle()
 	NBoard& inst = NBoard::instance();
 	inst.setBoard(m_currPuzzle.board);
 	std::cout << m_currPuzzle.name << '\n';
+
 }
+
+std::string PuzzleManager::getName() const
+{
+	return m_currPuzzle.name;
+}
+

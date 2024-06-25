@@ -7,7 +7,7 @@
 
 const int ScreenSizeX = 1536, ScreenSizeY = 768;
 //const int ScreenSizeX = 768, ScreenSizeY = 768;
-typedef std::unique_ptr<PlayUI> uiPtr;
+typedef std::shared_ptr<PlayUI> uiPtr;
 typedef std::unique_ptr<GameState> gameStatePtr;
 typedef std::unique_ptr<Controller> controllerPtr;
 class GameManager : public IObservable

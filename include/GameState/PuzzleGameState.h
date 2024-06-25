@@ -3,16 +3,13 @@
 #include "PuzzleManager.h"
 #include "Controllers/Controller.h"
 #include <memory>
+#include "UI/PuzzleUI.h"
 
-/*
-* we can split this into 2 or leave it as 1.
-* will do both player turn and pc turn just as we did before
-* but will get a reference to PuzzleManager and get its next moves from there.
-*/
+typedef std::shared_ptr<PuzzleUI> uiPuzzlePtr;
 class PuzzleGameState : public GameState
 {
 public:
-	PuzzleGameState(Color color, PuzzleManager& puzzle ,GameManager& manager);
+	PuzzleGameState(Color color, PuzzleManager& puzzle ,GameManager& manager, uiPuzzlePtr ui);
 	virtual void execute()override;
 	virtual void draw(float dt)override;
 private:
@@ -24,4 +21,7 @@ private:
 	Controller* m_player;
 	PuzzleManager& m_puzzleManager;
 	bool m_computerTurn;
+	bool m_waitingUndo;
+	bool m_waitingNew;
+	uiPuzzlePtr m_ui;
 };

@@ -3,7 +3,6 @@
 #include "Button.h"
 #include "Assets.h"
 #include "ButtonCommand/BackToMenuCommand.h"
-//class StateMachine;
 #include "MainMenu/StateMachine.h"
 class GameManager;
 
@@ -14,7 +13,7 @@ public:
 	PlayUI(StateMachine& stateMachine);
 	virtual ~PlayUI() {}
 
-	void buttonClicked(const sf::Vector2f& loc);
+	virtual void buttonClicked(const sf::Vector2f& loc);
 
 	virtual void draw(sf::RenderWindow &window) = 0 {
 		window.draw(m_backGround);
@@ -29,10 +28,10 @@ public:
 
 private:
 	sf::Sprite m_backGround;
-	StateMachine& m_stateMachine;
 
 protected:
 	std::vector<buttonPtr> m_button;
+	StateMachine& m_stateMachine;
 };
 
 

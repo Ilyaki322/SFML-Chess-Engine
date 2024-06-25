@@ -1,2 +1,69 @@
 #include "UI/PuzzleUI.h"
+#include "ButtonCommand/UndoPuzzleCommand.h"
+#include "ButtonCommand/NextPuzzleCommand.h"
 
+PuzzleUI::PuzzleUI(StateMachine& stateMachine, PuzzleManager& manager)
+	:PlayUI(stateMachine),m_undoButton(false),m_nextPuzzleButton(false),m_name("Puzzle"),m_manager(manager)
+{
+}
+void PuzzleUI::draw(sf::RenderWindow& window)
+{
+	PlayUI::draw(window);
+	if (m_undoButton)
+		m_undo->draw(window);
+
+	if (m_nextPuzzleButton)
+		m_next->draw(window);
+}
+
+void PuzzleUI::initButtons(GameManager& manager)
+{
+	PlayUI::initButtons(manager);
+	m_undo=(std::make_unique<Button>("Undo",
+		std::make_unique<UndoPuzzleCommand>(m_stateMachine, *this),
+		sf::Vector2f(250, 150), sf::Vector2f(1150, 120)));
+	m_next = (std::make_unique<Button>("Next Puzzle",
+		std::make_unique<NextPuzzleCommand>(m_stateMachine, m_manager),
+		sf::Vector2f(250, 150), sf::Vector2f(1150, 720)));
+}
+
+void PuzzleUI::buttonClicked(const sf::Vector2f& loc)
+{
+	PlayUI::buttonClicked(loc);
+	if (m_undoButton) 
+		if (m_undo->getGlobalBounds().contains(loc)) {
+			m_undo->click();
+			m_undoButton = false;
+		}
+
+	if (m_nextPuzzleButton)
+		if (m_next->getGlobalBounds().contains(loc)) {
+			m_next->click();
+			m_nextPuzzleButton = false;
+		}
+}
+
+void PuzzleUI::setName(std::string name)
+{
+	m_name = name;
+}
+
+void PuzzleUI::needUndo()
+{
+	m_undoButton = true;
+}
+
+void PuzzleUI::needNext()
+{
+	m_nextPuzzleButton = true;
+}
+
+bool PuzzleUI::isUndo() const
+{
+	return !m_undoButton;
+}
+
+bool PuzzleUI::isNew() const
+{
+	return !m_nextPuzzleButton;
+}

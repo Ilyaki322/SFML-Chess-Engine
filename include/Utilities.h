@@ -54,6 +54,9 @@ struct Move
 enum Difficult {
 	FirstTime=400,Beginner=1000, Intermediate=1300, Hard=1600, Expert=1800
 };
+enum AIDifficult {
+	AIFirstTime = 1, AIBeginner = 2, AIIntermediate = 3, AIHard = 4, AIExpert = 5
+};
 const int NumOfPuzzleInLevel = 200;
 struct Stack {
 	int lastWKing;

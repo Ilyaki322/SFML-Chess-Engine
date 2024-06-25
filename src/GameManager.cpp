@@ -5,7 +5,7 @@
 #include <iostream> // debug
 
 GameManager::GameManager(bool whiteTurn, SFMLBoard& board, uiPtr ui)
-	: m_whiteTurn(whiteTurn), m_changeState(false), m_sfmlBoard(board), m_ui(std::move(ui))
+	: m_whiteTurn(whiteTurn), m_changeState(false), m_sfmlBoard(board), m_ui(ui)
 {
 	m_window.create(sf::VideoMode(ScreenSizeX, ScreenSizeY), "Game");
 	m_ui->initButtons(*this);

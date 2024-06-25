@@ -1,8 +1,8 @@
 #include "Controllers/AIController.h"
 #include<iostream> // DEBUG
 #include "NBoard.h"
-AIController::AIController(Color color)
-    :Controller(color), m_useBook(true), m_book(&m_Openingbook.getStart())
+AIController::AIController(Color color, AIDifficult difficult)
+    :Controller(color), m_useBook(true), m_book(&m_Openingbook.getStart()) , m_difficulty(difficult),m_depth(difficult)
 {
     srand(time(NULL));
 }
@@ -24,7 +24,7 @@ Move AIController::playTurn()
     }
 
     NBoard& ins = NBoard::instance();
-    depth = 3;
+    m_depth = m_difficulty;
     IGenerate generate;
     Move bestMove = { -1, -1 , -1, -1 ,PawnVal};
     int bestValue = (m_color == WHITE) ? std::numeric_limits<int>::min() : std::numeric_limits<int>::max();
@@ -32,7 +32,7 @@ Move AIController::playTurn()
     for (auto i : allMoves) {
         for (auto &move : i) {
             ins.move(move);
-            int boardValue = minimax(depth - 1, std::numeric_limits<int>::min(), std::numeric_limits<int>::max(), m_color == BLACK,ins);
+            int boardValue = minimax(m_depth - 1, std::numeric_limits<int>::min(), std::numeric_limits<int>::max(), m_color == BLACK,ins);
             ins.undo();
 
             if ((m_color == WHITE && boardValue > bestValue) || (m_color == BLACK && boardValue < bestValue)) {

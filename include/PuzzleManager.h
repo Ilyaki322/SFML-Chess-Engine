@@ -17,6 +17,7 @@ public:
 	Move getCurrMove()const;
 	void deleteCurrMove();
 	void loadNextPuzzle();
+	std::string getName()const;
 
 private:
 	Difficult m_difficult;

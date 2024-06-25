@@ -1,33 +1,36 @@
 #include "GameState/PuzzleGameState.h"
 #include "GameManager.h"
 #include "NBoard.h"
-PuzzleGameState::PuzzleGameState(Color color, PuzzleManager& puzzle, GameManager& manager)
-	:GameState(manager), m_computerTurn(true) , m_playerLastMove({0,0}) , m_puzzleManager(puzzle) 
+PuzzleGameState::PuzzleGameState(Color color, PuzzleManager& puzzle, GameManager& manager, uiPuzzlePtr ui)
+	:GameState(manager), m_computerTurn(true), m_playerLastMove({ 0,0 }),
+	m_puzzleManager(puzzle), m_ui(ui), m_waitingUndo(false), m_waitingNew(false)
 {
 	m_player = m_manager.getPlayer(0);
+	m_ui->setName(m_puzzleManager.getName());
 }
 
 void PuzzleGameState::execute()
 {
+	Move undoMove = { -1,-1 };
+	if (m_waitingUndo || m_waitingNew){
+		if (m_ui->isUndo())m_waitingUndo = false;
+		if(m_ui->isNew())m_waitingNew = false;
+		m_manager.nextTurn(undoMove);
+		m_manager.nextTurn(undoMove); //---- wtf!??!
+		return;
+	}
+
 	if (m_computerTurn) {
 		if (correctMove()) {
 			playComputerMove();
 			return;
 		}
-		//------start section for debug
-		std::cout << "try again\npress 'u' to undo\n";
-		char c;
-		std::cin >> c;
-		while(c!='u')
-			std::cin >> c;
-		//------end section for debug
-		NBoard::instance().undo();
-		Move undoMove = { -1,-1 };
+		m_ui->needUndo();
+		m_waitingUndo = true;
 		m_computerTurn = false;
 		m_manager.nextTurn(undoMove);
 	}
 	else if (m_player->turnReady()) {
-		std::cout << "here\n";
 		auto move = m_player->playTurn();
 		m_computerTurn = true;
 		m_playerLastMove = move;
@@ -52,16 +55,9 @@ bool PuzzleGameState::correctMove()
 void PuzzleGameState::playComputerMove()
 {
 	Move move = m_puzzleManager.getCurrMove();
-	std::cout << move.startSquare << ' ' << move.targetSquare << '\n';
 	if (move.startSquare == -1) {
-		//------section for debug
-		std::cout << "good job!!!\npress 'c' for naxt puzzle\n";
-		char c;
-		std::cin >> c;
-		while (c != 'c')
-			std::cin >> c;
-		//------end section for debug
-		m_puzzleManager.loadNextPuzzle();
+		m_ui->needNext();
+		m_waitingNew = true;
 		m_computerTurn = true;
 		m_playerLastMove = { 0,0 };
 		return;

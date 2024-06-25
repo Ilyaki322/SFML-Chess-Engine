@@ -7,7 +7,7 @@ class NBoard;
 class AIController : public Controller
 {
 public:
-	AIController(Color color = Black);
+	AIController(Color color = Black, AIDifficult difficult=AIHard);
 	Move playTurn() override;
 	bool turnReady() override;
 
@@ -15,7 +15,8 @@ private:
     Move playByBook();
 	int minimax(int depth, int alpha, int beta, bool maximizingPlayer, NBoard& ins);
 	int evaluateBoard();
-	int depth;
+	int m_depth;
+    AIDifficult m_difficulty;
 
     OpeningBook m_Openingbook;
     bool m_useBook;
