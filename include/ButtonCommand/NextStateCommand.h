@@ -6,10 +6,10 @@
 class NextStateCommand : public ButtonCommand
 {
 public:
-	NextStateCommand(StateMachine& machine, Menus nextState);
+	NextStateCommand(StateMachine& machine, std::string nextState);
 
 	void execute() override;
 
 private:
-	Menus m_nextState;
+	const std::string m_nextState;
 };

@@ -3,8 +3,8 @@
 
 #include <iostream>
 
-Menu::Menu(sf::RenderWindow& window, StateMachine& state, sf::Texture& texture)
-	:MenuState(window, state)
+Menu::Menu(sf::RenderWindow& window, StateMachine& state, sf::Texture& texture, std::string name)
+	:MenuState(window, state), m_name(name)
 {
 	m_menuSprite.setTexture(texture);
 	m_menuSprite.setScale(static_cast<float>(MENU_X) / texture.getSize().x, static_cast<float>(MENU_Y) / texture.getSize().y);
@@ -58,4 +58,9 @@ void Menu::handleMouseClick(sf::Event& event)
 void Menu::addButton(buttonPtr button)
 {
 	m_buttons.push_back(std::move(button));
+}
+
+std::string Menu::getName() const
+{
+	return m_name;
 }
