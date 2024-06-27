@@ -10,6 +10,8 @@ const int FirstRow = 8 , LastRow = 55;
 const int Moved = 32;
 const int BKingBegin = 4, WKingBegin = 60;
 
+const std::string NEW_GAME = "RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr";
+
 const int MENU_X = 750;
 const int MENU_Y = 628;
 

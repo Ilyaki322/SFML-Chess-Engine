@@ -15,7 +15,7 @@ PVPCommand::PVPCommand(StateMachine& stateMachine)
 
 void PVPCommand::execute()
 {
-	NBoard::instance().setBoard("RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr");
+	NBoard::instance().setBoard(NEW_GAME);
 	SFMLBoard board;
 	auto ui = std::make_unique<GameUI>(m_stateMachine);
 	

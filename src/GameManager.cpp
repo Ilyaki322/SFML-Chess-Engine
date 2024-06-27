@@ -1,6 +1,7 @@
 #include "GameManager.h"
 #include "Utilities.h"
 #include "NBoard.h"
+#include "GameState/PlayerXTurnState.h"
 
 #include <iostream> // debug
 
@@ -116,4 +117,12 @@ void GameManager::nextTurn(Move& move)
 		NBoard::instance().move(move);
 	m_sfmlBoard.updateBoard();
 	m_whiteTurn = !m_whiteTurn;
+}
+
+void GameManager::restartGame()
+{
+	m_whiteTurn = true;
+	NBoard::instance().setBoard(NEW_GAME);
+	m_sfmlBoard.updateBoard();
+	setState(std::make_unique<PlayerXTurnState>(*this, 0));
 }

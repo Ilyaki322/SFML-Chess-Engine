@@ -23,6 +23,8 @@ public:
 	void setState(gameStatePtr newState);
 	void nextTurn(Move &move);
 
+	void restartGame();
+
 	sf::RenderWindow& getWindow();
 	Controller* getPlayer(const int i);
 	int getNumOfPlayers() const;
