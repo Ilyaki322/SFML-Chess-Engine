@@ -9,9 +9,7 @@
 #include "ButtonCommand/PuzzleCommand.h"
 #include "Assets.h"
 
-
-
-
+/*
 ButtonFactory::ButtonFactory(StateMachine& stateMachine, sf::RenderWindow& window)
 	: m_stateMachine(stateMachine), m_window(window) {}
 
@@ -57,8 +55,9 @@ buttonPtr ButtonFactory::createButton(ButtonName name, sf::Vector2f size, sf::Ve
 		menu->addButton(createButton(FirstTimePuzzle, sf::Vector2f(190, 50), sf::Vector2f(361, 153)));
 		menu->addButton(createButton(BeginnerPuzzle, sf::Vector2f(190, 50), sf::Vector2f(361, 243)));
 		menu->addButton(createButton(IntermediatePuzzle, sf::Vector2f(190, 50), sf::Vector2f(361, 331)));
-		menu->addButton(createButton(ExpertPuzzle, sf::Vector2f(190, 50), sf::Vector2f(361, 500)));
 		menu->addButton(createButton(HardPuzzle, sf::Vector2f(190, 50), sf::Vector2f(361, 420)));
+		menu->addButton(createButton(ExpertPuzzle, sf::Vector2f(190, 50), sf::Vector2f(361, 500)));
+		
 
 		return std::make_unique<Button>(" ",
 			std::make_unique<NextStateCommand>(m_stateMachine,
@@ -104,4 +103,24 @@ buttonPtr ButtonFactory::createButton(ButtonName name, sf::Vector2f size, sf::Ve
 	default:
 		break;
 	}
+}
+*/
+
+buttonPtr ButtonFactory::createButton(ButtonName name, sf::Vector2f size, sf::Vector2f pos)
+{
+	auto it = getMap().find(name);
+	{
+		if (it == getMap().end())
+		{
+			return nullptr;
+		}
+
+		return it->second();
+	}
+}
+
+bool ButtonFactory::registerButton(const ButtonName name, std::unique_ptr<Button>(*f)())
+{
+	getMap().emplace(name, f);
+	return true;
 }

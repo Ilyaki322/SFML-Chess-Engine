@@ -10,9 +10,9 @@ MainMenuState::MainMenuState(sf::RenderWindow& window, StateMachine& state)
 	//m_buttons.push_back(std::make_unique<Button>("Exit", 
 		//sf::Vector2f(120, 50), sf::Vector2f((float)m_window.getSize().x / 2, 400)));
 
-	m_buttons.push_back(std::make_unique<Button>("Play",
+	/*m_buttons.push_back(std::make_unique<Button>("Play",
 		std::make_unique<NextStateCommand>(m_stateMachine, std::make_unique<PlayMenuState>(m_window, m_stateMachine)),
-		sf::Vector2f(120, 50), sf::Vector2f((float)m_window.getSize().x / 2, 100)));
+		sf::Vector2f(120, 50), sf::Vector2f((float)m_window.getSize().x / 2, 100)));*/
 
 	//m_buttons.push_back(std::make_unique<Button>("Replays", 
 		//sf::Vector2f(120, 50), sf::Vector2f((float)m_window.getSize().x / 2, 250)));

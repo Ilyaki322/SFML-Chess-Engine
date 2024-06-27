@@ -5,7 +5,11 @@
 class VBlackAICommand : public ButtonCommand
 {
 public:
-	VBlackAICommand(StateMachine &stateMachine):ButtonCommand(stateMachine) {};
+	VBlackAICommand(StateMachine& stateMachine, const int difficulty);
 
 	void execute() override;
+
+private:
+
+	const int m_difficulty;
 };

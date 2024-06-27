@@ -11,14 +11,14 @@ PlayMenuState::PlayMenuState(sf::RenderWindow& window, StateMachine& state)
 	m_menuSprite.setTexture(texture);
 	m_menuSprite.setScale(static_cast<float>(MENU_X) / texture.getSize().x, static_cast<float>(MENU_Y) / texture.getSize().y);
 
-	ButtonFactory theCreator(state, window);
+	/*ButtonFactory theCreator(state, window);
 
 	m_buttons.push_back(theCreator.createButton(VsPlayer, sf::Vector2f(270, 60), sf::Vector2f(186, 223)));
 	m_buttons.push_back(theCreator.createButton(Exit, sf::Vector2f(190, 50), sf::Vector2f(140, 572)));
 	m_buttons.push_back(theCreator.createButton(VsPlayer, sf::Vector2f(250, 60), sf::Vector2f(590, 181)));
 	m_buttons.push_back(theCreator.createButton(VsBlackAI, sf::Vector2f(250, 60), sf::Vector2f(198, 313)));
 	m_buttons.push_back(theCreator.createButton(VsWhiteAI, sf::Vector2f(250, 60), sf::Vector2f(585, 276)));
-	m_buttons.push_back(theCreator.createButton(Puzzles, sf::Vector2f(250, 60), sf::Vector2f(400, 400)));
+	m_buttons.push_back(theCreator.createButton(Puzzles, sf::Vector2f(250, 60), sf::Vector2f(400, 400)));*/
 
 }
 
