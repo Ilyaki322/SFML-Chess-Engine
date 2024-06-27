@@ -22,6 +22,7 @@ bool PlayerController::turnReady()
 Move PlayerController::playTurn()
 {
 	m_turnReady = false;
+	if (m_chosenMove.promotionVal != PawnVal) m_chosenMove.promotionVal = PlayerPromotion;
 	return m_chosenMove;
 }
 

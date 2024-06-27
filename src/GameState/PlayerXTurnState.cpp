@@ -13,7 +13,7 @@ void PlayerXTurnState::execute()
 	if (m_playerController->turnReady())
 	{
 		auto move = m_playerController->playTurn();
-		if (move.promotionVal != PawnVal)
+		if (move.promotionVal == PlayerPromotion)
 		{
 			Color color = m_playerNum == 0 ? White : Black;
 			m_manager.setState(std::make_unique<PlayerXPromotionState>(m_manager, color, m_playerNum, move));

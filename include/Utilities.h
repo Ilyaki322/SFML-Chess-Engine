@@ -35,7 +35,8 @@ enum Piece {
 	KnightVal = 3,
 	BishopVal = 4,
 	RookVal = 5,
-	QueenVal = 6
+	QueenVal = 6,
+	PlayerPromotion = 7
 };
 
 struct Move
