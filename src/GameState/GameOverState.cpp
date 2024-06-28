@@ -1,5 +1,6 @@
 #include "GameState/GameOverState.h"
 #include "GameManager.h"
+#include "IGenerate.h"
 
 GameOverState::GameOverState(GameManager& gameManager)
 	: GameState(gameManager)
@@ -11,7 +12,20 @@ GameOverState::GameOverState(GameManager& gameManager)
 
 void GameOverState::execute()
 {
-	return;
+	IGenerate generator;
+	Color color = m_manager.getTurn() ? White : Black;
+	if (generator.isMate(color)) {
+		m_manager.setEndUI(color == White ? BlackWon : WhiteWon);
+	}
+	else if (generator.isDraw(color)) {
+		m_manager.setEndUI(Draw);
+	}
+	//
+	// else {
+	//		nextState()....
+	//	}
+	//
+
 }
 
 void GameOverState::draw(float dt)

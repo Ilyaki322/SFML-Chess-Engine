@@ -1,14 +1,20 @@
 #include "UI/PuzzleUI.h"
 #include "ButtonCommand/UndoPuzzleCommand.h"
 #include "ButtonCommand/NextPuzzleCommand.h"
+#include "Assets.h"
 
 PuzzleUI::PuzzleUI(StateMachine& stateMachine, PuzzleManager& manager)
-	:PlayUI(stateMachine),m_undoButton(false),m_nextPuzzleButton(false),m_name("Puzzle"),m_manager(manager)
+	:PlayUI(stateMachine),m_undoButton(false),m_nextPuzzleButton(false),m_manager(manager)
 {
+	m_puzzleName.setFont(Assets::instance().getFont());
+	m_puzzleName.setPosition({ 1150, 500 });
+	m_puzzleName.setCharacterSize(50);
+	m_puzzleName.setString("Puzzle Time");
 }
 void PuzzleUI::draw(sf::RenderWindow& window)
 {
 	PlayUI::draw(window);
+	window.draw(m_puzzleName);
 	if (m_undoButton)
 		m_undo->draw(window);
 
@@ -45,7 +51,7 @@ void PuzzleUI::buttonClicked(const sf::Vector2f& loc)
 
 void PuzzleUI::setName(std::string name)
 {
-	m_name = name;
+	m_puzzleName.setString(name);
 }
 
 void PuzzleUI::needUndo()

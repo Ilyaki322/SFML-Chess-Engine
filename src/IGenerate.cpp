@@ -76,6 +76,12 @@ bool IGenerate::isDraw(int colorTurn)
 	auto board = ins.getBoard();
 	auto allMy = generateAll(colorTurn);
 	bool foundMove = false;
+	PieceLogic logic;
+	int king = ins.getKing(colorTurn);
+	std::vector<int> check;
+	if (!logic.check(king, check, colorTurn))return false;
+	if(check.size() != 0) return false;
+
 	//---No possible moves
 	for (auto piece : allMy) {
 		if (piece.size() != 0) {
@@ -121,7 +127,6 @@ bool IGenerate::isDraw(int colorTurn)
 	Color firstBishop = (board[bishops[0]] & White) > 0 ? White : Black;
 	Color secondBishop = (board[bishops[1]] & White) > 0 ? White : Black;
 	if (firstBishop == secondBishop)return false;
-	PieceLogic logic;
 	if (logic.BishopOnWhiteSquare(bishops[0]) && logic.BishopOnWhiteSquare(bishops[1]))return true;
 	if (!logic.BishopOnWhiteSquare(bishops[0]) && !logic.BishopOnWhiteSquare(bishops[1]))return true;
 

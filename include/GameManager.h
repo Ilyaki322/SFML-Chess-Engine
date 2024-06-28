@@ -28,6 +28,8 @@ public:
 	sf::RenderWindow& getWindow();
 	Controller* getPlayer(const int i);
 	int getNumOfPlayers() const;
+	bool getTurn()const;
+	void setEndUI(GameOver status);
 
 private:
 
@@ -46,6 +48,6 @@ private:
 	gameStatePtr m_currentState;
 	gameStatePtr m_nextState;
 	bool m_changeState;
-
+	GameOver m_gameOver;
 	SFMLBoard& m_sfmlBoard;
 };

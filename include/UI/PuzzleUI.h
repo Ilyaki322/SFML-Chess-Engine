@@ -20,8 +20,8 @@ public:
 private:
 	bool m_undoButton;
 	bool m_nextPuzzleButton;
-	std::string m_name;
 
+	sf::Text m_puzzleName;
 	buttonPtr m_undo;
 	buttonPtr m_next;
 	PuzzleManager& m_manager;

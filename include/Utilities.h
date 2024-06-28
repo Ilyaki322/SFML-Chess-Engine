@@ -54,6 +54,9 @@ struct Move
 	Piece promotionVal = PawnVal;
 	
 };
+enum GameOver {
+	False ,Draw , WhiteWon , BlackWon
+};
 enum Difficult {
 	FirstTime=400,Beginner=1000, Intermediate=1300, Hard=1600, Expert=1800
 };

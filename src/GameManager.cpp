@@ -6,7 +6,7 @@
 #include <iostream> // debug
 
 GameManager::GameManager(bool whiteTurn, SFMLBoard& board, uiPtr ui)
-	: m_whiteTurn(whiteTurn), m_changeState(false), m_sfmlBoard(board), m_ui(ui)
+	: m_whiteTurn(whiteTurn), m_changeState(false), m_sfmlBoard(board), m_ui(ui), m_gameOver(False)
 {
 	m_window.create(sf::VideoMode(ScreenSizeX, ScreenSizeY), "Game");
 	m_ui->initButtons(*this);
@@ -95,6 +95,19 @@ Controller* GameManager::getPlayer(const int i)
 int GameManager::getNumOfPlayers() const
 {
 	return int(m_players.size());
+}
+
+bool GameManager::getTurn() const
+{
+	return m_whiteTurn;
+}
+
+void GameManager::setEndUI(GameOver status)
+{
+	m_gameOver = status;
+	//
+	// 
+	//
 }
 
 void GameManager::setState(gameStatePtr newState)
