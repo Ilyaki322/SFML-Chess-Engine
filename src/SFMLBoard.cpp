@@ -86,20 +86,3 @@ void SFMLBoard::resetTileColors()
 		i->resetColor();
 	}
 }
-
-//void SFMLBoard::makeMove(Move move)
-//{
-//	m_BoardRef.move(move);
-//
-//	m_tiles[move.targetSquare]->placePiece(m_tiles[move.startSquare]->getPiece());
-//	m_tiles[move.startSquare]->placePiece(nullptr);
-//
-//	if (move.specialStartSquare == -1)
-//	{
-//		return;
-//	}
-//
-//	m_tiles[move.specialTargetSquare]->placePiece(m_tiles[move.specialStartSquare]->getPiece());
-//	m_tiles[move.specialStartSquare]->placePiece(nullptr);
-//	
-//}

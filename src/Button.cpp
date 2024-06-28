@@ -8,7 +8,7 @@ Button::Button(std::string text, commandPtr command,
 {
 	m_box.setOrigin(m_box.getGlobalBounds().width / 2, m_box.getGlobalBounds().height / 2 - 5);
 	m_box.setPosition(pos);
-	m_box.setFillColor(sf::Color(125, 125, 125, 200));
+	m_box.setFillColor(sf::Color(125, 125, 125, 255));
 
 	m_text.setString(text);
 	m_text.setFont(Assets::instance().getFont());
@@ -22,7 +22,7 @@ Button::Button(commandPtr command, sf::Vector2f size, sf::Vector2f pos)
 {
 	m_box.setOrigin(m_box.getGlobalBounds().width / 2, m_box.getGlobalBounds().height / 2 - 5);
 	m_box.setPosition(pos);
-	m_box.setFillColor(sf::Color(125, 125, 125, 200));
+	m_box.setFillColor(sf::Color(125, 125, 125, 0));
 
 	m_text.setString(" ");
 	m_text.setFont(Assets::instance().getFont());

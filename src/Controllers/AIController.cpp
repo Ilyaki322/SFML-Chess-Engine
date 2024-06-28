@@ -29,7 +29,7 @@ Move AIController::playTurn()
     Move bestMove = { -1, -1 , -1, -1 ,PawnVal};
     int bestValue = (m_color == WHITE) ? std::numeric_limits<int>::min() : std::numeric_limits<int>::max();
     std::vector<std::vector<Move>> allMoves = generate.generateAll(m_color);
-    for (auto i : allMoves) {
+    for (const auto &i : allMoves) {
         for (auto &move : i) {
             ins.move(move);
             int boardValue = minimax(m_depth - 1, std::numeric_limits<int>::min(), std::numeric_limits<int>::max(), m_color == BLACK,ins);
@@ -46,7 +46,7 @@ Move AIController::playTurn()
 
 bool AIController::isGameOver(std::vector<std::vector<Move>> all)
 {
-    for (auto i : all) 
+    for (const auto &i : all) 
         if (!i.empty())return false;
     return true;
 }

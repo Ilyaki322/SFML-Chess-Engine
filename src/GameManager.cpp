@@ -2,6 +2,7 @@
 #include "Utilities.h"
 #include "NBoard.h"
 #include "GameState/PlayerXTurnState.h"
+#include "GameState/ReviewState.h"
 
 #include <iostream> // debug
 
@@ -24,6 +25,7 @@ void GameManager::setStartState(gameStatePtr start)
 
 void GameManager::update()
 {
+	m_sfmlBoard.resetTileColors();
 	sf::Clock deltaClock;
 	float dt;
 
@@ -64,10 +66,10 @@ void GameManager::handleEvents()
 		{
 			auto location = m_window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
 			m_ui->buttonClicked(location);
-			[[fallthrough]];
+			notify(event);
+			break;
 		}
 		default:
-			notify(event);
 			break;
 		}
 	}
@@ -131,8 +133,10 @@ uiPtr GameManager::getUI() const
 
 void GameManager::restartGame()
 {
+	NBoard::instance().saveGame();
 	m_whiteTurn = true;
 	NBoard::instance().setBoard(NEW_GAME);
 	m_sfmlBoard.updateBoard();
+	m_sfmlBoard.resetTileColors();
 	setState(std::make_unique<PlayerXTurnState>(*this, 0));
 }

@@ -64,12 +64,25 @@ enum AIDifficult {
 	AIFirstTime = 1, AIBeginner = 2, AIIntermediate = 3, AIHard = 4, AIExpert = 5
 };
 const int NumOfPuzzleInLevel = 200;
+
 struct Stack {
 	int lastWKing;
 	int lastBKing;
 	int enPassant;
 	std::array<int, 64> backUpm_board;
 };
+struct MoveLog
+{
+	int lastWKing;
+	int lastBKing;
+	int enPassant;
+	Move lastMove;
+	int startPiece;
+	int targetPiece;
+	int specialTargetPiece = -1;
+	int specialStartPiece = -1;
+};
+
 struct PuzzleStruct {
 	std::string board;
 	std::string name;

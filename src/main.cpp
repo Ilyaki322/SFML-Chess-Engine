@@ -4,20 +4,25 @@
 #include "MainMenu/StateMachine.h"
 
 #include <iostream>
+#include <UI/GameUI.h>
+#include <memory>
+#include "GameState/ReviewState.h"
 
 int main()
 {
 	srand(time(nullptr));
-	//FenAlgorithm fen;
-	//NBoard& inst = NBoard::instance();
-	//std::array<int, SIZE> arr;
-	//fen.setBoard(arr, "RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr");
-	////fen.setBoard(arr, "RNBQ1K1RPP1pBPPP2P582b58ppp1nNpprnbqk2r");
-	//inst.setBoard(arr);/// To change
-	//GameManager game;
-	//game.update();
 
 	StateMachine game;
-	game.update();
+	NBoard::instance().setBoard(NEW_GAME);
+	SFMLBoard board;
+	auto ui = std::make_unique<GameUI>(game);
+
+	GameManager manager(true, board, std::move(ui));
+	manager.setStartState(std::make_unique<ReviewState>(manager, 0));
+
+	manager.update();
+
+	/*StateMachine game;
+	game.update();*/
 
 }

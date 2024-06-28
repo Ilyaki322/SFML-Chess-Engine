@@ -1,6 +1,7 @@
 #include "ButtonCommand/BackToMenuCommand.h"
 #include "GameManager.h"
 #include "MainMenu/StateMachine.h"
+#include "NBoard.h"
 BackToMenuCommand::BackToMenuCommand(StateMachine& stateMachine,GameManager &manager)
 	: ButtonCommand(stateMachine), m_manager(manager) {}
 

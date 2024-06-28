@@ -36,6 +36,8 @@ NBoard& NBoard::instance()
 
 void NBoard::setBoard(std::string fen)
 {
+	//m_stack.clean();
+	m_stack.clear();
 	FenAlgorithm fenAlgo;
 	fenAlgo.setBoard(m_board, fen);
 
@@ -59,7 +61,8 @@ void NBoard::setBoard(std::string fen)
 
 void NBoard::move(Move move)
 {
-	m_stack.insert(m_board, m_WKing, m_BKing, m_passant);
+	//m_stack.insert(m_board, m_WKing, m_BKing, m_passant);
+	m_stack.insert(move, m_WKing, m_BKing, m_passant);
 	m_lastMove = move;
 
 	int color = (m_board[move.startSquare] & WHITE) > 0 ? WHITE : BLACK;
@@ -93,13 +96,30 @@ void NBoard::move(Move move)
 	m_passant = -1;
 }
 
+//void NBoard::undo()
+//{
+//	Stack s =  m_stack.LastMove();
+//	m_board = s.backUpm_board;
+//	m_BKing = s.lastBKing;
+//	m_WKing = s.lastWKing;
+//	m_passant = s.enPassant;
+//}
 void NBoard::undo()
 {
-	Stack s =  m_stack.LastMove();
-	m_board = s.backUpm_board;
-	m_BKing = s.lastBKing;
-	m_WKing = s.lastWKing;
-	m_passant = s.enPassant;
+	MoveLog last = m_stack.lastMove();
+	m_BKing = last.lastBKing;
+	m_WKing = last.lastWKing;
+	m_passant = last.enPassant;
+
+	if (last.lastMove.specialStartSquare != -1)
+	{
+		m_board[last.lastMove.specialStartSquare] = last.specialStartPiece;
+		m_board[last.lastMove.specialTargetSquare] = last.specialTargetPiece;
+	}
+
+	m_board[last.lastMove.startSquare] = last.startPiece;
+	m_board[last.lastMove.targetSquare] = last.targetPiece;
+	
 }
 
 int NBoard::getPiece(int x)const
@@ -126,4 +146,10 @@ std::array<int, SIZE>& NBoard::getBoard()
 Move NBoard::getLastMove() const
 {
 	return m_lastMove;
+}
+
+void NBoard::saveGame()
+{
+	m_stack.saveToFile();
+	m_stack.clear();
 }
