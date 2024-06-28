@@ -1,29 +1,27 @@
 #pragma once
-#include "MainMenu/MenuState.h"
+#include "MainMenu/Menu.h"
 #include "SFML/Graphics.hpp"
 #include "Button.h"
 
 #include <memory>
-#include <array>
+#include <vector>
 
 class StateMachine;
 
 typedef std::unique_ptr<Button> buttonPtr;
 
-class HistoryState : public MenuState
+class HistoryState : public Menu
 {
 public:
-	HistoryState(sf::RenderWindow& window, StateMachine& stateMachine);
+	HistoryState(sf::RenderWindow& window, StateMachine& stateMachine, sf::Texture& texture, std::string name);
 
 	void draw() override;
-	void handleEvents() override;
 
 private:
 	void handleMouseClick(sf::Event& event) override;
 
-	buttonPtr m_exit;
-	buttonPtr m_scrollDown;
-	buttonPtr m_scrollUp;
-	std::array<buttonPtr, 10> m_games;
+	void load10Games();
 
+	std::vector<buttonPtr> m_games;
+	int m_index;
 };

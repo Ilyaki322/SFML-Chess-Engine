@@ -1,5 +1,6 @@
 #include "MenuFactory/GameHistoryCreator.h"
 #include "MenuFactory/MenuFactory.h"
+#include "MainMenu/HistoryState.h"
 #include "Assets.h"
 
 #include "ButtonCommand/ExitCommand.h"
@@ -8,7 +9,7 @@ std::shared_ptr<Menu> GameHistoryCreator::createMenu(sf::RenderWindow& window, S
 {
 	m_window = &window;
 	m_stateMachine = &stateMachine;
-	return std::make_shared<Menu>(window, stateMachine, Assets::instance().getMenu('h'), "GameHistory");
+	return std::make_shared<HistoryState>(window, stateMachine, Assets::instance().getMenu('h'), "GameHistory");
 }
 
 void GameHistoryCreator::addButtons(std::shared_ptr<Menu> menu)

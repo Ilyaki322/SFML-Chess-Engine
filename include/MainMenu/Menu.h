@@ -15,7 +15,7 @@ public:
 	Menu(sf::RenderWindow& window, StateMachine& state, sf::Texture& texture, std::string name = " ");
 	virtual ~Menu() {};
 
-	void draw() override;
+	virtual void draw() override;
 	void handleEvents() override;
 
 	void addButton(buttonPtr button);
@@ -23,9 +23,11 @@ public:
 
 private:
 
-	void handleMouseClick(sf::Event& event) override;
-
 	std::vector<buttonPtr> m_buttons;
 	sf::Sprite m_menuSprite;
 	const std::string m_name;
+
+protected:
+
+	virtual void handleMouseClick(sf::Event& event) override;
 };

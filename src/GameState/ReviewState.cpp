@@ -60,8 +60,10 @@ void ReviewState::loadGame(const int num)
 	for (int i = 0; i < num; i++)
 	{
 		std::getline(games, line);
+		std::getline(games, line);
 	}
 
+	std::getline(games, line);
 	std::getline(games, line);
 	std::istringstream s(line);
 

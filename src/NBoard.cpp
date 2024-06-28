@@ -150,5 +150,5 @@ Move NBoard::getLastMove() const
 void NBoard::saveGame()
 {
 	m_stack.saveToFile();
-	//m_stack.clear("");
+	m_stack.clear("");
 }
