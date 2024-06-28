@@ -18,6 +18,7 @@ public:
 	std::array<int, SIZE> &getBoard();
 
 	Move getLastMove() const;
+	void saveGame();
 
 private:
 	NBoard();

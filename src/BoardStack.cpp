@@ -1,28 +1,78 @@
 #include "BoardStack.h"
+#include "NBoard.h"
 
-BoardStack::BoardStack()
+#include <fstream>
+#include <string>
+
+//void BoardStack::insert(std::array<int, SIZE> arr, int whiteKing, int blackKing, int enPassant)
+//{
+//	Stack s = { 0 };
+//	s.backUpm_board = arr;
+//	s.lastBKing = blackKing;
+//	s.lastWKing = whiteKing;
+//	s.enPassant = enPassant;
+//
+//	m_stack.push_back(s);
+//}
+//
+//void BoardStack::clean()
+//{
+//	m_stack.clear();
+//}
+//
+//Stack BoardStack::LastMove()
+//{
+//	auto back = m_stack.back();
+//	m_stack.pop_back();
+//	return back;
+//}
+//
+//std::list<Stack> BoardStack::allMoves()
+//{
+//	return m_stack ;
+//}
+
+void BoardStack::insert(Move move, int whiteKing, int blackKing, int enPassant)
 {
+	MoveLog log;
+	log.enPassant = enPassant;
+	log.lastBKing = blackKing;
+	log.lastWKing = whiteKing;
+	log.lastMove = move;
+
+	log.targetPiece = NBoard::instance().getPiece(move.targetSquare);
+	log.startPiece = NBoard::instance().getPiece(move.startSquare);
+
+	if (move.specialStartSquare != -1)
+	{
+		log.specialTargetPiece = NBoard::instance().getPiece(move.specialTargetSquare);
+		log.specialStartPiece = NBoard::instance().getPiece(move.specialStartSquare);
+	}
+	
+	m_moves.emplace_back(log);
 }
 
-void BoardStack::insert(std::array<int, SIZE> arr, int whiteKing, int blackKing, int enPassant)
+void BoardStack::clear()
 {
-	Stack s;
-	s.backUpm_board = arr;
-	s.lastBKing = blackKing;
-	s.lastWKing = whiteKing;
-	s.enPassant = enPassant;
-
-	m_stack.push_back(s);
+	m_moves.clear();
 }
 
-Stack BoardStack::LastMove()
+MoveLog BoardStack::lastMove()
 {
-	auto back = m_stack.back();
-	m_stack.pop_back();
+	MoveLog back = m_moves.back();
+	m_moves.pop_back();
 	return back;
 }
 
-std::list<Stack> BoardStack::allMoves()
+void BoardStack::saveToFile()
 {
-	return m_stack ;
+	std::ofstream History("GameHistory.txt");
+
+	for (const auto& i : m_moves)
+	{
+		History << i.lastMove.promotionVal << " " << i.lastMove.specialStartSquare << " ";
+		History << i.lastMove.specialTargetSquare << " " << i.lastMove.startSquare << " " << i.lastMove.targetSquare << " ";
+	}
+
+	History << std::endl;
 }

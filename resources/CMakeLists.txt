@@ -18,6 +18,7 @@ configure_file ("capture.wav" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("move.wav" ${CMAKE_BINARY_DIR} COPYONLY)
 
 configure_file ("games_base.txt" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("GameHistory.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 
 configure_file ("MainMenu.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("PlayMenu.jpg" ${CMAKE_BINARY_DIR} COPYONLY)

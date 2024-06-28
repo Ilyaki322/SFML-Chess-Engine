@@ -20,6 +20,7 @@ void PlayerXTurnState::execute()
 	{
 		m_manager.restartGame();
 		return;
+
 		m_manager.setState(std::make_unique<GameOverState>(m_manager));
 		return;
 	}
