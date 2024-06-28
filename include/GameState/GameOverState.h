@@ -15,7 +15,6 @@ public:
 
 private:
 	GameOver m_status;
-	sf::RectangleShape m_gameOverBox;
-
+	sf::Sprite m_winner;
 	bool m_once;
 };

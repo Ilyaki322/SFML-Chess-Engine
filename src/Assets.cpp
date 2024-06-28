@@ -27,6 +27,33 @@ Assets::Assets()
 	m_capture.loadFromFile("capture.wav");
 	m_move.loadFromFile("move.wav");
 
+
+	m_blackplayer.loadFromFile("blackplayer.png");
+	m_blackwon.loadFromFile("blackwon.png");
+	m_draw.loadFromFile("draw.png");
+	m_magnus.loadFromFile("magnus.png");
+	m_next.loadFromFile("next.png");
+	m_prev.loadFromFile("prev.png");
+	m_rematch.loadFromFile("rematch.png");
+	m_review.loadFromFile("review.png");
+	m_undo.loadFromFile("undo.png");
+	m_whiteplayer.loadFromFile("whiteplayer.png");
+	m_whitewon.loadFromFile("whitewon.png");
+
+	m_UIMap["blackplayer"] = m_blackplayer;
+	m_UIMap["blackwon"] = m_blackwon;
+	m_UIMap["draw"] =  m_draw;
+	m_UIMap["magnus"] =m_magnus;
+	m_UIMap["next"] = m_next;
+	m_UIMap["prev"] = m_prev;
+	m_UIMap["rematch"] = m_rematch;
+	m_UIMap["review"] =m_review;
+	m_UIMap["undo"] = m_undo;
+	m_UIMap["whiteplayer"] = m_whiteplayer;
+	m_UIMap["whitewon"] = m_whitewon;
+
+
+
 	m_mainMenu.loadFromFile("MainMenu.jpg");
 	m_playMenu.loadFromFile("PlayMenu.jpg");
 	m_puzzleMenu.loadFromFile("PuzzleMenu.jpg");
@@ -76,6 +103,11 @@ sf::Texture& Assets::getTexture(const char c)
 	}
 
 	// add exception here?
+}
+
+sf::Texture& Assets::getUITexture(const std::string name)
+{
+	return m_UIMap[name];
 }
 
 sf::Texture& Assets::getMenu(const char c)

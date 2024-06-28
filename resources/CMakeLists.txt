@@ -14,6 +14,20 @@ configure_file ("WPawn.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("game_status.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("PuzzleWhite.txt" ${CMAKE_BINARY_DIR} COPYONLY)
 
+configure_file ("blackplayer.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("blackwon.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("draw.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("magnus.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("next.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("prev.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("rematch.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("review.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("undo.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("whiteplayer.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("whitewon.png" ${CMAKE_BINARY_DIR} COPYONLY)
+
+
+
 configure_file ("capture.wav" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("move.wav" ${CMAKE_BINARY_DIR} COPYONLY)
 

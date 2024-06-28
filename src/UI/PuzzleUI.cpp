@@ -6,6 +6,9 @@
 PuzzleUI::PuzzleUI(StateMachine& stateMachine, PuzzleManager& manager)
 	:PlayUI(stateMachine),m_undoButton(false),m_nextPuzzleButton(false),m_manager(manager)
 {
+	m_undoPic.setTexture(Assets::instance().getUITexture("undo"));
+	m_undoPic.setPosition(1100, 80);
+	m_undoPic.setColor(sf::Color(0, 0,0,100));
 	m_puzzleName.setFont(Assets::instance().getFont());
 	m_puzzleName.setPosition({ 800, 370 });
 	m_puzzleName.setCharacterSize(30);
@@ -13,7 +16,9 @@ PuzzleUI::PuzzleUI(StateMachine& stateMachine, PuzzleManager& manager)
 }
 void PuzzleUI::draw(sf::RenderWindow& window)
 {
+
 	PlayUI::draw(window);
+	window.draw(m_undoPic);
 	window.draw(m_puzzleName);
 	if (m_undoButton)
 		m_undo->draw(window);
@@ -24,13 +29,17 @@ void PuzzleUI::draw(sf::RenderWindow& window)
 
 void PuzzleUI::initButtons(GameManager& manager)
 {
+	newBackground = false;
+	sf::Sprite pic;
+	pic.setTexture(Assets::instance().getUITexture("undo"));
 	PlayUI::initButtons(manager);
-	m_undo=(std::make_unique<Button>("Undo",
+	m_undo=(std::make_unique<Button>(pic,
 		std::make_unique<UndoPuzzleCommand>(m_stateMachine, *this),
-		sf::Vector2f(250, 150), sf::Vector2f(1150, 120)));
-	m_next = (std::make_unique<Button>("Next Puzzle",
+		sf::Vector2f(1100, 80)));
+	pic.setTexture(Assets::instance().getUITexture("next"));
+	m_next = (std::make_unique<Button>(pic,
 		std::make_unique<NextPuzzleCommand>(m_stateMachine, m_manager),
-		sf::Vector2f(250, 150), sf::Vector2f(1150, 720)));
+		sf::Vector2f(1100, 620)));
 }
 
 void PuzzleUI::buttonClicked(const sf::Vector2f& loc)

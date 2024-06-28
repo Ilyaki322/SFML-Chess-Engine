@@ -16,7 +16,7 @@ public:
 	virtual void buttonClicked(const sf::Vector2f& loc);
 
 	virtual void draw(sf::RenderWindow &window) = 0 {
-		window.draw(m_backGround);
+		if(!newBackground) window.draw(m_backGround);
 		for (const auto &i : m_button) {
 			i->draw(window);
 		}
@@ -32,6 +32,7 @@ private:
 	sf::Sprite m_backGround;
 
 protected:
+	bool newBackground;
 	std::vector<buttonPtr> m_button;
 	StateMachine& m_stateMachine;
 };

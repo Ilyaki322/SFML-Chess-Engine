@@ -27,4 +27,6 @@ private:
 	buttonPtr m_prev;
 	int m_currMove;
 
+	bool m_once;
+
 };

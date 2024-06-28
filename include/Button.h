@@ -12,6 +12,7 @@ class Button
 public:
 	Button(std::string text, commandPtr command, sf::Vector2f size, sf::Vector2f pos);
 	Button(commandPtr command, sf::Vector2f size, sf::Vector2f pos);
+	Button(sf::Sprite &pic, commandPtr command, sf::Vector2f pos);
 
 	sf::FloatRect getGlobalBounds();
 
@@ -19,9 +20,9 @@ public:
 	void click();
 
 private:
-
+	bool m_pic;
 	sf::Text m_text;
 	sf::RectangleShape m_box;
-
+	sf::Sprite m_sprite;
 	commandPtr m_command;
 };

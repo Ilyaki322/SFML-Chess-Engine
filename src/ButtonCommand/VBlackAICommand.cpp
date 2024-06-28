@@ -14,7 +14,13 @@ void VBlackAICommand::execute()
 {
 	NBoard::instance().setBoard("RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr", "Player Vs AI");
 	SFMLBoard board;
-	auto ui = std::make_unique<GameUI>(m_stateMachine);
+
+	sf::Sprite pic1, pic2;
+
+	pic1.setTexture(Assets::instance().getUITexture("whiteplayer"));
+	pic2.setTexture(Assets::instance().getUITexture("magnus"));
+
+	auto ui = std::make_unique<GameUI>(m_stateMachine,pic1,pic2);
 	GameManager manager(true, board, std::move(ui));
 	manager.addPlayer(std::make_unique<PlayerController>(manager, manager.getWindow(), White, board));
 	manager.addPlayer(std::make_unique<AIController>(Black, AIDifficult(m_difficulty)));

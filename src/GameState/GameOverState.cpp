@@ -1,17 +1,24 @@
 #include "GameState/GameOverState.h"
 #include "GameManager.h"
 #include "NBoard.h"
+#include "Assets.h"
 
 GameOverState::GameOverState(GameManager& gameManager, GameOver status)
 	: GameState(gameManager),m_status(status),m_once(true)
 {
-	//
-	// download the relevant end pic from Assets
-	//
-	m_gameOverBox.setSize(sf::Vector2f(100, 100));
-	m_gameOverBox.setPosition(300, 300);
-	m_gameOverBox.setFillColor(sf::Color::Black);
-	
+	switch (status)
+	{
+	case Draw:
+		m_winner.setTexture(Assets::instance().getUITexture("draw"));
+		break;
+	case WhiteWon:
+		m_winner.setTexture(Assets::instance().getUITexture("whitewon"));
+		break;
+	case BlackWon:
+		m_winner.setTexture(Assets::instance().getUITexture("blackwon"));
+		break;
+	}
+	m_winner.setPosition({ 768, 0 });
 }
 
 void GameOverState::execute()
@@ -24,5 +31,5 @@ void GameOverState::execute()
 
 void GameOverState::draw(float dt)
 {
-	m_manager.getWindow().draw(m_gameOverBox);
+	m_manager.getWindow().draw(m_winner);
 }

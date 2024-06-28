@@ -5,7 +5,7 @@
 #include "GameManager.h"
 #include "SFMLBoard.h"
 #include "UI/GameUI.h"
-
+#include "Assets.h"
 #include <memory>
 
 PVPCommand::PVPCommand(StateMachine& stateMachine)
@@ -17,7 +17,13 @@ void PVPCommand::execute()
 {
 	NBoard::instance().setBoard(NEW_GAME, "Player VS Player");
 	SFMLBoard board;
-	auto ui = std::make_shared<GameUI>(m_stateMachine);
+
+	sf::Sprite pic1, pic2;
+
+	pic1.setTexture(Assets::instance().getUITexture("whiteplayer"));
+	pic2.setTexture(Assets::instance().getUITexture("blackplayer"));
+
+	auto ui = std::make_shared<GameUI>(m_stateMachine,pic1,pic2);
 	
 	GameManager manager(true, board, ui);
 	manager.addPlayer(std::make_unique<PlayerController>(manager, manager.getWindow(), White, board));
