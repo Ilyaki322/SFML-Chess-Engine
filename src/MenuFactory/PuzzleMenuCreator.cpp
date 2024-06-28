@@ -8,7 +8,7 @@ std::shared_ptr<Menu> PuzzleMenuCreator::createMenu(sf::RenderWindow& window, St
 {
 	m_window = &window;
 	m_stateMachine = &stateMachine;
-	return std::make_shared<Menu>(window, stateMachine, Assets::instance().getMenu('z'), "BlackAI");
+	return std::make_shared<Menu>(window, stateMachine, Assets::instance().getMenu('z'), "Puzzle");
 }
 
 void PuzzleMenuCreator::addButtons(std::shared_ptr<Menu> menu)

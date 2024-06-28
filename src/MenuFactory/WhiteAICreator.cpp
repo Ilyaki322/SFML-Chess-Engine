@@ -8,7 +8,7 @@ std::shared_ptr<Menu> WhiteAICreator::createMenu(sf::RenderWindow& window, State
 {
 	m_window = &window;
 	m_stateMachine = &stateMachine;
-	return std::make_shared<Menu>(window, stateMachine, Assets::instance().getMenu('z'), "BlackAI");
+	return std::make_shared<Menu>(window, stateMachine, Assets::instance().getMenu('z'), "WhiteAI");
 }
 
 void WhiteAICreator::addButtons(std::shared_ptr<Menu> menu)
