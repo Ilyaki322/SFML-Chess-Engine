@@ -7,8 +7,8 @@ PuzzleUI::PuzzleUI(StateMachine& stateMachine, PuzzleManager& manager)
 	:PlayUI(stateMachine),m_undoButton(false),m_nextPuzzleButton(false),m_manager(manager)
 {
 	m_puzzleName.setFont(Assets::instance().getFont());
-	m_puzzleName.setPosition({ 1150, 500 });
-	m_puzzleName.setCharacterSize(50);
+	m_puzzleName.setPosition({ 800, 370 });
+	m_puzzleName.setCharacterSize(30);
 	m_puzzleName.setString("Puzzle Time");
 }
 void PuzzleUI::draw(sf::RenderWindow& window)
@@ -45,6 +45,7 @@ void PuzzleUI::buttonClicked(const sf::Vector2f& loc)
 	if (m_nextPuzzleButton)
 		if (m_next->getGlobalBounds().contains(loc)) {
 			m_next->click();
+			m_puzzleName.setString(m_manager.getName());
 			m_nextPuzzleButton = false;
 		}
 }

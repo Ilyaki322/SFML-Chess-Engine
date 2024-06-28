@@ -6,7 +6,7 @@
 #include <iostream> // debug
 
 GameManager::GameManager(bool whiteTurn, SFMLBoard& board, uiPtr ui)
-	: m_whiteTurn(whiteTurn), m_changeState(false), m_sfmlBoard(board), m_ui(ui), m_gameOver(False)
+	: m_whiteTurn(whiteTurn), m_changeState(false), m_sfmlBoard(board), m_ui(ui)
 {
 	m_window.create(sf::VideoMode(ScreenSizeX, ScreenSizeY), "Game");
 	m_ui->initButtons(*this);
@@ -45,8 +45,8 @@ void GameManager::draw(float dt)
 {
 	m_window.clear(sf::Color(125, 125, 125, 255));
 	m_sfmlBoard.draw(m_window);
-	m_currentState->draw(dt);
 	m_ui->draw(m_window);
+	m_currentState->draw(dt);
 	m_window.display();
 }
 
@@ -102,14 +102,6 @@ bool GameManager::getTurn() const
 	return m_whiteTurn;
 }
 
-void GameManager::setEndUI(GameOver status)
-{
-	m_gameOver = status;
-	//
-	// 
-	//
-}
-
 void GameManager::setState(gameStatePtr newState)
 {
 	m_nextState = std::move(newState);
@@ -130,6 +122,11 @@ void GameManager::nextTurn(Move& move)
 		NBoard::instance().move(move);
 	m_sfmlBoard.updateBoard();
 	m_whiteTurn = !m_whiteTurn;
+}
+
+uiPtr GameManager::getUI() const
+{
+	return m_ui;
 }
 
 void GameManager::restartGame()

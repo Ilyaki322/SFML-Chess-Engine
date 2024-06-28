@@ -98,6 +98,7 @@ bool IGenerate::isDraw(int colorTurn)
 
 	for (int i = 0; i < SIZE; i++){
 		int piece = board[i] & 0b111;
+		if(piece!=0)count++;
 		switch (piece) {
 		case KnightVal: {
 			knights++;
@@ -105,10 +106,6 @@ bool IGenerate::isDraw(int colorTurn)
 		}
 		case BishopVal: {
 			bishops.push_back(i);
-			break;
-		}
-		default: {
-			count++;
 			break;
 		}
 		}

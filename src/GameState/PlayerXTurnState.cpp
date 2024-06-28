@@ -16,11 +16,12 @@ void PlayerXTurnState::execute()
 	IGenerate generator;
 	Color color = m_playerNum == 0 ? White : Black;
 
-	if (generator.isMate(color)) // the loser announces the lose.
-	{
-		m_manager.restartGame();
+	if (generator.isMate(color)) {// the loser announces the lose.
+		m_manager.setState(std::make_unique<GameOverState>(m_manager,color == White? BlackWon : WhiteWon));
 		return;
-		m_manager.setState(std::make_unique<GameOverState>(m_manager));
+	}
+	if (generator.isDraw(color)) {
+		m_manager.setState(std::make_unique<GameOverState>(m_manager,Draw));
 		return;
 	}
 
