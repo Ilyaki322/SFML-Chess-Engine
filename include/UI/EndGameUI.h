@@ -2,15 +2,14 @@
 #include "PlayUI.h"
 #include <memory>
 
-
-class GameUI : public PlayUI
+class EndGameUI : public PlayUI
 {
 public:
-	GameUI(StateMachine& stateMachine);
+	EndGameUI(StateMachine& stateMachine);
 	void draw(sf::RenderWindow& window) override;
 	void initButtons(GameManager& manager) override;
 	virtual void buttonClicked(const sf::Vector2f& loc)override;
-	
+
 private:
 
 };

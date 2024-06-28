@@ -7,10 +7,11 @@
 #include <iostream> // debug
 
 GameManager::GameManager(bool whiteTurn, SFMLBoard& board, uiPtr ui)
-	: m_whiteTurn(whiteTurn), m_changeState(false), m_sfmlBoard(board), m_ui(ui)
+	: m_whiteTurn(whiteTurn), m_changeState(false), m_sfmlBoard(board), m_ui(ui), m_changeUI(false)
 {
 	m_window.create(sf::VideoMode(ScreenSizeX, ScreenSizeY), "Game");
 	m_ui->initButtons(*this);
+	m_prevUI = m_ui;
 }
 
 void GameManager::addPlayer(controllerPtr p)
@@ -73,6 +74,10 @@ void GameManager::handleEvents()
 			break;
 		}
 	}
+	if (m_changeUI) {
+		setUI();
+	}
+		
 }
 
 void GameManager::notify(sf::Event& event)
@@ -104,6 +109,11 @@ bool GameManager::getTurn() const
 	return m_whiteTurn;
 }
 
+StateMachine& GameManager::getStateMachine() const
+{
+	return m_ui->getStateMachine();
+}
+
 void GameManager::setState(gameStatePtr newState)
 {
 	m_nextState = std::move(newState);
@@ -128,13 +138,23 @@ void GameManager::nextTurn(Move& move)
 
 void GameManager::setUI(uiPtr ui) 
 {
-	m_ui =  ui ;
+	m_nextUI = ui;
+	m_changeUI = true;
+}
+
+void GameManager::setUI()
+{
+	m_prevUI = m_ui;
+	m_prevUI->deleteButtons();
+	m_ui = m_nextUI;
+	m_ui->initButtons(*this);
+	m_changeUI = false;
 }
 
 
 void GameManager::restartGame()
 {
-	NBoard::instance().saveGame();
+	setUI(m_prevUI);
 	m_whiteTurn = true;
 	NBoard::instance().setBoard(NEW_GAME);
 	m_sfmlBoard.updateBoard();

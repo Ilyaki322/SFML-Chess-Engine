@@ -19,5 +19,15 @@ void PlayUI::buttonClicked(const sf::Vector2f& loc)
 	}
 }
 
+StateMachine& PlayUI::getStateMachine() const
+{
+	return m_stateMachine;
+}
+
+void PlayUI::deleteButtons()
+{
+	m_button.clear();
+}
+
 
 

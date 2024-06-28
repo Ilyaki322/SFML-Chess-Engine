@@ -1,9 +1,9 @@
 #include "GameState/GameOverState.h"
 #include "GameManager.h"
-#include "IGenerate.h"
+#include "NBoard.h"
 
 GameOverState::GameOverState(GameManager& gameManager, GameOver status)
-	: GameState(gameManager),m_status(status)//,m_ui(gameManager.getUI())
+	: GameState(gameManager),m_status(status),m_once(true)
 {
 	//
 	// download the relevant end pic from Assets
@@ -16,7 +16,10 @@ GameOverState::GameOverState(GameManager& gameManager, GameOver status)
 
 void GameOverState::execute()
 {
-	m_ui->setEnd();
+	if (!m_once)return;
+	NBoard::instance().saveGame();
+	m_manager.setUI(std::make_shared<EndGameUI>(m_manager.getStateMachine()));
+	m_once = false;
 }
 
 void GameOverState::draw(float dt)

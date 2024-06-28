@@ -2,10 +2,8 @@
 #include "GameState/GameState.h"
 #include "SFML/Graphics.hpp"
 #include "Utilities.h"
-#include "UI/GameUI.h"
+#include "UI/EndGameUI.h"
 #include<memory>
-
-typedef std::shared_ptr<GameUI> gameUIPtr;
 
 class GameOverState : public GameState
 {
@@ -18,5 +16,6 @@ public:
 private:
 	GameOver m_status;
 	sf::RectangleShape m_gameOverBox;
-	gameUIPtr m_ui;
+
+	bool m_once;
 };

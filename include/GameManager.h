@@ -23,12 +23,14 @@ public:
 	void setState(gameStatePtr newState);
 	void nextTurn(Move &move);
 	void setUI(uiPtr ui);
+	void setUI();
 	void restartGame();
 
 	sf::RenderWindow& getWindow();
 	Controller* getPlayer(const int i);
 	int getNumOfPlayers() const;
 	bool getTurn()const;
+	StateMachine& getStateMachine()const;
 
 private:
 
@@ -43,10 +45,12 @@ private:
 
 	std::vector<std::unique_ptr<Controller>> m_players;
 	uiPtr m_ui;
+	uiPtr m_prevUI;
+	uiPtr m_nextUI;
 
 	gameStatePtr m_currentState;
 	gameStatePtr m_nextState;
 	bool m_changeState;
-
+	bool m_changeUI;
 	SFMLBoard& m_sfmlBoard;
 };
