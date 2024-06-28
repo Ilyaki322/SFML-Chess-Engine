@@ -22,7 +22,7 @@ public:
 	void update();
 	void setState(gameStatePtr newState);
 	void nextTurn(Move &move);
-	uiPtr getUI()const;
+	void setUI(uiPtr ui);
 	void restartGame();
 
 	sf::RenderWindow& getWindow();

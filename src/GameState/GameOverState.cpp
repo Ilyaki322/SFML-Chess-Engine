@@ -3,7 +3,7 @@
 #include "IGenerate.h"
 
 GameOverState::GameOverState(GameManager& gameManager, GameOver status)
-	: GameState(gameManager),m_status(status),m_ui(gameManager.getUI())
+	: GameState(gameManager),m_status(status)//,m_ui(gameManager.getUI())
 {
 	//
 	// download the relevant end pic from Assets

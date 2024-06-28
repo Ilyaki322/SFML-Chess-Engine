@@ -126,10 +126,11 @@ void GameManager::nextTurn(Move& move)
 	m_whiteTurn = !m_whiteTurn;
 }
 
-uiPtr GameManager::getUI() const
+void GameManager::setUI(uiPtr ui) 
 {
-	return m_ui;
+	m_ui =  ui ;
 }
+
 
 void GameManager::restartGame()
 {

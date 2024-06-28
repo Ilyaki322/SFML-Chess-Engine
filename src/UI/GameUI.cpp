@@ -22,6 +22,9 @@ void GameUI::initButtons(GameManager& manager)
 	m_restartGame = (std::make_unique<Button>("Rematch",
 		std::make_unique<RematchCommand>(m_stateMachine,manager),
 		sf::Vector2f(250, 150), sf::Vector2f(1000, 600)));
+	//m_review = (std::make_unique<Button>("Review",
+	//	std::make_unique<RematchCommand>(m_stateMachine, manager),
+	//	sf::Vector2f(250, 150), sf::Vector2f(1000, 600)));
 }
 
 void GameUI::buttonClicked(const sf::Vector2f& loc)
