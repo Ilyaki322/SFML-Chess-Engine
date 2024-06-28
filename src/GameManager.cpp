@@ -48,8 +48,8 @@ void GameManager::draw(float dt)
 {
 	m_window.clear(sf::Color(125, 125, 125, 255));
 	m_sfmlBoard.draw(m_window);
-	m_ui->draw(m_window);
 	m_currentState->draw(dt);
+	m_ui->draw(m_window);
 	m_window.display();
 }
 

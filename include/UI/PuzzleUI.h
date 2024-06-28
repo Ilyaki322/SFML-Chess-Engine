@@ -21,6 +21,7 @@ private:
 	bool m_undoButton;
 	bool m_nextPuzzleButton;
 
+	sf::Sprite m_undoPic;
 	sf::Text m_puzzleName;
 	buttonPtr m_undo;
 	buttonPtr m_next;

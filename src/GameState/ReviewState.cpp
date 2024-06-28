@@ -10,12 +10,16 @@
 #include <iostream> // debug
 
 ReviewState::ReviewState(GameManager& manager, const int game)
-	: GameState(manager), IObserver(manager), m_currMove(0)
+	: GameState(manager), IObserver(manager), m_currMove(0) ,m_once(true)
 {
 	loadGame(game);
+
+	sf::Sprite pic;
+	pic.setTexture(Assets::instance().getUITexture("next"));
 	std::cout << m_moveList.size();
-	m_next = std::make_unique<Button>(">", nullptr, sf::Vector2f(75, 75), sf::Vector2f(820, 300));
-	m_prev = std::make_unique<Button>("<", nullptr, sf::Vector2f(75, 75), sf::Vector2f(820, 500));
+	m_next = std::make_unique<Button>(pic, nullptr, sf::Vector2f(820, 300));
+	pic.setTexture(Assets::instance().getUITexture("prev"));
+	m_prev = std::make_unique<Button>(pic, nullptr, sf::Vector2f(820, 500));
 }
 
 void ReviewState::eventUpdate(sf::Event& event, Color color)
@@ -43,7 +47,11 @@ void ReviewState::eventUpdate(sf::Event& event, Color color)
 
 void ReviewState::execute()
 {
-
+	if (!m_once)return;
+	NBoard::instance().setBoard(NEW_GAME);
+	Move move = { -1, -1 };
+	m_manager.nextTurn(move);
+	m_once = false;
 }
 
 void ReviewState::draw(float dt)
