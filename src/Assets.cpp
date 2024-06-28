@@ -30,10 +30,12 @@ Assets::Assets()
 	m_mainMenu.loadFromFile("MainMenu.jpg");
 	m_playMenu.loadFromFile("PlayMenu.jpg");
 	m_puzzleMenu.loadFromFile("PuzzleMenu.jpg");
+	m_historyMenu.loadFromFile("History.jpg");
 
 	m_menusMap['m'] = m_mainMenu;
 	m_menusMap['p'] = m_playMenu;
 	m_menusMap['z'] = m_puzzleMenu;
+	m_menusMap['h'] = m_historyMenu;
 
 	m_font.loadFromFile("C:/Windows/Fonts/Arial.ttf");
 }

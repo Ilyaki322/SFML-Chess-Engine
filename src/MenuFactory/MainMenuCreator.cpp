@@ -17,6 +17,8 @@ void MainMenuCreator::addButtons(std::shared_ptr<Menu> menu)
 {
 	menu->addButton(std::make_unique<Button>(std::make_unique<NextStateCommand>(*m_stateMachine, "PlayMenu"),
 		sf::Vector2f(260, 50), sf::Vector2f(220, 510)));
+	menu->addButton(std::make_unique<Button>(std::make_unique<NextStateCommand>(*m_stateMachine, "GameHistory"),
+		sf::Vector2f(260, 50), sf::Vector2f(530, 510)));
 	menu->addButton(std::make_unique<Button>(std::make_unique<ExitCommand>(*m_stateMachine),
 		sf::Vector2f(260, 50), sf::Vector2f(375, 580)));
 }

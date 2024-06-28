@@ -12,7 +12,7 @@ VWhiteAICommand::VWhiteAICommand(StateMachine& stateMachine, const int difficult
 
 void VWhiteAICommand::execute()
 {
-	NBoard::instance().setBoard("RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr");
+	NBoard::instance().setBoard("RNBQKBNRPPPPPPPP8888pppppppprnbqkbnr", "AI Vs Player");
 	SFMLBoard board;
 	auto ui = std::make_unique<GameUI>(m_stateMachine);
 	GameManager manager(true, board,std::move(ui));

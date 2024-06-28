@@ -41,6 +41,7 @@ private:
 	sf::Texture m_mainMenu;
 	sf::Texture m_playMenu;
 	sf::Texture m_puzzleMenu;
+	sf::Texture m_historyMenu;
 
 	sf::SoundBuffer m_move;
 	sf::SoundBuffer m_capture;

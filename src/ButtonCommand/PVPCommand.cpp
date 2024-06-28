@@ -15,7 +15,7 @@ PVPCommand::PVPCommand(StateMachine& stateMachine)
 
 void PVPCommand::execute()
 {
-	NBoard::instance().setBoard(NEW_GAME);
+	NBoard::instance().setBoard(NEW_GAME, "Player VS Player");
 	SFMLBoard board;
 	auto ui = std::make_shared<GameUI>(m_stateMachine);
 	

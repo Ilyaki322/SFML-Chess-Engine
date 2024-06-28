@@ -3,6 +3,7 @@
 
 #include <fstream>
 #include <string>
+#include <ctime>
 
 //void BoardStack::insert(std::array<int, SIZE> arr, int whiteKing, int blackKing, int enPassant)
 //{
@@ -52,8 +53,9 @@ void BoardStack::insert(Move move, int whiteKing, int blackKing, int enPassant)
 	m_moves.emplace_back(log);
 }
 
-void BoardStack::clear()
+void BoardStack::clear(std::string name)
 {
+	if(name.size() > 1) m_name = name;
 	m_moves.clear();
 }
 
@@ -66,7 +68,14 @@ MoveLog BoardStack::lastMove()
 
 void BoardStack::saveToFile()
 {
-	std::ofstream History("GameHistory.txt");
+	std::ofstream History("GameHistory.txt", std::ios::app);
+
+	std::time_t currentTime = std::time(0);
+	char buffer[26];
+	ctime_s(buffer, sizeof(buffer), &currentTime);
+
+	std::string timeString(buffer);
+	History << m_name << " " << timeString;
 
 	for (const auto& i : m_moves)
 	{
@@ -75,4 +84,5 @@ void BoardStack::saveToFile()
 	}
 
 	History << std::endl;
+	History.close();
 }

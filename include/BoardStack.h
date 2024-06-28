@@ -23,11 +23,12 @@ public:
 	BoardStack() = default;
 
 	void insert(Move move, int whiteKing, int blackKing, int enPassant);
-	void clear();
+	void clear(std::string name);
 	MoveLog lastMove();
 	void saveToFile();
 
 private:
 	
 	std::vector<MoveLog> m_moves;
+	std::string m_name;
 };

@@ -34,10 +34,9 @@ NBoard& NBoard::instance()
 //	m_passant = -1;
 //}
 
-void NBoard::setBoard(std::string fen)
+void NBoard::setBoard(std::string fen, std::string name)
 {
-	//m_stack.clean();
-	m_stack.clear();
+	m_stack.clear(name);
 	FenAlgorithm fenAlgo;
 	fenAlgo.setBoard(m_board, fen);
 
@@ -151,5 +150,5 @@ Move NBoard::getLastMove() const
 void NBoard::saveGame()
 {
 	m_stack.saveToFile();
-	m_stack.clear();
+	//m_stack.clear("");
 }

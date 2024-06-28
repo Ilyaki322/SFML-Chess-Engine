@@ -7,7 +7,7 @@ class NBoard {
 public:
 	static NBoard& instance();
 	//void setBoard(std::array<int,SIZE> arr );
-	void setBoard(std::string fen);
+	void setBoard(std::string fen, std::string name = "");
 	void move(Move move);
 	void undo();
 
