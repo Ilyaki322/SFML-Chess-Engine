@@ -52,17 +52,17 @@ void HistoryState::handleMouseClick(sf::Event& event)
 	Menu::handleMouseClick(event);
 	auto pos = m_window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
 
-	if (m_pageDown->getGlobalBounds().contains(pos))
+	if (m_pageUp->getGlobalBounds().contains(pos))
 	{
-		m_page--;
+		if (m_page > 0) m_page--;
 		load10Games();
 	}
-	if (m_pageUp->getGlobalBounds().contains(pos))
+	if (m_pageDown->getGlobalBounds().contains(pos))
 	{
 		m_page++;
 		load10Games();
 	}
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < m_games.size(); i++)
 	{
 		if (m_games[i]->getGlobalBounds().contains(pos))
 		{
@@ -74,29 +74,33 @@ void HistoryState::handleMouseClick(sf::Event& event)
 void HistoryState::load10Games()
 {
 	std::ifstream games("GameHistory.txt");
-
 	std::string line;
 
-	// skip 10 games page times
-	for (int i = 0; i < m_page; i++)
+	int linesToSkip = m_page * 20;
+	for (int i = 0; i < linesToSkip && !games.eof(); i++)
 	{
-		for (int j = 0; j < 10; j++)
-		{
-			std::getline(games, line);
-			std::getline(games, line);
-		}
+		std::getline(games, line);
 	}
+
+	if (games.eof())
+	{
+		if (m_page > 0) m_page--;
+		return;
+	}
+	m_games.clear();
 
 	for (int i = 0; i < 10 && !games.eof(); i++)
 	{
 		std::getline(games, line);
-		if (line.size() <= 2) continue;
+		if (line.empty()) continue;
 		
 		std::string newline = std::to_string(i + 1 + m_page * 10) + "." + line;
 		m_games.push_back(std::make_unique<Button>(newline, nullptr, sf::Vector2f(500, 40), sf::Vector2f(m_window.getSize().x / 2, 25 + 50 * i)));
 
 		std::getline(games, line);
 	}
+
+	games.close();
 }
 
 void HistoryState::startReview(const int game)

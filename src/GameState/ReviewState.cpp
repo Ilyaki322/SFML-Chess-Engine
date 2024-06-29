@@ -65,7 +65,7 @@ void ReviewState::execute()
 
 void ReviewState::draw(float dt)
 {
-	m_manager.getWindow().draw(m_background);
+	//m_manager.getWindow().draw(m_background);
 	m_next->draw(m_manager.getWindow());
 	m_prev->draw(m_manager.getWindow());
 	m_exit->draw(m_manager.getWindow());
