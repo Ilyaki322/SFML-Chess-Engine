@@ -6,6 +6,8 @@
 class GameManager;
 typedef std::unique_ptr<GameState> gameStatePtr;
 
+/*This class executes a state change command*/
+
 class ChangeGameStateCommand : public ButtonCommand
 {
 public:
