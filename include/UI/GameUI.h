@@ -1,7 +1,7 @@
 #pragma once
 #include "PlayUI.h"
 #include <memory>
-
+#include <map>
 
 class GameUI : public PlayUI
 {
@@ -13,4 +13,11 @@ public:
 private:
 	sf::Sprite m_player1;
 	sf::Sprite m_player2;
+
+	sf::Text m_Bscore;
+	sf::Text m_Wscore;
+
+	int m_whiteScore;
+	int m_blackScore;
+	std::map<int, int> m_scoreMap;
 };

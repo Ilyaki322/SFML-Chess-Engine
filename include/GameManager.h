@@ -5,7 +5,7 @@
 #include "GameState/GameState.h"
 #include "UI/PlayUI.h"
 
-const int ScreenSizeX = 1536, ScreenSizeY = 768;
+const int ScreenSizeX = 1400, ScreenSizeY = 768;
 //const int ScreenSizeX = 768, ScreenSizeY = 768;
 typedef std::shared_ptr<PlayUI> uiPtr;
 typedef std::unique_ptr<GameState> gameStatePtr;

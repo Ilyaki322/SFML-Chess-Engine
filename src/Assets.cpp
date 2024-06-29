@@ -31,7 +31,7 @@ Assets::Assets()
 	m_blackplayer.loadFromFile("blackplayer.png");
 	m_blackwon.loadFromFile("blackwon.png");
 	m_draw.loadFromFile("draw.png");
-	m_magnus.loadFromFile("magnus.png");
+	m_magnus.loadFromFile("magnus.jpg");
 	m_next.loadFromFile("next.png");
 	m_prev.loadFromFile("prev.png");
 	m_rematch.loadFromFile("rematch.png");
@@ -39,10 +39,10 @@ Assets::Assets()
 	m_undo.loadFromFile("undo.png");
 	m_whiteplayer.loadFromFile("whiteplayer.png");
 	m_whitewon.loadFromFile("whitewon.png");
+	m_exit.loadFromFile("exit.png");
+	m_Background.loadFromFile("background.jpg");
 	m_pageup.loadFromFile("pageup.png");
-	m_pagedown.loadFromFile("pagedown.png");
-
-	m_UIMap["blackplayer"] = m_blackplayer;
+	m_pagedown.loadFromFile("pagedown.png");	m_UIMap["blackplayer"] = m_blackplayer;
 	m_UIMap["blackwon"] = m_blackwon;
 	m_UIMap["draw"] =  m_draw;
 	m_UIMap["magnus"] =m_magnus;
@@ -53,12 +53,10 @@ Assets::Assets()
 	m_UIMap["undo"] = m_undo;
 	m_UIMap["whiteplayer"] = m_whiteplayer;
 	m_UIMap["whitewon"] = m_whitewon;
-	m_UIMap["pageup"] = m_pageup;
-	m_UIMap["pagedown"] = m_pagedown;
-
-
-
-	m_mainMenu.loadFromFile("MainMenu.jpg");
+    m_UIMap["exit"] = m_exit;
+	m_UIMap["background"] = m_Background;
+    m_UIMap["pageup"] = m_pageup;
+	m_UIMap["pagedown"] = m_pagedown;	m_mainMenu.loadFromFile("MainMenu.jpg");
 	m_playMenu.loadFromFile("PlayMenu.jpg");
 	m_puzzleMenu.loadFromFile("PuzzleMenu.jpg");
 	m_historyMenu.loadFromFile("History.jpg");

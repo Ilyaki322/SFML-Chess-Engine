@@ -23,7 +23,7 @@ void SFMLBoard::initTiles()
 		for (int x = 0; x < 8; x++, i++)
 		{
 			m_tiles[i] = std::make_unique<Tile>(Tile(colors[(y + x) % 2],
-				sf::Vector2f(float((x * TILE_SIZE) + 48), float((y * TILE_SIZE) + 48))));
+				sf::Vector2f(float((x * TILE_SIZE) + 200), float((y * TILE_SIZE) + 48))));
 		}
 	}
 }

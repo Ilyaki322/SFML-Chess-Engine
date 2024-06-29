@@ -15,6 +15,7 @@ public:
 
 private:
 	GameOver m_status;
-	sf::Sprite m_winner;
+	//sf::Sprite m_winner;
 	bool m_once;
+	std::string m_winner;
 };
