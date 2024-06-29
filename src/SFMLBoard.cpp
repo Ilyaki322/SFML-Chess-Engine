@@ -2,6 +2,7 @@
 #include "Tile.h"
 #include "SFMLPieceFactory.h"
 #include "NBoard.h"
+#include "Assets.h"
 
 #include <map>
 #include <SFML/Graphics.hpp>
@@ -11,6 +12,11 @@ SFMLBoard::SFMLBoard()
 {
 	initTiles();
 	updateBoard();
+
+	m_capture.setBuffer(Assets::instance().getSound('c'));
+	m_move.setBuffer(Assets::instance().getSound('m'));
+	m_capture.setVolume(100);
+	m_move.setVolume(100);
 }
 
 
@@ -25,6 +31,28 @@ void SFMLBoard::initTiles()
 			m_tiles[i] = std::make_unique<Tile>(Tile(colors[(y + x) % 2],
 				sf::Vector2f(float((x * TILE_SIZE) + 200), float((y * TILE_SIZE) + 48))));
 		}
+	}
+}
+
+void SFMLBoard::playBoardSound(const Move& move)
+{
+	if (m_BoardRef.didCapture() || 
+		((m_BoardRef.getPiece(move.startSquare) & 0b111) == PawnVal && m_BoardRef.getPiece(move.specialTargetSquare != 0)))
+	{
+		m_capture.play();
+	}
+	else if (move.startSquare != -1)
+	{
+		m_move.play();
+	}
+}
+
+void SFMLBoard::updateCaptured(const Move& move)
+{
+	SFMLPieceFactory factory;
+	if (m_BoardRef.didCapture())
+	{
+		
 	}
 }
 
@@ -44,12 +72,17 @@ void SFMLBoard::updateBoard()
 			m_tiles[i]->placePiece(nullptr);
 		}
 	}
-	Move move = NBoard::instance().getLastMove();
+	Move move = m_BoardRef.getLastMove();
+
+	
 
 	resetTileColors();
 	if (move.startSquare != -1 ) {	
 		colorTiles(move.startSquare, sf::Color(255, 127, 80));
 		colorTiles(move.targetSquare, sf::Color(255, 127, 80));
+
+		playBoardSound(move);
+		updateCaptured(move);
 	}
 }
 
@@ -58,6 +91,16 @@ void SFMLBoard::draw(sf::RenderWindow& window)
 	for (int x = 0; x < SIZE; x++)
 	{
 		m_tiles[x]->draw(window);
+	}
+
+	for (const auto& i : m_capturedBlackPieces)
+	{
+		i.draw(window);
+	}
+
+	for (const auto& i : m_capturedWhitePieces)
+	{
+		i.draw(window);
 	}
 }
 

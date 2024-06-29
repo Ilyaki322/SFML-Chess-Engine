@@ -3,7 +3,7 @@
 #include <iostream> 
 
 NBoard::NBoard()
-	:m_lastMove({ -1, -1 })
+	:m_lastMove({ -1, -1 }), m_capture(0)
 {
 }
 
@@ -63,6 +63,7 @@ void NBoard::move(Move move)
 	//m_stack.insert(m_board, m_WKing, m_BKing, m_passant);
 	m_stack.insert(move, m_WKing, m_BKing, m_passant);
 	m_lastMove = move;
+	m_capture = getPiece(move.targetSquare);
 
 	int color = (m_board[move.startSquare] & WHITE) > 0 ? WHITE : BLACK;
 	if (move.promotionVal == PawnVal) { 
@@ -129,6 +130,11 @@ int NBoard::getPiece(int x)const
 bool NBoard::enPassant(int x)const
 {
 	return x == m_passant;
+}
+
+int NBoard::didCapture() const
+{
+	return m_capture;
 }
 
 int NBoard::getKing(int color)const

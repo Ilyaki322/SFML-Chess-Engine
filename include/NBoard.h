@@ -14,6 +14,7 @@ public:
 
 	int getPiece(int x)const;
 	bool enPassant(int x)const;
+	int didCapture() const;
 	int getKing(int color)const;
 	std::array<int, SIZE> &getBoard();
 
@@ -29,6 +30,7 @@ private:
 	int m_passant;
 	int m_WKing;
 	int m_BKing;
+	int m_capture;
 
 	Move m_lastMove;
 };

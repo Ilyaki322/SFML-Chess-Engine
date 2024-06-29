@@ -1,14 +1,12 @@
 #pragma once
-
+#include "SFML/Audio.hpp"
 #include "Utilities.h"
 #include "Tile.h"
-//#include "SFMLPiece.h"
 
 #include <array>
 #include <memory>
 #include <vector>
 
-//class Tile;
 class SFMLPiece;
 class NBoard;
 
@@ -27,7 +25,14 @@ public:
 private:
 
 	void initTiles();
+	void playBoardSound(const Move& move);
+	void updateCaptured(const Move& move);
 	
+	std::vector<SFMLPiece> m_capturedWhitePieces;
+	std::vector<SFMLPiece> m_capturedBlackPieces;
 	std::array<std::unique_ptr<Tile>, SIZE> m_tiles;
 	NBoard& m_BoardRef;
+
+	sf::Sound m_move;
+	sf::Sound m_capture;
 };
