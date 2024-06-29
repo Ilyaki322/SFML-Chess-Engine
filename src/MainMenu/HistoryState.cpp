@@ -13,6 +13,7 @@
 
 #include "iostream" // debug
 #include <UI/GameUI.h>
+#include "UI/ReviewUI.h"
 
 HistoryState::HistoryState(sf::RenderWindow& window, StateMachine& stateMachine, sf::Texture& texture, std::string name)
 	: Menu(window, stateMachine, texture, name), m_page(0)
@@ -110,7 +111,7 @@ void HistoryState::startReview(const int game)
 
 	sf::Sprite pic1, pic2;
 
-	auto ui = std::make_shared<GameUI>(m_stateMachine, pic1, pic2);
+	auto ui = std::make_shared<ReviewUI>(m_stateMachine);
 
 	GameManager manager(true, board, ui);
 	manager.setStartState(std::make_unique<ReviewState>(manager, game));
