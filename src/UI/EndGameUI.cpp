@@ -1,5 +1,5 @@
 #include "UI/EndGameUI.h"
-
+#include "UI/ReviewUI.h"
 #include "ButtonCommand/RematchCommand.h"
 #include "ButtonCommand/ChangeGameStateCommand.h"
 #include "ButtonCommand/BackToMenuCommand.h"
@@ -33,7 +33,7 @@ void EndGameUI::initButtons(GameManager& manager)
 	pic.setTexture(Assets::instance().getUITexture("review"));
 	m_button.push_back(
 		std::make_unique<Button>(pic,
-		std::make_unique<ChangeGameStateCommand>(m_stateMachine, manager,std::make_unique<ReviewState>(manager,0)),
+		std::make_unique<ChangeGameStateCommand>(m_stateMachine, manager,std::make_unique<ReviewState>(manager,0), std::make_shared<ReviewUI>(m_stateMachine)),
 		sf::Vector2f(1250, 500)));
 
 }

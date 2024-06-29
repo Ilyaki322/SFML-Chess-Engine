@@ -20,13 +20,6 @@ ReviewState::ReviewState(GameManager& manager, const int game)
 	m_next = std::make_unique<Button>(pic, nullptr, sf::Vector2f(1000, 300));
 	pic.setTexture(Assets::instance().getUITexture("prev"));
 	m_prev = std::make_unique<Button>(pic, nullptr, sf::Vector2f(1000, 500));
-	pic.setTexture(Assets::instance().getUITexture("exit"));
-	m_exit = std::make_unique<Button>(pic,
-			std::make_unique<BackToMenuCommand>(manager.getStateMachine(), manager),
-			sf::Vector2f(1100, 600));
-
-	m_background.setTexture(Assets::instance().getUITexture("background"));
-	m_background.setPosition(0, 0);
 }
 
 void ReviewState::eventUpdate(sf::Event& event, Color color)
@@ -50,8 +43,6 @@ void ReviewState::eventUpdate(sf::Event& event, Color color)
 		//m_prev->click();
 		m_currMove--;
 	}
-	if (m_exit->getGlobalBounds().contains(location))
-		m_exit->click();
 }
 
 void ReviewState::execute()
@@ -65,10 +56,8 @@ void ReviewState::execute()
 
 void ReviewState::draw(float dt)
 {
-	//m_manager.getWindow().draw(m_background);
 	m_next->draw(m_manager.getWindow());
 	m_prev->draw(m_manager.getWindow());
-	m_exit->draw(m_manager.getWindow());
 }
 
 void ReviewState::loadGame(const int num)
