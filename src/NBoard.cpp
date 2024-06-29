@@ -39,6 +39,7 @@ void NBoard::setBoard(std::string fen, std::string name)
 	m_stack.clear(name);
 	FenAlgorithm fenAlgo;
 	fenAlgo.setBoard(m_board, fen);
+	m_capture = 0;
 
 		for (int i = 0 ; i < SIZE; i++) {
 			if (m_board[i] != 0) {
@@ -106,6 +107,7 @@ void NBoard::move(Move move)
 //}
 void NBoard::undo()
 {
+	m_capture = 0;
 	MoveLog last = m_stack.lastMove();
 	m_BKing = last.lastBKing;
 	m_WKing = last.lastWKing;
@@ -119,7 +121,6 @@ void NBoard::undo()
 
 	m_board[last.lastMove.startSquare] = last.startPiece;
 	m_board[last.lastMove.targetSquare] = last.targetPiece;
-	
 }
 
 int NBoard::getPiece(int x)const

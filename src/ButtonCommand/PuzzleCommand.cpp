@@ -13,7 +13,7 @@ PuzzleCommand::PuzzleCommand(StateMachine& stateMachine,Difficult difficulty)
 void PuzzleCommand::execute()
 {
 	PuzzleManager puzzleManager(White,m_diffculty);
-	SFMLBoard board;
+	SFMLBoard board(false);
 	auto ui = std::make_shared<PuzzleUI>(m_stateMachine, puzzleManager);
 	GameManager manager(false, board, ui);
 	manager.addPlayer(std::make_unique<PlayerController>(manager, manager.getWindow(), White, board));

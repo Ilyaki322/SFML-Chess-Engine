@@ -132,7 +132,7 @@ void GameManager::nextTurn(Move& move)
 {
 	if(move.startSquare!=-1)
 		NBoard::instance().move(move);
-	m_sfmlBoard.updateBoard();
+	m_sfmlBoard.updateBoard(move.startSquare == -1);
 	m_whiteTurn = !m_whiteTurn;
 }
 
@@ -156,8 +156,12 @@ void GameManager::restartGame()
 {
 	setUI(m_prevUI);
 	m_whiteTurn = true;
-	NBoard::instance().setBoard(NEW_GAME);
-	m_sfmlBoard.updateBoard();
-	m_sfmlBoard.resetTileColors();
+	resetBoard();
 	setState(std::make_unique<PlayerXTurnState>(*this, 0));
+}
+
+void GameManager::resetBoard()
+{
+	NBoard::instance().setBoard(NEW_GAME);
+	m_sfmlBoard.reset();
 }

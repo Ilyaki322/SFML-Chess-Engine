@@ -107,7 +107,7 @@ void HistoryState::load10Games()
 void HistoryState::startReview(const int game)
 {
 	NBoard::instance().setBoard(NEW_GAME);
-	SFMLBoard board;
+	SFMLBoard board(false);
 
 	sf::Sprite pic1, pic2;
 

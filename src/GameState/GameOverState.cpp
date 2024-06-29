@@ -24,6 +24,7 @@ void GameOverState::execute()
 {
 	if (!m_once)return;
 	NBoard::instance().saveGame();
+	m_manager.resetBoard();
 	m_manager.setUI(std::make_shared<EndGameUI>(m_manager.getStateMachine(), m_winner));
 	m_once = false;
 }

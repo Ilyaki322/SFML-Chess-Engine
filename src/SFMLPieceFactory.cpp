@@ -24,3 +24,16 @@ std::unique_ptr<SFMLPiece> SFMLPieceFactory::create(const int val, const sf::Vec
 
 	return std::make_unique<SFMLPiece>(Assets::instance().getTexture(c), pos);
 }
+
+std::unique_ptr<SFMLPiece> SFMLPieceFactory::create(const int val, const sf::Vector2f& pos, const sf::Vector2f& size)
+{
+	bool black = ((0b10000 & val) > 0);
+	char c = m_piecesMap[(0b111 & val)];
+
+	if (black)
+	{
+		c = toupper(c);
+	}
+
+	return std::make_unique<SFMLPiece>(Assets::instance().getTexture(c), pos, size);
+}

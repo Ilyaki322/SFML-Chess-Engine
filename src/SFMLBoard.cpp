@@ -7,8 +7,8 @@
 #include <map>
 #include <SFML/Graphics.hpp>
 
-SFMLBoard::SFMLBoard()
-	: m_BoardRef(NBoard::instance())
+SFMLBoard::SFMLBoard(const bool useCaptrues)
+	: m_BoardRef(NBoard::instance()), m_useCaptures(useCaptrues)
 {
 	initTiles();
 	updateBoard();
@@ -36,8 +36,8 @@ void SFMLBoard::initTiles()
 
 void SFMLBoard::playBoardSound(const Move& move)
 {
-	if (m_BoardRef.didCapture() || 
-		((m_BoardRef.getPiece(move.startSquare) & 0b111) == PawnVal && m_BoardRef.getPiece(move.specialTargetSquare != 0)))
+	if (m_BoardRef.didCapture())// || 
+		//((m_BoardRef.getPiece(move.targetSquare) & 0b111) == PawnVal && move.specialStartSquare != -1))
 	{
 		m_capture.play();
 	}
@@ -50,13 +50,32 @@ void SFMLBoard::playBoardSound(const Move& move)
 void SFMLBoard::updateCaptured(const Move& move)
 {
 	SFMLPieceFactory factory;
-	if (m_BoardRef.didCapture())
+	int piece = m_BoardRef.didCapture();
+	if (piece)
 	{
-		
+		float x, y;
+		Color color = Color(piece & 0b11000);
+		if (color == White)
+		{
+			
+			x = 10 + (m_capturedWhitePieces.size() % 8) * 20;
+			y = (m_capturedWhitePieces.size() >= 8) ? 540 : 500;
+			m_capturedWhitePieces.push_back(factory.create(piece,
+				sf::Vector2f(x, y), sf::Vector2f(40, 40)));
+				//sf::Vector2f(1000 + m_capturedWhitePieces.size() * 30, 600), sf::Vector2f(50, 50)));
+		}
+		else
+		{
+			x = 10 + (m_capturedBlackPieces.size() % 8) * 20;
+			y = (m_capturedBlackPieces.size() >= 8) ? 250 : 210;
+			m_capturedBlackPieces.push_back(factory.create(piece,
+				sf::Vector2f(x, y), sf::Vector2f(40, 40)));
+				//sf::Vector2f(1000 + m_capturedBlackPieces.size() * 30, 200), sf::Vector2f(50, 50)));
+		}
 	}
 }
 
-void SFMLBoard::updateBoard()
+void SFMLBoard::updateBoard(bool fake)
 {
 	SFMLPieceFactory factory;
 	std::array<int, 64> &board = m_BoardRef.getBoard();
@@ -72,17 +91,17 @@ void SFMLBoard::updateBoard()
 			m_tiles[i]->placePiece(nullptr);
 		}
 	}
+
+	if (fake && !m_useCaptures) return;
+
 	Move move = m_BoardRef.getLastMove();
-
-	
-
 	resetTileColors();
 	if (move.startSquare != -1 ) {	
 		colorTiles(move.startSquare, sf::Color(255, 127, 80));
 		colorTiles(move.targetSquare, sf::Color(255, 127, 80));
 
 		playBoardSound(move);
-		updateCaptured(move);
+		if (m_useCaptures) updateCaptured(move);
 	}
 }
 
@@ -95,12 +114,12 @@ void SFMLBoard::draw(sf::RenderWindow& window)
 
 	for (const auto& i : m_capturedBlackPieces)
 	{
-		i.draw(window);
+		i->draw(window);
 	}
 
 	for (const auto& i : m_capturedWhitePieces)
 	{
-		i.draw(window);
+		i->draw(window);
 	}
 }
 
@@ -115,6 +134,14 @@ bool SFMLBoard::clickedOnCorrectPiece(const int x, Color color)
 	}
 
 	return false;
+}
+
+void SFMLBoard::reset()
+{
+	m_capturedBlackPieces.clear();
+	m_capturedWhitePieces.clear();
+	resetTileColors();
+	updateBoard();
 }
 
 void SFMLBoard::colorTiles(int tile, const sf::Color& color)

@@ -469,10 +469,12 @@ std::vector<Move> PieceLogic::pawnMove(int start, std::vector<int> Incheck)
 					{
 						if (inCheck) {
 							if (std::find(Incheck.begin(), Incheck.end(), pos + forward + RIGHT) != Incheck.end()) {
-								moves.push_back({ pos, pos + forward + RIGHT , pos , pos + RIGHT, p });
+								//moves.push_back({ pos, pos + forward + RIGHT , pos , pos + RIGHT, p });
+								moves.push_back({ pos, pos + RIGHT , pos + RIGHT , pos + RIGHT + forward, p });
 							}
 						}
-						else moves.push_back({ pos, pos + forward + RIGHT , pos , pos + RIGHT, p });
+						//else moves.push_back({ pos, pos + forward + RIGHT , pos , pos + RIGHT, p });
+						else moves.push_back({ pos, pos + RIGHT , pos + RIGHT , pos + RIGHT + forward, p });
 						
 					}
 				}
@@ -512,10 +514,12 @@ std::vector<Move> PieceLogic::pawnMove(int start, std::vector<int> Incheck)
 					{
 						if (inCheck) {
 							if (std::find(Incheck.begin(), Incheck.end(), pos + forward + LEFT) != Incheck.end()) {
-								moves.push_back({ pos, pos + forward + LEFT , pos , pos + LEFT, p });
+								//moves.push_back({ pos, pos + forward + LEFT , pos , pos + LEFT, p });
+								moves.push_back({ pos, pos + LEFT , pos + LEFT , pos + LEFT + forward, p });
 							}
 						}
-						else moves.push_back({ pos, pos + forward + LEFT , pos , pos + LEFT, p });
+						//else moves.push_back({ pos, pos + forward + LEFT , pos , pos + LEFT, p });
+						else moves.push_back({ pos, pos + LEFT , pos + LEFT , pos + LEFT + forward, p });
 					}
 				}
 			}

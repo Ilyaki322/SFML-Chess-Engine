@@ -25,6 +25,7 @@ public:
 	void setUI(uiPtr ui);
 	void setUI();
 	void restartGame();
+	void resetBoard();
 
 	sf::RenderWindow& getWindow();
 	Controller* getPlayer(const int i);
