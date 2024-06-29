@@ -25,6 +25,8 @@ configure_file ("review.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("undo.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("whiteplayer.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("whitewon.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("pageup.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("pagedown.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
 
 

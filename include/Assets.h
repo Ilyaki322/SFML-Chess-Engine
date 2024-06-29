@@ -56,8 +56,8 @@ private:
 	sf::Texture m_undo;
 	sf::Texture m_whiteplayer;
 	sf::Texture m_whitewon;
-
-
+	sf::Texture m_pageup;
+	sf::Texture m_pagedown;
 
 	sf::SoundBuffer m_move;
 	sf::SoundBuffer m_capture;

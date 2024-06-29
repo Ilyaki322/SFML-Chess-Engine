@@ -39,6 +39,8 @@ Assets::Assets()
 	m_undo.loadFromFile("undo.png");
 	m_whiteplayer.loadFromFile("whiteplayer.png");
 	m_whitewon.loadFromFile("whitewon.png");
+	m_pageup.loadFromFile("pageup.png");
+	m_pagedown.loadFromFile("pagedown.png");
 
 	m_UIMap["blackplayer"] = m_blackplayer;
 	m_UIMap["blackwon"] = m_blackwon;
@@ -51,6 +53,8 @@ Assets::Assets()
 	m_UIMap["undo"] = m_undo;
 	m_UIMap["whiteplayer"] = m_whiteplayer;
 	m_UIMap["whitewon"] = m_whitewon;
+	m_UIMap["pageup"] = m_pageup;
+	m_UIMap["pagedown"] = m_pagedown;
 
 
 
