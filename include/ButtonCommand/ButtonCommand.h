@@ -1,5 +1,8 @@
 #pragma once
 class StateMachine;
+
+/*This class is a base class for executing button commands*/
+
 class ButtonCommand
 {
 public:
