@@ -4,8 +4,8 @@
 PlayUI::PlayUI(StateMachine& stateMachine)
 	:m_stateMachine(stateMachine), newBackground(false)
 {
-	m_backGround.setTexture(Assets::instance().getTexture('s'));
-	m_backGround.setPosition({ 768, 0 });
+	m_backGround.setTexture(Assets::instance().getUITexture("background"));
+	m_backGround.setPosition({ 0, 0 });
 }
 
 void PlayUI::buttonClicked(const sf::Vector2f& loc)

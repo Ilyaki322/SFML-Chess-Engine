@@ -56,7 +56,8 @@ private:
 	sf::Texture m_undo;
 	sf::Texture m_whiteplayer;
 	sf::Texture m_whitewon;
-
+	sf::Texture m_exit;
+	sf::Texture m_Background;
 
 
 	sf::SoundBuffer m_move;

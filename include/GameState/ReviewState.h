@@ -25,6 +25,8 @@ private:
 	std::vector<Move> m_moveList;
 	buttonPtr m_next;
 	buttonPtr m_prev;
+	buttonPtr m_exit;
+	sf::Sprite m_background;
 	int m_currMove;
 
 	bool m_once;

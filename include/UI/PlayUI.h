@@ -23,8 +23,11 @@ public:
 	}
 
 	virtual void initButtons(GameManager& manager) = 0 {
-		m_button.push_back(std::make_unique<Button>(std::make_unique<BackToMenuCommand>(m_stateMachine, manager),
-			sf::Vector2f(170, 50), sf::Vector2f(910, 710)));
+		sf::Sprite pic;
+		pic.setTexture(Assets::instance().getUITexture("exit"));
+		m_button.push_back(std::make_unique<Button>(pic,
+			std::make_unique<BackToMenuCommand>(m_stateMachine, manager),
+			sf::Vector2f(1250, 650)));
 	}
 	StateMachine& getStateMachine()const;
 	void deleteButtons();

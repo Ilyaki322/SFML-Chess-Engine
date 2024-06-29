@@ -34,10 +34,12 @@ void PlayerController::eventUpdate(sf::Event& event, Color color)
 	}
 
 	auto location = m_window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y }); 
+
 	sf::RectangleShape tempShape({ 768.f,768.f });
+	tempShape.setPosition(152,0);
 
 	int y = int(location.y / TILE_SIZE);
-	int x = int(location.x / TILE_SIZE + y * DOWN);
+	int x = int((location.x - 152) / TILE_SIZE + y * DOWN);
 
 	
 

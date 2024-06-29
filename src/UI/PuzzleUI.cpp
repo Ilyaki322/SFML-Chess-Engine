@@ -10,8 +10,8 @@ PuzzleUI::PuzzleUI(StateMachine& stateMachine, PuzzleManager& manager)
 	m_undoPic.setPosition(1100, 80);
 	m_undoPic.setColor(sf::Color(0, 0,0,100));
 	m_puzzleName.setFont(Assets::instance().getFont());
-	m_puzzleName.setPosition({ 800, 370 });
-	m_puzzleName.setCharacterSize(30);
+	m_puzzleName.setPosition({ 950, 370 });
+	m_puzzleName.setCharacterSize(15);
 	m_puzzleName.setString("Puzzle Time");
 }
 void PuzzleUI::draw(sf::RenderWindow& window)
@@ -39,7 +39,7 @@ void PuzzleUI::initButtons(GameManager& manager)
 	pic.setTexture(Assets::instance().getUITexture("next"));
 	m_next = (std::make_unique<Button>(pic,
 		std::make_unique<NextPuzzleCommand>(m_stateMachine, m_manager),
-		sf::Vector2f(1100, 620)));
+		sf::Vector2f(1100, 160)));
 }
 
 void PuzzleUI::buttonClicked(const sf::Vector2f& loc)
