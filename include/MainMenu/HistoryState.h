@@ -2,6 +2,7 @@
 #include "MainMenu/Menu.h"
 #include "SFML/Graphics.hpp"
 #include "Button.h"
+#include "Assets.h"
 
 #include <memory>
 #include <vector>
@@ -21,7 +22,11 @@ private:
 	void handleMouseClick(sf::Event& event) override;
 
 	void load10Games();
+	void startReview(const int game);
 
 	std::vector<buttonPtr> m_games;
-	int m_index;
+	int m_page;
+
+	buttonPtr m_pageUp;
+	buttonPtr m_pageDown;
 };

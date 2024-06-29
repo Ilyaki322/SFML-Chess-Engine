@@ -21,13 +21,10 @@ public:
 	void addButton(buttonPtr button);
 	std::string getName() const;
 
-private:
+protected:
+	virtual void handleMouseClick(sf::Event& event) override;
 
 	std::vector<buttonPtr> m_buttons;
 	sf::Sprite m_menuSprite;
 	const std::string m_name;
-
-protected:
-
-	virtual void handleMouseClick(sf::Event& event) override;
 };

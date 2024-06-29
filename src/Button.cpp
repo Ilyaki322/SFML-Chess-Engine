@@ -8,11 +8,14 @@ Button::Button(std::string text, commandPtr command,
 {
 	m_box.setOrigin(m_box.getGlobalBounds().width / 2, m_box.getGlobalBounds().height / 2 - 5);
 	m_box.setPosition(pos);
-	m_box.setFillColor(sf::Color(125, 125, 125, 255));
+	m_box.setFillColor(sf::Color(100, 100, 100, 0));
+	m_box.setOutlineColor(sf::Color::Red);
+	m_box.setOutlineThickness(1.f);
 
 	m_text.setString(text);
+	m_text.setCharacterSize(20);
 	m_text.setFont(Assets::instance().getFont());
-	m_text.setFillColor(sf::Color::Black);
+	m_text.setFillColor(sf::Color::White);
 	m_text.setOrigin(m_text.getGlobalBounds().width / 2, m_text.getGlobalBounds().height / 2);
 	m_text.setPosition(m_box.getPosition());
 }

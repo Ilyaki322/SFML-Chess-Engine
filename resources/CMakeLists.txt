@@ -28,7 +28,8 @@ configure_file ("whitewon.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("exit.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("reviewbackground.png" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("background.jpg" ${CMAKE_BINARY_DIR} COPYONLY)
-
+configure_file ("pageup.png" ${CMAKE_BINARY_DIR} COPYONLY)
+configure_file ("pagedown.png" ${CMAKE_BINARY_DIR} COPYONLY)
 
 configure_file ("capture.wav" ${CMAKE_BINARY_DIR} COPYONLY)
 configure_file ("move.wav" ${CMAKE_BINARY_DIR} COPYONLY)
