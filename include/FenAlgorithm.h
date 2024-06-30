@@ -1,14 +1,15 @@
 #pragma once 
-
 #include <string>
-#include "memory"
 #include <array>
 #include <map>
-#include "Tile.h"
-
 
 class Pieces;
 
+/*
+* Fen Algorithm translates a string to a board position.
+* We will keep puzzles as a fen string, and a new game.
+* used during testing to play various positions without placing the pieces by hand.
+*/
 class FenAlgorithm {
 public:
 	FenAlgorithm();

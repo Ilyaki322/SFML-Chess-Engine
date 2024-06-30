@@ -1,22 +1,12 @@
 #pragma once
 #include "Utilities.h"
-
 #include <vector>
 
-//class BoardStack {
-//public:
-//	BoardStack();
-//
-//	void insert(std::array<int,SIZE> arr , int whiteKing , int blackKing , int enPassant );
-//	void clean();
-//	Stack LastMove();
-//	std::list<Stack> allMoves();
-//
-//private:
-//
-//	std::list<Stack> m_stack;
-//};
-
+/*
+* This class saves each move played.
+* has the ability to give the last move,
+* and save all the game to a file.
+*/
 class BoardStack
 {
 public:

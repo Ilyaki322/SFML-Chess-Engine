@@ -6,6 +6,12 @@
 #include "UI/PuzzleUI.h"
 
 typedef std::shared_ptr<PuzzleUI> uiPuzzlePtr;
+
+/*
+* This state is responsible for the Puzzles game mode.
+* it will take user input, play the next puzzle move.
+* and wil load next puzzles.
+*/
 class PuzzleGameState : public GameState
 {
 public:

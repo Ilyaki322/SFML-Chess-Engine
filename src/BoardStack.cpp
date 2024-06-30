@@ -5,34 +5,9 @@
 #include <string>
 #include <ctime>
 
-//void BoardStack::insert(std::array<int, SIZE> arr, int whiteKing, int blackKing, int enPassant)
-//{
-//	Stack s = { 0 };
-//	s.backUpm_board = arr;
-//	s.lastBKing = blackKing;
-//	s.lastWKing = whiteKing;
-//	s.enPassant = enPassant;
-//
-//	m_stack.push_back(s);
-//}
-//
-//void BoardStack::clean()
-//{
-//	m_stack.clear();
-//}
-//
-//Stack BoardStack::LastMove()
-//{
-//	auto back = m_stack.back();
-//	m_stack.pop_back();
-//	return back;
-//}
-//
-//std::list<Stack> BoardStack::allMoves()
-//{
-//	return m_stack ;
-//}
-
+/*
+* inserts a struct of all the pieces and tiles tied to the move played.
+*/
 void BoardStack::insert(Move move, int whiteKing, int blackKing, int enPassant)
 {
 	MoveLog log;

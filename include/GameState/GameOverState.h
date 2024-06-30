@@ -3,8 +3,11 @@
 #include "SFML/Graphics.hpp"
 #include "Utilities.h"
 #include "UI/EndGameUI.h"
-#include<memory>
 
+/*
+* this state will update the UI based on the winner,
+* and will wait for button click in the UI.
+*/
 class GameOverState : public GameState
 {
 public:
@@ -14,8 +17,8 @@ public:
 	void draw(float dt) override;
 
 private:
+
 	GameOver m_status;
-	//sf::Sprite m_winner;
 	bool m_once;
 	std::string m_winner;
 };

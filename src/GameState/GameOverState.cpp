@@ -4,22 +4,26 @@
 #include "Assets.h"
 
 GameOverState::GameOverState(GameManager& gameManager, GameOver status)
-	: GameState(gameManager),m_status(status),m_once(true)
+	: GameState(gameManager), m_status(status), m_once(true)
 {
 	switch (status)
 	{
 	case Draw:
-		m_winner="draw";
+		m_winner = "draw";
 		break;
 	case WhiteWon:
-		m_winner="whitewon" ;
+		m_winner = "whitewon";
 		break;
 	case BlackWon:
-		m_winner = "blackwon" ;
+		m_winner = "blackwon";
 		break;
 	}
 }
 
+/*
+* on the first run we update the manager,
+* and then wait for user input in the EndGameUI.
+*/
 void GameOverState::execute()
 {
 	if (!m_once)return;
@@ -29,6 +33,5 @@ void GameOverState::execute()
 	m_once = false;
 }
 
-void GameOverState::draw(float dt)
-{
-}
+void GameOverState::draw(float)
+{}

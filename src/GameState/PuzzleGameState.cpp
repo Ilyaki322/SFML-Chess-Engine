@@ -1,6 +1,7 @@
 #include "GameState/PuzzleGameState.h"
 #include "GameManager.h"
 #include "NBoard.h"
+
 PuzzleGameState::PuzzleGameState(Color color, PuzzleManager& puzzle, GameManager& manager, uiPuzzlePtr ui)
 	:GameState(manager), m_computerTurn(true), m_playerLastMove({ 0,0 }),
 	m_puzzleManager(puzzle), m_ui(ui), m_waitingUndo(false), m_waitingNew(false)
@@ -38,9 +39,8 @@ void PuzzleGameState::execute()
 	}
 }
 
-void PuzzleGameState::draw(float dt)
-{
-}
+void PuzzleGameState::draw(float)
+{}
 
 bool PuzzleGameState::correctMove()
 {

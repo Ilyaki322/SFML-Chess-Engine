@@ -4,6 +4,14 @@
 #include "OpeningBook.h"
 
 class NBoard;
+
+/*
+* This class is responsible for AI descision making.
+* using an 'alpha beta minmax' algorithm (additional explanation in the function defenition)
+* it goes through each possible move, up to the m_difficulty depth.
+* and decides which move is best.
+* for the first few moves it will use the OpeningBook class.
+*/
 class AIController : public Controller
 {
 public:
@@ -24,6 +32,13 @@ private:
     book* m_book;
 
 
+    /*
+    * those tables hold prefered positions for every piece.
+    * the values are added to the evaluation.
+    * for example, the knights are more effective in the middle 
+    * of the board, thus they get a 'bonus' for middle tiles
+    * but a negative value in the corners.
+    */
     const int whitePawnTable[SIZE] = {
       50, 50, 50, 50, 50, 50, 50, 50,
       50, 50, 50, 50, 50, 50, 50, 50,

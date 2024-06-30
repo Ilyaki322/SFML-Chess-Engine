@@ -1,5 +1,6 @@
 #include "FenAlgorithm.h"
 #include "Assets.h"
+#include "Utilities.h"
 
 FenAlgorithm::FenAlgorithm()
 {
@@ -11,7 +12,12 @@ FenAlgorithm::FenAlgorithm()
 	m_piecesMap['q'] = 6;
 }
 
-void FenAlgorithm::setBoard(/*std::array<std::shared_ptr<Tile>, 64> &tiles, */std::array<int, 64>& squares, std::string stage)
+/*
+* translates a string to a board position.
+* a letter means a piece, capital = black, lower = white.
+* numbers mean empty tiles.
+*/
+void FenAlgorithm::setBoard(std::array<int, 64>& squares, std::string stage)
 {
 	for (int i = 0; i < 64; i++)
 		squares[i]  = 0;
@@ -27,6 +33,11 @@ void FenAlgorithm::setBoard(/*std::array<std::shared_ptr<Tile>, 64> &tiles, */st
 		squares[j] = m_piecesMap[char(tolower(stage[point]))] | color;
 	}
 	
+	/*
+	* the 32 bit is a 'is_moved' flag. its important for pawns, rooks and the king.
+	* so we check whether those pieces are in their starting position, if so
+	* we use bit-wise 'or' to add the flag.
+	*/
 	for (int i = 8; i < 16; i++) {
 		int color = (squares[i] & White) > 0 ? White : Black;
 		if ((squares[i] & 0b111) == PawnVal && color == Black)
