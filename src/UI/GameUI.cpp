@@ -2,8 +2,8 @@
 #include "NBoard.h"
 #include "Assets.h"
 
-GameUI::GameUI(StateMachine& stateMachine, sf::Sprite& p1, sf::Sprite& p2)
-	:PlayUI(stateMachine), m_player1(p1), m_player2(p2), m_whiteScore(0), m_blackScore(0)
+GameUI::GameUI(StateMachine& stateMachine, sf::Sprite& p1, sf::Sprite& p2, SFMLBoard& board)
+	:PlayUI(stateMachine), m_player1(p1), m_player2(p2), m_whiteScore(0), m_blackScore(0),m_board(board)
 {
 	m_player1.setPosition(30, 650);
 	m_player2.setPosition(30, 20);
@@ -55,7 +55,14 @@ void GameUI::draw(sf::RenderWindow &window)
 		m_blackScore = m_blackScore - m_whiteScore;
 		m_Bscore.setString("+" + std::to_string(m_blackScore));
 	}
-
+	auto& white = m_board.getCaptured(White);
+	for (const auto& i : white) {
+		i->draw(window);
+	}
+	auto& black = m_board.getCaptured(Black);
+	for (const auto& i : black) {
+		i->draw(window);
+	}
 	window.draw(m_Bscore);
 	window.draw(m_Wscore);
 }

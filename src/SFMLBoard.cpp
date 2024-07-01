@@ -105,6 +105,11 @@ void SFMLBoard::updateBoard(bool fake)
 	}
 }
 
+std::vector<piecePtr>& SFMLBoard::getCaptured(Color color) 
+{
+	return (color == White) ? m_capturedWhitePieces : m_capturedBlackPieces;
+}
+
 void SFMLBoard::draw(sf::RenderWindow& window)
 {
 	for (int x = 0; x < SIZE; x++)
@@ -112,15 +117,15 @@ void SFMLBoard::draw(sf::RenderWindow& window)
 		m_tiles[x]->draw(window);
 	}
 
-	for (const auto& i : m_capturedBlackPieces)
-	{
-		i->draw(window);
-	}
+	//for (const auto& i : m_capturedBlackPieces)
+	//{
+	//	i->draw(window);
+	//}
 
-	for (const auto& i : m_capturedWhitePieces)
-	{
-		i->draw(window);
-	}
+	//for (const auto& i : m_capturedWhitePieces)
+	//{
+	//	i->draw(window);
+	//}
 }
 
 bool SFMLBoard::clickedOnCorrectPiece(const int x, Color color)

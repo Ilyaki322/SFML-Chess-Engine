@@ -20,7 +20,7 @@ void VBlackAICommand::execute()
 	pic1.setTexture(Assets::instance().getUITexture("whiteplayer"));
 	pic2.setTexture(Assets::instance().getUITexture("magnus"));
 
-	auto ui = std::make_unique<GameUI>(m_stateMachine,pic1,pic2);
+	auto ui = std::make_unique<GameUI>(m_stateMachine,pic1,pic2,board);
 	GameManager manager(true, board, std::move(ui));
 	manager.addPlayer(std::make_unique<PlayerController>(manager, manager.getWindow(), White, board));
 	manager.addPlayer(std::make_unique<AIController>(Black, AIDifficult(m_difficulty)));

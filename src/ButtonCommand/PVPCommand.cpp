@@ -23,7 +23,7 @@ void PVPCommand::execute()
 	pic1.setTexture(Assets::instance().getUITexture("whiteplayer"));
 	pic2.setTexture(Assets::instance().getUITexture("blackplayer"));
 
-	auto ui = std::make_shared<GameUI>(m_stateMachine,pic1,pic2);
+	auto ui = std::make_shared<GameUI>(m_stateMachine,pic1,pic2,board);
 	
 	GameManager manager(true, board, ui);
 	manager.addPlayer(std::make_unique<PlayerController>(manager, manager.getWindow(), White, board));

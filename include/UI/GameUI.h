@@ -2,11 +2,12 @@
 #include "PlayUI.h"
 #include <memory>
 #include <map>
+#include <SFMLBoard.h>
 
 class GameUI : public PlayUI
 {
 public:
-	GameUI(StateMachine& stateMachine,sf::Sprite &p1 , sf::Sprite &p2);
+	GameUI(StateMachine& stateMachine,sf::Sprite &p1 , sf::Sprite &p2,SFMLBoard &board);
 	void draw(sf::RenderWindow& window) override;
 	void initButtons(GameManager& manager) override;
 	virtual void buttonClicked(const sf::Vector2f& loc)override;
@@ -20,4 +21,6 @@ private:
 	int m_whiteScore;
 	int m_blackScore;
 	std::map<int, int> m_scoreMap;
+
+	SFMLBoard& m_board;
 };

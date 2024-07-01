@@ -31,6 +31,7 @@ public:
 	void colorTiles(int tile, const sf::Color& color);
 	void resetTileColors();
 	void updateBoard(bool fake = false);
+	std::vector<piecePtr>& getCaptured(Color color);
 
 private:
 
