@@ -8,6 +8,12 @@
 #include "MainMenu/Menu.h"
 typedef std::shared_ptr<MenuState> statePtr;
 
+
+/*
+* This class manages all the states of the game.
+* It holds a stack of share ptr of states and 
+* knows how to replace and update them accordingly
+*/
 class StateMachine
 {
 public:

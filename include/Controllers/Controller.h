@@ -1,6 +1,9 @@
 #pragma once
 #include "Utilities.h"
 
+/*
+* This is a base class for representing a chess player
+*/
 class Controller
 {
 public:

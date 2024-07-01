@@ -2,6 +2,8 @@
 #include "GameState.h"
 #include "Controllers/Controller.h"
 
+/*This class represents gamestate of controller turn*/
+
 class PlayerXTurnState : public GameState
 {
 public:

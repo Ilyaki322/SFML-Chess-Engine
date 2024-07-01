@@ -11,6 +11,12 @@ class StateMachine;
 
 typedef std::unique_ptr<Button> buttonPtr;
 
+/*
+* This department manages the review menu.
+* It reads from a text file games that have already been played
+* and call to game manager with the review state to start reviewing
+*/
+
 class HistoryState : public Menu
 {
 public:

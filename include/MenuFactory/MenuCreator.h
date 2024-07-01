@@ -6,6 +6,10 @@
 
 class StateMachine;
 
+/*
+* This is a base class for create menu 
+*/
+
 class MenuCreator
 {
 public:

@@ -3,6 +3,7 @@
 #include "MainMenu/MenuState.h"
 #include "MainMenu/StateMachine.h"
 
+/*This class executes a next state command*/
 class NextStateCommand : public ButtonCommand
 {
 public:

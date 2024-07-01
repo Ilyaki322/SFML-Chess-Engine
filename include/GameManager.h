@@ -6,14 +6,15 @@
 #include "UI/PlayUI.h"
 
 const int ScreenSizeX = 1400, ScreenSizeY = 768;
-//const int ScreenSizeX = 768, ScreenSizeY = 768;
+
 typedef std::shared_ptr<PlayUI> uiPtr;
 typedef std::unique_ptr<GameState> gameStatePtr;
 typedef std::unique_ptr<Controller> controllerPtr;
+
+
 class GameManager : public IObservable
 {
 public:
-	//GameManager();
 	GameManager(bool whiteTurn, SFMLBoard& board , uiPtr ui);
 
 	void addPlayer(controllerPtr p);

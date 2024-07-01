@@ -4,6 +4,10 @@
 #include "SFML/Graphics.hpp"
 #include "Utilities.h"
 
+/*
+* This class represents a tile on the chessboard.
+* It lights up squares in a certain color according to the user's movement or click
+*/
 class Tile
 {
 public:

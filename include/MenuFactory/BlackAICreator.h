@@ -1,6 +1,10 @@
 #pragma once
 #include "MenuFactory/MenuCreator.h"
 
+/*
+* This class create the AI menu for black bot
+*/
+
 class BlackAICreator : public MenuCreator
 {
 public:

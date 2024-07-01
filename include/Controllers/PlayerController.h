@@ -9,6 +9,13 @@ class SFMLBoard;
 
 typedef std::vector<Move> Moves;
 
+/*
+* This class represents a human chess player.
+* It communicates with SFML to make sure the player 
+* clicks in a valid place on the screen and updates the 
+* observable that a move was made
+*/
+
 class PlayerController : public Controller, public IObserver
 {
 public:

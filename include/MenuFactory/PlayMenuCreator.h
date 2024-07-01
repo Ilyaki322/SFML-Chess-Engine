@@ -1,6 +1,11 @@
 #pragma once
 #include "MenuFactory/MenuCreator.h"
 
+
+/*
+* This class create the play menu
+*/
+
 class PlayMenuCreator : public MenuCreator
 {
 public:

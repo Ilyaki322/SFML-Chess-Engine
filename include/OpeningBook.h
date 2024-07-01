@@ -1,7 +1,12 @@
 #pragma once
 #include "Utilities.h"
 
-#include <vector> // vector?
+#include <vector> 
+
+
+/*
+* This struct represents an opening from a movebook
+*/
 
 struct bookMove
 {
@@ -23,6 +28,12 @@ struct bookMove
 };
 
 typedef std::vector<bookMove> book;
+
+/*
+* This class manages the opening of the game, 
+* it checks whether the move is in the book and builds opening 
+* moves for it until it finds no suitable move
+*/
 
 class OpeningBook
 {

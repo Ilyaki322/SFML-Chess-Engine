@@ -2,6 +2,10 @@
 
 #include "SFML/Graphics.hpp"
 
+
+/*
+* This class represents a chess piece in SFML
+*/
 class SFMLPiece
 {
 public:

@@ -3,6 +3,8 @@
 #include "SFMLPiece.h"
 #include <map>
 
+/*This class create a chess piece in SFML*/
+
 class SFMLPieceFactory
 {
 public:

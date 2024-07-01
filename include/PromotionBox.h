@@ -3,6 +3,12 @@
 #include "IObserver.h"
 
 class GameManager;
+
+/*
+*This class represents promotion in chess.
+* It presents to the board the options that the player has to choose from 
+* and after it is chosen, it updates the new piece 
+*/
 class PromotionBox : public IObserver
 {
 public:

@@ -1,6 +1,10 @@
 #pragma once
 #include "MenuFactory/MenuCreator.h"
 
+/*
+* This class create the main menu
+*/
+
 class MainMenuCreator : public MenuCreator
 {
 public:

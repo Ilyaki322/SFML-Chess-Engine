@@ -13,6 +13,10 @@ typedef std::unique_ptr<MenuCreator> creatorPtr;
 typedef std::vector<creatorPtr> menuVector;
 typedef std::shared_ptr<MenuState> menuPtr;
 
+/*
+* This class create the different menus 
+*/
+
 class MenuFactory
 {
 public:

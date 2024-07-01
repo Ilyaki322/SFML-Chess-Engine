@@ -1,6 +1,7 @@
 #pragma once
 #include "ButtonCommand/ButtonCommand.h"
 
+/*This class executes a player vs black AI game command*/
 
 class VBlackAICommand : public ButtonCommand
 {

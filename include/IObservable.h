@@ -3,7 +3,9 @@
 #include "SFML/Graphics.hpp"
 
 #include <vector>
-
+/*
+* This class manages a vector of observer objects and manage notifications
+*/
 class IObservable
 {
 public:

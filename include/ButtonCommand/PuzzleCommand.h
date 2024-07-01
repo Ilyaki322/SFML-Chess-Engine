@@ -2,6 +2,9 @@
 
 #include "ButtonCommand/ButtonCommand.h"
 #include "Utilities.h"
+
+/*This class executes a puzzle game command*/
+
 class PuzzleCommand : public ButtonCommand
 {
 public:

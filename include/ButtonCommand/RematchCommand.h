@@ -4,6 +4,8 @@
 
 class GameManager;
 
+/*This class executes a rematch command*/
+
 class RematchCommand :public ButtonCommand {
 public:
 	RematchCommand(StateMachine& stateMachine, GameManager& manager);

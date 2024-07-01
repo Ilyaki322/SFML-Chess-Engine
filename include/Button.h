@@ -7,6 +7,11 @@
 
 typedef std::unique_ptr<ButtonCommand> commandPtr;
 
+/*
+* This class represents a button in the game.
+* It holds shape with position, size and command
+*/
+
 class Button
 {
 public:

@@ -1,6 +1,10 @@
 #pragma once
 #include "MenuFactory/MenuCreator.h"
 
+
+/*
+* This class create the puzzle menu
+*/
 class PuzzleMenuCreator : public MenuCreator
 {
 public:

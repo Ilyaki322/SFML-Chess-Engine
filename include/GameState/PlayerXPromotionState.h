@@ -4,6 +4,8 @@
 #include "Controllers/Controller.h"
 #include "PromotionBox.h"
 
+/*This class represents gamestate of promotion*/
+
 class PlayerXPromotionState : public GameState
 {
 public:

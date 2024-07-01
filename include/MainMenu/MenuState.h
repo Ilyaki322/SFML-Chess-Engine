@@ -2,6 +2,10 @@
 #include "SFML/Graphics.hpp"
 
 class StateMachine;
+
+/*
+* This is a base class for the states of the game menu
+*/
 class MenuState
 {
 public:
