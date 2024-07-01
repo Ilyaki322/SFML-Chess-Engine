@@ -17,7 +17,7 @@ void PlayerXPromotionState::execute()
 	}
 }
 
-void PlayerXPromotionState::draw(float dt)
+void PlayerXPromotionState::draw(float)
 {
 	m_box.draw();
 }

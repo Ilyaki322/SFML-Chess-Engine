@@ -1,8 +1,11 @@
 #include "GameState/PuzzleGameState.h"
+#include "GameState/WaitGameState.h"
 #include "GameManager.h"
 #include "NBoard.h"
 
-PuzzleGameState::PuzzleGameState(Color color, PuzzleManager& puzzle, GameManager& manager, uiPuzzlePtr ui)
+#include <memory>
+
+PuzzleGameState::PuzzleGameState(PuzzleManager& puzzle, GameManager& manager, uiPuzzlePtr ui)
 	:GameState(manager), m_computerTurn(true), m_playerLastMove({ 0,0 }),
 	m_puzzleManager(puzzle), m_ui(ui), m_waitingUndo(false), m_waitingNew(false)
 {
@@ -16,8 +19,7 @@ void PuzzleGameState::execute()
 	if (m_waitingUndo || m_waitingNew){
 		if (m_ui->isUndo())m_waitingUndo = false;
 		if(m_ui->isNew())m_waitingNew = false;
-		m_manager.nextTurn(undoMove);
-		m_manager.nextTurn(undoMove); //---- wtf!??!
+		m_manager.updateBoard();
 		return;
 	}
 
@@ -29,13 +31,16 @@ void PuzzleGameState::execute()
 		m_ui->needUndo();
 		m_waitingUndo = true;
 		m_computerTurn = false;
-		m_manager.nextTurn(undoMove);
+		//m_manager.nextTurn(undoMove);
+		m_manager.updateBoard();
 	}
 	else if (m_player->turnReady()) {
 		auto move = m_player->playTurn();
 		m_computerTurn = true;
 		m_playerLastMove = move;
 		m_manager.nextTurn(move);
+		auto nextState = std::make_unique<PuzzleGameState>(*this);
+		m_manager.setState(std::make_unique<WaitGameState>(m_manager, std::move(nextState)));
 	}
 }
 

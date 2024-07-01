@@ -132,7 +132,7 @@ void GameManager::nextTurn(Move& move)
 {
 	if(move.startSquare!=-1)
 		NBoard::instance().move(move);
-	m_sfmlBoard.updateBoard(move.startSquare == -1);
+	m_sfmlBoard.makeMove();
 	m_whiteTurn = !m_whiteTurn;
 }
 
@@ -164,4 +164,9 @@ void GameManager::resetBoard()
 {
 	NBoard::instance().setBoard(NEW_GAME);
 	m_sfmlBoard.reset();
+}
+
+void GameManager::updateBoard()
+{
+	m_sfmlBoard.updateBoard();
 }

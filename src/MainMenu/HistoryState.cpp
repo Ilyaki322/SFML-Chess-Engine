@@ -96,7 +96,7 @@ void HistoryState::load10Games()
 		if (line.empty()) continue;
 		
 		std::string newline = std::to_string(i + 1 + m_page * 10) + "." + line;
-		m_games.push_back(std::make_unique<Button>(newline, nullptr, sf::Vector2f(500, 40), sf::Vector2f(m_window.getSize().x / 2, 25 + 50 * i)));
+		m_games.push_back(std::make_unique<Button>(newline, nullptr, sf::Vector2f(500.f, 40.f), sf::Vector2f(m_window.getSize().x / 2.f, 25.f + 50.f * i)));
 
 		std::getline(games, line);
 	}
@@ -107,7 +107,7 @@ void HistoryState::load10Games()
 void HistoryState::startReview(const int game)
 {
 	NBoard::instance().setBoard(NEW_GAME);
-	SFMLBoard board(true);
+	SFMLBoard board;
 
 	sf::Sprite pic1, pic2;
 

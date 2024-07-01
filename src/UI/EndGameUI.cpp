@@ -33,7 +33,7 @@ void EndGameUI::initButtons(GameManager& manager)
 	pic.setTexture(Assets::instance().getUITexture("review"));
 	m_button.push_back(
 		std::make_unique<Button>(pic,
-		std::make_unique<ChangeGameStateCommand>(m_stateMachine, manager,std::make_unique<ReviewState>(manager,0), std::make_shared<ReviewUI>(m_stateMachine)),
+		std::make_unique<ChangeGameStateCommand>(m_stateMachine, manager,std::make_unique<ReviewState>(manager,-1), std::make_shared<ReviewUI>(m_stateMachine)),
 		sf::Vector2f(1250, 500)));
 
 }

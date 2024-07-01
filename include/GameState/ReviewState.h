@@ -21,6 +21,7 @@ public:
 
 private:
 	void loadGame(const int num);
+	void loadLastGame();
 
 	std::vector<Move> m_moveList;
 	buttonPtr m_next;
