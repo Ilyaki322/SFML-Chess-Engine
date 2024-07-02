@@ -101,20 +101,43 @@ Data Structures:
 
 BoardStack
 Role: Saves each move played, provides the last move, and saves the game to a file.
-Button
-Role: Represents a button in the game, handling its appearance and actions.
-Assets
-Role: Singleton class that downloads and holds all the necessary game resources like textures, fonts, and sounds.
+
+StateMachine::std::stack<statePtr> m_stateStack 
+Choosing this data structure with shared ptr for the reason to access each 
+time only the end of the data structure for insertion and deletion. 
+The choice of shared ptr is because each state holds the next state, 
+so there will be several objects that will point to the same state
+
+NBoard
+Role: With this data structure we guarantee efficient operations for running the chess engine 
+This class holds an array of size 64
+Each element in the array is an int whose first 3 bits hold the type of piece, 
+the 3rd and 4th bits hold the color and the 5th bit holds whether the piece has moved yet
 
 
 //***********************************************
 Algorithms:
 //***********************************************
 Minimax Algorithm with Alpha-Beta Pruning
-Role: The AI uses this algorithm to decide the best move by exploring possible future moves and minimizing the opponent's maximum possible gain.
+Role:
+The minimax algorithm will get a board position, and recusivly play all possible moves, 
+and on those moves will apply minimax, up to depth.
+for each move it will evaluate the board and return a value,
+overall this will return a move that has the highest value.
+The algorithm also uses alpha beta pruning:
+minmax plays both black and white moves, so
+it will 'cut' and stop the recursion if it finds moves that are better for the opponent,
+it assumes the opponent will make the best move for them, and so we reduce the number 
+of positions we need to check.
+
 Fen Algorithm
 Role: Translates FEN strings to board positions, used to set up initial positions and for testing.
 
+PieceLogic
+Role:This class holds all the moves and rules that exist in chess in relation to a single piece
+The main goal in creating this class is to calculate all the moves in the most efficient way. 
+While calculating the king's risk in relation to the opponent, 
+we can know that a piece calculates its moves only if it is possible without exposing the king to chess
 
 //***********************************************
 DESIGN:
