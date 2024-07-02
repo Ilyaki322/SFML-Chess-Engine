@@ -13,7 +13,7 @@
 */
 class PuzzleManager {
 public:
-	PuzzleManager(Color color,Difficult d);
+	PuzzleManager(Difficult d);
 	Move getCurrMove()const;
 	void deleteCurrMove();
 	void loadNextPuzzle();

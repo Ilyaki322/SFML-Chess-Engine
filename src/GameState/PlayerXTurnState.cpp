@@ -1,6 +1,7 @@
 #include "GameState/PlayerXTurnState.h"
 #include "GameState/PlayerXPromotionState.h"
 #include "GameState/GameOverState.h"
+#include "GameState/WaitGameState.h"
 #include "GameManager.h"
 
 #include "IGenerate.h"
@@ -35,11 +36,13 @@ void PlayerXTurnState::execute()
 		}
 		
 		m_manager.nextTurn(move);
-		m_manager.setState(std::make_unique<PlayerXTurnState>(m_manager, ((m_playerNum + 1) % m_manager.getNumOfPlayers())));
+		//m_manager.setState(std::make_unique<PlayerXTurnState>(m_manager, ((m_playerNum + 1) % m_manager.getNumOfPlayers())));
+		auto nextState = std::make_unique<PlayerXTurnState>(m_manager, ((m_playerNum + 1) % m_manager.getNumOfPlayers()));
+		m_manager.setState(std::make_unique<WaitGameState>(m_manager, std::move(nextState)));
 	}
 }
 
-void PlayerXTurnState::draw(float dt)
+void PlayerXTurnState::draw(float)
 {
 	return;
 }

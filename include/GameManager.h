@@ -25,8 +25,10 @@ public:
 	void nextTurn(Move &move);
 	void setUI(uiPtr ui);
 	void setUI();
+
 	void restartGame();
 	void resetBoard();
+	void updateBoard();
 
 	sf::RenderWindow& getWindow();
 	Controller* getPlayer(const int i);

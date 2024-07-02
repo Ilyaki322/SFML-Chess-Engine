@@ -1,9 +1,9 @@
 #include "PuzzleManager.h"
 #include "NBoard.h"
-PuzzleManager::PuzzleManager(Color color , Difficult d)
+PuzzleManager::PuzzleManager(Difficult d)
 	:m_difficult(d)
 {	
-	srand(time(nullptr));
+	srand(unsigned(time(nullptr)));
 	m_file.open("PuzzleWhite.txt");
 	int dif;
 	std::string line;
@@ -54,8 +54,6 @@ void PuzzleManager::loadNextPuzzle()
 
 	NBoard& inst = NBoard::instance();
 	inst.setBoard(m_currPuzzle.board);
-	std::cout << m_currPuzzle.name << '\n';
-
 }
 
 std::string PuzzleManager::getName() const

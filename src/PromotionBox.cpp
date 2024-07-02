@@ -11,7 +11,7 @@ PromotionBox::PromotionBox(GameManager& manager, Color color)
 	{
 		for (int i = 0; i < 4; i++)
 		{
-			pieces[i] = toupper(pieces[i]);
+			pieces[i] = char(toupper(pieces[i]));
 		}
 	}
 
@@ -45,7 +45,7 @@ void PromotionBox::draw()
 	}
 }
 
-Piece PromotionBox::getPiece()
+Piece PromotionBox::getPiece() const
 {
 	return m_piece;
 }

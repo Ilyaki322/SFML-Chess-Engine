@@ -3,7 +3,8 @@
 #include <iostream> 
 
 NBoard::NBoard()
-	:m_lastMove({ -1, -1 }), m_capture(0)
+	:m_lastMove({ -1, -1 }),
+	 m_capture(0), m_BKing(4), m_WKing(60), m_passant(-1), m_board()
 {
 }
 
@@ -12,27 +13,6 @@ NBoard& NBoard::instance()
 	static NBoard ins;
 	return ins;
 }
-
-//void NBoard::setBoard(std::array<int, SIZE> arr)
-//{
-//	m_board = arr;
-//	for (int i = 0 ; i < SIZE; i++) {
-//		if (m_board[i] != 0) {
-//			if ((m_board[i] & 0b111) == KingVal) {
-//				int color = (m_board[i] & WHITE) > 0 ? WHITE : BLACK;
-//				if (color == WHITE)
-//				{
-//					m_WKing = i;
-//				}
-//				else
-//				{
-//					m_BKing = i;
-//				}
-//			}
-//		}
-//	}
-//	m_passant = -1;
-//}
 
 void NBoard::setBoard(std::string fen, std::string name)
 {
@@ -61,7 +41,6 @@ void NBoard::setBoard(std::string fen, std::string name)
 
 void NBoard::move(Move move)
 {
-	//m_stack.insert(m_board, m_WKing, m_BKing, m_passant);
 	m_stack.insert(move, m_WKing, m_BKing, m_passant);
 	m_lastMove = move;
 	m_capture = getPiece(move.targetSquare);
@@ -97,14 +76,6 @@ void NBoard::move(Move move)
 	m_passant = -1;
 }
 
-//void NBoard::undo()
-//{
-//	Stack s =  m_stack.LastMove();
-//	m_board = s.backUpm_board;
-//	m_BKing = s.lastBKing;
-//	m_WKing = s.lastWKing;
-//	m_passant = s.enPassant;
-//}
 void NBoard::undo()
 {
 	m_capture = 0;

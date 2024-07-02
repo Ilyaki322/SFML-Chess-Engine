@@ -22,7 +22,7 @@ typedef std::unique_ptr<SFMLPiece> piecePtr;
 class SFMLBoard
 {
 public:
-	SFMLBoard(const bool useCaptrues = true);
+	SFMLBoard();
 
 	void draw(sf::RenderWindow& window);
 	bool clickedOnCorrectPiece(const int x, Color);
@@ -30,14 +30,17 @@ public:
 	void reset();
 	void colorTiles(int tile, const sf::Color& color);
 	void resetTileColors();
-	void updateBoard(bool fake = false);
+
+	void updateBoard();
+	void makeMove();
+
 	std::vector<piecePtr>& getCaptured(Color color);
 
 private:
 
 	void initTiles();
 	void playBoardSound(const Move& move);
-	void updateCaptured(const Move& move);
+	void updateCaptured();
 	
 	std::vector<piecePtr> m_capturedWhitePieces;
 	std::vector<piecePtr> m_capturedBlackPieces;
@@ -46,6 +49,4 @@ private:
 
 	sf::Sound m_move;
 	sf::Sound m_capture;
-
-	bool m_useCaptures;
 };

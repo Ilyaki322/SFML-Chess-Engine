@@ -19,7 +19,7 @@ std::unique_ptr<SFMLPiece> SFMLPieceFactory::create(const int val, const sf::Vec
 	
 	if (black)
 	{
-		c = toupper(c);
+		c = char(toupper(c));
 	}
 
 	return std::make_unique<SFMLPiece>(Assets::instance().getTexture(c), pos);
@@ -32,7 +32,7 @@ std::unique_ptr<SFMLPiece> SFMLPieceFactory::create(const int val, const sf::Vec
 
 	if (black)
 	{
-		c = toupper(c);
+		c = char(toupper(c));
 	}
 
 	return std::make_unique<SFMLPiece>(Assets::instance().getTexture(c), pos, size);

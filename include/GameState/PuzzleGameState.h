@@ -15,7 +15,7 @@ typedef std::shared_ptr<PuzzleUI> uiPuzzlePtr;
 class PuzzleGameState : public GameState
 {
 public:
-	PuzzleGameState(Color color, PuzzleManager& puzzle ,GameManager& manager, uiPuzzlePtr ui);
+	PuzzleGameState(PuzzleManager& puzzle ,GameManager& manager, uiPuzzlePtr ui);
 	virtual void execute()override;
 	virtual void draw(float dt)override;
 private:

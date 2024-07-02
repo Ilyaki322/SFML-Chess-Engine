@@ -17,7 +17,7 @@ public:
 	void draw();
 	void eventUpdate(sf::Event& event, Color color) override;
 
-	Piece getPiece();
+	Piece getPiece() const;
 
 private:
 

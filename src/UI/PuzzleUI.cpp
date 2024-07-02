@@ -34,7 +34,7 @@ void PuzzleUI::initButtons(GameManager& manager)
 	pic.setTexture(Assets::instance().getUITexture("undo"));
 	PlayUI::initButtons(manager);
 	m_undo=(std::make_unique<Button>(pic,
-		std::make_unique<UndoPuzzleCommand>(m_stateMachine, *this),
+		std::make_unique<UndoPuzzleCommand>(m_stateMachine, *this, manager),
 		sf::Vector2f(1100, 80)));
 	pic.setTexture(Assets::instance().getUITexture("next"));
 	m_next = (std::make_unique<Button>(pic,

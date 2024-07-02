@@ -7,8 +7,6 @@
 #include <string>
 #include <sstream>
 
-#include <iostream> // debug
-
 ReviewState::ReviewState(GameManager& manager, const int game)
 	: GameState(manager), IObserver(manager), m_currMove(0) ,m_once(true)
 {
@@ -27,20 +25,15 @@ void ReviewState::eventUpdate(sf::Event& event, Color color)
 	auto location = m_manager.getWindow().mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
 	if (m_next->getGlobalBounds().contains(location))
 	{
-		//m_next->click();
-		if (m_currMove >= m_moveList.size()) return;
-		NBoard::instance().move(m_moveList[m_currMove]);
-		Move move = { -1, -1 };
-		m_manager.nextTurn(move);
+		if (m_currMove >= m_moveList.size() - 1) return;
+		m_manager.nextTurn(m_moveList[m_currMove]);
 		m_currMove++;
 	}
 	if (m_prev->getGlobalBounds().contains(location))
 	{
 		if (m_currMove <= 0) return;
 		NBoard::instance().undo();
-		Move move = { -1, -1 };
-		m_manager.nextTurn(move);
-		//m_prev->click();
+		m_manager.updateBoard();
 		m_currMove--;
 	}
 }
@@ -62,6 +55,11 @@ void ReviewState::draw(float dt)
 
 void ReviewState::loadGame(const int num)
 {
+	if (num == -1) 
+	{
+		loadLastGame();
+		return;
+	}
 	std::ifstream games("GameHistory.txt");
 
 	std::string line;
@@ -87,4 +85,34 @@ void ReviewState::loadGame(const int num)
 	}
 }
 
+void ReviewState::loadLastGame()
+{
+	std::ifstream games("GameHistory.txt");
+	
+	std::string lastNonWhitespaceLine;
+	std::string line;
 
+	if (games.is_open())
+	{
+		while (std::getline(games, line))
+		{
+			if (!line.empty())
+			{
+				lastNonWhitespaceLine = line;
+			}
+		}
+	}
+
+	std::istringstream s(lastNonWhitespaceLine);
+
+	while (!s.eof())
+	{
+		Move move;
+		int promotion;
+		s >> promotion;
+		move.promotionVal = Piece(promotion);
+		s >> move.specialStartSquare >> move.specialTargetSquare;
+		s >> move.startSquare >> move.targetSquare;
+		m_moveList.push_back(move);
+	}
+}
