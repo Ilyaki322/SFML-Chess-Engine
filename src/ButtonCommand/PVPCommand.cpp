@@ -1,9 +1,9 @@
 #include "ButtonCommand/PVPCommand.h"
-#include "NBoard.h"
+#include "ChessLogic/NBoard.h"
 #include "Controllers/PlayerController.h"
 #include "GameState/PlayerXTurnState.h"
-#include "GameManager.h"
-#include "SFMLBoard.h"
+#include "Managers/GameManager.h"
+#include "SFMLRelated/SFMLBoard.h"
 #include "UI/GameUI.h"
 #include "Assets.h"
 #include <memory>

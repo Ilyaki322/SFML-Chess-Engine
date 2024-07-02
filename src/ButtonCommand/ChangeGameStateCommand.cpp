@@ -1,5 +1,5 @@
 #include "ButtonCommand/ChangeGameStateCommand.h"
-#include "GameManager.h"
+#include "Managers/GameManager.h"
 
 ChangeGameStateCommand::ChangeGameStateCommand(StateMachine& machine, GameManager& manager, gameStatePtr ptr,uiPtr ui)
 	: ButtonCommand(machine), m_manager(manager), m_nextState(std::move(ptr)),m_ui(ui)

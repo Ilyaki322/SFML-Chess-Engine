@@ -1,7 +1,7 @@
 #pragma once
 #include "Controller.h"
-#include "IGenerate.h"
-#include "OpeningBook.h"
+#include "ChessLogic/IGenerate.h"
+#include "ChessLogic/OpeningBook.h"
 
 class NBoard;
 

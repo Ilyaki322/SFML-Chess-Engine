@@ -1,6 +1,6 @@
 #pragma once
 #include "Controller.h"
-#include "IObserver.h"
+#include "ObserverPattern/IObserver.h"
 
 #include <SFML/Graphics.hpp>
 

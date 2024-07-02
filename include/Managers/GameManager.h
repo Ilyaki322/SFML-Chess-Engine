@@ -1,7 +1,7 @@
 #pragma once
 #include "Controllers/Controller.h"
-#include "SFMLBoard.h"
-#include "IObservable.h"
+#include "SFMLRelated/SFMLBoard.h"
+#include "ObserverPattern/IObservable.h"
 #include "GameState/GameState.h"
 #include "UI/PlayUI.h"
 

@@ -1,5 +1,5 @@
 #include "GameState/WaitGameState.h"
-#include "GameManager.h"
+#include "Managers/GameManager.h"
 
 WaitGameState::WaitGameState(GameManager& manager, nextStatePtr nextState)
 	: GameState(manager), m_nextState(std::move(nextState)), m_waitTime(0.5f) {}

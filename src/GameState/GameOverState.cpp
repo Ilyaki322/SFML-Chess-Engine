@@ -1,6 +1,6 @@
 #include "GameState/GameOverState.h"
-#include "GameManager.h"
-#include "NBoard.h"
+#include "Managers/GameManager.h"
+#include "ChessLogic/NBoard.h"
 #include "Assets.h"
 
 GameOverState::GameOverState(GameManager& gameManager, GameOver status)

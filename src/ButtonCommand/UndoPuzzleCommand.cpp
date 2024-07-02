@@ -1,6 +1,6 @@
 #include "ButtonCommand/UndoPuzzleCommand.h"
-#include "NBoard.h"
-#include "GameManager.h"
+#include "ChessLogic/NBoard.h"
+#include "Managers/GameManager.h"
 UndoPuzzleCommand::UndoPuzzleCommand(StateMachine& stateMachine,PuzzleUI& puzzle, GameManager& manager)
 	:ButtonCommand(stateMachine), m_puzzle(puzzle), m_manager(manager)
 {

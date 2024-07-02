@@ -1,5 +1,5 @@
-#include "IGenerate.h"
-#include "NBoard.h"
+#include "ChessLogic/IGenerate.h"
+#include "ChessLogic/NBoard.h"
 
 //---------------------------------------------------------------------
 // This function returns all possible moves currently on the board

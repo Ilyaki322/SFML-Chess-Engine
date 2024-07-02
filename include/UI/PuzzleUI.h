@@ -1,6 +1,6 @@
 #pragma once
 #include "PlayUI.h"
-#include "PuzzleManager.h"
+#include "Managers/PuzzleManager.h"
 
 typedef std::unique_ptr<Button> buttonPtr;
 

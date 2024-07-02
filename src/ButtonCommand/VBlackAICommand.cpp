@@ -1,10 +1,10 @@
 #include "ButtonCommand/VBlackAICommand.h"
-#include "NBoard.h"
+#include "ChessLogic/NBoard.h"
 #include "Controllers/AIController.h"
 #include "Controllers/PlayerController.h"
 #include "GameState/PlayerXTurnState.h"
-#include "GameManager.h"
-#include "SFMLBoard.h"
+#include "Managers/GameManager.h"
+#include "SFMLRelated/SFMLBoard.h"
 #include "UI/GameUI.h"
 
 VBlackAICommand::VBlackAICommand(StateMachine& stateMachine, const int difficulty)

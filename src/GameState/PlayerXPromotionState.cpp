@@ -1,6 +1,6 @@
 #include "GameState/PlayerXPromotionState.h"
 #include "GameState/PlayerXTurnState.h"
-#include "GameManager.h"
+#include "Managers/GameManager.h"
 
 PlayerXPromotionState::PlayerXPromotionState(GameManager& manager, Color color, const int player, Move move)
  : GameState(manager), m_color(color), m_move(move), m_player(player),

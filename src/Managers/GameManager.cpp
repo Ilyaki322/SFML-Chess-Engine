@@ -1,6 +1,6 @@
-#include "GameManager.h"
+#include "Managers/GameManager.h"
 #include "Utilities.h"
-#include "NBoard.h"
+#include "ChessLogic/NBoard.h"
 #include "GameState/PlayerXTurnState.h"
 #include "GameState/ReviewState.h"
 

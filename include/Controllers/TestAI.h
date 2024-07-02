@@ -1,6 +1,6 @@
 #pragma once
 #include "Controller.h"
-#include "IGenerate.h"
+#include "ChessLogic/IGenerate.h"
 
 /*
 * This is a Test AI, used to count moves to make sure we got

@@ -1,6 +1,6 @@
 #pragma once
 #include "GameState.h"
-#include "PuzzleManager.h"
+#include "Managers/PuzzleManager.h"
 #include "Controllers/Controller.h"
 #include <memory>
 #include "UI/PuzzleUI.h"

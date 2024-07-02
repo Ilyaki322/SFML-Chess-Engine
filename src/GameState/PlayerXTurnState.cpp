@@ -2,9 +2,9 @@
 #include "GameState/PlayerXPromotionState.h"
 #include "GameState/GameOverState.h"
 #include "GameState/WaitGameState.h"
-#include "GameManager.h"
+#include "Managers/GameManager.h"
 
-#include "IGenerate.h"
+#include "ChessLogic/IGenerate.h"
 
 PlayerXTurnState::PlayerXTurnState(GameManager& manager, const int player)
 	: GameState(manager), m_playerNum(player)

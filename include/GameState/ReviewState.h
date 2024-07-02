@@ -1,7 +1,7 @@
 #pragma once
 #include "GameState/GameState.h"
 #include "Utilities.h"
-#include "IObserver.h"
+#include "ObserverPattern/IObserver.h"
 #include "Button.h"
 
 #include <memory>

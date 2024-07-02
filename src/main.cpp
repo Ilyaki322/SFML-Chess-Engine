@@ -1,6 +1,6 @@
-#include "GameManager.h"
-#include "NBoard.h"
-#include "FenAlgorithm.h"
+#include "Managers/GameManager.h"
+#include "ChessLogic/NBoard.h"
+#include "ChessLogic/FenAlgorithm.h"
 #include "MainMenu/StateMachine.h"
 
 #include <iostream>

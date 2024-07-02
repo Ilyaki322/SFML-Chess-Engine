@@ -1,4 +1,4 @@
-#include "Tile.h"
+#include "SFMLRelated/Tile.h"
 
 Tile::Tile(sf::Color defaultColor, sf::Vector2f pos)
 	: m_defaultColor(defaultColor), m_piece(nullptr), m_tile(sf::Vector2f(TILE_SIZE, TILE_SIZE))

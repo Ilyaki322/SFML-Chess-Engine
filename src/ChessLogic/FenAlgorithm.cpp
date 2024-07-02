@@ -1,4 +1,4 @@
-#include "FenAlgorithm.h"
+#include "ChessLogic/FenAlgorithm.h"
 #include "Assets.h"
 #include "Utilities.h"
 

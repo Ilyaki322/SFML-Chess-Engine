@@ -1,5 +1,5 @@
 #include "Controllers/TestAI.h"
-#include "NBoard.h"
+#include "ChessLogic/NBoard.h"
 
 #include <iostream>
 

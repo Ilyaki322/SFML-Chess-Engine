@@ -1,5 +1,5 @@
 #include "UI/PlayUI.h"
-#include "GameManager.h"
+#include "Managers/GameManager.h"
 
 PlayUI::PlayUI(StateMachine& stateMachine)
 	:m_stateMachine(stateMachine), m_newBackground(false)

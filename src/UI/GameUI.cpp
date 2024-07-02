@@ -1,5 +1,5 @@
 #include "UI/GameUI.h"
-#include "NBoard.h"
+#include "ChessLogic/NBoard.h"
 #include "Assets.h"
 
 GameUI::GameUI(StateMachine& stateMachine, sf::Sprite& p1, sf::Sprite& p2, SFMLBoard& board)

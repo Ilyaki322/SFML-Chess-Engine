@@ -1,4 +1,4 @@
-#include "SFMLPieceFactory.h"
+#include "SFMLRelated/SFMLPieceFactory.h"
 #include "Utilities.h"
 #include "Assets.h"
 

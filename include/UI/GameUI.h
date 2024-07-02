@@ -2,7 +2,7 @@
 #include "PlayUI.h"
 #include <memory>
 #include <map>
-#include <SFMLBoard.h>
+#include <SFMLRelated/SFMLBoard.h>
 
 /*
 * Represents the regular Chess gamemode UI.

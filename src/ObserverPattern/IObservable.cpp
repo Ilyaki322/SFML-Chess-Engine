@@ -1,4 +1,4 @@
-#include "IObservable.h"
+#include "ObserverPattern/IObservable.h"
 
 void IObservable::add(IObserver& obs)
 {

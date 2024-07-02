@@ -1,5 +1,5 @@
 #include "Controllers/AIController.h"
-#include "NBoard.h"
+#include "ChessLogic/NBoard.h"
 
 AIController::AIController(Color color, AIDifficult difficult)
     :Controller(color), m_useBook(true), m_book(&m_Openingbook.getStart()),

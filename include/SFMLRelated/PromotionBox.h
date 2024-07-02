@@ -1,6 +1,6 @@
 #pragma once
 #include "Utilities.h"
-#include "IObserver.h"
+#include "ObserverPattern/IObserver.h"
 
 class GameManager;
 

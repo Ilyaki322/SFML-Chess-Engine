@@ -1,5 +1,5 @@
-#include "PieceLogic.h"
-#include "NBoard.h"
+#include "ChessLogic/PieceLogic.h"
+#include "ChessLogic/NBoard.h"
 
 //--------------------------------------------------------------------------
 // This function goes through all the possible moves that can reach the king 

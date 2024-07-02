@@ -1,7 +1,7 @@
 #include "GameState/PuzzleGameState.h"
 #include "GameState/WaitGameState.h"
-#include "GameManager.h"
-#include "NBoard.h"
+#include "Managers/GameManager.h"
+#include "ChessLogic/NBoard.h"
 
 #include <memory>
 

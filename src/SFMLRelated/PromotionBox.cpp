@@ -1,6 +1,6 @@
-#include "PromotionBox.h"
+#include "SFMLRelated/PromotionBox.h"
 #include "Assets.h"
-#include "GameManager.h"
+#include "Managers/GameManager.h"
 
 PromotionBox::PromotionBox(GameManager& manager, Color color)
 	: IObserver(manager), m_box({240, 70}), m_window(manager.getWindow()),

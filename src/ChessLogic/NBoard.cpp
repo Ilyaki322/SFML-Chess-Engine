@@ -1,5 +1,5 @@
-#include "NBoard.h"
-#include "FenAlgorithm.h"
+#include "ChessLogic/NBoard.h"
+#include "ChessLogic/FenAlgorithm.h"
 #include <iostream> 
 
 NBoard::NBoard()

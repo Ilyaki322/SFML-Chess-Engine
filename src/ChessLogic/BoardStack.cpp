@@ -1,5 +1,5 @@
-#include "BoardStack.h"
-#include "NBoard.h"
+#include "ChessLogic/BoardStack.h"
+#include "ChessLogic/NBoard.h"
 
 #include <fstream>
 #include <string>

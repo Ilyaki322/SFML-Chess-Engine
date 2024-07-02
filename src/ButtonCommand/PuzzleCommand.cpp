@@ -1,6 +1,6 @@
 #include "ButtonCommand/PuzzleCommand.h"
-#include "PuzzleManager.h"
-#include "GameManager.h"
+#include "Managers/PuzzleManager.h"
+#include "Managers/GameManager.h"
 #include "Controllers/PlayerController.h"
 #include "GameState/PuzzleGameState.h"
 #include "UI/PuzzleUI.h"

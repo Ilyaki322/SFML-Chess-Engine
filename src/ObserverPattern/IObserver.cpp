@@ -1,5 +1,5 @@
-#include "IObserver.h"
-#include "IObservable.h"
+#include "ObserverPattern/IObserver.h"
+#include "ObserverPattern/IObservable.h"
 
 IObserver::IObserver(IObservable& subject)
 	: m_subject(subject)

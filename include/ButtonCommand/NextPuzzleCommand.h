@@ -1,7 +1,7 @@
 #pragma once
 #include "ButtonCommand/ButtonCommand.h"
 #include "UI/PuzzleUI.h"
-#include "PuzzleManager.h"
+#include "Managers/PuzzleManager.h"
 
 /*This class executes a next puzzle command*/
 

@@ -2,10 +2,10 @@
 #include "ButtonCommand/ExitCommand.h"
 #include "Assets.h"
 
-#include "NBoard.h"
+#include "ChessLogic/NBoard.h"
 #include "Utilities.h"
-#include "SFMLBoard.h"
-#include "GameManager.h"
+#include "SFMLRelated/SFMLBoard.h"
+#include "Managers/GameManager.h"
 #include "UI/ReviewUI.h"
 #include "GameState/ReviewState.h"
 

@@ -1,7 +1,7 @@
 #include "GameState/ReviewState.h"
-#include "GameManager.h"
+#include "Managers/GameManager.h"
 #include "SFML/Graphics.hpp"
-#include "NBoard.h"
+#include "ChessLogic/NBoard.h"
 
 #include <fstream>
 #include <string>

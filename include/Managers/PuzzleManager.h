@@ -1,7 +1,7 @@
 #pragma once
 #include <fstream>
 #include "Utilities.h"
-#include "FenAlgorithm.h" 
+#include "ChessLogic/FenAlgorithm.h" 
 
 /*
 * this class will do:

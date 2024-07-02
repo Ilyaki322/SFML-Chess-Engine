@@ -1,8 +1,8 @@
 #include "Controllers/PlayerController.h"
-#include "GameManager.h"
+#include "Managers/GameManager.h"
 #include "Assets.h"
-#include "SFMLBoard.h"
-#include "IGenerate.h"
+#include "SFMLRelated/SFMLBoard.h"
+#include "ChessLogic/IGenerate.h"
 
 #include <iostream> // debug
 

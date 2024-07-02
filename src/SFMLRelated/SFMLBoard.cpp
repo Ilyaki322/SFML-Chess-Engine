@@ -1,7 +1,7 @@
-#include "SFMLBoard.h"
-#include "Tile.h"
-#include "SFMLPieceFactory.h"
-#include "NBoard.h"
+#include "SFMLRelated/SFMLBoard.h"
+#include "SFMLRelated/Tile.h"
+#include "SFMLRelated/SFMLPieceFactory.h"
+#include "ChessLogic/NBoard.h"
 #include "Assets.h"
 
 #include <map>

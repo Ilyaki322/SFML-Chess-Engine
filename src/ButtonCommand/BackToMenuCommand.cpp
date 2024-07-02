@@ -1,7 +1,7 @@
 #include "ButtonCommand/BackToMenuCommand.h"
-#include "GameManager.h"
+#include "Managers/GameManager.h"
 #include "MainMenu/StateMachine.h"
-#include "NBoard.h"
+#include "ChessLogic/NBoard.h"
 BackToMenuCommand::BackToMenuCommand(StateMachine& stateMachine,GameManager &manager)
 	: ButtonCommand(stateMachine), m_manager(manager) {}
 

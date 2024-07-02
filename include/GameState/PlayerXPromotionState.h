@@ -2,7 +2,7 @@
 
 #include "GameState/GameState.h"
 #include "Controllers/Controller.h"
-#include "PromotionBox.h"
+#include "SFMLRelated/PromotionBox.h"
 
 /*
 * This class represents gamestate of promotion.

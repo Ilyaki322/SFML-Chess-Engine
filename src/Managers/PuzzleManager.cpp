@@ -1,5 +1,5 @@
-#include "PuzzleManager.h"
-#include "NBoard.h"
+#include "Managers/PuzzleManager.h"
+#include "ChessLogic/NBoard.h"
 
 PuzzleManager::PuzzleManager(Difficult d)
 	:m_difficult(d)
