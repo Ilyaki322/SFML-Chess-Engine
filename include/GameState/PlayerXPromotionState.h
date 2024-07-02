@@ -4,7 +4,11 @@
 #include "Controllers/Controller.h"
 #include "PromotionBox.h"
 
-/*This class represents gamestate of promotion*/
+/*
+* This class represents gamestate of promotion.
+* Whenever the player promotes a pawn it will draw a choice window,
+* and wait for click.
+*/
 
 class PlayerXPromotionState : public GameState
 {

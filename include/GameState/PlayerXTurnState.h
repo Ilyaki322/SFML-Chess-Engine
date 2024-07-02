@@ -2,7 +2,10 @@
 #include "GameState.h"
 #include "Controllers/Controller.h"
 
-/*This class represents gamestate of controller turn*/
+/*
+* This class represents gamestate of controller turn
+* Player or AI.
+*/
 
 class PlayerXTurnState : public GameState
 {

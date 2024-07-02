@@ -9,6 +9,10 @@ bool MenuFactory::registerCreator(creatorPtr creator)
 	return true;
 }
 
+/*
+* Since Menus transition from one to another, they need pointers to each other
+* So we first have to create all menus first, and then add buttons to them.
+*/
 std::map<std::string, menuPtr> MenuFactory::initMenus()
 {
 	std::vector<std::shared_ptr<Menu>> menus;

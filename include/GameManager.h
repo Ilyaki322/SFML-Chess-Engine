@@ -11,7 +11,11 @@ typedef std::shared_ptr<PlayUI> uiPtr;
 typedef std::unique_ptr<GameState> gameStatePtr;
 typedef std::unique_ptr<Controller> controllerPtr;
 
-
+/*
+* Responsible for holding the GameState, the Menu.
+* Holds the players, and whose turn it is. 
+* Derives from IObservable so anyone interested in mouse clicks could listen.
+*/
 class GameManager : public IObservable
 {
 public:

@@ -14,9 +14,9 @@ typedef std::unique_ptr<SFMLPiece> piecePtr;
 
 /*
 * This class represents the chessboard to the screen
-* It draws the pieces in the appropriate position
-* It checks whether a piece is cupture and makes a sound accordingly 
-* and draws the piece on the side of the board 
+* It draws the pieces in the appropriate position,
+* colors the tiles based on actions,
+* and plays sound based on last move.
 */
 
 class SFMLBoard

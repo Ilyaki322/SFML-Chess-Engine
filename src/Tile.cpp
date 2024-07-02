@@ -10,12 +10,10 @@ Tile::Tile(sf::Color defaultColor, sf::Vector2f pos)
 	m_tile.setOrigin(m_tile.getSize().x / 2.f, m_tile.getSize().y / 2.f);
 }
 
-
 bool Tile::isOccupied() const
 {
 	return (m_piece == nullptr) ? false : true;
 }
-
 
 void Tile::placePiece(std::unique_ptr<SFMLPiece> piece)
 {

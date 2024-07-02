@@ -10,6 +10,14 @@ OpeningBook::OpeningBook()
 	generateBook();
 }
 
+/*
+* Using a data base of 20,000 proffesional games.
+* builds a tree-like structure, where each node is a move.
+* and the childern are the opponent answer.
+* 
+* The AI will play a move from the book, then check if the opponent move 
+* is in one of the childern of its move, and so on.
+*/
 void OpeningBook::generateBook()
 {
 	std::ifstream bookFile("games_base.txt");
@@ -46,15 +54,5 @@ void OpeningBook::generateBook()
 				current = &(*match).children;
 			}
 		}
-	}
-}
-
-void OpeningBook::printBook()
-{
-	std::cout << m_book.size() << std::endl;
-	auto& hui = m_book[0].children;
-	for (auto& i : hui)
-	{
-		std::cout << i.start << " " << i.target << std::endl;
 	}
 }

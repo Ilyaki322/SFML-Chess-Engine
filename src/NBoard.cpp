@@ -5,8 +5,7 @@
 NBoard::NBoard()
 	:m_lastMove({ -1, -1 }),
 	 m_capture(0), m_BKing(4), m_WKing(60), m_passant(-1), m_board()
-{
-}
+{}
 
 NBoard& NBoard::instance()
 {
@@ -14,6 +13,9 @@ NBoard& NBoard::instance()
 	return ins;
 }
 
+/*
+* inits the board according to the fen string.
+*/
 void NBoard::setBoard(std::string fen, std::string name)
 {
 	m_stack.clear(name);
@@ -39,6 +41,10 @@ void NBoard::setBoard(std::string fen, std::string name)
 		m_passant = -1;
 }
 
+/*
+* Plays a move on the board.
+* checks for 'special' moves like: castling, en passant and promotions.
+*/
 void NBoard::move(Move move)
 {
 	m_stack.insert(move, m_WKing, m_BKing, m_passant);
@@ -59,9 +65,11 @@ void NBoard::move(Move move)
 		m_board[move.startSquare] = 0;
 	}
 
+	// updates king positions.
 	if (move.startSquare == m_BKing) m_BKing = move.targetSquare;
 	if (move.startSquare == m_WKing) m_WKing = move.targetSquare;
 
+	// checks for en passant and updates the 'has moves' flag on relevant pieces.
 	int forward = color == WHITE ? 1 : -1;
 	int piece = m_board[move.targetSquare] & 0b111;
 	if (piece == PawnVal || piece == KingVal || piece == RookVal) {
@@ -76,6 +84,9 @@ void NBoard::move(Move move)
 	m_passant = -1;
 }
 
+/*
+* undos the last move
+*/
 void NBoard::undo()
 {
 	m_capture = 0;
@@ -113,7 +124,6 @@ int NBoard::getKing(int color)const
 {
 	return (color & White) > 0 ? m_WKing : m_BKing;
 }
-
 
 std::array<int, SIZE>& NBoard::getBoard()
 {

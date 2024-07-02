@@ -36,7 +36,6 @@ void PlayerXTurnState::execute()
 		}
 		
 		m_manager.nextTurn(move);
-		//m_manager.setState(std::make_unique<PlayerXTurnState>(m_manager, ((m_playerNum + 1) % m_manager.getNumOfPlayers())));
 		auto nextState = std::make_unique<PlayerXTurnState>(m_manager, ((m_playerNum + 1) % m_manager.getNumOfPlayers()));
 		m_manager.setState(std::make_unique<WaitGameState>(m_manager, std::move(nextState)));
 	}

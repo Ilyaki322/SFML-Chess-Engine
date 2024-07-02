@@ -4,8 +4,6 @@
 #include "GameState/PlayerXTurnState.h"
 #include "GameState/ReviewState.h"
 
-#include <iostream> // debug
-
 GameManager::GameManager(bool whiteTurn, SFMLBoard& board, uiPtr ui)
 	: m_whiteTurn(whiteTurn), m_changeState(false), m_sfmlBoard(board), m_ui(ui), m_changeUI(false)
 {
@@ -74,12 +72,16 @@ void GameManager::handleEvents()
 			break;
 		}
 	}
+
 	if (m_changeUI) {
 		setUI();
 	}
 		
 }
 
+/*
+* notifys all observers about a mouse click
+*/
 void GameManager::notify(sf::Event& event)
 {
 	Color color = (m_whiteTurn) ? White : Black;
@@ -114,19 +116,22 @@ StateMachine& GameManager::getStateMachine() const
 	return m_ui->getStateMachine();
 }
 
+/*
+* fires a flag to change state next loop.
+* if we change the state right away, it will crash
+* because state is unique_ptr.
+*/
 void GameManager::setState(gameStatePtr newState)
 {
 	m_nextState = std::move(newState);
 	m_changeState = true;
 }
-
 void GameManager::change()
 {
 	m_currentState = std::move(m_nextState);
 	m_nextState = nullptr;
 	m_changeState = false;
 }
-
 
 void GameManager::nextTurn(Move& move)
 {
@@ -150,7 +155,6 @@ void GameManager::setUI()
 	m_ui->initButtons(*this);
 	m_changeUI = false;
 }
-
 
 void GameManager::restartGame()
 {

@@ -26,9 +26,13 @@ GameUI::GameUI(StateMachine& stateMachine, sf::Sprite& p1, sf::Sprite& p2, SFMLB
 	
 	m_Bscore.setPosition(50, 130);
 	m_Wscore.setPosition(50, 550);
-
 }
 
+/*
+* calculates the relative score, draws it. 
+* draws all captured pieces.
+* draws the Player icon and background.
+*/
 void GameUI::draw(sf::RenderWindow &window)
 {
 	PlayUI::draw(window);
@@ -69,7 +73,7 @@ void GameUI::draw(sf::RenderWindow &window)
 
 void GameUI::initButtons(GameManager& manager)
 {
-	newBackground = false;
+	m_newBackground = false;
 	PlayUI::initButtons(manager);
 	m_whiteScore = m_blackScore = 39; 
 }
@@ -77,5 +81,4 @@ void GameUI::initButtons(GameManager& manager)
 void GameUI::buttonClicked(const sf::Vector2f& loc)
 {
 	PlayUI::buttonClicked(loc);
-	
 }

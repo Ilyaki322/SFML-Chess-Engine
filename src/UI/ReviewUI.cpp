@@ -2,8 +2,7 @@
 
 ReviewUI::ReviewUI(StateMachine& stateMachine)
 	:PlayUI(stateMachine)
-{
-}
+{}
 
 void ReviewUI::draw(sf::RenderWindow& window)
 {

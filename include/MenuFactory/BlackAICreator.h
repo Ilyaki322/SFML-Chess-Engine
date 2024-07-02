@@ -2,7 +2,8 @@
 #include "MenuFactory/MenuCreator.h"
 
 /*
-* This class create the AI menu for black bot
+* This class creates the menu
+* that lets the player choose the difficulty of the black AI.
 */
 
 class BlackAICreator : public MenuCreator

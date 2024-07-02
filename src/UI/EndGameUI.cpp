@@ -3,7 +3,6 @@
 #include "ButtonCommand/RematchCommand.h"
 #include "ButtonCommand/ChangeGameStateCommand.h"
 #include "ButtonCommand/BackToMenuCommand.h"
-
 #include "GameState/ReviewState.h"
 #include "Assets.h"
 
@@ -22,7 +21,7 @@ void EndGameUI::draw(sf::RenderWindow& window)
 
 void EndGameUI::initButtons(GameManager& manager)
 {
-	newBackground = true;
+	m_newBackground = true;
 	sf::Sprite pic;
 	pic.setTexture(Assets::instance().getUITexture("rematch"));
 	PlayUI::initButtons(manager);

@@ -2,6 +2,9 @@
 #include "PlayUI.h"
 #include <memory>
 
+/*
+* Represents the 'GameOver' UI, with options to replay, review and exit.
+*/
 class EndGameUI : public PlayUI
 {
 public:

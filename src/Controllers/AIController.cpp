@@ -168,7 +168,7 @@ int AIController::minimax(int depth, int alpha, int beta, bool maximizingPlayer 
 * positive means the position favors the AI.
 * will calculate based on Piece values and the Tables.
 */
-int AIController::evaluateBoard()
+int AIController::evaluateBoard() const
 {
     NBoard& ins = NBoard::instance();
     int score = 0;

@@ -1,12 +1,11 @@
 #pragma once
-
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <map>
 #include <string>
 
 /*
-This singltone class downloads and holds all the necessary game resources
+This singleton class downloads and holds all the necessary game resources
 */
 class Assets
 {

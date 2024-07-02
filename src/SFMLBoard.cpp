@@ -19,10 +19,9 @@ SFMLBoard::SFMLBoard()
 	m_move.setVolume(100);
 }
 
-
 void SFMLBoard::initTiles()
 {
-	std::map<int, sf::Color> colors = { {1, sf::Color(161, 111, 92)}, {0, sf::Color(236, 211, 186)} };
+	std::map<int, sf::Color> colors = { {1, BLACK_TILE}, {0, WHITE_TILE} };
 
 	for (int y = 0, i = 0; y < 8; y++)
 	{
@@ -46,6 +45,10 @@ void SFMLBoard::playBoardSound(const Move& move)
 	}
 }
 
+/*
+* Adds a piece to the captured list,
+* in order to show them in the UI.
+*/
 void SFMLBoard::updateCaptured()
 {
 	SFMLPieceFactory factory;

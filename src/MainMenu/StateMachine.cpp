@@ -57,7 +57,7 @@ void StateMachine::pop()
 
 void StateMachine::popAll()
 {
-	for (int i = m_stateStack.size(); i > 1; i--) {
+	for (size_t i = m_stateStack.size(); i > 1; i--) {
 		m_stateStack.pop();
 	}
 	m_returnToMenu = false;

@@ -1,9 +1,6 @@
 #include "IGenerate.h"
 #include "NBoard.h"
-#include <iostream> // DEBUG
-IGenerate::IGenerate()
-{
-}
+
 //---------------------------------------------------------------------
 // This function returns all possible moves currently on the board
 //---------------------------------------------------------------------
@@ -14,7 +11,8 @@ std::vector<std::vector<Move>> IGenerate::generateAll(int Color)
 	int color = (Color & White) > 0 ? White : Black;
 	int king = ins.getKing(color);
 	std::vector<int> check;
-	std::vector < std::vector<Move>> all;
+	std::vector<std::vector<Move>> all;
+
 	if (pieceLogic.check(king, check, color)) {
 		for (int i = 0; i < SIZE; i++){
 			if (ins.getPiece(i) == 0) continue;
@@ -34,7 +32,6 @@ std::vector<std::vector<Move>> IGenerate::generateAll(int Color)
 //---------------------------------------------------------------------
 std::vector<Move> IGenerate::generatePiece(int x)
 {
-
 	PieceLogic pieceLogic;
 	int color = (NBoard::instance().getPiece(x) & White) > 0 ? White : Black;
 	int king = NBoard::instance().getKing(color);

@@ -1,14 +1,11 @@
 #include "PieceLogic.h"
 #include "NBoard.h"
 
-PieceLogic::PieceLogic()
-{
-}
 //--------------------------------------------------------------------------
 // This function goes through all the possible moves that can reach the king 
 // and checks if it is threatened.
 // 
-// If the king is in chess and no piece can defend it, the function will return false 
+// If the king is in check and no piece can defend it, the function will return false 
 // If there are pieces who can protect him, it will return true
 //---------------------------------------------------------------------------
 bool PieceLogic::check(int king ,std::vector<int>& checkSquares , int color)
@@ -93,8 +90,9 @@ std::vector<Move> PieceLogic::generate(std::vector<int> Incheck, int piecePlace)
 		return knightMove(piecePlace, Incheck);
 	}
 }
+
 //--------------------------------------------------------------------------------
-//This function checks the direction of the king for a piece of his suit, 
+//This function checks the direction of the king for a piece of his color, 
 // if after the piece there is an actual threat the function will 
 // return the direction of the threat
 //---------------------------------------------------------------------------------
@@ -142,19 +140,18 @@ MovementDirection PieceLogic::kingPin(int target)
 		}
 	}
 	moves = slidingMove(LEFT, king, empty,color);
-	//if(!moves.empty() && moves.back().targetSquare+LEFT == target)
 	if (!checkCheck(moves, color , LEFT, king)) {
 		if (checkPin(moves, color, LEFT, king, target))
 			return Side;
 	}
 	moves = slidingMove(RIGHT, king, empty,color);
-	//if (!moves.empty() && moves.back().targetSquare + RIGHT == target)
 	if (!checkCheck(moves, color , RIGHT, king)) {
 		if (checkPin(moves, color, RIGHT, king, target))
 			return Side;
 	}
 	return All;
 }
+
 //---------------------------------------------------------------------------------
 //In the following Move functions we check the movement of the pieces in relation to the king 
 // and whether there is a checker on the board
@@ -469,11 +466,9 @@ std::vector<Move> PieceLogic::pawnMove(int start, std::vector<int> Incheck)
 					{
 						if (inCheck) {
 							if (std::find(Incheck.begin(), Incheck.end(), pos + forward + RIGHT) != Incheck.end()) {
-								//moves.push_back({ pos, pos + forward + RIGHT , pos , pos + RIGHT, p });
 								moves.push_back({ pos, pos + RIGHT , pos + RIGHT , pos + RIGHT + forward, p });
 							}
 						}
-						//else moves.push_back({ pos, pos + forward + RIGHT , pos , pos + RIGHT, p });
 						else moves.push_back({ pos, pos + RIGHT , pos + RIGHT , pos + RIGHT + forward, p });
 						
 					}
@@ -514,11 +509,9 @@ std::vector<Move> PieceLogic::pawnMove(int start, std::vector<int> Incheck)
 					{
 						if (inCheck) {
 							if (std::find(Incheck.begin(), Incheck.end(), pos + forward + LEFT) != Incheck.end()) {
-								//moves.push_back({ pos, pos + forward + LEFT , pos , pos + LEFT, p });
 								moves.push_back({ pos, pos + LEFT , pos + LEFT , pos + LEFT + forward, p });
 							}
 						}
-						//else moves.push_back({ pos, pos + forward + LEFT , pos , pos + LEFT, p });
 						else moves.push_back({ pos, pos + LEFT , pos + LEFT , pos + LEFT + forward, p });
 					}
 				}
@@ -552,7 +545,7 @@ std::vector<Move> PieceLogic::rookMove(int start, std::vector<int> Incheck)
 }
 //-----------------------------------------------------------------------------------------------
 // This function performs continuous movement
-// Used by the queen, rook, bishop and for checking chess
+// Used by the queen, rook, bishop and for checking check
 //-----------------------------------------------------------------------------------------
 std::vector<Move> PieceLogic::slidingMove(int direction, int start, std::vector<int> inCheck , int color)
 {

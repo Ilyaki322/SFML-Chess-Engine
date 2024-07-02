@@ -2,7 +2,7 @@
 #include "GameManager.h"
 
 PlayUI::PlayUI(StateMachine& stateMachine)
-	:m_stateMachine(stateMachine), newBackground(false)
+	:m_stateMachine(stateMachine), m_newBackground(false)
 {
 	m_backGround.setTexture(Assets::instance().getUITexture("background"));
 	m_backGround.setPosition({ 0, 0 });

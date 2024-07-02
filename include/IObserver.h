@@ -1,15 +1,13 @@
 #pragma once
-
 #include "Utilities.h"
+
 class IObservable;
 
-
 /*
-* This class represents an observer object in code.
-* itupdates events that have taken place
-* and updates observable on adding a new observer
+* This class represents an observer to an observable.
+* It registers itself to the observable in order to recives 
+* wanted notifications from it.
 */
-
 class IObserver
 {
 public:

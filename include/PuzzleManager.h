@@ -1,7 +1,6 @@
 #pragma once
 #include <fstream>
 #include "Utilities.h"
-#include <fstream>
 #include "FenAlgorithm.h" 
 
 /*
@@ -14,6 +13,7 @@
 class PuzzleManager {
 public:
 	PuzzleManager(Difficult d);
+
 	Move getCurrMove()const;
 	void deleteCurrMove();
 	void loadNextPuzzle();

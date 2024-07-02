@@ -14,7 +14,9 @@ typedef std::vector<creatorPtr> menuVector;
 typedef std::shared_ptr<MenuState> menuPtr;
 
 /*
-* This class create the different menus 
+* This is a Menu factory, each MenuCreator will register itself on start
+* and the factory will generate all menus upfront.
+* this way we create the menus once, and keep them all runtime.
 */
 
 class MenuFactory

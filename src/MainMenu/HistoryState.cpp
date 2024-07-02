@@ -6,14 +6,11 @@
 #include "Utilities.h"
 #include "SFMLBoard.h"
 #include "GameManager.h"
+#include "UI/ReviewUI.h"
 #include "GameState/ReviewState.h"
 
 #include <fstream>
 #include <string>
-
-#include "iostream" // debug
-#include <UI/GameUI.h>
-#include "UI/ReviewUI.h"
 
 HistoryState::HistoryState(sf::RenderWindow& window, StateMachine& stateMachine, sf::Texture& texture, std::string name)
 	: Menu(window, stateMachine, texture, name), m_page(0)
@@ -24,21 +21,20 @@ HistoryState::HistoryState(sf::RenderWindow& window, StateMachine& stateMachine,
 	m_pageDown = std::make_unique<Button>(arrow, nullptr, sf::Vector2f(20, 300));
 
 	m_games.reserve(10);
-	load10Games();
 }
 
 void HistoryState::draw()
 {
-	m_window.clear(sf::Color(125, 125, 125));
+	load10Games();
 
+	m_window.clear(sf::Color(125, 125, 125));
 	m_window.draw(m_menuSprite);
 
-	
 	for (int i = 0; i < m_games.size(); i++)
 	{
 		m_games[i]->draw(m_window);
 	}
-	for (int i = 0; i < m_buttons.size(); i++) // for debug only
+	for (int i = 0; i < m_buttons.size(); i++)
 	{
 		m_buttons[i]->draw(m_window);
 	}
@@ -72,6 +68,11 @@ void HistoryState::handleMouseClick(sf::Event& event)
 	}
 }
 
+/*
+* loads 10 games, the game numbers depend on m_page.
+* for example is m_page = 0 it will load 1-10.
+* if m_page = 1 it will load 11-20 and so on.
+*/
 void HistoryState::load10Games()
 {
 	std::ifstream games("GameHistory.txt");
@@ -96,7 +97,8 @@ void HistoryState::load10Games()
 		if (line.empty()) continue;
 		
 		std::string newline = std::to_string(i + 1 + m_page * 10) + "." + line;
-		m_games.push_back(std::make_unique<Button>(newline, nullptr, sf::Vector2f(500.f, 40.f), sf::Vector2f(m_window.getSize().x / 2.f, 25.f + 50.f * i)));
+		m_games.push_back(std::make_unique<Button>(newline, nullptr,
+			sf::Vector2f(500.f, 40.f), sf::Vector2f(m_window.getSize().x / 2.f, 25.f + 50.f * i)));
 
 		std::getline(games, line);
 	}

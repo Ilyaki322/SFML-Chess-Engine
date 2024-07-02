@@ -14,12 +14,14 @@ PuzzleUI::PuzzleUI(StateMachine& stateMachine, PuzzleManager& manager)
 	m_puzzleName.setCharacterSize(15);
 	m_puzzleName.setString("Puzzle Time");
 }
+
 void PuzzleUI::draw(sf::RenderWindow& window)
 {
-
 	PlayUI::draw(window);
 	window.draw(m_undoPic);
 	window.draw(m_puzzleName);
+
+	// those are highlighted when can be clicked.
 	if (m_undoButton)
 		m_undo->draw(window);
 
@@ -29,7 +31,7 @@ void PuzzleUI::draw(sf::RenderWindow& window)
 
 void PuzzleUI::initButtons(GameManager& manager)
 {
-	newBackground = false;
+	m_newBackground = false;
 	sf::Sprite pic;
 	pic.setTexture(Assets::instance().getUITexture("undo"));
 	PlayUI::initButtons(manager);

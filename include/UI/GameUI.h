@@ -4,6 +4,10 @@
 #include <map>
 #include <SFMLBoard.h>
 
+/*
+* Represents the regular Chess gamemode UI.
+* shows things like score, and captured pieces.
+*/
 class GameUI : public PlayUI
 {
 public:

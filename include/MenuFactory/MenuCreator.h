@@ -13,7 +13,7 @@ class StateMachine;
 class MenuCreator
 {
 public:
-	MenuCreator() = default;
+	MenuCreator() : m_stateMachine(nullptr), m_window(nullptr) {};
 
 	virtual std::shared_ptr<Menu> createMenu(sf::RenderWindow& window, StateMachine& stateMachine) = 0;
 	virtual void addButtons(std::shared_ptr<Menu> menu) = 0;

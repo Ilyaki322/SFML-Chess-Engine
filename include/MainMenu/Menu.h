@@ -11,7 +11,7 @@ typedef std::unique_ptr<Button> buttonPtr;
 
 /*
 * This class represents the game menus and holds the buttons with the 
-* relevant command to generate the next state
+* relevant commands.
 */
 
 class Menu : public MenuState

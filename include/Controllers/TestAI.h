@@ -2,6 +2,11 @@
 #include "Controller.h"
 #include "IGenerate.h"
 
+/*
+* This is a Test AI, used to count moves to make sure we got
+* all the chess rules correct.
+* Typicaly used with a certein FEN string on catchy board setups
+*/
 class TestAI : public Controller
 {
 public:

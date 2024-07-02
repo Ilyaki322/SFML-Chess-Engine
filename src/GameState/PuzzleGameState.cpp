@@ -16,14 +16,15 @@ PuzzleGameState::PuzzleGameState(PuzzleManager& puzzle, GameManager& manager, ui
 void PuzzleGameState::execute()
 {
 	Move undoMove = { -1,-1 };
-	if (m_waitingUndo || m_waitingNew){
+
+	if (m_waitingUndo || m_waitingNew){ // waiting for undo
 		if (m_ui->isUndo())m_waitingUndo = false;
 		if(m_ui->isNew())m_waitingNew = false;
 		m_manager.updateBoard();
 		return;
 	}
 
-	if (m_computerTurn) {
+	if (m_computerTurn) { // AI turn
 		if (correctMove()) {
 			playComputerMove();
 			return;
@@ -31,10 +32,10 @@ void PuzzleGameState::execute()
 		m_ui->needUndo();
 		m_waitingUndo = true;
 		m_computerTurn = false;
-		//m_manager.nextTurn(undoMove);
 		m_manager.updateBoard();
 	}
-	else if (m_player->turnReady()) {
+
+	else if (m_player->turnReady()) { // player turn
 		auto move = m_player->playTurn();
 		m_computerTurn = true;
 		m_playerLastMove = move;
@@ -47,6 +48,9 @@ void PuzzleGameState::execute()
 void PuzzleGameState::draw(float)
 {}
 
+/*
+* Checks whether the player played the correct move.
+*/
 bool PuzzleGameState::correctMove()
 {
 	if (m_playerLastMove.startSquare == 0 && m_playerLastMove.targetSquare == 0)return true;
@@ -57,6 +61,10 @@ bool PuzzleGameState::correctMove()
 	return true;
 }
 
+/*
+* Gets the next puzzle move from the puzzleManager,
+* and plays is.
+*/
 void PuzzleGameState::playComputerMove()
 {
 	Move move = m_puzzleManager.getCurrMove();

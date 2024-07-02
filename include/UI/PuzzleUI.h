@@ -4,6 +4,9 @@
 
 typedef std::unique_ptr<Button> buttonPtr;
 
+/*
+* Represents the UI and actions of the Puzzle gamemode.
+*/
 class PuzzleUI : public PlayUI {
 public:
 	PuzzleUI(StateMachine& stateMachine,PuzzleManager& manager);
@@ -16,7 +19,6 @@ public:
 	bool isUndo()const;
 	bool isNew()const;
 
-	
 private:
 	bool m_undoButton;
 	bool m_nextPuzzleButton;
@@ -26,6 +28,5 @@ private:
 	buttonPtr m_undo;
 	buttonPtr m_next;
 	PuzzleManager& m_manager;
-
 };
 

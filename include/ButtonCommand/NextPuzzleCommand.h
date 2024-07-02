@@ -2,7 +2,9 @@
 #include "ButtonCommand/ButtonCommand.h"
 #include "UI/PuzzleUI.h"
 #include "PuzzleManager.h"
-/*This class executes a naxt puzzle command*/
+
+/*This class executes a next puzzle command*/
+
 class NextPuzzleCommand :public ButtonCommand {
 public:
 	NextPuzzleCommand(StateMachine& stateMachine, PuzzleManager& manager);

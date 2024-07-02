@@ -10,7 +10,7 @@
 
 int main()
 {
-	srand(time(nullptr));
+	srand(unsigned(time(nullptr)));
 
 	StateMachine game;
 	game.update();

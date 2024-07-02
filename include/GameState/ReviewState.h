@@ -9,6 +9,11 @@
 
 typedef std::unique_ptr<Button> buttonPtr;
 
+/*
+* This GameState responsible for game reviews.
+* Will get the selected game from the saved file, 
+* and play it forwards or backwards turn by turn.
+*/
 class ReviewState : public GameState, public IObserver 
 {
 public:

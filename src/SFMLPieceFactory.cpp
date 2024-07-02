@@ -25,6 +25,9 @@ std::unique_ptr<SFMLPiece> SFMLPieceFactory::create(const int val, const sf::Vec
 	return std::make_unique<SFMLPiece>(Assets::instance().getTexture(c), pos);
 }
 
+/*
+* an overloading incase we want a piece of different size than the default one
+*/
 std::unique_ptr<SFMLPiece> SFMLPieceFactory::create(const int val, const sf::Vector2f& pos, const sf::Vector2f& size)
 {
 	bool black = ((0b10000 & val) > 0);

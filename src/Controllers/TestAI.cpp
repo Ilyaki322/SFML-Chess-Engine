@@ -11,6 +11,9 @@ Move TestAI::playTurn()
 	return move;
 }
 
+/*
+* A simple recursion that counts all possible moves up to depth.
+*/
 int TestAI::moveGenerationTest(int depth, bool white)
 {
 	Color color = white ? White : Black;

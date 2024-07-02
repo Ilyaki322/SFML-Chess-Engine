@@ -1,8 +1,17 @@
 #pragma once
 #include "Utilities.h"
-#include <array>
 #include "BoardStack.h"
+#include <array>
 
+/*
+* This Singleton is the 'Logical' board of the game.
+* it contains a 64 int board, each value of this board consists of 6 bits:
+* first 3 000abc to represent a piece,
+* next 2 for color 0xy000, 16 is black, 8 white.
+* and last one is 'did move' flag z00000
+* This allows the AI that checks millions of possible turns every turn
+* to access data quickly, in order to reach deeper depths.
+*/
 class NBoard {
 public:
 	static NBoard& instance();
@@ -10,11 +19,10 @@ public:
 	void move(Move move);
 	void undo();
 
-
-	int getPiece(int x)const;
-	bool enPassant(int x)const;
+	int getPiece(int x) const;
+	bool enPassant(int x) const;
 	int didCapture() const;
-	int getKing(int color)const;
+	int getKing(int color) const;
 	std::array<int, SIZE> &getBoard();
 
 	Move getLastMove() const;
@@ -24,12 +32,13 @@ private:
 	NBoard();
 	NBoard(const NBoard&) = default;
 	NBoard& operator=(const NBoard&) = default;
+
 	BoardStack m_stack;
 	std::array<int, SIZE> m_board;
-	int m_passant;
-	int m_WKing;
-	int m_BKing;
-	int m_capture;
-
 	Move m_lastMove;
+
+	int m_passant; // tracks on which tile an en passant has occured.
+	int m_WKing; // tracks black and white king locations.
+	int m_BKing;
+	int m_capture; // tracks the last captured piece.
 };

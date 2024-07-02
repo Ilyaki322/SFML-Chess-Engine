@@ -4,6 +4,10 @@
 
 typedef std::unique_ptr<GameState> nextStatePtr;
 
+/*
+* This GameState is responsible for a little delay between all actions
+* in the game. Feels way better with 0.5 seconds delay.
+*/
 class WaitGameState : public GameState
 {
 public:

@@ -1,12 +1,10 @@
 #include "Assets.h"
 
-
 Assets& Assets::instance()
 {
 	static Assets inst;
 	return inst;
 }
-
 
 Assets::Assets()
 {
@@ -71,7 +69,6 @@ Assets::Assets()
 	m_font.loadFromFile("C:/Windows/Fonts/Arial.ttf");
 }
 
-
 sf::Font& Assets::getFont()
 {
 	return m_font;
@@ -119,7 +116,6 @@ sf::Texture& Assets::getMenu(const char c)
 	// exception?
 	return m_menusMap[c];
 }
-
 
 sf::SoundBuffer& Assets::getSound(const char c)
 {

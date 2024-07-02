@@ -6,8 +6,8 @@
 #include <SFML/Graphics.hpp>
 
 #include "MainMenu/Menu.h"
-typedef std::shared_ptr<MenuState> statePtr;
 
+typedef std::shared_ptr<MenuState> statePtr;
 
 /*
 * This class manages all the states of the game.

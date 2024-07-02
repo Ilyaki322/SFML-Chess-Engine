@@ -1,7 +1,6 @@
 #include "Button.h"
 #include "Assets.h"
 
-
 Button::Button(std::string text, commandPtr command,
 	           sf::Vector2f size, sf::Vector2f pos)
 	: m_box(size), m_command(std::move(command)),m_pic(false)

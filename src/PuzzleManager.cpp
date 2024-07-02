@@ -1,5 +1,6 @@
 #include "PuzzleManager.h"
 #include "NBoard.h"
+
 PuzzleManager::PuzzleManager(Difficult d)
 	:m_difficult(d)
 {	
@@ -32,7 +33,7 @@ PuzzleManager::PuzzleManager(Difficult d)
 
 Move PuzzleManager::getCurrMove() const
 {
-	return  !m_currPuzzle.moves.empty() ? m_currPuzzle.moves.front() : Move({-1, -1});
+	return !m_currPuzzle.moves.empty() ? m_currPuzzle.moves.front() : Move({-1, -1});
 }
 
 void PuzzleManager::deleteCurrMove()

@@ -3,7 +3,8 @@
 
 
 /*
-* This class create the AI menu for white bot
+* This class creates the menu
+* that lets the player choose the difficulty of the white AI.
 */
 
 class WhiteAICreator : public MenuCreator

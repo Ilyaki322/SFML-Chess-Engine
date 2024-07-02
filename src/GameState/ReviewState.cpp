@@ -14,13 +14,12 @@ ReviewState::ReviewState(GameManager& manager, const int game)
 
 	sf::Sprite pic;
 	pic.setTexture(Assets::instance().getUITexture("next"));
-	std::cout << m_moveList.size();
 	m_next = std::make_unique<Button>(pic, nullptr, sf::Vector2f(1000, 300));
 	pic.setTexture(Assets::instance().getUITexture("prev"));
 	m_prev = std::make_unique<Button>(pic, nullptr, sf::Vector2f(1000, 500));
 }
 
-void ReviewState::eventUpdate(sf::Event& event, Color color)
+void ReviewState::eventUpdate(sf::Event& event, Color)
 {
 	auto location = m_manager.getWindow().mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
 	if (m_next->getGlobalBounds().contains(location))
@@ -47,12 +46,15 @@ void ReviewState::execute()
 	m_once = false;
 }
 
-void ReviewState::draw(float dt)
+void ReviewState::draw(float)
 {
 	m_next->draw(m_manager.getWindow());
 	m_prev->draw(m_manager.getWindow());
 }
 
+/*
+* loads the 'num' game from the file
+*/
 void ReviewState::loadGame(const int num)
 {
 	if (num == -1) 
@@ -85,6 +87,9 @@ void ReviewState::loadGame(const int num)
 	}
 }
 
+/*
+* loads the last game in the file
+*/
 void ReviewState::loadLastGame()
 {
 	std::ifstream games("GameHistory.txt");
