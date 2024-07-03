@@ -14,6 +14,7 @@ OpeningBook::OpeningBook()
 * Using a data base of 20,000 proffesional games.
 * builds a tree-like structure, where each node is a move.
 * and the childern are the opponent answer.
+* each turn the AI will move deeper into the tree.
 * 
 * The AI will play a move from the book, then check if the opponent move 
 * is in one of the childern of its move, and so on.

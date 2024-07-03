@@ -1,5 +1,5 @@
 //***********************************************
-OOP2_
+OOP2_Project
 //***********************************************
 
 //***********************************************
@@ -106,7 +106,8 @@ StateMachine::std::stack<statePtr> m_stateStack
 Choosing this data structure with shared ptr for the reason to access each 
 time only the end of the data structure for insertion and deletion. 
 The choice of shared ptr is because each state holds the next state, 
-so there will be several objects that will point to the same state
+so there will be several objects that will point to the same state.
+Also when we pop a state, we dont want to waste and rebuild it.
 
 NBoard
 Role: With this data structure we guarantee efficient operations for running the chess engine 

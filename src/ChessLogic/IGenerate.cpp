@@ -13,7 +13,7 @@ std::vector<std::vector<Move>> IGenerate::generateAll(int Color)
 	std::vector<int> check;
 	std::vector<std::vector<Move>> all;
 
-	if (pieceLogic.check(king, check, color)) {
+	if (pieceLogic.check(king, check, color)) { // no check / other pieces can defend
 		for (int i = 0; i < SIZE; i++){
 			if (ins.getPiece(i) == 0) continue;
 			int myColor = (ins.getPiece(i) & White) > 0 ? White : Black;
@@ -22,7 +22,7 @@ std::vector<std::vector<Move>> IGenerate::generateAll(int Color)
 			}
 		}
 	}
-	else {
+	else { // only king can move
 		all.push_back(pieceLogic.generate(check, king));
 	}
 	return all;
@@ -41,7 +41,7 @@ std::vector<Move> IGenerate::generatePiece(int x)
 	return pieceLogic.generate(check,x);
 }
 //---------------------------------------------------------------------
-// This function checks if the game is over
+// This function checks if the game is over.
 //---------------------------------------------------------------------
 bool IGenerate::isMate(int color)
 {
@@ -61,7 +61,7 @@ bool IGenerate::isMate(int color)
 			}
 		}
 	}
-	for (auto pieceMove : all)
+	for (const auto &pieceMove : all)
 		if (pieceMove.size() != 0)return false;
 
 	return true;
@@ -70,7 +70,7 @@ bool IGenerate::isMate(int color)
 bool IGenerate::isDraw(int colorTurn)
 {
 	auto& ins = NBoard::instance();
-	auto board = ins.getBoard();
+	auto& board = ins.getBoard();
 	auto allMy = generateAll(colorTurn);
 	bool foundMove = false;
 	PieceLogic logic;
@@ -80,7 +80,7 @@ bool IGenerate::isDraw(int colorTurn)
 	if(check.size() != 0) return false;
 
 	//---No possible moves
-	for (auto piece : allMy) {
+	for (const auto &piece : allMy) {
 		if (piece.size() != 0) {
 			foundMove = true;
 			break;

@@ -3,6 +3,9 @@
 #include "Utilities.h"
 #include "MenuFactory/MenuFactory.h"
 
+#include "FileExceptions/PuzzleFileException.h"
+#include "FileExceptions/HistoryFileException.h"
+
 StateMachine::StateMachine()
 	: m_deleting(false), m_returnToMenu(false)
 {
@@ -16,8 +19,22 @@ void StateMachine::update()
 {
 	while (m_window.isOpen())
 	{
-		m_stateStack.top()->draw();
-		m_stateStack.top()->handleEvents();
+		try
+		{
+			m_stateStack.top()->draw();
+			m_stateStack.top()->handleEvents();
+		}
+		// if files did not load correctly, swap depending menus on error message
+		catch (PuzzleFileException& e)
+		{
+			m_menusMap["Puzzle"] = (e.createErrorMenu(m_window, *this));
+			exchangeState("Puzzle");
+		}
+		catch (HistoryFileException& e)
+		{
+			m_menusMap["GameHistory"] = (e.createErrorMenu(m_window, *this));
+			exchangeState("GameHistory");
+		}
 
 		if (m_deleting)
 			pop();
@@ -29,6 +46,12 @@ void StateMachine::update()
 
 void StateMachine::changeState(std::string menu)
 {
+	m_stateStack.push(m_menusMap[menu]);
+}
+
+void StateMachine::exchangeState(std::string menu)
+{
+	m_stateStack.pop();
 	m_stateStack.push(m_menusMap[menu]);
 }
 

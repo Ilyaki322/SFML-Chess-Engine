@@ -47,6 +47,8 @@ private:
 	sf::Texture m_playMenu;
 	sf::Texture m_puzzleMenu;
 	sf::Texture m_historyMenu;
+	sf::Texture m_PuzzleError;
+	sf::Texture m_HistoryError;
 
 	sf::Texture m_blackplayer;
 	sf::Texture m_blackwon;

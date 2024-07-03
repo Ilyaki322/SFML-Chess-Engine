@@ -25,7 +25,7 @@ public:
 	void returnToMenu();
 	
 private:
-
+	void exchangeState(std::string menu);
 	void pop();
 	void popAll();
 	void initStates();

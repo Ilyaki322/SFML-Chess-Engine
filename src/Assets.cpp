@@ -25,7 +25,6 @@ Assets::Assets()
 	m_capture.loadFromFile("capture.wav");
 	m_move.loadFromFile("move.wav");
 
-
 	m_blackplayer.loadFromFile("blackplayer.png");
 	m_blackwon.loadFromFile("blackwon.png");
 	m_draw.loadFromFile("draw.png");
@@ -60,11 +59,15 @@ Assets::Assets()
 	m_playMenu.loadFromFile("PlayMenu.jpg");
 	m_puzzleMenu.loadFromFile("PuzzleMenu.jpg");
 	m_historyMenu.loadFromFile("History.jpg");
+	m_PuzzleError.loadFromFile("PuzzleError.png");
+	m_HistoryError.loadFromFile("HistoryError.png");
 
 	m_menusMap['m'] = m_mainMenu;
 	m_menusMap['p'] = m_playMenu;
 	m_menusMap['z'] = m_puzzleMenu;
 	m_menusMap['h'] = m_historyMenu;
+	m_menusMap['e'] = m_PuzzleError;
+	m_menusMap['r'] = m_HistoryError;
 
 	m_font.loadFromFile("C:/Windows/Fonts/Arial.ttf");
 }
@@ -102,8 +105,6 @@ sf::Texture& Assets::getTexture(const char c)
 	case 's':
 		return m_sideGameStatus;
 	}
-
-	// add exception here?
 }
 
 sf::Texture& Assets::getUITexture(const std::string name)
@@ -113,7 +114,6 @@ sf::Texture& Assets::getUITexture(const std::string name)
 
 sf::Texture& Assets::getMenu(const char c)
 {
-	// exception?
 	return m_menusMap[c];
 }
 
@@ -127,6 +127,4 @@ sf::SoundBuffer& Assets::getSound(const char c)
 	case 'c':
 		return m_capture;
 	}
-	
-	// add exception here?
 }

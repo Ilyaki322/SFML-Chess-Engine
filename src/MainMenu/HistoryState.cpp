@@ -8,6 +8,7 @@
 #include "Managers/GameManager.h"
 #include "UI/ReviewUI.h"
 #include "GameState/ReviewState.h"
+#include "FileExceptions/HistoryFileException.h"
 
 #include <fstream>
 #include <string>
@@ -76,6 +77,11 @@ void HistoryState::handleMouseClick(sf::Event& event)
 void HistoryState::load10Games()
 {
 	std::ifstream games("GameHistory.txt");
+	if (!games.is_open())
+	{
+		throw HistoryFileException("Error loading GameHistory File\n");
+	}
+
 	std::string line;
 
 	int linesToSkip = m_page * 20;

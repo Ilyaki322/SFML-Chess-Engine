@@ -1,11 +1,17 @@
 #include "Managers/PuzzleManager.h"
 #include "ChessLogic/NBoard.h"
+#include "FileExceptions/PuzzleFileException.h"
 
 PuzzleManager::PuzzleManager(Difficult d)
 	:m_difficult(d)
 {	
 	srand(unsigned(time(nullptr)));
 	m_file.open("PuzzleWhite.txt");
+	if (!m_file.is_open())
+	{
+		throw PuzzleFileException("Could not open puzzle file");
+	}
+
 	int dif;
 	std::string line;
 	m_file >> dif;

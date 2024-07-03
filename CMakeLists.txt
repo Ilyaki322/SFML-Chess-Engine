@@ -5,7 +5,7 @@ set (MY_AUTHORS "Ilya_Kirshtein-Guy_Danin")
 
 include (cmake/CompilerSettings.cmake)
 
-add_executable (${CMAKE_PROJECT_NAME})
+add_executable (${CMAKE_PROJECT_NAME} WIN32)
 
 target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE $<$<CONFIG:DEBUG>:-fsanitize=address>)
 target_link_options(${CMAKE_PROJECT_NAME} PRIVATE $<$<CONFIG:DEBUG>:-fsanitize=address>)
