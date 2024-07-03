@@ -120,8 +120,9 @@ int AIController::minimax(int depth, int alpha, int beta, bool maximizingPlayer 
     IGenerate generate;
     std::vector<std::vector<Move>> allMoves  = generate.generateAll(maximizingPlayer ? WHITE : BLACK);
     
-    if(isGameOver(allMoves))
-        return evaluateBoard();
+    if (isGameOver(allMoves))
+        depth = 1;
+   
 
     if (maximizingPlayer) {
         int maxEval = std::numeric_limits<int>::min();
