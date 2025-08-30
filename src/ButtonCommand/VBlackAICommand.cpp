@@ -1,6 +1,7 @@
 #include "ButtonCommand/VBlackAICommand.h"
 #include "ChessLogic/NBoard.h"
 #include "Controllers/AIController.h"
+#include "Controllers/AIControllerMultiThreaded.h"
 #include "Controllers/PlayerController.h"
 #include "GameState/PlayerXTurnState.h"
 #include "Managers/GameManager.h"
@@ -23,7 +24,7 @@ void VBlackAICommand::execute()
 	auto ui = std::make_unique<GameUI>(m_stateMachine,pic1,pic2,board);
 	GameManager manager(true, board, std::move(ui));
 	manager.addPlayer(std::make_unique<PlayerController>(manager, manager.getWindow(), White, board));
-	manager.addPlayer(std::make_unique<AIController>(Black, AIDifficult(m_difficulty)));
+	manager.addPlayer(std::make_unique<AIControllerMultiThreaded>(Black, AIDifficult(m_difficulty)));
 	manager.setStartState(std::make_unique<PlayerXTurnState>(manager, 0));
 
 	manager.update();

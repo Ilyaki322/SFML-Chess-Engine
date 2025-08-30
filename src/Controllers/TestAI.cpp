@@ -22,7 +22,7 @@ int TestAI::moveGenerationTest(int depth, bool white)
 		return 1;
 	}
 
-	auto moves = generator.generateAll(color);
+	auto moves = generator.generateAll(color, NBoard::instance());
 	int numPositions = 0;
 
 	for (auto& i : moves)

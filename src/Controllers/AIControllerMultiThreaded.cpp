@@ -1,17 +1,19 @@
-#include "Controllers/AIController.h"
+#include "Controllers/AIControllerMultiThreaded.h"
 #include "ChessLogic/NBoard.h"
 
-#include <chrono>
 #include <iostream>
+#include <mutex>
+#include <thread>
 
-AIController::AIController(Color color, AIDifficult difficult)
+AIControllerMultiThreaded::AIControllerMultiThreaded(Color color, AIDifficult difficult)
     :Controller(color), m_useBook(true), m_book(&m_Openingbook.getStart()),
-     m_difficulty(difficult), m_depth(difficult)
+    m_difficulty(difficult), m_depth(difficult), m_threads(std::thread::hardware_concurrency() - 1)
 {
     srand(unsigned(time(NULL)));
+    if (m_threads <= 0) m_threads = 4;
 }
 
-bool AIController::turnReady()
+bool AIControllerMultiThreaded::turnReady()
 {
     return true;
 }
@@ -19,51 +21,103 @@ bool AIController::turnReady()
 /*
 * will return a move based on OpeningBook or MinMax algo
 */
-Move AIController::playTurn()
+Move AIControllerMultiThreaded::playTurn()
 {
-    auto start = std::chrono::high_resolution_clock::now();
     if (m_useBook)
     {
         auto move = playByBook();
         if (move.startSquare != -1)
-        {
             return move;
-        }
     }
 
-    NBoard& ins = NBoard::instance();
     m_depth = m_difficulty;
     IGenerate generate;
-    Move bestMove = { -1, -1 , -1, -1 ,PawnVal};
 
-    /*
-    * We generate all moves, and for each move apply minimax.
-    */
+    Move bestMove = { -1, -1, -1, -1, PawnVal };
     int bestValue = (m_color == WHITE) ? std::numeric_limits<int>::min() : std::numeric_limits<int>::max();
-    std::vector<std::vector<Move>> allMoves = generate.generateAll(m_color, ins);
-    for (const auto &i : allMoves) {
-        for (auto &move : i) {
-            ins.move(move);
-            int boardValue = minimax(m_depth - 1, std::numeric_limits<int>::min(), std::numeric_limits<int>::max(), m_color == BLACK,ins);
-            ins.undo();
 
-            if ((m_color == WHITE && boardValue > bestValue) || (m_color == BLACK && boardValue < bestValue)) {
-                bestValue = boardValue;
-                bestMove = move;
-            }
-        }
+    std::vector<std::vector<Move>> allMoves = generate.generateAll(m_color, NBoard::instance());
+    if (isGameOver(allMoves)) {
+        return { -1, -1 };
     }
 
-    auto end = std::chrono::high_resolution_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::seconds>(end - start);
-    std::cout << "AI Took " << duration.count() << " seconds.\n";
+    // Flatten the move list for easier distribution
+    std::vector<Move> flatMoves;
+    for (const auto& pieceMoves : allMoves) {
+        flatMoves.insert(flatMoves.end(), pieceMoves.begin(), pieceMoves.end());
+    }
 
-	return bestMove;
+    if (flatMoves.size() == 1) {
+        return flatMoves[0];
+    }
+
+    // Prepare threading
+    int totalMoves = flatMoves.size();
+    int chunkSize = (totalMoves + m_threads - 1) / m_threads;
+    std::vector<std::thread> threads;
+    std::mutex mutex; // to protect bestMove/bestValue updates
+
+    for (int t = 0; t < m_threads; t++)
+    {
+        int startIdx = t * chunkSize;
+        int endIdx = std::min((t + 1) * chunkSize, totalMoves);
+
+        if (startIdx >= endIdx) continue; // Don't start a thread with no work
+
+        threads.emplace_back([&, startIdx, endIdx, flatMoves]()
+            {
+                NBoard ins = NBoard::instance().GetCopy();
+                Move threadBestMove = { -1, -1 };
+
+                int threadBestValue = (m_color == WHITE) ? std::numeric_limits<int>::min() : std::numeric_limits<int>::max();
+
+                for (int i = startIdx; i < endIdx; i++)
+                {
+                    const auto& move = flatMoves[i];
+                    ins.move(move);
+
+                    int boardValue = minimax(m_depth - 1,
+                        std::numeric_limits<int>::min(),
+                        std::numeric_limits<int>::max(),
+                        m_color == BLACK, ins);
+                    ins.undo();
+
+                    if ((m_color == WHITE && boardValue > threadBestValue) ||
+                        (m_color == BLACK && boardValue < threadBestValue))
+                    {
+                        threadBestValue = boardValue;
+                        threadBestMove = move;
+                    }
+                }
+
+                // Update global best under mutex
+                if (threadBestMove.startSquare != -1)
+                {
+                    std::lock_guard<std::mutex> lock(mutex);
+                    if ((m_color == WHITE && threadBestValue > bestValue) ||
+                        (m_color == BLACK && threadBestValue < bestValue))
+                    {
+                        bestValue = threadBestValue;
+                        bestMove = threadBestMove;
+                    }
+                }
+            });
+    }
+
+    for (auto& t : threads)
+        t.join();
+
+    if (bestMove.startSquare == -1 && !flatMoves.empty()) {
+        bestMove = flatMoves[0];
+    }
+
+    return bestMove;
 }
 
-bool AIController::isGameOver(std::vector<std::vector<Move>> all)
+
+bool AIControllerMultiThreaded::isGameOver(std::vector<std::vector<Move>> all)
 {
-    for (const auto &i : all) 
+    for (const auto& i : all)
         if (!i.empty())return false;
     return true;
 }
@@ -74,7 +128,7 @@ bool AIController::isGameOver(std::vector<std::vector<Move>> all)
 * if so will play a random move from it.
 * it ensures the AI will feel abit different each game.
 */
-Move AIController::playByBook()
+Move AIControllerMultiThreaded::playByBook()
 {
     Move lastMove = NBoard::instance().getLastMove();
     if (lastMove.startSquare == -1) // AI moves first.
@@ -93,7 +147,7 @@ Move AIController::playByBook()
         m_useBook = false;
         return playTurn();
     }
-    
+
     m_book = &(*match).children;
     if (m_book->size() <= 0)
     {
@@ -107,31 +161,28 @@ Move AIController::playByBook()
 }
 
 /*
-* The minmax algorithm will get a board position, and recusivly play all possible moves, 
+* The minmax algorithm will get a board position, and recusivly play all possible moves,
 * and on those moves will apply minmax, up to depth.
 * for each move it will evaluate the board and return a value,
 * overall this will return a move that has the highest value.
-* 
+*
 * The algorithm also uses alpha beta pruning:
 * minmax plays both black and white moves, so
 * it will 'cut' and stop the recursion if it finds moves that are better for the opponent,
-* it assumes the opponent will make the best move for them, and so we reduce the number 
+* it assumes the opponent will make the best move for them, and so we reduce the number
 * of positions we need to check.
 * for example: if we look at 3 different moves, and on the first the evaluation favours
-* the enemy, then if on the second move we find a lower evaluation, we will skip the entire recursion 
+* the enemy, then if on the second move we find a lower evaluation, we will skip the entire recursion
 * of that move.
 */
-int AIController::minimax(int depth, int alpha, int beta, bool maximizingPlayer , NBoard& ins)
+int AIControllerMultiThreaded::minimax(int depth, int alpha, int beta, bool maximizingPlayer, NBoard& ins)
 {
-    if (depth == 0) 
-        return evaluateBoard();
-    
+    if (depth == 0) return evaluateBoard(ins);
+        
     IGenerate generate;
-    std::vector<std::vector<Move>> allMoves  = generate.generateAll(maximizingPlayer ? WHITE : BLACK, ins);
-    
-    if (isGameOver(allMoves))
-        depth = 1;
-   
+    std::vector<std::vector<Move>> allMoves = generate.generateAll(maximizingPlayer ? WHITE : BLACK, ins);
+
+    if (isGameOver(allMoves)) depth = 1;
 
     if (maximizingPlayer) {
         int maxEval = std::numeric_limits<int>::min();
@@ -139,7 +190,7 @@ int AIController::minimax(int depth, int alpha, int beta, bool maximizingPlayer 
             for (const auto& move : i) {
 
                 ins.move(move);
-                int eval = minimax(depth - 1, alpha, beta, false,ins);
+                int eval = minimax(depth - 1, alpha, beta, false, ins);
                 ins.undo();
 
                 maxEval = std::max(maxEval, eval);
@@ -157,7 +208,7 @@ int AIController::minimax(int depth, int alpha, int beta, bool maximizingPlayer 
             for (const auto& move : i) {
 
                 ins.move(move);
-                int eval = minimax(depth - 1, alpha, beta, true,ins);
+                int eval = minimax(depth - 1, alpha, beta, true, ins);
                 ins.undo();
 
                 minEval = std::min(minEval, eval);
@@ -172,15 +223,14 @@ int AIController::minimax(int depth, int alpha, int beta, bool maximizingPlayer 
 }
 
 /*
-* goes through the board position, and calculates 
+* goes through the board position, and calculates
 * a value for it.
 * negative means the position favors the enemy,
 * positive means the position favors the AI.
 * will calculate based on Piece values and the Tables.
 */
-int AIController::evaluateBoard() const
+int AIControllerMultiThreaded::evaluateBoard(const NBoard& ins) const
 {
-    NBoard& ins = NBoard::instance();
     int score = 0;
     int pieceValue = 0;
     int counter = 0;
@@ -200,7 +250,7 @@ int AIController::evaluateBoard() const
                 break;
             }
             case RookVal: {
-                pieceValue = color == White ? 500 : -500 ;
+                pieceValue = color == White ? 500 : -500;
                 pieceValue += color == White ? whiteRookTable[x] : -blackRookTable[x];
                 break;
             }
@@ -221,13 +271,13 @@ int AIController::evaluateBoard() const
             }
             case KingVal: {
                 pieceValue = color == White ? 2000 : -2000;
-                if(counter < 6)
+                if (counter < 6)
                     pieceValue += color == White ? whiteKingTableEndgame[x] : -blackKingTableEndgame[x];
                 else pieceValue += color == White ? whiteKingTableMidgame[x] : -blackKingTableMidgame[x];
                 break;
             }
-        }
-        score += pieceValue;
+            }
+            score += pieceValue;
         }
     }
     return score;

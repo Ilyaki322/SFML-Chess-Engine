@@ -4,10 +4,9 @@
 //---------------------------------------------------------------------
 // This function returns all possible moves currently on the board
 //---------------------------------------------------------------------
-std::vector<std::vector<Move>> IGenerate::generateAll(int Color)
+std::vector<std::vector<Move>> IGenerate::generateAll(int Color, const NBoard& ins)
 {
-	NBoard& ins = NBoard::instance();
-	PieceLogic pieceLogic;
+	PieceLogic pieceLogic(ins);
 	int color = (Color & White) > 0 ? White : Black;
 	int king = ins.getKing(color);
 	std::vector<int> check;
@@ -71,7 +70,7 @@ bool IGenerate::isDraw(int colorTurn)
 {
 	auto& ins = NBoard::instance();
 	auto& board = ins.getBoard();
-	auto allMy = generateAll(colorTurn);
+	auto allMy = generateAll(colorTurn, ins);
 	bool foundMove = false;
 	PieceLogic logic;
 	int king = ins.getKing(colorTurn);

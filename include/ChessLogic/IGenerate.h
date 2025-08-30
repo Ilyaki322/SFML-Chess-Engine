@@ -4,6 +4,8 @@
 
 #include <vector>
 
+class NBoard;
+
 /*
 * this class Generates moves for individual pieces or all of them.
 */
@@ -12,7 +14,7 @@ public:
 
 	IGenerate() = default;
 
-	std::vector<std::vector<Move>> generateAll(int color);
+	std::vector<std::vector<Move>> generateAll(int color, const NBoard& ins);
 	std::vector<Move> generatePiece(int x);
 	bool isMate(int color);
 	bool isDraw(int colorTurn);

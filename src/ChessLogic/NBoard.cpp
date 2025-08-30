@@ -47,7 +47,7 @@ void NBoard::setBoard(std::string fen, std::string name)
 */
 void NBoard::move(Move move)
 {
-	m_stack.insert(move, m_WKing, m_BKing, m_passant);
+	m_stack.insert(*this, move, m_WKing, m_BKing, m_passant);
 	m_lastMove = move;
 	m_capture = getPiece(move.targetSquare);
 

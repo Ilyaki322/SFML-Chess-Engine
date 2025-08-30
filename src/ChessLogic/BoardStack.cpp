@@ -8,7 +8,7 @@
 /*
 * inserts a struct of all the pieces and tiles tied to the move played.
 */
-void BoardStack::insert(Move move, int whiteKing, int blackKing, int enPassant)
+void BoardStack::insert(NBoard& board, Move move, int whiteKing, int blackKing, int enPassant)
 {
 	MoveLog log;
 	log.enPassant = enPassant;
@@ -16,13 +16,13 @@ void BoardStack::insert(Move move, int whiteKing, int blackKing, int enPassant)
 	log.lastWKing = whiteKing;
 	log.lastMove = move;
 
-	log.targetPiece = NBoard::instance().getPiece(move.targetSquare);
-	log.startPiece = NBoard::instance().getPiece(move.startSquare);
+	log.targetPiece = board.getPiece(move.targetSquare);
+	log.startPiece = board.getPiece(move.startSquare);
 
 	if (move.specialStartSquare != -1)
 	{
-		log.specialTargetPiece = NBoard::instance().getPiece(move.specialTargetSquare);
-		log.specialStartPiece = NBoard::instance().getPiece(move.specialStartSquare);
+		log.specialTargetPiece = board.getPiece(move.specialTargetSquare);
+		log.specialStartPiece = board.getPiece(move.specialStartSquare);
 	}
 	
 	m_moves.emplace_back(log);

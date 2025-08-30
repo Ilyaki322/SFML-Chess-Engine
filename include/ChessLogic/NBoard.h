@@ -15,6 +15,18 @@
 class NBoard {
 public:
 	static NBoard& instance();
+	NBoard GetCopy() const { // board copy for threaded AI
+		NBoard copy;
+		copy.m_board = m_board;
+		copy.m_stack = m_stack;
+		copy.m_lastMove = m_lastMove;
+		copy.m_passant = m_passant;
+		copy.m_WKing = m_WKing;
+		copy.m_BKing = m_BKing;
+		copy.m_capture = m_capture;
+		return copy;
+	}
+
 	void setBoard(std::string fen, std::string name = "");
 	void move(Move move);
 	void undo();

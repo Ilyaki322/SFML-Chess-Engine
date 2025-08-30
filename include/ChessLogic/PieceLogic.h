@@ -1,13 +1,15 @@
 #pragma once
 #include <algorithm>
 #include "Utilities.h"
+#include "NBoard.h"
 
 /*
 * This class represents all of the pieces movement rules.
 */
 class PieceLogic {
 public:
-	PieceLogic() = default;
+	PieceLogic() : m_board(NBoard::instance()) {};
+	PieceLogic(const NBoard& board) : m_board(board) {};
 
 	bool check(int king ,std::vector<int>& ,int color); 
 
@@ -34,4 +36,6 @@ private:
 	bool castle(int king, int direction);
 	bool kingTeritory(int king , int color);
 	void insertMoveToInt(std::vector<Move> from, std::vector<int>& to);
+
+	const NBoard& m_board;
 };
