@@ -1,6 +1,6 @@
 # SFML Chess Engine
 
-[![Watch on YouTube](https://www.youtube.com/watch?v=P3rxAs5GV68)
+[![Watch on YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube&style=for-the-badge)](https://www.youtube.com/watch?v=P3rxAs5GV68)
 
 ## Authors: 
 
