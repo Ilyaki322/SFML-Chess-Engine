@@ -1,5 +1,7 @@
 # SFML Chess Engine
 
+[![Watch on YouTube](https://www.youtube.com/watch?v=P3rxAs5GV68)
+
 ## Authors: 
 
 Ilya Kirshtein
