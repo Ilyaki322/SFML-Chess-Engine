@@ -28,6 +28,13 @@ White AI runs on a single thread
 
 Black AI runs multiple threads
 
+## How to Run:
+
+1. Visual studio / CLion - Open the root folder with an IDE and press Run (Release Preset)
+  
+2. Using a terminal open the root dir and 'cmake --preset x64-Release'
+
+Should create a build folder with an .exe inside
 
 ## Data Structures:
 
