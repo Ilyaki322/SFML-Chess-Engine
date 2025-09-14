@@ -28,11 +28,15 @@ White AI runs on a single thread
 
 Black AI runs multiple threads
 
-## How to Run:
+## Requirments:
 
 [SFML](https://www.sfml-dev.org/) 2.6 is required at C:/SFML/SFML-2.6.0
 
 If your sfml is in other place, make sure to change that in the CMAKE file in the root dir.
+
+Visual studio / CLion / Cmake
+
+## How to Run:
 
 1. Visual studio / CLion - Open the root folder with an IDE and press Run (Release Preset)
   
