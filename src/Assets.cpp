@@ -105,6 +105,8 @@ sf::Texture& Assets::getTexture(const char c)
 	case 's':
 		return m_sideGameStatus;
 	}
+
+	return m_WPawn; // incase of failure, will be nice to add an error texture
 }
 
 sf::Texture& Assets::getUITexture(const std::string name)
@@ -127,4 +129,6 @@ sf::SoundBuffer& Assets::getSound(const char c)
 	case 'c':
 		return m_capture;
 	}
+
+	return m_move; // incase of error, will be nice to add an error sound
 }

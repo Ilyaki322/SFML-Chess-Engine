@@ -1,14 +1,19 @@
 cmake_minimum_required (VERSION 3.26)
 
-project (oop2_project)
+project (SFML_CHESS_ENGINE)
 set (MY_AUTHORS "Ilya_Kirshtein-Guy_Danin")
 
 include (cmake/CompilerSettings.cmake)
 
 add_executable (${CMAKE_PROJECT_NAME} WIN32)
 
-target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE $<$<CONFIG:DEBUG>:-fsanitize=address>)
-target_link_options(${CMAKE_PROJECT_NAME} PRIVATE $<$<CONFIG:DEBUG>:-fsanitize=address>)
+if (MSVC)
+    target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE $<$<CONFIG:Debug>:/fsanitize=address>)
+    target_link_options(${CMAKE_PROJECT_NAME} PRIVATE $<$<CONFIG:Debug>:/fsanitize=address>)
+elseif (CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU")
+    target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE $<$<CONFIG:Debug>:-fsanitize=address>)
+    target_link_options(${CMAKE_PROJECT_NAME} PRIVATE $<$<CONFIG:Debug>:-fsanitize=address>)
+endif()
 
 add_subdirectory (include)
 add_subdirectory (src)
@@ -27,3 +32,23 @@ target_link_libraries (${CMAKE_PROJECT_NAME} sfml-graphics sfml-main sfml-audio)
 
 include (cmake/SFML.cmake)
 
+# --------------------------
+# Copy resources and DLLs
+# --------------------------
+
+# Folder for the executable
+set(EXE_OUTPUT_DIR $<TARGET_FILE_DIR:${CMAKE_PROJECT_NAME}>)
+
+# Copy resources folder
+add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${CMAKE_SOURCE_DIR}/resources"
+        "${EXE_OUTPUT_DIR}"
+)
+
+# Copy OpenAL DLL from SFML bin
+add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${SFML_LOCATION}/bin/openal32.dll"
+        "${EXE_OUTPUT_DIR}"
+)

@@ -88,6 +88,8 @@ std::vector<Move> PieceLogic::generate(std::vector<int> Incheck, int piecePlace)
 	case KnightVal:
 		return knightMove(piecePlace, Incheck);
 	}
+	std::vector<Move> empty;
+	return empty;
 }
 
 //--------------------------------------------------------------------------------
