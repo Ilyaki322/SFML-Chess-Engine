@@ -30,6 +30,8 @@ Black AI runs multiple threads
 
 ## How to Run:
 
+[SFML](https://www.sfml-dev.org/) 2.6 is required at C:/SFML/SFML-2.6.0
+
 1. Visual studio / CLion - Open the root folder with an IDE and press Run (Release Preset)
   
 2. Using a terminal open the root dir and 'cmake --preset x64-Release'
