@@ -38,11 +38,11 @@ Visual studio / CLion / Cmake
 
 ## How to Run:
 
-1. Visual studio / CLion - Open the root folder with an IDE and press Run (Release Preset)
+1. Visual studio / CLion - Open the root folder with an IDE and press Run (Release Preset on SFML_CHESS_ENGINE.exe)
   
-2. Using a terminal open the root dir and 'cmake --preset x64-Release'
+2. Using a terminal open the root dir and 'cmake --preset x64-Release' then 'cmake --build --preset x64-Release --config Release'
 
-Should create a build folder with an .exe inside
+The executable (SFML_CHESS_ENGINE.exe) will be at build/Release
 
 ## Data Structures:
 
