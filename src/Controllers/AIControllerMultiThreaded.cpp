@@ -52,7 +52,7 @@ Move AIControllerMultiThreaded::playTurn()
     }
 
     // Prepare threading
-    int totalMoves = flatMoves.size();
+    int totalMoves = (int)flatMoves.size();
     int chunkSize = (totalMoves + m_threads - 1) / m_threads;
     std::vector<std::thread> threads;
     std::mutex mutex; // to protect bestMove/bestValue updates

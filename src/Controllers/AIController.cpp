@@ -1,9 +1,6 @@
 #include "Controllers/AIController.h"
 #include "ChessLogic/NBoard.h"
 
-#include <chrono>
-#include <iostream>
-
 AIController::AIController(Color color, AIDifficult difficult)
     :Controller(color), m_useBook(true), m_book(&m_Openingbook.getStart()),
      m_difficulty(difficult), m_depth(difficult)
@@ -21,7 +18,6 @@ bool AIController::turnReady()
 */
 Move AIController::playTurn()
 {
-    auto start = std::chrono::high_resolution_clock::now();
     if (m_useBook)
     {
         auto move = playByBook();
@@ -54,17 +50,13 @@ Move AIController::playTurn()
         }
     }
 
-    auto end = std::chrono::high_resolution_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::seconds>(end - start);
-    std::cout << "AI Took " << duration.count() << " seconds.\n";
-
 	return bestMove;
 }
 
 bool AIController::isGameOver(std::vector<std::vector<Move>> all)
 {
     for (const auto &i : all) 
-        if (!i.empty())return false;
+        if (!i.empty()) return false;
     return true;
 }
 
